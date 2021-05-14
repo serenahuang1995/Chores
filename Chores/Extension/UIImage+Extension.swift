@@ -8,13 +8,13 @@
 import UIKit
 
 enum ImageAsset: String {
-    case cleaner
+  case cleaner
 }
 
 extension UIImage {
-
-    static func asset(_ asset: ImageAsset) -> UIImage? {
-
-        return UIImage(named: asset.rawValue)
-    }
+  
+  static func asset(_ asset: ImageAsset) -> UIImage? {
+    
+    return UIImage(named: asset.rawValue)
+  }
 }
