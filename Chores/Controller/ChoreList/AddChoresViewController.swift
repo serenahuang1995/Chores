@@ -16,6 +16,11 @@ class AddChoresViewController: UIViewController {
     }
   }
   
+  @IBOutlet weak var customButton: UIButton!
+  @IBOutlet weak var ruleButton: UIButton!
+  @IBOutlet weak var timeTextField: UITextField!
+  @IBOutlet weak var pointTextField: UITextField!
+
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -32,7 +37,9 @@ class AddChoresViewController: UIViewController {
 }
 
 extension AddChoresViewController: UICollectionViewDelegate {
-  
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
+  }
 }
 
 extension AddChoresViewController: UICollectionViewDataSource {

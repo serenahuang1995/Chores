@@ -187,6 +187,10 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="SzW-xA-tMj" id="czc-tT-hbz"/>
+                        <outlet property="customButton" destination="XPH-ax-6ea" id="1Hu-Vy-BcC"/>
+                        <outlet property="pointTextField" destination="uXF-S9-gFE" id="1aL-xP-dOE"/>
+                        <outlet property="ruleButton" destination="4Xu-y9-ImH" id="ewj-nV-m0j"/>
+                        <outlet property="timeTextField" destination="5VC-n9-hZm" id="2Bm-gu-kxc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AIn-j0-xhA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

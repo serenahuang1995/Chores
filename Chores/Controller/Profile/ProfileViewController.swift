@@ -8,21 +8,47 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
+  
+  let indicatorView = UIView()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+  @IBOutlet weak var dataButton: UIButton!
+  @IBOutlet weak var recordsButton: UIButton!
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    view.backgroundColor = .orangeFBDAA0
+    setUpIndicatorView()
+  }
+  
+  override func viewDidLayoutSubviews() {
+    indicatorView.center.x = recordsButton.center.x
+  }
+  
+  @IBAction func clickRecordsButton(_ sender: UIButton) {
+    UIView.animate(withDuration: 0.3) {
+      self.indicatorView.center.x = self.recordsButton.center.x
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+  }
+  
+  @IBAction func clickDataButton(_ sender: UIButton) {
+    UIView.animate(withDuration: 0.3) {
+      self.indicatorView.center.x = self.dataButton.center.x
     }
-    */
+  }
+  
+  func setUpIndicatorView() {
+    
+    indicatorView.backgroundColor = .whiteF6F7F9
+    
+    indicatorView.translatesAutoresizingMaskIntoConstraints = false
+    
+    view.addSubview(indicatorView)
+    
+    NSLayoutConstraint.activate([
+      indicatorView.topAnchor.constraint(equalTo: recordsButton.bottomAnchor, constant: 0),
+      indicatorView.heightAnchor.constraint(equalToConstant: 5),
+      indicatorView.widthAnchor.constraint(equalToConstant: recordsButton.frame.width / 2)
+    ])
+  }
 
 }
