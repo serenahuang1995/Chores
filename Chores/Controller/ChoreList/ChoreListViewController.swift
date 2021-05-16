@@ -20,11 +20,24 @@ class ChoreListViewController: UIViewController {
       tableView.separatorStyle = .none
     }
   }
+  
+  @IBOutlet weak var btn: UIBarButtonItem!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
     setUpTableView()
     
+  }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    _ = segue.destination as? AddChoresViewController
+  }
+  
+  
+  @IBAction func test(_ sender: Any) {
+    
+    performSegue(withIdentifier: "test", sender: nil)
   }
   
   private func setUpTableView() {
@@ -39,6 +52,8 @@ class ChoreListViewController: UIViewController {
       identifier: String(describing: OngoingTableViewCell.self), bundle: nil)
     
   }
+  
+
   
 }
 
