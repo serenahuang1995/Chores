@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -28,6 +28,10 @@
 		DCA433FE264BA2C500242617 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCA433FC264BA2C500242617 /* LaunchScreen.storyboard */; };
 		DCB98A0E264CDF7200A8C794 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB98A0D264CDF7200A8C794 /* UITableView+Extension.swift */; };
 		DCB98A12264CF6C100A8C794 /* UnclaimedCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC913CF1264CB46E00C18251 /* UnclaimedCellView.xib */; };
+		DCD7379F26520B9A00F1DEF8 /* ChoresRecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD7379E26520B9A00F1DEF8 /* ChoresRecordsViewController.swift */; };
+		DCD737A226520BB300F1DEF8 /* ChoresDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD737A126520BB300F1DEF8 /* ChoresDataViewController.swift */; };
+		DCD737A726520E7200F1DEF8 /* RecordsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD737A526520E7200F1DEF8 /* RecordsTableViewCell.swift */; };
+		DCD737A826520E7200F1DEF8 /* RecordsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCD737A626520E7200F1DEF8 /* RecordsTableViewCell.xib */; };
 		DCEEAA38264BCDBE00A64D37 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEEAA37264BCDBE00A64D37 /* UIStoryboard+Extension.swift */; };
 		DCEEAA4D264BD98C00A64D37 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEEAA4C264BD98C00A64D37 /* UIView+Extension.swift */; };
 		DCEEAA50264BDC8B00A64D37 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEEAA4F264BDC8B00A64D37 /* UIImage+Extension.swift */; };
@@ -66,6 +70,10 @@
 		DCA433FD264BA2C500242617 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DCA433FF264BA2C500242617 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCB98A0D264CDF7200A8C794 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		DCD7379E26520B9A00F1DEF8 /* ChoresRecordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoresRecordsViewController.swift; sourceTree = "<group>"; };
+		DCD737A126520BB300F1DEF8 /* ChoresDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoresDataViewController.swift; sourceTree = "<group>"; };
+		DCD737A526520E7200F1DEF8 /* RecordsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsTableViewCell.swift; sourceTree = "<group>"; };
+		DCD737A626520E7200F1DEF8 /* RecordsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordsTableViewCell.xib; sourceTree = "<group>"; };
 		DCEEAA37264BCDBE00A64D37 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
 		DCEEAA4C264BD98C00A64D37 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		DCEEAA4F264BDC8B00A64D37 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
@@ -162,6 +170,15 @@
 			path = Chores;
 			sourceTree = "<group>";
 		};
+		DCD737AA26520E7D00F1DEF8 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				DCD737A526520E7200F1DEF8 /* RecordsTableViewCell.swift */,
+				DCD737A626520E7200F1DEF8 /* RecordsTableViewCell.xib */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		DCEEAA33264BCCA200A64D37 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +203,7 @@
 			children = (
 				DC913CE6264C1A2B00C18251 /* CardView.swift */,
 				DC203D03264E60AE002FADDA /* ChoreList */,
+				DCD737AA26520E7D00F1DEF8 /* Profile */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -241,6 +259,8 @@
 			isa = PBXGroup;
 			children = (
 				DCEEAA6E264BEDC000A64D37 /* ProfileViewController.swift */,
+				DCD7379E26520B9A00F1DEF8 /* ChoresRecordsViewController.swift */,
+				DCD737A126520BB300F1DEF8 /* ChoresDataViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -321,6 +341,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCD737A826520E7200F1DEF8 /* RecordsTableViewCell.xib in Resources */,
 				DC913CE4264C144400C18251 /* SectionView.xib in Resources */,
 				DC203D01264E6099002FADDA /* OngoingTableViewCell.xib in Resources */,
 				DCEEAA63264BEC9E00A64D37 /* Profile.storyboard in Resources */,
@@ -392,15 +413,18 @@
 				DCA433F2264BA2BD00242617 /* AppDelegate.swift in Sources */,
 				DC913CEE264C517500C18251 /* NavigationController.swift in Sources */,
 				DC203D00264E6099002FADDA /* OngoingTableViewCell.swift in Sources */,
+				DCD737A726520E7200F1DEF8 /* RecordsTableViewCell.swift in Sources */,
 				DCEEAA38264BCDBE00A64D37 /* UIStoryboard+Extension.swift in Sources */,
 				DCEEAA50264BDC8B00A64D37 /* UIImage+Extension.swift in Sources */,
 				DCEEAA58264BE28D00A64D37 /* TabBarViewController.swift in Sources */,
+				DCD737A226520BB300F1DEF8 /* ChoresDataViewController.swift in Sources */,
 				DCEEAA6F264BEDC000A64D37 /* ProfileViewController.swift in Sources */,
 				DCEEAA4D264BD98C00A64D37 /* UIView+Extension.swift in Sources */,
 				DC913CF2264CB46E00C18251 /* UnclaimedCellView.swift in Sources */,
 				DC913CEB264C1F9100C18251 /* UIColor+Extension.swift in Sources */,
 				DC913CE7264C1A2B00C18251 /* CardView.swift in Sources */,
 				DC8136492650090E003CC6ED /* UICollectionView+Extension.swift in Sources */,
+				DCD7379F26520B9A00F1DEF8 /* ChoresRecordsViewController.swift in Sources */,
 				DC81364D2650095C003CC6ED /* TagCollectionViewCell.swift in Sources */,
 				DCA433F4264BA2BD00242617 /* SceneDelegate.swift in Sources */,
 				DCB98A0E264CDF7200A8C794 /* UITableView+Extension.swift in Sources */,

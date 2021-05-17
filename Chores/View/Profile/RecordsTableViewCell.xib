@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="RecordsTableViewCell" customModule="Chores" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3IE-E7-WS3" customClass="CardView" customModule="Chores" customModuleProvider="target">
+                        <rect key="frame" x="30" y="5" width="354" height="70"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dish-soap" translatesAutoresizingMaskIntoConstraints="NO" id="aXF-Vj-uHE">
+                                <rect key="frame" x="20" y="15" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="7Cs-ca-J9U"/>
+                                    <constraint firstAttribute="height" constant="40" id="GlZ-ND-bK5"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200次" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bgd-T2-Zg6">
+                                <rect key="frame" x="286" y="24.5" width="48" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="總共完成  洗碗" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7g-p9-Cv4">
+                                <rect key="frame" x="80" y="24.5" width="113" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <constraints>
+                            <constraint firstItem="aXF-Vj-uHE" firstAttribute="centerY" secondItem="3IE-E7-WS3" secondAttribute="centerY" id="DI9-wK-pjY"/>
+                            <constraint firstAttribute="height" constant="70" id="Mlh-uB-CJY"/>
+                            <constraint firstItem="Bgd-T2-Zg6" firstAttribute="centerY" secondItem="3IE-E7-WS3" secondAttribute="centerY" id="Sdn-sd-WJn"/>
+                            <constraint firstAttribute="trailing" secondItem="Bgd-T2-Zg6" secondAttribute="trailing" constant="20" id="l8U-TZ-l7i"/>
+                            <constraint firstItem="x7g-p9-Cv4" firstAttribute="centerY" secondItem="3IE-E7-WS3" secondAttribute="centerY" id="rNT-Aq-HaI"/>
+                            <constraint firstItem="x7g-p9-Cv4" firstAttribute="leading" secondItem="aXF-Vj-uHE" secondAttribute="trailing" constant="20" id="tHM-yi-1Vw"/>
+                            <constraint firstItem="aXF-Vj-uHE" firstAttribute="leading" secondItem="3IE-E7-WS3" secondAttribute="leading" constant="20" id="vAn-9r-JF0"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="3IE-E7-WS3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="6xp-uz-g6j"/>
+                    <constraint firstItem="3IE-E7-WS3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="Omd-DA-jhu"/>
+                    <constraint firstAttribute="trailing" secondItem="3IE-E7-WS3" secondAttribute="trailing" constant="30" id="Ree-RS-RAD"/>
+                    <constraint firstAttribute="bottom" secondItem="3IE-E7-WS3" secondAttribute="bottom" constant="5" id="SLg-Ws-Ium"/>
+                    <constraint firstItem="3IE-E7-WS3" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="TQW-Zi-8Ad"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <point key="canvasLocation" x="75" y="70"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="dish-soap" width="512" height="512"/>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

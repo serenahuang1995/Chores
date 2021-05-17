@@ -31,7 +31,7 @@ private enum Tab {
     
     controller.tabBarItem = tabBarItem()
     
-    controller.tabBarItem.imageInsets = UIEdgeInsets(top: 10.0, left: 0.0, bottom: -10.0, right: 0.0)
+    controller.tabBarItem.imageInsets = UIEdgeInsets(top: 8.0, left: 0.0, bottom: -8.0, right: 0.0)
     
     return controller
   }
@@ -43,22 +43,22 @@ private enum Tab {
     case .choreList:
       return UITabBarItem(
         title: nil,
-        image: UIImage.asset(.Icon40px_ChoresList_Normal),
-        selectedImage: UIImage.asset(.Icon40px_ChoresList_Selected)
+        image: UIImage.asset(.Icon32px_ChoresList_Normal),
+        selectedImage: UIImage.asset(.Icon32px_ChoresList_Normal)
       )
       
     case .group:
       return UITabBarItem(
         title: nil,
-        image: UIImage.asset(.Icon40px_Group_Normal),
-        selectedImage: UIImage.asset(.Icon40px_Group_Selected)
+        image: UIImage.asset(.Icon32px_Group_Normal),
+        selectedImage: UIImage.asset(.Icon32px_Group_Normal)
       )
       
     case .profile:
       return UITabBarItem(
         title: nil,
-        image: UIImage.asset(.Icon40px_Profile_Normal),
-        selectedImage: UIImage.asset(.Icon40px_Profile_Selected)
+        image: UIImage.asset(.Icon32px_Profile_Normal),
+        selectedImage: UIImage.asset(.Icon32px_Profile_Normal)
       )
     }
   }

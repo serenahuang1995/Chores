@@ -9,46 +9,103 @@ import UIKit
 
 class ProfileViewController: UIViewController {
   
-  let indicatorView = UIView()
-
-  @IBOutlet weak var dataButton: UIButton!
-  @IBOutlet weak var recordsButton: UIButton!
+  private enum PageType: Int {
+    
+    case records = 0
+    
+    case data = 1
+    
+  }
   
+  private struct Segue {
+    
+    static let records = "SegueRecords"
+    
+    static let data = "SegueData"
+    
+  }
+  
+  @IBOutlet weak var indicatorView: UIView!
+  
+  @IBOutlet weak var dataContainerView: UIView!
+  
+  @IBOutlet weak var recordsContainerView: UIView!
+  
+  @IBOutlet var switchButton: [UIButton]!
+
+  var containerViews: [UIView] {
+
+    return [recordsContainerView, dataContainerView]
+
+  }
+
   override func viewDidLoad() {
     super.viewDidLoad()
-    view.backgroundColor = .orangeFBDAA0
-    setUpIndicatorView()
-  }
-  
-  override func viewDidLayoutSubviews() {
-    indicatorView.center.x = recordsButton.center.x
-  }
-  
-  @IBAction func clickRecordsButton(_ sender: UIButton) {
-    UIView.animate(withDuration: 0.3) {
-      self.indicatorView.center.x = self.recordsButton.center.x
-    }
-  }
-  
-  @IBAction func clickDataButton(_ sender: UIButton) {
-    UIView.animate(withDuration: 0.3) {
-      self.indicatorView.center.x = self.dataButton.center.x
-    }
-  }
-  
-  func setUpIndicatorView() {
     
-    indicatorView.backgroundColor = .whiteF6F7F9
+    updateContainerView(type: .records)
     
-    indicatorView.translatesAutoresizingMaskIntoConstraints = false
-    
-    view.addSubview(indicatorView)
-    
-    NSLayoutConstraint.activate([
-      indicatorView.topAnchor.constraint(equalTo: recordsButton.bottomAnchor, constant: 0),
-      indicatorView.heightAnchor.constraint(equalToConstant: 5),
-      indicatorView.widthAnchor.constraint(equalToConstant: recordsButton.frame.width / 2)
-    ])
   }
 
+  override func viewDidLayoutSubviews() {
+
+    indicatorView.center.x = switchButton[0].center.x
+
+  }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+    let identifier = segue.identifier
+
+    switch identifier {
+
+    case Segue.records:
+      _ = segue.destination as? ChoresRecordsViewController
+
+    case Segue.data:
+      _ = segue.destination as? ChoresDataViewController
+
+    default:
+      return
+    }
+  }
+
+  @IBAction func clickSwitchButton(_ sender: UIButton) {
+
+    for btn in switchButton {
+
+      btn.isSelected = false
+    }
+
+    sender.isSelected = true
+
+    moveIndicatorView(sender: sender)
+
+    guard let type = PageType(rawValue: sender.tag) else { return }
+
+    updateContainerView(type: type)
+
+  }
+
+  private func moveIndicatorView(sender: UIButton) {
+
+    UIView.animate(withDuration: 0.3) {
+      self.indicatorView.center.x = self.switchButton[sender.tag].center.x
+    }
+  }
+
+  private func updateContainerView(type: PageType) {
+
+    containerViews.forEach({ $0.isHidden = true })
+
+    switch type {
+
+    case .records:
+      recordsContainerView.isHidden = false
+
+    case .data:
+      dataContainerView.isHidden = false
+
+    }
+  }
+  
 }

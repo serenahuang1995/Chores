@@ -16,8 +16,6 @@ class ChoreListViewController: UIViewController {
     didSet {
       tableView.delegate = self
       tableView.dataSource = self
-      tableView.backgroundColor = .orangeFBDAA0
-      tableView.separatorStyle = .none
     }
   }
   
@@ -33,8 +31,7 @@ class ChoreListViewController: UIViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     _ = segue.destination as? AddChoresViewController
   }
-  
-  
+
   @IBAction func test(_ sender: Any) {
     
     performSegue(withIdentifier: "test", sender: nil)
@@ -42,6 +39,8 @@ class ChoreListViewController: UIViewController {
   
   private func setUpTableView() {
     
+    tableView.separatorStyle = .none
+  
     tableView.registerHeaderWithNib(
       identifier: String(describing: SectionView.self), bundle: nil)
     
@@ -52,9 +51,7 @@ class ChoreListViewController: UIViewController {
       identifier: String(describing: OngoingTableViewCell.self), bundle: nil)
     
   }
-  
 
-  
 }
 
 extension ChoreListViewController: UITableViewDelegate {
