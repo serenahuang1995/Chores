@@ -14,27 +14,32 @@ class ChoreListViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView! {
     didSet {
+      
       tableView.delegate = self
+      
       tableView.dataSource = self
+      
+      setUpTableView()
+      
     }
   }
   
-  @IBOutlet weak var btn: UIBarButtonItem!
+  @IBOutlet weak var addChoresButton: UIButton!
   
   override func viewDidLoad() {
+
     super.viewDidLoad()
-    
-    setUpTableView()
-    
+
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     _ = segue.destination as? AddChoresViewController
   }
 
-  @IBAction func test(_ sender: Any) {
+  @IBAction func clickToAddChores(_ sender: Any) {
     
-    performSegue(withIdentifier: "test", sender: nil)
+    performSegue(withIdentifier: "AddChores", sender: nil)
+    
   }
   
   private func setUpTableView() {
@@ -51,6 +56,12 @@ class ChoreListViewController: UIViewController {
       identifier: String(describing: OngoingTableViewCell.self), bundle: nil)
     
   }
+  
+//  private func resetNavigationBarButton() {
+//    let backButton = UIButton.set
+//    
+//    self.navigationItem.leftBarButtonItem = backButton
+//  }
 
 }
 

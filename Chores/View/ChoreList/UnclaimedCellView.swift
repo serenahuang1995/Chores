@@ -18,6 +18,7 @@ class UnclaimedCellView: UITableViewCell {
   }
 
   override func awakeFromNib() {
+    
     super.awakeFromNib()
 
     setUpCellStyle()
@@ -31,7 +32,7 @@ class UnclaimedCellView: UITableViewCell {
 
   func setUpCellStyle() {
     selectionStyle = .none
-    cellView.backgroundColor = .whiteF6F7F9
+    cellView.backgroundColor = .beigeEBDDCE
 //    separatorInset = .zero
   }
 

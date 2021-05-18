@@ -9,8 +9,12 @@ import UIKit
 
 class RecordsTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
+  @IBOutlet weak var recordView: CardView!
+  
+  override func awakeFromNib() {
         super.awakeFromNib()
+    
+    recordView.backgroundColor = .beigeEBDDCE
       
     }
 

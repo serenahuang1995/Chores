@@ -69,6 +69,9 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="recordView" destination="3IE-E7-WS3" id="6Be-w2-4Cx"/>
+            </connections>
             <point key="canvasLocation" x="75" y="70"/>
         </tableViewCell>
     </objects>

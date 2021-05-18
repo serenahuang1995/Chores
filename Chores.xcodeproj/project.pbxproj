@@ -11,6 +11,8 @@
 		DC203D00264E6099002FADDA /* OngoingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC203CFE264E6098002FADDA /* OngoingTableViewCell.swift */; };
 		DC203D01264E6099002FADDA /* OngoingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC203CFF264E6098002FADDA /* OngoingTableViewCell.xib */; };
 		DC203D07264E823C002FADDA /* AddChoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC203D06264E823C002FADDA /* AddChoresViewController.swift */; };
+		DC5AC61726528BBB00F99E74 /* MemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5AC61526528BBB00F99E74 /* MemberCollectionViewCell.swift */; };
+		DC5AC61826528BBB00F99E74 /* MemberCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC5AC61626528BBB00F99E74 /* MemberCollectionViewCell.xib */; };
 		DC8136492650090E003CC6ED /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8136482650090E003CC6ED /* UICollectionView+Extension.swift */; };
 		DC81364D2650095C003CC6ED /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81364B2650095C003CC6ED /* TagCollectionViewCell.swift */; };
 		DC81364E2650095C003CC6ED /* TagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC81364C2650095C003CC6ED /* TagCollectionViewCell.xib */; };
@@ -20,6 +22,9 @@
 		DC913CEB264C1F9100C18251 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC913CEA264C1F9100C18251 /* UIColor+Extension.swift */; };
 		DC913CEE264C517500C18251 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC913CED264C517500C18251 /* NavigationController.swift */; };
 		DC913CF2264CB46E00C18251 /* UnclaimedCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC913CF0264CB46E00C18251 /* UnclaimedCellView.swift */; };
+		DC92B8482652C2A900041D01 /* MemberDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC92B8472652C2A900041D01 /* MemberDataViewController.swift */; };
+		DC92B84C2652D13D00041D01 /* AddMemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC92B84A2652D13D00041D01 /* AddMemberCell.swift */; };
+		DC92B84D2652D13D00041D01 /* AddMemberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC92B84B2652D13D00041D01 /* AddMemberCell.xib */; };
 		DCA433F2264BA2BD00242617 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA433F1264BA2BD00242617 /* AppDelegate.swift */; };
 		DCA433F4264BA2BD00242617 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA433F3264BA2BD00242617 /* SceneDelegate.swift */; };
 		DCA433F6264BA2BD00242617 /* ChoreListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA433F5264BA2BD00242617 /* ChoreListViewController.swift */; };
@@ -51,6 +56,8 @@
 		DC203CFE264E6098002FADDA /* OngoingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingTableViewCell.swift; sourceTree = "<group>"; };
 		DC203CFF264E6098002FADDA /* OngoingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OngoingTableViewCell.xib; sourceTree = "<group>"; };
 		DC203D06264E823C002FADDA /* AddChoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChoresViewController.swift; sourceTree = "<group>"; };
+		DC5AC61526528BBB00F99E74 /* MemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberCollectionViewCell.swift; sourceTree = "<group>"; };
+		DC5AC61626528BBB00F99E74 /* MemberCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberCollectionViewCell.xib; sourceTree = "<group>"; };
 		DC8136482650090E003CC6ED /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		DC81364B2650095C003CC6ED /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
 		DC81364C2650095C003CC6ED /* TagCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -61,6 +68,9 @@
 		DC913CED264C517500C18251 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		DC913CF0264CB46E00C18251 /* UnclaimedCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnclaimedCellView.swift; sourceTree = "<group>"; };
 		DC913CF1264CB46E00C18251 /* UnclaimedCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UnclaimedCellView.xib; sourceTree = "<group>"; };
+		DC92B8472652C2A900041D01 /* MemberDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberDataViewController.swift; sourceTree = "<group>"; };
+		DC92B84A2652D13D00041D01 /* AddMemberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemberCell.swift; sourceTree = "<group>"; };
+		DC92B84B2652D13D00041D01 /* AddMemberCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddMemberCell.xib; sourceTree = "<group>"; };
 		DCA433EE264BA2BD00242617 /* Chores.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chores.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCA433F1264BA2BD00242617 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCA433F3264BA2BD00242617 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -122,11 +132,30 @@
 			path = ChoreList;
 			sourceTree = "<group>";
 		};
+		DC5AC61126528B1700F99E74 /* Group */ = {
+			isa = PBXGroup;
+			children = (
+				DC5AC61526528BBB00F99E74 /* MemberCollectionViewCell.swift */,
+				DC5AC61626528BBB00F99E74 /* MemberCollectionViewCell.xib */,
+				DC92B84F2652D14D00041D01 /* Add */,
+			);
+			path = Group;
+			sourceTree = "<group>";
+		};
 		DC813640264EAB4D003CC6ED /* Add */ = {
 			isa = PBXGroup;
 			children = (
 				DC81364B2650095C003CC6ED /* TagCollectionViewCell.swift */,
 				DC81364C2650095C003CC6ED /* TagCollectionViewCell.xib */,
+			);
+			path = Add;
+			sourceTree = "<group>";
+		};
+		DC92B84F2652D14D00041D01 /* Add */ = {
+			isa = PBXGroup;
+			children = (
+				DC92B84A2652D13D00041D01 /* AddMemberCell.swift */,
+				DC92B84B2652D13D00041D01 /* AddMemberCell.xib */,
 			);
 			path = Add;
 			sourceTree = "<group>";
@@ -203,6 +232,7 @@
 			children = (
 				DC913CE6264C1A2B00C18251 /* CardView.swift */,
 				DC203D03264E60AE002FADDA /* ChoreList */,
+				DC5AC61126528B1700F99E74 /* Group */,
 				DCD737AA26520E7D00F1DEF8 /* Profile */,
 			);
 			path = View;
@@ -251,6 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				DCEEAA69264BED9F00A64D37 /* GroupViewController.swift */,
+				DC92B8472652C2A900041D01 /* MemberDataViewController.swift */,
 			);
 			path = Group;
 			sourceTree = "<group>";
@@ -342,6 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCD737A826520E7200F1DEF8 /* RecordsTableViewCell.xib in Resources */,
+				DC92B84D2652D13D00041D01 /* AddMemberCell.xib in Resources */,
 				DC913CE4264C144400C18251 /* SectionView.xib in Resources */,
 				DC203D01264E6099002FADDA /* OngoingTableViewCell.xib in Resources */,
 				DCEEAA63264BEC9E00A64D37 /* Profile.storyboard in Resources */,
@@ -349,6 +381,7 @@
 				DCA433FE264BA2C500242617 /* LaunchScreen.storyboard in Resources */,
 				DC81364E2650095C003CC6ED /* TagCollectionViewCell.xib in Resources */,
 				DCB98A12264CF6C100A8C794 /* UnclaimedCellView.xib in Resources */,
+				DC5AC61826528BBB00F99E74 /* MemberCollectionViewCell.xib in Resources */,
 				DCA433FB264BA2C500242617 /* Assets.xcassets in Resources */,
 				DCA433F9264BA2BD00242617 /* Main.storyboard in Resources */,
 				DCEEAA60264BEC8B00A64D37 /* Group.storyboard in Resources */,
@@ -405,6 +438,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC5AC61726528BBB00F99E74 /* MemberCollectionViewCell.swift in Sources */,
 				DCEEAA6A264BED9F00A64D37 /* GroupViewController.swift in Sources */,
 				DCA433F6264BA2BD00242617 /* ChoreListViewController.swift in Sources */,
 				DC913CE3264C144400C18251 /* SectionView.swift in Sources */,
@@ -420,10 +454,12 @@
 				DCD737A226520BB300F1DEF8 /* ChoresDataViewController.swift in Sources */,
 				DCEEAA6F264BEDC000A64D37 /* ProfileViewController.swift in Sources */,
 				DCEEAA4D264BD98C00A64D37 /* UIView+Extension.swift in Sources */,
+				DC92B8482652C2A900041D01 /* MemberDataViewController.swift in Sources */,
 				DC913CF2264CB46E00C18251 /* UnclaimedCellView.swift in Sources */,
 				DC913CEB264C1F9100C18251 /* UIColor+Extension.swift in Sources */,
 				DC913CE7264C1A2B00C18251 /* CardView.swift in Sources */,
 				DC8136492650090E003CC6ED /* UICollectionView+Extension.swift in Sources */,
+				DC92B84C2652D13D00041D01 /* AddMemberCell.swift in Sources */,
 				DCD7379F26520B9A00F1DEF8 /* ChoresRecordsViewController.swift in Sources */,
 				DC81364D2650095C003CC6ED /* TagCollectionViewCell.swift in Sources */,
 				DCA433F4264BA2BD00242617 /* SceneDelegate.swift in Sources */,

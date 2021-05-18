@@ -22,7 +22,7 @@ class SectionView: UITableViewHeaderFooterView {
   @IBOutlet weak var showMoreItemBtn: UIButton!
   @IBOutlet weak var cardView: CardView! {
     didSet {
-      self.cardView.backgroundColor = .blue939EB6
+      self.cardView.backgroundColor = .orangeFBDAA0
     }
   }
 

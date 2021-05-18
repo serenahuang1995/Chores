@@ -9,19 +9,207 @@ import UIKit
 
 class GroupViewController: UIViewController {
   
+  private enum PageType: Int {
+    
+    case week = 0
+    
+    case month = 1
+    
+    case total = 2
+    
+  }
+  
+  private struct Segue {
+    
+    static let week = "SegueWeek"
+    
+    static let month = "SegueMonth"
+    
+    static let total = "SegueTotal"
+    
+  }
+  
+  @IBOutlet weak var indicatorView: UIView! {
+    didSet {
+      indicatorView.backgroundColor = .orangeE89E21
+    }
+  }
+  
+  @IBOutlet weak var weekDataView: UIView!
+  
+  @IBOutlet weak var monthDataView: UIView!
+  
+  @IBOutlet weak var totalDataView: UIView!
+  
+  @IBOutlet weak var collectionView: UICollectionView! {
+    didSet {
+      
+      collectionView.delegate = self
+      
+      collectionView.dataSource = self
+      
+      setUpCollectionView()
+      
+    }
+  }
+  
+  @IBOutlet var switchButtons: [UIButton]!
+  
+  var containerViews: [UIView] {
+
+    return [weekDataView, monthDataView, totalDataView]
+
+  }
+  
   override func viewDidLoad() {
+    
     super.viewDidLoad()
     
-    // Do any additional setup after loading the view.
+    updateContainerView(type: .week)
+    
   }
-  /*
-   // MARK: - Navigation
-   
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using segue.destination.
-   // Pass the selected object to the new view controller.
-   }
-   */
   
+  override func viewDidLayoutSubviews() {
+
+    indicatorView.center.x = switchButtons[0].center.x
+
+  }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+    let identifier = segue.identifier
+
+    switch identifier {
+
+    case Segue.week:
+      _ = segue.destination as? MemberDataViewController
+      weekDataView.backgroundColor = .blue7990CA
+
+    case Segue.month:
+      _ = segue.destination as? MemberDataViewController
+      monthDataView.backgroundColor = .orangeFBDAA0
+      
+    case Segue.total:
+      _ = segue.destination as? MemberDataViewController
+      totalDataView.backgroundColor = .beigeEBDDCE
+
+    default:
+      return
+      
+    }
+    
+  }
+  
+  @IBAction func clickSwitchButton(_ sender: UIButton) {
+
+    for btn in switchButtons {
+
+      btn.isSelected = false
+    }
+
+    sender.isSelected = true
+
+    moveIndicatorView(sender: sender)
+
+    guard let type = PageType(rawValue: sender.tag) else { return }
+
+    updateContainerView(type: type)
+
+  }
+  
+  private func setUpCollectionView() {
+    
+    collectionView.registerCellWithNib(
+      identifier: String(describing: MemberCollectionViewCell.self),
+      bundle: nil)
+    
+    collectionView.registerCellWithNib(
+      identifier: String(describing: AddMemberCell.self),
+      bundle: nil)
+    
+  }
+  
+  private func moveIndicatorView(sender: UIButton) {
+
+    UIView.animate(withDuration: 0.3) {
+      self.indicatorView.center.x = self.switchButtons[sender.tag].center.x
+    }
+  }
+
+  private func updateContainerView(type: PageType) {
+
+    containerViews.forEach({ $0.isHidden = true })
+
+    switch type {
+
+    case .week:
+      weekDataView.isHidden = false
+
+    case .month:
+      monthDataView.isHidden = false
+      
+    case .total:
+      totalDataView.isHidden = false
+
+    }
+  }
+
+}
+
+extension GroupViewController: UICollectionViewDelegate {
+  
+}
+
+extension GroupViewController: UICollectionViewDataSource {
+  
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    
+    return 11
+    
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    
+    if indexPath.row == 10 {
+      
+      let cell = collectionView.dequeueReusableCell(
+        withReuseIdentifier: String(describing: AddMemberCell.self),
+        for: indexPath)
+      
+      guard let addMemberCell = cell as? AddMemberCell else { return cell }
+      
+      return addMemberCell
+      
+    }
+    
+    let cell = collectionView.dequeueReusableCell(
+      withReuseIdentifier: String(describing: MemberCollectionViewCell.self),
+      for: indexPath)
+    
+    guard let memberCell = cell as? MemberCollectionViewCell else { return cell }
+    
+    return memberCell
+
+  }
+  
+}
+
+extension GroupViewController: UICollectionViewDelegateFlowLayout {
+  
+  func collectionView(_ collectionView: UICollectionView,
+                      layout collectionViewLayout: UICollectionViewLayout,
+                      sizeForItemAt indexPath: IndexPath) -> CGSize {
+    
+    return CGSize(width: 70, height: 90)
+    
+  }
+  
+  func collectionView(_ collectionView: UICollectionView,
+                      layout collectionViewLayout: UICollectionViewLayout,
+                      minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    
+    return 10
+    
+  }
+
 }

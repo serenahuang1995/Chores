@@ -12,9 +12,13 @@ class OngoingTableViewCell: UITableViewCell {
   @IBOutlet weak var ongoingCell: UIView!
 
   override func awakeFromNib() {
+    
     super.awakeFromNib()
-    contentView.backgroundColor = .orangeFBDAA0
+    
+    contentView.backgroundColor = .beigeEBDDCE
+    
     setUpCellStyle()
+    
   }
 
   override func setSelected(_ selected: Bool, animated: Bool) {
@@ -24,8 +28,10 @@ class OngoingTableViewCell: UITableViewCell {
   }
 
   func setUpCellStyle() {
+    
     selectionStyle = .none
-    ongoingCell.backgroundColor = .whiteF6F7F9
+    
+    ongoingCell.backgroundColor = .beigeEBDDCE
 //    separatorInset = .zero
   }
 

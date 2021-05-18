@@ -10,9 +10,15 @@ import UIKit
 class AddChoresViewController: UIViewController {
   
   @IBOutlet weak var collectionView: UICollectionView! {
+    
     didSet {
+      
+      setUpCollectionView()
+      
       collectionView.delegate = self
+      
       collectionView.dataSource = self
+      
     }
   }
   
@@ -22,21 +28,44 @@ class AddChoresViewController: UIViewController {
   
   @IBOutlet weak var ruleButton: UIButton!
   
-  @IBOutlet weak var timeTextField: UITextField!
+  @IBOutlet weak var timeTextField: UITextField! {
+
+    didSet {
+
+      timeTextField.delegate = self
+   
+    }
+
+  }
   
   @IBOutlet weak var pointTextField: UITextField! {
+    
     didSet {
-      self.pointTextField.isEditing == true
+      
+      pointTextField.delegate = self
+      
     }
+    
   }
 
   override func viewDidLoad() {
     super.viewDidLoad()
+
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
     
-    view.backgroundColor = .orangeFBDAA0
+    navigationController?.isNavigationBarHidden = true
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
     
-    setUpCollectionView()
+    navigationController?.isNavigationBarHidden = false
+  }
+  
+  @IBAction func backToListPage(_ sender: Any) {
     
+    navigationController?.popViewController(animated: true)
   }
   
   private func setUpCollectionView() {
@@ -52,23 +81,28 @@ extension AddChoresViewController: UICollectionViewDelegate {
     
     if let selectedCell = selectedCell {
       
-    selectedCell.contentView.layer.borderColor = UIColor.black.cgColor
+      selectedCell.contentView.layer.borderColor = UIColor.black.cgColor
       
-    selectedCell.contentView.layer.borderWidth = 2
+      selectedCell.contentView.backgroundColor = .orangeFBDAA0
+      
+      selectedCell.contentView.layer.borderWidth = 2
 
     }
-    
-//    backgroundView.layer.borderWidth = 2
-//
-//    backgroundView.layer.borderColor = UIColor.black.cgColor
     
   }
   
   func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
     
-//    backgroundView.layer.borderWidth = 0
-//
-//    backgroundView.layer.borderColor = UIColor.clear.cgColor
+    let deSelectedCell = collectionView.cellForItem(at: indexPath)
+    
+    if let deSelectedCell = deSelectedCell {
+    
+      deSelectedCell.contentView.backgroundColor = .beigeEBDDCE
+      
+      deSelectedCell.contentView.layer.borderWidth = 0
+
+    }
+    
   }
   
 }
@@ -102,17 +136,25 @@ extension AddChoresViewController: UICollectionViewDelegateFlowLayout {
 
   }
   
-//  func collectionView(_ collectionView: UICollectionView,
-//                      layout collectionViewLayout: UICollectionViewLayout,
-//                      minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-//    return 10
-//    
-//  }
-  
+  func collectionView(_ collectionView: UICollectionView,
+                      layout collectionViewLayout: UICollectionViewLayout,
+                      sizeForItemAt indexPath: IndexPath) -> CGSize {
+    return CGSize(width: 70, height: 70)
+  }
+
 }
 
 extension AddChoresViewController: UITextFieldDelegate {
+  
+  func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+    
+    return pointTextField.isEditing == false
+    
+  }
+  
   func textFieldDidChangeSelection(_ textField: UITextField) {
+
     pointTextField.text = timeTextField.text
+
   }
 }

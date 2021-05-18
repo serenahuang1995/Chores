@@ -7,8 +7,6 @@
 
 import UIKit
 
-
-
 class ChoresRecordsViewController: UIViewController {
 
   @IBOutlet weak var tableView: UITableView! {

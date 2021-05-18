@@ -31,7 +31,7 @@ class ProfileViewController: UIViewController {
   
   @IBOutlet weak var recordsContainerView: UIView!
   
-  @IBOutlet var switchButton: [UIButton]!
+  @IBOutlet var switchButtons: [UIButton]!
 
   var containerViews: [UIView] {
 
@@ -48,7 +48,7 @@ class ProfileViewController: UIViewController {
 
   override func viewDidLayoutSubviews() {
 
-    indicatorView.center.x = switchButton[0].center.x
+    indicatorView.center.x = switchButtons[0].center.x
 
   }
   
@@ -71,7 +71,7 @@ class ProfileViewController: UIViewController {
 
   @IBAction func clickSwitchButton(_ sender: UIButton) {
 
-    for btn in switchButton {
+    for btn in switchButtons {
 
       btn.isSelected = false
     }
@@ -89,7 +89,7 @@ class ProfileViewController: UIViewController {
   private func moveIndicatorView(sender: UIButton) {
 
     UIView.animate(withDuration: 0.3) {
-      self.indicatorView.center.x = self.switchButton[sender.tag].center.x
+      self.indicatorView.center.x = self.switchButtons[sender.tag].center.x
     }
   }
 
