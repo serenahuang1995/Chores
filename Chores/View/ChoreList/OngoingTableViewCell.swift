@@ -9,13 +9,13 @@ import UIKit
 
 class OngoingTableViewCell: UITableViewCell {
 
-  @IBOutlet weak var ongoingCell: UIView!
-
+  @IBOutlet weak var ongoingCell: CardView!
+  
   override func awakeFromNib() {
     
     super.awakeFromNib()
     
-    contentView.backgroundColor = .beigeEBDDCE
+    ongoingCell.backgroundColor = .beigeEBDDCE
     
     setUpCellStyle()
     

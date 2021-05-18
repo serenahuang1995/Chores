@@ -25,7 +25,11 @@ class ProfileViewController: UIViewController {
     
   }
   
-  @IBOutlet weak var indicatorView: UIView!
+  @IBOutlet weak var indicatorView: UIView! {
+    didSet {
+      indicatorView.backgroundColor = .orangeE89E21
+    }
+  }
   
   @IBOutlet weak var dataContainerView: UIView!
   

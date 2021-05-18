@@ -12,16 +12,16 @@ import UIKit
 enum ImageAsset: String {
   
   // Tab Bar Item
-  case Icon32px_ChoresList_Normal
+  case Icon32px_Mission_Nornal
+  case Icon32px_Mission_Selected
   case Icon32px_Group_Normal
+  case Icon32px_Group_Selected
   case Icon32px_Profile_Normal
+  case Icon32px_Profile_Selected
   
-  case Icon40px_ChoresList_Selected
-  case Icon40px_ChoresList_Normal
-  case Icon40px_Group_Normal
-  case Icon40px_Group_Selected
-  case Icon40px_Profile_Normal
-  case Icon40px_Profile_Selected
+  case house
+  
+  case Icon32px_AddChores
   
   case cleaner
 }

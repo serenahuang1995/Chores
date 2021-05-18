@@ -8,7 +8,11 @@
 import UIKit
 
 class TagCollectionViewCell: UICollectionViewCell {
-
+  
+  @IBOutlet weak var choresImage: UIImageView!
+  
+  @IBOutlet weak var choresLabel: UILabel!
+  
     override func awakeFromNib() {
         super.awakeFromNib()
       

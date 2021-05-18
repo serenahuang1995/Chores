@@ -64,7 +64,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
-                <outlet property="ongoingCell" destination="bV5-4D-r0J" id="2JO-KF-Gdt"/>
+                <outlet property="ongoingCell" destination="bV5-4D-r0J" id="hut-5S-CbF"/>
             </connections>
             <point key="canvasLocation" x="9" y="114"/>
         </tableViewCell>

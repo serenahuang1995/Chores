@@ -11,7 +11,7 @@ private struct StoryboardCategory {
 
   static let main = "Main"
 
-  static let choreList = "ChoreList"
+  static let mission = "Mission"
 
   static let group = "Group"
 
@@ -24,7 +24,7 @@ extension UIStoryboard {
 
   static var main: UIStoryboard { return stStoryboard(name: StoryboardCategory.main) }
 
-  static var choreList: UIStoryboard { return stStoryboard(name: StoryboardCategory.choreList) }
+  static var mission: UIStoryboard { return stStoryboard(name: StoryboardCategory.mission) }
 
   static var group: UIStoryboard { return stStoryboard(name: StoryboardCategory.group) }
 

@@ -9,7 +9,7 @@ import UIKit
 
 private enum Tab {
   
-  case choreList
+  case mission
   
   case group
   
@@ -21,7 +21,7 @@ private enum Tab {
     
     switch self {
     
-    case .choreList: controller = UIStoryboard.choreList.instantiateInitialViewController()!
+    case .mission: controller = UIStoryboard.mission.instantiateInitialViewController()!
       
     case .group: controller = UIStoryboard.group.instantiateInitialViewController()!
       
@@ -40,25 +40,25 @@ private enum Tab {
     
     switch self {
     
-    case .choreList:
+    case .mission:
       return UITabBarItem(
         title: nil,
-        image: UIImage.asset(.Icon32px_ChoresList_Normal),
-        selectedImage: UIImage.asset(.Icon32px_ChoresList_Normal)
+        image: UIImage.asset(.Icon32px_Mission_Nornal),
+        selectedImage: UIImage.asset(.Icon32px_Mission_Selected)
       )
       
     case .group:
       return UITabBarItem(
         title: nil,
         image: UIImage.asset(.Icon32px_Group_Normal),
-        selectedImage: UIImage.asset(.Icon32px_Group_Normal)
+        selectedImage: UIImage.asset(.Icon32px_Group_Selected)
       )
       
     case .profile:
       return UITabBarItem(
         title: nil,
         image: UIImage.asset(.Icon32px_Profile_Normal),
-        selectedImage: UIImage.asset(.Icon32px_Profile_Normal)
+        selectedImage: UIImage.asset(.Icon32px_Profile_Selected)
       )
     }
   }
@@ -66,7 +66,7 @@ private enum Tab {
 
 class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
   
-  private let tabs: [Tab] = [.choreList, .group, .profile]
+  private let tabs: [Tab] = [.mission, .group, .profile]
   //    var trolleyTabBarItem: UITabBarItem!
   //    var orderObserver: NSKeyValueObservation!
   

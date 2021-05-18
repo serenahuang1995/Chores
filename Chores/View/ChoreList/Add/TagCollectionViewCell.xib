@@ -41,6 +41,10 @@
                 <constraint firstItem="3Uo-xA-87E" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="u9P-eU-Kbb"/>
                 <constraint firstItem="3Uo-xA-87E" firstAttribute="top" secondItem="D67-it-cWL" secondAttribute="bottom" constant="2" id="z4q-fh-rGL"/>
             </constraints>
+            <connections>
+                <outlet property="choresImage" destination="D67-it-cWL" id="1Sr-cc-Vgu"/>
+                <outlet property="choresLabel" destination="3Uo-xA-87E" id="9BC-W5-RHB"/>
+            </connections>
             <point key="canvasLocation" x="31.884057971014496" y="63.616071428571423"/>
         </collectionViewCell>
     </objects>

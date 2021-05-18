@@ -25,5 +25,9 @@ extension UIColor {
   class var beigeEBDDCE: UIColor {
     return UIColor(red: 235 / 255, green: 221 / 255, blue: 206 / 255, alpha: 1)
   }
+  
+  class var black252525: UIColor {
+    return UIColor(red: 37 / 255, green: 37 / 255, blue: 37 / 255, alpha: 1)
+  }
 
 }
