@@ -50,8 +50,27 @@ class AddChoresViewController: UIViewController {
     
   }
   
-//  var data: Data = [:]
-
+  // 到時候每個家庭一進去 發現家事是空的 就會幫它寫進去14個
+  var tags: [String] = ["洗碗",
+                        "洗衣服",
+                        "晾衣服",
+                        "摺衣服",
+                        "燙衣服",
+                        "倒垃圾",
+                        "刷廁所",
+                        "澆花",
+                        "遛狗",
+                        "收納",
+                        "接送",
+                        "帶小孩",
+                        "煮飯",
+                        "買菜",
+                        "掃地",
+                        "拖地",
+                        "吸地",
+                        "吃飯",
+                        ">///<"]
+  
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -116,7 +135,7 @@ extension AddChoresViewController: UICollectionViewDelegate {
 extension AddChoresViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     
-    return 14
+    return tags.count
     
   }
   
@@ -127,6 +146,8 @@ extension AddChoresViewController: UICollectionViewDataSource {
       for: indexPath)
     
     guard let tagCell = cell as? TagCollectionViewCell else { return cell }
+    
+    tagCell.layoutCell(tag: tags[indexPath.row])
     
     return tagCell
   }
@@ -145,7 +166,9 @@ extension AddChoresViewController: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView,
                       layout collectionViewLayout: UICollectionViewLayout,
                       sizeForItemAt indexPath: IndexPath) -> CGSize {
+    
     return CGSize(width: 70, height: 70)
+    
   }
 
 }

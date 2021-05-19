@@ -7,27 +7,26 @@
 
 import Foundation
 
-struct Data {
+struct ChoresItem {
   
-  var choresItem: [String : String] = [
-    "洗碗" : "WashingDishes",
-    "洗衣服" : "WashClothes",
-    "晾衣服" : "DryClothes",
-    "摺衣服" : "FoldClothes",
-    "燙衣服" : "IronClothes",
-    "倒垃圾" : "ThrowTrash",
-    "刷廁所" : "CleanBathroom",
-    "澆花" : "WaterFlower",
-    "遛狗" : "WalkDog",
-    "收納" : "Storage",
-    "接送" : "PickUp",
-    "帶小孩" : "TakeCareKids",
-    "煮飯" : "Cook",
-    "買菜" : "Grocery",
-    "掃地" : "BroomFloor",
-    "拖地" : "MopFloor",
-    "吸地" : "VacuumCleaner"
+  static let item: [String: String] = [
+    "洗碗": "WashingDishes",
+    "洗衣服": "WashClothes",
+    "晾衣服": "DryClothes",
+    "摺衣服": "FoldClothes",
+    "燙衣服": "IronClothes",
+    "倒垃圾": "ThrowTrash",
+    "刷廁所": "CleanBathroom",
+    "澆花": "WaterFlower",
+    "遛狗": "WalkDog",
+    "收納": "Storage",
+    "接送": "PickUp",
+    "帶小孩": "TakeCareKids",
+    "煮飯": "Cook",
+    "買菜": "Grocery",
+    "掃地": "BroomFloor",
+    "拖地": "MopFloor",
+    "吸地": "VacuumCleaner"
   ]
 
 }
-

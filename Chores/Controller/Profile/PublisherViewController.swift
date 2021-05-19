@@ -35,3 +35,15 @@ class PublisherViewController: UIViewController {
   }
   
 }
+
+// extension PublisherViewController: UIViewControllerAnimatedTransitioning {
+//  func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+//    <#code#>
+//  }
+//  
+//  func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+//    <#code#>
+//  }
+//  
+//  
+// }
