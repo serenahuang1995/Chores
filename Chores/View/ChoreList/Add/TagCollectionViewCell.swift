@@ -22,15 +22,18 @@ class TagCollectionViewCell: UICollectionViewCell {
     
   }
   
-  // 利用 dic 的特質 取到key 就可以叫出對應的 value
-  func layoutCell(tag: String) {
+  // 利用 dic 的特質 取到key，就可以叫出對應的 value
+  func layoutCell(tagItem: String) {
     
-    choresLabel.text = tag
+    choresLabel.text = tagItem
     
-    if let imageName = ChoresItem.item[tag] {
+    // 如果有找到對應的 tagItem 就會將 item 的 value(圖片的名字)存進 imageName
+    if let imageName = Chores.item[tagItem] {
+      
       choresImage.image = UIImage(named: imageName)
+      
     } else {
-      // name會改成其他圖片
+      // 如果沒有找到對應的 item，image 會改成你預設的圖片
        choresImage.image = UIImage(named: "WalkDog")
     }
   }

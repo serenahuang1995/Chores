@@ -7,5 +7,8 @@ target 'Chores' do
 
   # Pods for Chores
   pod 'SwiftLint'
+  pod 'Firebase/Firestore'
+  pod 'FirebaseFirestoreSwift'
+
 
 end

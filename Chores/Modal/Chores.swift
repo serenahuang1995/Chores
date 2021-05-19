@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct ChoresItem {
+struct Chores {
   
   static let item: [String: String] = [
-    "洗碗": "WashingDishes",
+    "洗碗": "WashDishes",
     "洗衣服": "WashClothes",
     "晾衣服": "DryClothes",
     "摺衣服": "FoldClothes",
@@ -21,7 +21,7 @@ struct ChoresItem {
     "遛狗": "WalkDog",
     "收納": "Storage",
     "接送": "PickUp",
-    "帶小孩": "TakeCareKids",
+    "帶小孩": "TakeCareKid",
     "煮飯": "Cook",
     "買菜": "Grocery",
     "掃地": "BroomFloor",

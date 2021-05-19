@@ -51,7 +51,7 @@ class AddChoresViewController: UIViewController {
   }
   
   // 到時候每個家庭一進去 發現家事是空的 就會幫它寫進去14個
-  var tags: [String] = ["洗碗",
+  var tagItemList: [String] = ["洗碗",
                         "洗衣服",
                         "晾衣服",
                         "摺衣服",
@@ -102,6 +102,7 @@ class AddChoresViewController: UIViewController {
 
 extension AddChoresViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    
     let selectedCell = collectionView.cellForItem(at: indexPath)
     
     if let selectedCell = selectedCell {
@@ -135,7 +136,7 @@ extension AddChoresViewController: UICollectionViewDelegate {
 extension AddChoresViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     
-    return tags.count
+    return tagItemList.count
     
   }
   
@@ -147,7 +148,7 @@ extension AddChoresViewController: UICollectionViewDataSource {
     
     guard let tagCell = cell as? TagCollectionViewCell else { return cell }
     
-    tagCell.layoutCell(tag: tags[indexPath.row])
+    tagCell.layoutCell(tagItem: tagItemList[indexPath.row])
     
     return tagCell
   }
@@ -159,6 +160,7 @@ extension AddChoresViewController: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView,
                       layout collectionViewLayout: UICollectionViewLayout,
                       minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    
     return 10
 
   }
