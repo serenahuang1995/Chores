@@ -9,6 +9,7 @@ target 'Chores' do
   pod 'SwiftLint'
   pod 'Firebase/Firestore'
   pod 'FirebaseFirestoreSwift'
+  pod 'IQKeyboardManagerSwift', '~> 6.5'
 
 
 end
