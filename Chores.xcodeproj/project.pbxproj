@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		96114C0E460E8A693A48E92D /* Pods_Chores.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7749F864051FCD22993EF0 /* Pods_Chores.framework */; };
+		DC1DB8DB26552BAB00F89E5A /* ChoresDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1DB8DA26552BAB00F89E5A /* ChoresDataModel.swift */; };
 		DC203D00264E6099002FADDA /* OngoingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC203CFE264E6098002FADDA /* OngoingTableViewCell.swift */; };
 		DC203D01264E6099002FADDA /* OngoingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC203CFF264E6098002FADDA /* OngoingTableViewCell.xib */; };
 		DC203D07264E823C002FADDA /* AddChoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC203D06264E823C002FADDA /* AddChoresViewController.swift */; };
@@ -33,10 +34,12 @@
 		DCA433F9264BA2BD00242617 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCA433F7264BA2BD00242617 /* Main.storyboard */; };
 		DCA433FB264BA2C500242617 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCA433FA264BA2C500242617 /* Assets.xcassets */; };
 		DCA433FE264BA2C500242617 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCA433FC264BA2C500242617 /* LaunchScreen.storyboard */; };
+		DCA589F0265553920033EE63 /* RuleSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA589EF265553920033EE63 /* RuleSegue.swift */; };
+		DCA589F326555AD10033EE63 /* FirebaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA589F226555AD10033EE63 /* FirebaseProvider.swift */; };
 		DCB98A0E264CDF7200A8C794 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB98A0D264CDF7200A8C794 /* UITableView+Extension.swift */; };
 		DCB98A12264CF6C100A8C794 /* UnclaimedCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC913CF1264CB46E00C18251 /* UnclaimedCellView.xib */; };
 		DCBB101E2653A36600A8C1E4 /* RuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBB101D2653A36600A8C1E4 /* RuleViewController.swift */; };
-		DCBB10212653F9AA00A8C1E4 /* Chores.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBB10202653F9AA00A8C1E4 /* Chores.swift */; };
+		DCBB10212653F9AA00A8C1E4 /* ChoresImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBB10202653F9AA00A8C1E4 /* ChoresImages.swift */; };
 		DCD7379F26520B9A00F1DEF8 /* ChoresRecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD7379E26520B9A00F1DEF8 /* ChoresRecordsViewController.swift */; };
 		DCD737A226520BB300F1DEF8 /* ChoresDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD737A126520BB300F1DEF8 /* ChoresDataViewController.swift */; };
 		DCD737A726520E7200F1DEF8 /* RecordsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD737A526520E7200F1DEF8 /* RecordsTableViewCell.swift */; };
@@ -57,6 +60,7 @@
 /* Begin PBXFileReference section */
 		1F7749F864051FCD22993EF0 /* Pods_Chores.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chores.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		87919A159896898CF91E3A55 /* Pods-Chores.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chores.debug.xcconfig"; path = "Target Support Files/Pods-Chores/Pods-Chores.debug.xcconfig"; sourceTree = "<group>"; };
+		DC1DB8DA26552BAB00F89E5A /* ChoresDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoresDataModel.swift; sourceTree = "<group>"; };
 		DC203CFE264E6098002FADDA /* OngoingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingTableViewCell.swift; sourceTree = "<group>"; };
 		DC203CFF264E6098002FADDA /* OngoingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OngoingTableViewCell.xib; sourceTree = "<group>"; };
 		DC203D06264E823C002FADDA /* AddChoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChoresViewController.swift; sourceTree = "<group>"; };
@@ -85,9 +89,11 @@
 		DCA433FA264BA2C500242617 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DCA433FD264BA2C500242617 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DCA433FF264BA2C500242617 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DCA589EF265553920033EE63 /* RuleSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleSegue.swift; sourceTree = "<group>"; };
+		DCA589F226555AD10033EE63 /* FirebaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseProvider.swift; sourceTree = "<group>"; };
 		DCB98A0D264CDF7200A8C794 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		DCBB101D2653A36600A8C1E4 /* RuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleViewController.swift; sourceTree = "<group>"; };
-		DCBB10202653F9AA00A8C1E4 /* Chores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chores.swift; sourceTree = "<group>"; };
+		DCBB10202653F9AA00A8C1E4 /* ChoresImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoresImages.swift; sourceTree = "<group>"; };
 		DCD7379E26520B9A00F1DEF8 /* ChoresRecordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoresRecordsViewController.swift; sourceTree = "<group>"; };
 		DCD737A126520BB300F1DEF8 /* ChoresDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoresDataViewController.swift; sourceTree = "<group>"; };
 		DCD737A526520E7200F1DEF8 /* RecordsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsTableViewCell.swift; sourceTree = "<group>"; };
@@ -192,8 +198,10 @@
 			children = (
 				DCA433F1264BA2BD00242617 /* AppDelegate.swift */,
 				DCA433F3264BA2BD00242617 /* SceneDelegate.swift */,
+				DCA433FF264BA2C500242617 /* Info.plist */,
+				DC531C99265523D100F3FD4B /* GoogleService-Info.plist */,
 				DCEEAA36264BCD0600A64D37 /* Extension */,
-				DCEEAA33264BCCA200A64D37 /* Modal */,
+				DCEEAA33264BCCA200A64D37 /* Model */,
 				DCEEAA35264BCCD600A64D37 /* View */,
 				DCEEAA34264BCCB400A64D37 /* Controller */,
 			);
@@ -209,12 +217,14 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		DCEEAA33264BCCA200A64D37 /* Modal */ = {
+		DCEEAA33264BCCA200A64D37 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DCBB10202653F9AA00A8C1E4 /* Chores.swift */,
+				DCBB10202653F9AA00A8C1E4 /* ChoresImages.swift */,
+				DCA589F226555AD10033EE63 /* FirebaseProvider.swift */,
+				DC1DB8DA26552BAB00F89E5A /* ChoresDataModel.swift */,
 			);
-			path = Modal;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		DCEEAA34264BCCB400A64D37 /* Controller */ = {
@@ -263,8 +273,6 @@
 			isa = PBXGroup;
 			children = (
 				DCA433FA264BA2C500242617 /* Assets.xcassets */,
-				DCA433FF264BA2C500242617 /* Info.plist */,
-				DC531C99265523D100F3FD4B /* GoogleService-Info.plist */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -284,6 +292,7 @@
 				DCA433F5264BA2BD00242617 /* MissionViewController.swift */,
 				DC203D06264E823C002FADDA /* AddChoresViewController.swift */,
 				DCBB101D2653A36600A8C1E4 /* RuleViewController.swift */,
+				DCA589EF265553920033EE63 /* RuleSegue.swift */,
 			);
 			path = Mission;
 			sourceTree = "<group>";
@@ -337,6 +346,7 @@
 				DCA433EB264BA2BD00242617 /* Frameworks */,
 				DCA433EC264BA2BD00242617 /* Resources */,
 				DCB7429F264BBB50001F626E /* ShellScript */,
+				2560A14F4C73F9D1C039F95B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -405,6 +415,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2560A14F4C73F9D1C039F95B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Chores/Pods-Chores-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Chores/Pods-Chores-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Chores/Pods-Chores-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		5C1F39CCE60775F2BCCB9723 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -451,9 +478,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCBB10212653F9AA00A8C1E4 /* Chores.swift in Sources */,
+				DCBB10212653F9AA00A8C1E4 /* ChoresImages.swift in Sources */,
+				DC1DB8DB26552BAB00F89E5A /* ChoresDataModel.swift in Sources */,
 				DC5AC61726528BBB00F99E74 /* MemberCollectionViewCell.swift in Sources */,
 				DCEEAA6A264BED9F00A64D37 /* GroupViewController.swift in Sources */,
+				DCA589F0265553920033EE63 /* RuleSegue.swift in Sources */,
 				DCA433F6264BA2BD00242617 /* MissionViewController.swift in Sources */,
 				DC913CE3264C144400C18251 /* SectionView.swift in Sources */,
 				DCEEAA73264BEDEC00A64D37 /* AuthViewController.swift in Sources */,
@@ -478,6 +507,7 @@
 				DCD7379F26520B9A00F1DEF8 /* ChoresRecordsViewController.swift in Sources */,
 				DC81364D2650095C003CC6ED /* TagCollectionViewCell.swift in Sources */,
 				DCA433F4264BA2BD00242617 /* SceneDelegate.swift in Sources */,
+				DCA589F326555AD10033EE63 /* FirebaseProvider.swift in Sources */,
 				DCB98A0E264CDF7200A8C794 /* UITableView+Extension.swift in Sources */,
 				DC502A5D26535D6200BEC0C3 /* PublisherViewController.swift in Sources */,
 			);

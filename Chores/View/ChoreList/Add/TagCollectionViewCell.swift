@@ -16,10 +16,7 @@ class TagCollectionViewCell: UICollectionViewCell {
   override func awakeFromNib() {
     super.awakeFromNib()
     
-    contentView.backgroundColor = .beigeEBDDCE
-    
-    contentView.layer.cornerRadius = 5
-    
+    initialCell()
   }
   
   // 利用 dic 的特質 取到key，就可以叫出對應的 value
@@ -28,7 +25,7 @@ class TagCollectionViewCell: UICollectionViewCell {
     choresLabel.text = tagItem
     
     // 如果有找到對應的 tagItem 就會將 item 的 value(圖片的名字)存進 imageName
-    if let imageName = Chores.item[tagItem] {
+    if let imageName = ChoresImages.imageNames[tagItem] {
       
       choresImage.image = UIImage(named: imageName)
       
@@ -36,6 +33,15 @@ class TagCollectionViewCell: UICollectionViewCell {
       // 如果沒有找到對應的 item，image 會改成你預設的圖片
        choresImage.image = UIImage(named: "WalkDog")
     }
+  }
+  
+  func initialCell() {
+    
+    contentView.backgroundColor = .beigeEBDDCE
+    
+    contentView.layer.borderWidth = 0
+    
+    contentView.layer.cornerRadius = 5
   }
 
 }

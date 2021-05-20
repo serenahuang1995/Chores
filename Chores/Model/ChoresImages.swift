@@ -1,5 +1,5 @@
 //
-//  ChoresItem.swift
+//  ChoresImages.swift
 //  Chores
 //
 //  Created by 黃瀞萱 on 2021/5/18.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct Chores {
+struct ChoresImages {
   
-  static let item: [String: String] = [
+  static let imageNames: [String: String] = [
     "洗碗": "WashDishes",
     "洗衣服": "WashClothes",
     "晾衣服": "DryClothes",
