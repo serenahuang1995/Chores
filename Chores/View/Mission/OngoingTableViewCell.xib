@@ -45,6 +45,9 @@
                                     <constraint firstAttribute="width" constant="25" id="TIr-UZ-WOj"/>
                                 </constraints>
                                 <state key="normal" image="clipboard"/>
+                                <connections>
+                                    <action selector="clickToFinishTask:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="FAs-4X-Xgg"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lBO-Uh-W6G">
                                 <rect key="frame" x="329" y="30" width="25" height="25"/>
@@ -82,7 +85,12 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
+                <outlet property="changeOwnerButton" destination="lBO-Uh-W6G" id="33R-hb-q0b"/>
+                <outlet property="choreImage" destination="KuO-Zr-V9D" id="gOY-IJ-KF1"/>
+                <outlet property="choreItemLabel" destination="MPK-ck-rwB" id="sfL-IY-vyD"/>
+                <outlet property="finishTaskButton" destination="vrm-n7-eCc" id="QT5-iH-fDb"/>
                 <outlet property="ongoingCell" destination="bV5-4D-r0J" id="hut-5S-CbF"/>
+                <outlet property="ownerLabel" destination="5A7-IO-gln" id="kQ8-Oq-VJy"/>
             </connections>
             <point key="canvasLocation" x="8.6956521739130448" y="113.83928571428571"/>
         </tableViewCell>

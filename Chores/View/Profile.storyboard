@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="280"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hZJ-85-2uF" userLabel="Indicator View">
-                                        <rect key="frame" x="222.5" y="277" width="103.5" height="3"/>
+                                        <rect key="frame" x="52" y="277" width="103.5" height="3"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="3" id="i22-Fc-bMY"/>
@@ -117,10 +117,10 @@
                                     <constraint firstItem="obb-dL-7h8" firstAttribute="centerY" secondItem="rXi-uL-Cpb" secondAttribute="centerY" id="18w-Zx-Cz5"/>
                                     <constraint firstItem="yt8-Yu-sP6" firstAttribute="top" secondItem="rXi-uL-Cpb" secondAttribute="bottom" constant="10" id="3EN-l9-Isf"/>
                                     <constraint firstItem="PJH-5l-fzR" firstAttribute="leading" secondItem="aC3-gf-Xyn" secondAttribute="trailing" constant="20" id="4a1-L9-HJ1"/>
+                                    <constraint firstItem="hZJ-85-2uF" firstAttribute="centerX" secondItem="dVa-Kk-6Hv" secondAttribute="centerX" id="4tz-Jr-mZA"/>
                                     <constraint firstItem="rXi-uL-Cpb" firstAttribute="leading" secondItem="PJH-5l-fzR" secondAttribute="leading" id="7hJ-8w-sXI"/>
                                     <constraint firstAttribute="bottom" secondItem="hZJ-85-2uF" secondAttribute="bottom" id="EKZ-ka-99d"/>
                                     <constraint firstItem="PJH-5l-fzR" firstAttribute="top" secondItem="LxF-QI-LOa" secondAttribute="top" constant="99" id="G3z-zc-wDa"/>
-                                    <constraint firstItem="hZJ-85-2uF" firstAttribute="trailing" secondItem="obb-dL-7h8" secondAttribute="trailing" id="G9A-Xz-jOD"/>
                                     <constraint firstItem="bcz-8E-O7j" firstAttribute="leading" secondItem="LxF-QI-LOa" secondAttribute="leading" id="M5f-Rk-h57"/>
                                     <constraint firstItem="rXi-uL-Cpb" firstAttribute="top" secondItem="PJH-5l-fzR" secondAttribute="bottom" constant="10" id="Rju-U5-bWX"/>
                                     <constraint firstItem="aC3-gf-Xyn" firstAttribute="leading" secondItem="LxF-QI-LOa" secondAttribute="leading" constant="30" id="VGG-zr-vQn"/>
@@ -172,6 +172,9 @@
                         <outlet property="dataContainerView" destination="zcM-cf-l7v" id="wc4-Hc-rid"/>
                         <outlet property="indicatorView" destination="hZJ-85-2uF" id="kmk-93-ypP"/>
                         <outlet property="recordsContainerView" destination="Xb7-Zc-ZNF" id="wEj-5i-CIy"/>
+                        <outlet property="totalPointsLabel" destination="rXi-uL-Cpb" id="PFu-M0-PgU"/>
+                        <outlet property="userNameLabel" destination="PJH-5l-fzR" id="oFO-Uf-qfb"/>
+                        <outlet property="weekHoursLabel" destination="yt8-Yu-sP6" id="15n-oy-awK"/>
                         <outletCollection property="switchButtons" destination="dVa-Kk-6Hv" collectionClass="NSMutableArray" id="gPN-xb-C7o"/>
                         <outletCollection property="switchButtons" destination="PYN-2l-LXC" collectionClass="NSMutableArray" id="1ZZ-It-4X8"/>
                     </connections>

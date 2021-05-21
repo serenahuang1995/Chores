@@ -53,6 +53,5 @@ extension ChoresRecordsViewController: UITableViewDataSource {
     guard let recordsCell = cell as? RecordsTableViewCell else { return cell }
     return recordsCell
   }
-  
 
 }

@@ -45,6 +45,9 @@
                                     <constraint firstAttribute="width" constant="25" id="gjI-lx-UQg"/>
                                 </constraints>
                                 <state key="normal" image="goal"/>
+                                <connections>
+                                    <action selector="clickToAcceptTask:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="tHI-vT-O3W"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -69,10 +72,11 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="acceptTaskButton" destination="V6S-0Q-EQH" id="Y2k-qj-dpo"/>
                 <outlet property="cellView" destination="eQi-UT-o98" id="rfm-Zu-f9o"/>
                 <outlet property="choreImage" destination="ugN-H3-f94" id="cOu-at-yUc"/>
-                <outlet property="choreItem" destination="11I-bQ-nEk" id="Gc5-8e-kSG"/>
-                <outlet property="expectedPoints" destination="K3N-vo-vDc" id="wcc-3j-87k"/>
+                <outlet property="choreItemLabel" destination="11I-bQ-nEk" id="Gc5-8e-kSG"/>
+                <outlet property="expectedPointsLabel" destination="K3N-vo-vDc" id="wcc-3j-87k"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="75"/>
         </tableViewCell>

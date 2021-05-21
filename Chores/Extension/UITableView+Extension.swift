@@ -30,6 +30,17 @@ extension UITableViewCell {
 
     return String(describing: self)
   }
+  
+  func getIndexPath() -> IndexPath? {
+
+    guard let tableView = superview as? UITableView else { return nil }
+
+    let indexPath = tableView.indexPath(for: self)
+
+    return indexPath
+    
+  }
+  
 }
 
 extension UITableViewHeaderFooterView {

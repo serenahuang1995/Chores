@@ -13,16 +13,13 @@ class UnclaimedCellView: UITableViewCell {
 
   @IBOutlet weak var choreImage: UIImageView!
   
-  @IBOutlet weak var choreItem: UILabel!
+  @IBOutlet weak var choreItemLabel: UILabel!
   
+  @IBOutlet weak var expectedPointsLabel: UILabel!
   
-  @IBOutlet weak var expectedPoints: UILabel!
+  @IBOutlet weak var acceptTaskButton: UIButton!
   
-  override func layoutSubviews() {
-
-//    self.cellView.addDashdeBorderLayer(byView: cellView, color: .black, lineWidth: 1)
-
-  }
+  weak var delegate: MissionCellDelegate?
 
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -35,18 +32,46 @@ class UnclaimedCellView: UITableViewCell {
     super.setSelected(selected, animated: animated)
 
   }
+  
+  @IBAction func clickToAcceptTask(_ sender: Any) {
+    
+    if let index = getIndexPath()?.row {
+      
+      self.delegate?.clickButtonInCell(get: index)
+
+    }
+
+  }
+  
 
   func setUpCellStyle() {
     
     selectionStyle = .none
     
     cellView.backgroundColor = .beigeEBDDCE
-//    separatorInset = .zero
-  }
 
+  }
+  
+  func layoutCell(chores: Chores) {
+    
+    choreItemLabel.text = chores.item
+    
+    expectedPointsLabel.text = "可獲得 \(chores.points) 點"
+
+      if let imageName = ChoresImages.imageNames[chores.item] {
+        
+        choreImage.image = UIImage(named: imageName)
+        
+      } else {
+
+        choreImage.image = UIImage(named: "WalkDog")
+      }
+      
+  }
+  
 }
 
-//extension CardView {
+// extension CardView {
 //
 //  func addDashdeBorderLayer (byView view: UIView, color: UIColor, lineWidth width: CGFloat) {
 //  let shapeLayer = CAShapeLayer()

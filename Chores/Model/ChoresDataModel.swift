@@ -31,17 +31,17 @@ struct Chores: Codable {
   
   var status: Int
   
-  var dictTransfor: [String: Any] {
-    
-    return [
-      "id": id as Any,
-      "item": item as Any,
-      "points": points as Any,
-      "hours": hours as Any,
-      "owner": owner?.dictTransfor,
-      "status": status as Any
-    ]
-  }
+//  var dictTransfor: [String: Any] {
+//    
+//    return [
+//      "id": id as Any,
+//      "item": item as Any,
+//      "points": points as Any,
+//      "hours": hours as Any,
+//      "owner": owner?.dictTransfor,
+//      "status": status as Any
+//    ]
+//  }
   
 }
 
@@ -59,7 +59,7 @@ struct User: Codable {
   
   var totalHours: Int
   
-  var groupID: String
+  var groupId: String
   
   var dictTransfor: [String: Any] {
     return [
@@ -69,7 +69,7 @@ struct User: Codable {
       "points": points as Any,
       "weekHours": weekHours as Any,
       "totalHours": totalHours as Any,
-      "groupID": groupID as Any
+      "groupId": groupId as Any
     ]
   }
 

@@ -28,7 +28,7 @@ class FirebaseProvider {
   
   let groups = "groups"
   
-  let user = "user"
+  let users = "users"
   
   let chores = "chores"
   
@@ -40,17 +40,25 @@ class FirebaseProvider {
     
     data.id = document.documentID
     
-    document.setData(data.dictTransfor) { error in
-
-      if let error = error {
-
-          completion(.failure(error))
-
-      } else {
-
-        completion(.success("Success"))
+    do {
+      
+      try document.setData(from: data) { error in
         
+        if let error = error {
+          
+          completion(.failure(error))
+          
+        } else {
+          
+          completion(.success("Success"))
+          
+        }
       }
+      
+    } catch {
+      
+      completion(.failure(error))
+      
     }
 
   }
@@ -59,11 +67,12 @@ class FirebaseProvider {
     
     let docRefernce = database.collection(groups).document("XW1OPQRPZig550EXPDQG").collection(chores)
       
-    docRefernce.getDocuments() { (querySnapshot, error) in
+    docRefernce.getDocuments() { querySnapshot, error in
           
               if let error = error {
                   
                   completion(.failure(error))
+                
               } else {
                   
                   var chores = [Chores]()
@@ -78,7 +87,7 @@ class FirebaseProvider {
                       } catch {
                           
                           completion(.failure(error))
-//                            completion(.failure(FirebaseError.documentError))
+
                       }
                   }
                   
@@ -89,6 +98,42 @@ class FirebaseProvider {
   
   func listenDataInstantly() {
     
+  }
+  
+  func fetchUserData(completion: @escaping (Result<User, Error>) -> Void) {
+    
+    let docRefernce = database.collection(users)
+      
+    docRefernce.getDocuments() { querySnapshot, error in
+          
+              if let error = error {
+                  
+                  completion(.failure(error))
+                
+              } else {
+                  
+                  
+                  for document in querySnapshot!.documents {
+
+                      do {
+                        
+                        let user = try document.data(as: User.self, decoder: Firestore.Decoder())
+                        
+                        if let user = user {
+      
+                          completion(.success(user))
+
+                        }
+                          
+                      } catch {
+                          
+                          completion(.failure(error))
+
+                      }
+                  }
+                  
+              }
+      }
   }
   
 }

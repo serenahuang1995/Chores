@@ -7,11 +7,9 @@
 
 import UIKit
 
-private enum SectionTitle: String {
-
-  case unclaimed = "待接受任務"
+protocol MissionCellDelegate: AnyObject {
   
-  case ongoing = "任務現正進行中"
+  func clickButtonInCell(get index: Int)
   
 }
 
@@ -51,13 +49,15 @@ class MissionViewController: UIViewController {
       switch result {
       
       case .success(let chores):
-        print(chores)
+
         self.allChoreList = chores
+        
         self.undoList = self.allChoreList.filter { $0.owner == nil }
+        
         self.doingList = self.allChoreList.filter { $0.owner != nil }
         
       case .failure(let error):
-      print(error)
+        print(error)
         
       }
       
@@ -84,7 +84,9 @@ class MissionViewController: UIViewController {
   }
   
   @objc func tapAddButton() {
+    
     performSegue(withIdentifier: "AddChores", sender: nil)
+    
   }
 
   private func setUpTableView() {
@@ -146,23 +148,27 @@ extension MissionViewController: UITableViewDataSource {
     // 調整section 0 的top constraint 跟 height
     if section == 0 {
       
-      sectionView.sectionTitle.text = SectionTitle.unclaimed.rawValue
+      sectionView.layoutUnclaimedSection()
       
-      sectionView.cardView.translatesAutoresizingMaskIntoConstraints = false
-      
-      NSLayoutConstraint.activate([
-        sectionView.cardView.topAnchor.constraint(equalTo: sectionView.topAnchor, constant: 150)
-      ])
+//      sectionView.sectionTitle.text = SectionTitle.unclaimed.rawValue
+//
+//      sectionView.cardView.translatesAutoresizingMaskIntoConstraints = false
+//
+//      NSLayoutConstraint.activate([
+//        sectionView.cardView.topAnchor.constraint(equalTo: sectionView.topAnchor, constant: 150)
+//      ])
       
     } else {
       
-      sectionView.sectionTitle.text = SectionTitle.ongoing.rawValue
-
-      sectionView.cardView.translatesAutoresizingMaskIntoConstraints = false
+      sectionView.layoutOngoingSection()
       
-      NSLayoutConstraint.activate([
-        sectionView.cardView.topAnchor.constraint(equalTo: sectionView.topAnchor, constant: 10)
-      ])
+//      sectionView.sectionTitle.text = SectionTitle.ongoing.rawValue
+//
+//      sectionView.cardView.translatesAutoresizingMaskIntoConstraints = false
+//      
+//      NSLayoutConstraint.activate([
+//        sectionView.cardView.topAnchor.constraint(equalTo: sectionView.topAnchor, constant: 10)
+//      ])
       
     }
     
@@ -176,19 +182,30 @@ extension MissionViewController: UITableViewDataSource {
     
   }
   
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  func tableView(_ tableView: UITableView,
+                 numberOfRowsInSection section: Int) -> Int {
+    
     // true 的時候會依照不同 Section 去抓要顯示幾個 Row
     if self.isExpandedList[section] {
-
-      return allChoreList.count
       
+      if section == 0 {
+        
+        return undoList.count
+        
+      } else {
+        
+        return doingList.count
+        
+      }
+
     }
     
     return 0
     
   }
   
-  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+  func tableView(_ tableView: UITableView,
+                 cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
     let index = indexPath.row
     
@@ -203,9 +220,7 @@ extension MissionViewController: UITableViewDataSource {
       
       unclaimedCell.setUpCellStyle()
       
-      unclaimedCell.choreItem.text = undoList[index].item
-      
-      unclaimedCell.expectedPoints.text = "可獲得 \(undoList[index].points) 點"
+      unclaimedCell.layoutCell(chores: undoList[index])
       
       return unclaimedCell
       
@@ -213,12 +228,17 @@ extension MissionViewController: UITableViewDataSource {
       let cell = tableView.dequeueReusableCell(
         withIdentifier: String(describing: OngoingTableViewCell.self),
         for: indexPath)
+      
       guard let ongoingCell = cell as? OngoingTableViewCell else { return cell }
+      
       ongoingCell.setUpCellStyle()
+      
       return ongoingCell
       
     default:
+      
       return UITableViewCell()
+      
     }
     
   }
@@ -226,8 +246,11 @@ extension MissionViewController: UITableViewDataSource {
 }
 
 extension MissionViewController: SectionViewDelegate {
+  
   func showMoreItem(_ section: SectionView, _ didPressTag: Int, _ isExpanded: Bool) {
+    
     isExpandedList[didPressTag] = !isExpanded
+    
     tableView.reloadSections(IndexSet(integer: didPressTag), with: .automatic)
     
   }

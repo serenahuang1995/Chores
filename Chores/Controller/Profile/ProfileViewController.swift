@@ -25,10 +25,20 @@ class ProfileViewController: UIViewController {
     
   }
   
+  @IBOutlet weak var userNameLabel: UILabel!
+  
+  @IBOutlet weak var totalPointsLabel: UILabel!
+  
+  @IBOutlet weak var weekHoursLabel: UILabel!
+  
   @IBOutlet weak var indicatorView: UIView! {
+
     didSet {
+
       indicatorView.backgroundColor = .orangeE89E21
+
     }
+
   }
   
   @IBOutlet weak var dataContainerView: UIView!
@@ -48,6 +58,25 @@ class ProfileViewController: UIViewController {
     
     updateContainerView(type: .records)
     
+    FirebaseProvider.shared.fetchUserData { result in
+
+      switch result {
+
+      case .success(let user):
+        print(user)
+
+        self.userNameLabel.text = user.name
+        self.totalPointsLabel.text = "累積點數：\(user.points)"
+        self.weekHoursLabel.text = "本週時數：\(user.weekHours) / 50"
+
+      case .failure(let error):
+
+        print(error)
+
+      }
+
+    }
+
   }
 
   override func viewDidLayoutSubviews() {
@@ -70,7 +99,9 @@ class ProfileViewController: UIViewController {
 
     default:
       return
+      
     }
+    
   }
 
   @IBAction func clickSwitchButton(_ sender: UIButton) {
@@ -78,6 +109,7 @@ class ProfileViewController: UIViewController {
     for btn in switchButtons {
 
       btn.isSelected = false
+      
     }
 
     sender.isSelected = true
@@ -94,6 +126,7 @@ class ProfileViewController: UIViewController {
 
     UIView.animate(withDuration: 0.3) {
       self.indicatorView.center.x = self.switchButtons[sender.tag].center.x
+      
     }
   }
 

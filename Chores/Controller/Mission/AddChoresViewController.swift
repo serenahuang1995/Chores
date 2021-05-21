@@ -40,11 +40,11 @@ class AddChoresViewController: UIViewController {
     
   }
 
-  @IBOutlet weak var pointResult: UITextField! {
+  @IBOutlet weak var pointResultTextField: UITextField! {
 
     didSet {
           
-      pointResult.delegate = self
+      pointResultTextField.delegate = self
       
     }
   }
@@ -139,35 +139,12 @@ extension AddChoresViewController: UICollectionViewDelegate {
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
       
-//      let cell = collectionView.cellForItem(at: indexPath)
-//
-//      guard let selectedCell = cell as? TagCollectionViewCell else { return }
-//
-//      selectedCell.contentView.layer.borderColor = UIColor.black.cgColor
-//
-//      selectedCell.contentView.backgroundColor = .orangeFBDAA0
-//
-//      selectedCell.contentView.layer.borderWidth = 1
-//
-//      selectedCell.contentView.layer.cornerRadius = 5
-
+      // 只會單純紀錄當下點到哪一個cell
       selectedIndex = indexPath.row
     
       collectionView.reloadData()
 
   }
-
-//  func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-//
-//    let cell = collectionView.cellForItem(at: indexPath)
-//
-//    guard let deSelectedCell = cell as? TagCollectionViewCell else { return }
-//
-//    selectedIndex = nil
-//
-//    deSelectedCell.initialCell()
-//
-//  }
   
 }
 
@@ -182,25 +159,20 @@ extension AddChoresViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView,
                       cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     
+    let index = indexPath.row
+    
     let cell = collectionView.dequeueReusableCell(
       withReuseIdentifier: String(describing: TagCollectionViewCell.self),
       for: indexPath)
     
     guard let tagCell = cell as? TagCollectionViewCell else { return cell }
     
-    let index = indexPath.row
-    
     tagCell.layoutCell(tagItem: tagItemList[index])
     
+    // 真正儲存你點到的cell 然後去對他做事
     if index == selectedIndex {
 
-      tagCell.contentView.layer.borderColor = UIColor.black.cgColor
-
-      tagCell.contentView.backgroundColor = .orangeFBDAA0
-
-      tagCell.contentView.layer.borderWidth = 1
-
-      tagCell.contentView.layer.cornerRadius = 5
+      tagCell.selectedCell()
 
     } else {
 
@@ -209,6 +181,7 @@ extension AddChoresViewController: UICollectionViewDataSource {
     }
 
     return tagCell
+    
   }
   
 }
@@ -246,13 +219,13 @@ extension AddChoresViewController: UITextFieldDelegate {
     
     time = timeTextField.text
   
-    point = pointResult.text
+    point = pointResultTextField.text
     
   }
 
   func textFieldDidChangeSelection(_ textField: UITextField) {
 
-    pointResult.text = timeTextField.text
+    pointResultTextField.text = timeTextField.text
 
   }
 }

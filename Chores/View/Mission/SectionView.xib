@@ -74,8 +74,8 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="cardView" destination="dvT-13-swg" id="MQ8-XB-11c"/>
-                <outlet property="sectionTitle" destination="kYY-ww-2yz" id="1jt-bP-mEd"/>
-                <outlet property="showMoreItemBtn" destination="vWH-Lr-HpE" id="hZB-QX-HQU"/>
+                <outlet property="sectionTitleLabel" destination="kYY-ww-2yz" id="1jt-bP-mEd"/>
+                <outlet property="showMoreItemButton" destination="vWH-Lr-HpE" id="hZB-QX-HQU"/>
             </connections>
             <point key="canvasLocation" x="140.57971014492756" y="135.26785714285714"/>
         </tableViewCell>

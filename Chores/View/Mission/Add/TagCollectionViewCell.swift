@@ -9,29 +9,28 @@ import UIKit
 
 class TagCollectionViewCell: UICollectionViewCell {
   
-  @IBOutlet weak var choresImage: UIImageView!
+  @IBOutlet weak var choreImage: UIImageView!
   
-  @IBOutlet weak var choresLabel: UILabel!
+  @IBOutlet weak var choreTagLabel: UILabel!
   
   override func awakeFromNib() {
     super.awakeFromNib()
-    
-    initialCell()
+
   }
   
   // 利用 dic 的特質 取到key，就可以叫出對應的 value
   func layoutCell(tagItem: String) {
     
-    choresLabel.text = tagItem
+    choreTagLabel.text = tagItem
     
     // 如果有找到對應的 tagItem 就會將 item 的 value(圖片的名字)存進 imageName
     if let imageName = ChoresImages.imageNames[tagItem] {
       
-      choresImage.image = UIImage(named: imageName)
+      choreImage.image = UIImage(named: imageName)
       
     } else {
       // 如果沒有找到對應的 item，image 會改成你預設的圖片
-       choresImage.image = UIImage(named: "WalkDog")
+       choreImage.image = UIImage(named: "WalkDog")
     }
   }
   
@@ -42,6 +41,18 @@ class TagCollectionViewCell: UICollectionViewCell {
     contentView.layer.borderWidth = 0
     
     contentView.layer.cornerRadius = 5
+  }
+  
+  func selectedCell() {
+    
+    contentView.layer.borderColor = UIColor.black.cgColor
+
+    contentView.backgroundColor = .orangeFBDAA0
+
+    contentView.layer.borderWidth = 1
+
+    contentView.layer.cornerRadius = 5
+    
   }
 
 }

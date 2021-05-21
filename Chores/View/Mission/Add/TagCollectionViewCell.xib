@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -42,8 +41,8 @@
                 <constraint firstItem="3Uo-xA-87E" firstAttribute="top" secondItem="D67-it-cWL" secondAttribute="bottom" constant="8" id="z4q-fh-rGL"/>
             </constraints>
             <connections>
-                <outlet property="choresImage" destination="D67-it-cWL" id="1Sr-cc-Vgu"/>
-                <outlet property="choresLabel" destination="3Uo-xA-87E" id="9BC-W5-RHB"/>
+                <outlet property="choreImage" destination="D67-it-cWL" id="1Sr-cc-Vgu"/>
+                <outlet property="choreTagLabel" destination="3Uo-xA-87E" id="9BC-W5-RHB"/>
             </connections>
             <point key="canvasLocation" x="31.884057971014496" y="63.616071428571423"/>
         </collectionViewCell>
