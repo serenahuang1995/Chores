@@ -6,7 +6,8 @@
 //
 
 import Foundation
-import FirebaseFirestore
+import Firebase
+import FirebaseFirestoreSwift
 
 enum FirebaseError: Error {
     case firebaseError
@@ -32,11 +33,13 @@ class FirebaseProvider {
   let chores = "chores"
   
   // struct has no reference，為了要修改原本 struct 的值 必須加inout
-  //這時 func 丟進來的 Chores 跟與本的 Chores 是不同 reference
-  func addChores(data: inout Chores, completion: @escaping (Result<String, Error>) -> Void) {
+  // 這時 func 丟進來的 Chores 跟與本的 Chores 是不同 reference
+  func addToDoChoreData(data: inout Chores, completion: @escaping (Result<String, Error>) -> Void) {
 
     let document = database.collection(groups).document("XW1OPQRPZig550EXPDQG").collection(chores).document()
+    
     data.id = document.documentID
+    
     document.setData(data.dictTransfor) { error in
 
       if let error = error {
@@ -45,26 +48,43 @@ class FirebaseProvider {
 
       } else {
 
-          completion(.success("Success"))
+        completion(.success("Success"))
+        
       }
-  }
+    }
 
   }
   
-//  func addChores(data: inout Chores) {
-//
-//    let document = database.collection(chores).document()
-//    data.id = document.documentID
-//    document.setData(data.dictTransfor)
-//
-//  }
-  
-  func readData() {
+  func fetchChoresData(completion: @escaping (Result<[Chores], Error>) -> Void) {
     
-  }
-  
-  func fetchData() {
-    
+    let docRefernce = database.collection(groups).document("XW1OPQRPZig550EXPDQG").collection(chores)
+      
+    docRefernce.getDocuments() { (querySnapshot, error) in
+          
+              if let error = error {
+                  
+                  completion(.failure(error))
+              } else {
+                  
+                  var chores = [Chores]()
+                  
+                  for document in querySnapshot!.documents {
+
+                      do {
+                          if let chore = try document.data(as: Chores.self, decoder: Firestore.Decoder()) {
+                            chores.append(chore)
+                          }
+                          
+                      } catch {
+                          
+                          completion(.failure(error))
+//                            completion(.failure(FirebaseError.documentError))
+                      }
+                  }
+                  
+                  completion(.success(chores))
+              }
+      }
   }
   
   func listenDataInstantly() {

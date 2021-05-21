@@ -23,9 +23,9 @@ struct Chores: Codable {
   
   var item: String
   
-  var point: Int
+  var points: Int
   
-  var hour: Int
+  var hours: Int
   
   var owner: User?
   
@@ -36,8 +36,8 @@ struct Chores: Codable {
     return [
       "id": id as Any,
       "item": item as Any,
-      "point": point as Any,
-      "hour": hour as Any,
+      "points": points as Any,
+      "hours": hours as Any,
       "owner": owner?.dictTransfor,
       "status": status as Any
     ]
@@ -53,7 +53,7 @@ struct User: Codable {
   
   var picture: String
   
-  var point: Int
+  var points: Int
   
   var weekHours: Int
   
@@ -66,7 +66,7 @@ struct User: Codable {
       "id": id as Any,
       "name": name as Any,
       "picture": picture as Any,
-      "point": point as Any,
+      "points": points as Any,
       "weekHours": weekHours as Any,
       "totalHours": totalHours as Any,
       "groupID": groupID as Any

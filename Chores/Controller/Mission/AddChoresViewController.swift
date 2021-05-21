@@ -41,6 +41,7 @@ class AddChoresViewController: UIViewController {
   }
 
   @IBOutlet weak var pointResult: UITextField! {
+
     didSet {
           
       pointResult.delegate = self
@@ -74,9 +75,7 @@ class AddChoresViewController: UIViewController {
     super.viewDidLoad()
 
   }
-  
 
-  
   override func viewWillAppear(_ animated: Bool) {
     
     navigationController?.isNavigationBarHidden = true
@@ -106,12 +105,12 @@ class AddChoresViewController: UIViewController {
     var data = Chores(
       id: nil,
       item: tagItemList[selectedIndex],
-      point: Int(point) ?? 0,
-      hour: Int(time) ?? 0,
+      points: Int(point) ?? 0,
+      hours: Int(time) ?? 0,
       owner: owner,
       status: status)
   
-    FirebaseProvider.shared.addChores(data: &data) { result in
+    FirebaseProvider.shared.addToDoChoreData(data: &data) { result in
       
       switch result {
       
@@ -140,31 +139,35 @@ extension AddChoresViewController: UICollectionViewDelegate {
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
       
-      let cell = collectionView.cellForItem(at: indexPath)
-      
-      guard let selectedCell = cell as? TagCollectionViewCell else { return }
-      
-      selectedCell.contentView.layer.borderColor = UIColor.black.cgColor
-      
-      selectedCell.contentView.backgroundColor = .orangeFBDAA0
-      
-      selectedCell.contentView.layer.borderWidth = 1
-    
-      selectedCell.contentView.layer.cornerRadius = 5
+//      let cell = collectionView.cellForItem(at: indexPath)
+//
+//      guard let selectedCell = cell as? TagCollectionViewCell else { return }
+//
+//      selectedCell.contentView.layer.borderColor = UIColor.black.cgColor
+//
+//      selectedCell.contentView.backgroundColor = .orangeFBDAA0
+//
+//      selectedCell.contentView.layer.borderWidth = 1
+//
+//      selectedCell.contentView.layer.cornerRadius = 5
 
       selectedIndex = indexPath.row
+    
+      collectionView.reloadData()
 
   }
 
-  func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-    
-    let cell = collectionView.cellForItem(at: indexPath)
-    
-    guard let deSelectedCell = cell as? TagCollectionViewCell else { return }
-    
-    deSelectedCell.initialCell()
-    
-  }
+//  func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+//
+//    let cell = collectionView.cellForItem(at: indexPath)
+//
+//    guard let deSelectedCell = cell as? TagCollectionViewCell else { return }
+//
+//    selectedIndex = nil
+//
+//    deSelectedCell.initialCell()
+//
+//  }
   
 }
 
@@ -185,8 +188,26 @@ extension AddChoresViewController: UICollectionViewDataSource {
     
     guard let tagCell = cell as? TagCollectionViewCell else { return cell }
     
-    tagCell.layoutCell(tagItem: tagItemList[indexPath.row])
+    let index = indexPath.row
     
+    tagCell.layoutCell(tagItem: tagItemList[index])
+    
+    if index == selectedIndex {
+
+      tagCell.contentView.layer.borderColor = UIColor.black.cgColor
+
+      tagCell.contentView.backgroundColor = .orangeFBDAA0
+
+      tagCell.contentView.layer.borderWidth = 1
+
+      tagCell.contentView.layer.cornerRadius = 5
+
+    } else {
+
+      tagCell.initialCell()
+
+    }
+
     return tagCell
   }
   
@@ -228,6 +249,7 @@ extension AddChoresViewController: UITextFieldDelegate {
     point = pointResult.text
     
   }
+
   func textFieldDidChangeSelection(_ textField: UITextField) {
 
     pointResult.text = timeTextField.text

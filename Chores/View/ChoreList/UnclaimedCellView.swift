@@ -11,6 +11,13 @@ class UnclaimedCellView: UITableViewCell {
 
   @IBOutlet weak var cellView: CardView!
 
+  @IBOutlet weak var choreImage: UIImageView!
+  
+  @IBOutlet weak var choreItem: UILabel!
+  
+  
+  @IBOutlet weak var expectedPoints: UILabel!
+  
   override func layoutSubviews() {
 
 //    self.cellView.addDashdeBorderLayer(byView: cellView, color: .black, lineWidth: 1)
@@ -18,7 +25,6 @@ class UnclaimedCellView: UITableViewCell {
   }
 
   override func awakeFromNib() {
-    
     super.awakeFromNib()
 
     setUpCellStyle()
@@ -31,7 +37,9 @@ class UnclaimedCellView: UITableViewCell {
   }
 
   func setUpCellStyle() {
+    
     selectionStyle = .none
+    
     cellView.backgroundColor = .beigeEBDDCE
 //    separatorInset = .zero
   }

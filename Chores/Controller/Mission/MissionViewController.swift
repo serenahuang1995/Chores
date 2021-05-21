@@ -7,11 +7,16 @@
 
 import UIKit
 
+private enum SectionTitle: String {
+
+  case unclaimed = "待接受任務"
+  
+  case ongoing = "任務現正進行中"
+  
+}
+
 class MissionViewController: UIViewController {
-  
-  // 記錄每個 Section 的狀態，預設false
-  var isExpandedList: [Bool] = [false, false]
-  
+
   @IBOutlet weak var tableView: UITableView! {
     
     didSet {
@@ -26,19 +31,48 @@ class MissionViewController: UIViewController {
     
   }
   
+  // 記錄每個 Section 的狀態，預設false
+  var isExpandedList: [Bool] = [false, false]
+
+  var allChoreList: [Chores] = []
+  
+  var undoList: [Chores] = []
+  
+  var doingList: [Chores] = []
+
   override func viewDidLoad() {
 
     super.viewDidLoad()
     
     resetNavigationBarButton()
+    
+    FirebaseProvider.shared.fetchChoresData { result in
+      
+      switch result {
+      
+      case .success(let chores):
+        print(chores)
+        self.allChoreList = chores
+        self.undoList = self.allChoreList.filter { $0.owner == nil }
+        self.doingList = self.allChoreList.filter { $0.owner != nil }
+        
+      case .failure(let error):
+      print(error)
+        
+      }
+      
+    }
 
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    
     _ = segue.destination as? AddChoresViewController
+    
   }
 
   private func resetNavigationBarButton() {
+    
     let backButton = UIBarButtonItem(
       image: UIImage.asset(.Icon32px_AddChores),
       style: .plain,
@@ -46,6 +80,7 @@ class MissionViewController: UIViewController {
       action: #selector(tapAddButton))
     
     self.navigationItem.rightBarButtonItem = backButton
+    
   }
   
   @objc func tapAddButton() {
@@ -71,14 +106,21 @@ class MissionViewController: UIViewController {
 
 extension MissionViewController: UITableViewDelegate {
   
-  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+  func tableView(_ tableView: UITableView,
+                 heightForHeaderInSection section: Int) -> CGFloat {
+    
     if section == 0 {
+      
       return 300
+      
     }
+    
     return 160
+    
   }
   
-  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+  func tableView(_ tableView: UITableView,
+                 heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 110
   }
   
@@ -86,55 +128,85 @@ extension MissionViewController: UITableViewDelegate {
 
 extension MissionViewController: UITableViewDataSource {
   
-  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+  func tableView(_ tableView: UITableView,
+                 viewForHeaderInSection section: Int) -> UIView? {
+    
     let header = tableView.dequeueReusableHeaderFooterView(
       withIdentifier: String(describing: SectionView.self)
     )
+    
     guard let sectionView = header as? SectionView else { return header }
     
     sectionView.isExpanded = self.isExpandedList[section]
+    
     sectionView.buttonTag = section
+    
     sectionView.delegate = self
     
     // 調整section 0 的top constraint 跟 height
     if section == 0 {
+      
+      sectionView.sectionTitle.text = SectionTitle.unclaimed.rawValue
+      
       sectionView.cardView.translatesAutoresizingMaskIntoConstraints = false
+      
       NSLayoutConstraint.activate([
         sectionView.cardView.topAnchor.constraint(equalTo: sectionView.topAnchor, constant: 150)
       ])
       
     } else {
+      
+      sectionView.sectionTitle.text = SectionTitle.ongoing.rawValue
+
       sectionView.cardView.translatesAutoresizingMaskIntoConstraints = false
+      
       NSLayoutConstraint.activate([
         sectionView.cardView.topAnchor.constraint(equalTo: sectionView.topAnchor, constant: 10)
       ])
       
     }
+    
     return sectionView
+    
   }
-  
+
   func numberOfSections(in tableView: UITableView) -> Int {
+    
     return isExpandedList.count
+    
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     // true 的時候會依照不同 Section 去抓要顯示幾個 Row
     if self.isExpandedList[section] {
+
+      return allChoreList.count
       
-      return 5
     }
     
     return 0
+    
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    
+    let index = indexPath.row
+    
     switch indexPath.section {
+    
     case 0:
       let cell = tableView.dequeueReusableCell(
         withIdentifier: String(describing: UnclaimedCellView.self),
         for: indexPath)
+      
       guard let unclaimedCell = cell as? UnclaimedCellView else { return cell }
+      
       unclaimedCell.setUpCellStyle()
+      
+      unclaimedCell.choreItem.text = undoList[index].item
+      
+      unclaimedCell.expectedPoints.text = "可獲得 \(undoList[index].points) 點"
+      
       return unclaimedCell
       
     case 1:

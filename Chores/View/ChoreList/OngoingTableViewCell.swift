@@ -12,7 +12,6 @@ class OngoingTableViewCell: UITableViewCell {
   @IBOutlet weak var ongoingCell: CardView!
   
   override func awakeFromNib() {
-    
     super.awakeFromNib()
     
     ongoingCell.backgroundColor = .beigeEBDDCE

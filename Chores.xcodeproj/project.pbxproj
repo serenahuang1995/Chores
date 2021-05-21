@@ -220,9 +220,9 @@
 		DCEEAA33264BCCA200A64D37 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DCBB10202653F9AA00A8C1E4 /* ChoresImages.swift */,
 				DCA589F226555AD10033EE63 /* FirebaseProvider.swift */,
 				DC1DB8DA26552BAB00F89E5A /* ChoresDataModel.swift */,
+				DCBB10202653F9AA00A8C1E4 /* ChoresImages.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
