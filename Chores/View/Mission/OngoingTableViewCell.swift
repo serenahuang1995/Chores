@@ -39,7 +39,7 @@ class OngoingTableViewCell: UITableViewCell {
   
   @IBAction func clickToFinishTask(_ sender: Any) {
     if let index = getIndexPath()?.row {
-      self.delegate?.clickButtonInCell(get: index)
+      self.delegate?.clickButtonToAccept(get: index)
     }
   }
   
@@ -55,9 +55,11 @@ class OngoingTableViewCell: UITableViewCell {
 
   func layoutCell(chores: Chores) {
     
+    ownerLabel.text = chores.owner
+    
     choreItemLabel.text = chores.item
 
-      if let imageName = ChoresImages.imageNames[chores.item] {
+      if let imageName = ChoreImages.imageNames[chores.item] {
         
         choreImage.image = UIImage(named: imageName)
         

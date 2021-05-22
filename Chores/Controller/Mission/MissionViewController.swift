@@ -9,7 +9,7 @@ import UIKit
 
 protocol MissionCellDelegate: AnyObject {
   
-  func clickButtonInCell(get index: Int)
+  func clickButtonToAccept(get index: Int)
   
 }
 
@@ -44,24 +44,7 @@ class MissionViewController: UIViewController {
     
     resetNavigationBarButton()
     
-    FirebaseProvider.shared.fetchChoresData { result in
-      
-      switch result {
-      
-      case .success(let chores):
-
-        self.allChoreList = chores
-        
-        self.undoList = self.allChoreList.filter { $0.owner == nil }
-        
-        self.doingList = self.allChoreList.filter { $0.owner != nil }
-        
-      case .failure(let error):
-        print(error)
-        
-      }
-      
-    }
+    reload()
 
   }
   
@@ -102,6 +85,29 @@ class MissionViewController: UIViewController {
     tableView.registerCellWithNib(
       identifier: String(describing: OngoingTableViewCell.self), bundle: nil)
     
+  }
+  
+  func reload() {
+    FirebaseProvider.shared.fetchChoresData { result in
+      
+      switch result {
+      
+      case .success(let chores):
+
+        self.allChoreList = chores
+        
+        self.undoList = self.allChoreList.filter { $0.owner == nil }
+        
+        self.doingList = self.allChoreList.filter { $0.owner != nil }
+        
+        self.tableView.reloadData()
+        
+      case .failure(let error):
+        print(error)
+        
+      }
+      
+    }
   }
 
 }
@@ -150,25 +156,9 @@ extension MissionViewController: UITableViewDataSource {
       
       sectionView.layoutUnclaimedSection()
       
-//      sectionView.sectionTitle.text = SectionTitle.unclaimed.rawValue
-//
-//      sectionView.cardView.translatesAutoresizingMaskIntoConstraints = false
-//
-//      NSLayoutConstraint.activate([
-//        sectionView.cardView.topAnchor.constraint(equalTo: sectionView.topAnchor, constant: 150)
-//      ])
-      
     } else {
       
       sectionView.layoutOngoingSection()
-      
-//      sectionView.sectionTitle.text = SectionTitle.ongoing.rawValue
-//
-//      sectionView.cardView.translatesAutoresizingMaskIntoConstraints = false
-//      
-//      NSLayoutConstraint.activate([
-//        sectionView.cardView.topAnchor.constraint(equalTo: sectionView.topAnchor, constant: 10)
-//      ])
       
     }
     
@@ -218,6 +208,8 @@ extension MissionViewController: UITableViewDataSource {
       
       guard let unclaimedCell = cell as? UnclaimedCellView else { return cell }
       
+      unclaimedCell.delegate = self
+      
       unclaimedCell.setUpCellStyle()
       
       unclaimedCell.layoutCell(chores: undoList[index])
@@ -232,6 +224,8 @@ extension MissionViewController: UITableViewDataSource {
       guard let ongoingCell = cell as? OngoingTableViewCell else { return cell }
       
       ongoingCell.setUpCellStyle()
+      
+      ongoingCell.layoutCell(chores: doingList[index])
       
       return ongoingCell
       
@@ -253,6 +247,24 @@ extension MissionViewController: SectionViewDelegate {
     
     tableView.reloadSections(IndexSet(integer: didPressTag), with: .automatic)
     
+  }
+  
+}
+
+extension MissionViewController: MissionCellDelegate {
+  func clickButtonToAccept(get index: Int) {
+    
+    FirebaseProvider.shared.update(selectedChore: undoList[index]) { result in
+      
+      switch result {
+      case .success(let _):
+        print("Success")
+        self.reload()
+      case .failure(let error):
+        print(error)
+      }
+      
+    }
   }
   
 }

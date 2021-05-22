@@ -19,7 +19,7 @@ struct Group: Codable {
 
 struct Chores: Codable {
   
-  var id: String?
+  var id: String
   
   var item: String
   
@@ -27,7 +27,7 @@ struct Chores: Codable {
   
   var hours: Int
   
-  var owner: User?
+  var owner: String?
   
   var status: Int
   

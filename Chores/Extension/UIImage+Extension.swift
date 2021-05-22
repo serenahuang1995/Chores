@@ -23,7 +23,7 @@ enum ImageAsset: String {
   
   case Icon32px_AddChores
   
-  case cleaner
+  case CustomChore
 }
 
 // swiftlint:enable identifier_name

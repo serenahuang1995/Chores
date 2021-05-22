@@ -51,8 +51,8 @@ class AddChoresViewController: UIViewController {
 
   // 到時候每個家庭一進去 發現家事是空的 就會幫它寫進去14個
   var tagItemList: [String] = [
-    "洗碗", "洗衣服", "晾衣服", "摺衣服", "燙衣服", "倒垃圾", "刷廁所", "澆花", "遛狗",
-    "收納", "接送", "帶小孩", "煮飯", "買菜", "掃地", "拖地", "吸地", "吃飯"] {
+    "洗碗", "洗衣服", "晾衣服", "摺衣服", "燙衣服" , "煮飯", "買菜", "掃地", "拖地", "吸地", "倒垃圾", "刷廁所", "擦窗戶", "修繕", "澆花", "遛狗", "收納", "接送", "帶小孩", "吃飯"] {
+    
     didSet {
       
       collectionView.reloadData()
@@ -61,7 +61,7 @@ class AddChoresViewController: UIViewController {
     
   }
 
-  var owner: User? = nil
+  var owner: String? = nil
   
   var status: Int = 0
   
@@ -103,7 +103,7 @@ class AddChoresViewController: UIViewController {
     guard let time = time, let point = point, let selectedIndex = selectedIndex else { return }
 
     var data = Chores(
-      id: nil,
+      id: "",
       item: tagItemList[selectedIndex],
       points: Int(point) ?? 0,
       hours: Int(time) ?? 0,

@@ -37,12 +37,11 @@ class UnclaimedCellView: UITableViewCell {
     
     if let index = getIndexPath()?.row {
       
-      self.delegate?.clickButtonInCell(get: index)
+      self.delegate?.clickButtonToAccept(get: index)
 
     }
 
   }
-  
 
   func setUpCellStyle() {
     
@@ -58,7 +57,7 @@ class UnclaimedCellView: UITableViewCell {
     
     expectedPointsLabel.text = "可獲得 \(chores.points) 點"
 
-      if let imageName = ChoresImages.imageNames[chores.item] {
+      if let imageName = ChoreImages.imageNames[chores.item] {
         
         choreImage.image = UIImage(named: imageName)
         
