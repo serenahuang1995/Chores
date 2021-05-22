@@ -10,15 +10,25 @@ import UIKit
 class ChoresRecordsViewController: UIViewController {
 
   @IBOutlet weak var tableView: UITableView! {
+    
     didSet {
+      
       setUpTableView()
+      
       tableView.delegate = self
+      
       tableView.dataSource = self
+      
     }
+    
   }
 
+  var finishChores: [Chore] = []
+  
   override func viewDidLoad() {
         super.viewDidLoad()
+    
+    fetch()
 
     }
 
@@ -33,6 +43,20 @@ class ChoresRecordsViewController: UIViewController {
     
   }
   
+  func fetch() {
+    FirebaseProvider.shared.listenRecords { result in
+      
+      switch result {
+      
+      case .success(let chores):
+        self.finishChores = chores
+      case .failure(let error):
+        print(error)
+      }
+      
+    }
+        
+}
 }
 
 extension ChoresRecordsViewController: UITableViewDelegate {
@@ -43,14 +67,18 @@ extension ChoresRecordsViewController: UITableViewDelegate {
 
 extension ChoresRecordsViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 5
+    return finishChores.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    
     let cell = tableView.dequeueReusableCell(
       withIdentifier: String(describing: RecordsTableViewCell.self),
       for: indexPath)
+    
     guard let recordsCell = cell as? RecordsTableViewCell else { return cell }
+    
+    
     return recordsCell
   }
 

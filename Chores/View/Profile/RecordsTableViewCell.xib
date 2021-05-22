@@ -70,6 +70,8 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="choreImage" destination="aXF-Vj-uHE" id="vQd-0x-OSj"/>
+                <outlet property="choreItem" destination="x7g-p9-Cv4" id="EbM-hu-O4r"/>
                 <outlet property="recordView" destination="3IE-E7-WS3" id="6Be-w2-4Cx"/>
             </connections>
             <point key="canvasLocation" x="75" y="70"/>

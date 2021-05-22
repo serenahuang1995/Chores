@@ -32,11 +32,11 @@ class MissionViewController: UIViewController {
   // 記錄每個 Section 的狀態，預設false
   var isExpandedList: [Bool] = [false, false]
 
-  var allChoreList: [Chores] = []
+  var allChoreList: [Chore] = []
   
-  var undoList: [Chores] = []
+  var undoList: [Chore] = []
   
-  var doingList: [Chores] = []
+  var doingList: [Chore] = []
 
   override func viewDidLoad() {
 
@@ -44,7 +44,8 @@ class MissionViewController: UIViewController {
     
     resetNavigationBarButton()
     
-    reload()
+//    reload()
+    listenImmediately()
 
   }
   
@@ -87,13 +88,38 @@ class MissionViewController: UIViewController {
     
   }
   
-  func reload() {
-    FirebaseProvider.shared.fetchChoresData { result in
+//  func reload() {
+//    FirebaseProvider.shared.fetchChoresData { result in
+//
+//      switch result {
+//
+//      case .success(let chores):
+//
+//        self.allChoreList = chores
+//
+//        self.undoList = self.allChoreList.filter { $0.owner == nil }
+//
+//        self.doingList = self.allChoreList.filter { $0.owner != nil }
+//
+//        self.tableView.reloadData()
+//
+//      case .failure(let error):
+//
+//        print(error)
+//
+//      }
+//
+//    }
+//  }
+  
+  func listenImmediately() {
+    
+    FirebaseProvider.shared.listenChores { result in
       
       switch result {
       
       case .success(let chores):
-
+        
         self.allChoreList = chores
         
         self.undoList = self.allChoreList.filter { $0.owner == nil }
@@ -103,13 +129,12 @@ class MissionViewController: UIViewController {
         self.tableView.reloadData()
         
       case .failure(let error):
+        
         print(error)
         
       }
-      
     }
   }
-
 }
 
 extension MissionViewController: UITableViewDelegate {
@@ -252,19 +277,24 @@ extension MissionViewController: SectionViewDelegate {
 }
 
 extension MissionViewController: MissionCellDelegate {
+  
   func clickButtonToAccept(get index: Int) {
     
     FirebaseProvider.shared.update(selectedChore: undoList[index]) { result in
       
       switch result {
-      case .success(let _):
-        print("Success")
-        self.reload()
+      
+      case .success(let success):
+        print(success)
+      //        self.reload()
+      
       case .failure(let error):
         print(error)
+        
       }
       
     }
+    
   }
   
 }

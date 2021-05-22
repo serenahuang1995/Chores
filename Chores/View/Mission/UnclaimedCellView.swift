@@ -51,7 +51,7 @@ class UnclaimedCellView: UITableViewCell {
 
   }
   
-  func layoutCell(chores: Chores) {
+  func layoutCell(chores: Chore) {
     
     choreItemLabel.text = chores.item
     

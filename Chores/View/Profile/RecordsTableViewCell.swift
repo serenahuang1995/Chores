@@ -11,6 +11,15 @@ class RecordsTableViewCell: UITableViewCell {
 
   @IBOutlet weak var recordView: CardView!
   
+  
+  @IBOutlet weak var choreImage: UIImageView!
+  
+  
+  @IBOutlet weak var choreItem: UILabel!
+  
+  
+  
+  
   override func awakeFromNib() {
         super.awakeFromNib()
     
@@ -22,5 +31,9 @@ class RecordsTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
     }
+  
+//  func layoutCell(chores:) {
+//    
+//  }
     
 }

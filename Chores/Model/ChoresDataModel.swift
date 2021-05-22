@@ -11,13 +11,13 @@ struct Group: Codable {
   
   var groupID: String
   
-  var chores: Chores
+  var chores: Chore
   
   var choresItem: [String]
   
 }
 
-struct Chores: Codable {
+struct Chore: Codable {
   
   var id: String
   

@@ -53,7 +53,7 @@ class OngoingTableViewCell: UITableViewCell {
 
   }
 
-  func layoutCell(chores: Chores) {
+  func layoutCell(chores: Chore) {
     
     ownerLabel.text = chores.owner
     
@@ -65,7 +65,7 @@ class OngoingTableViewCell: UITableViewCell {
         
       } else {
 
-        choreImage.image = UIImage(named: "WalkDog")
+        choreImage.image = UIImage.asset(.CustomChore)
       }
       
   }

@@ -102,7 +102,7 @@ class AddChoresViewController: UIViewController {
     
     guard let time = time, let point = point, let selectedIndex = selectedIndex else { return }
 
-    var data = Chores(
+    var data = Chore(
       id: "",
       item: tagItemList[selectedIndex],
       points: Int(point) ?? 0,
