@@ -1,5 +1,5 @@
 //
-//  UnclaimedCellView.swift
+//  UnclaimedTableViewCell.swift
 //  Chores
 //
 //  Created by 黃瀞萱 on 2021/5/13.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UnclaimedCellView: UITableViewCell {
+class UnclaimedTableViewCell: UITableViewCell {
 
   @IBOutlet weak var cellView: CardView!
 
@@ -37,7 +37,7 @@ class UnclaimedCellView: UITableViewCell {
     
     if let index = getIndexPath()?.row {
       
-      self.delegate?.clickButtonToAccept(get: index)
+      self.delegate?.clickButtonToAccept(at: index)
 
     }
 
@@ -51,19 +51,20 @@ class UnclaimedCellView: UITableViewCell {
 
   }
   
-  func layoutCell(chores: Chore) {
+  func layoutCell(chore: Chore) {
     
-    choreItemLabel.text = chores.item
+    choreItemLabel.text = chore.item
     
-    expectedPointsLabel.text = "可獲得 \(chores.points) 點"
+    expectedPointsLabel.text = "可獲得 \(chore.points) 點"
 
-      if let imageName = ChoreImages.imageNames[chores.item] {
+      if let imageName = ChoreImages.imageNames[chore.item] {
         
         choreImage.image = UIImage(named: imageName)
         
       } else {
 
-        choreImage.image = UIImage(named: "WalkDog")
+        choreImage.image = UIImage.asset(.CustomChore)
+        
       }
       
   }

@@ -9,7 +9,9 @@ import UIKit
 
 protocol MissionCellDelegate: AnyObject {
   
-  func clickButtonToAccept(get index: Int)
+  func clickButtonToAccept(at index: Int)
+  
+  func clickButtonToFinish(at index: Int)
   
 }
 
@@ -81,7 +83,7 @@ class MissionViewController: UIViewController {
       identifier: String(describing: SectionView.self), bundle: nil)
     
     tableView.registerCellWithNib(
-      identifier: String(describing: UnclaimedCellView.self), bundle: nil)
+      identifier: String(describing: UnclaimedTableViewCellView.self), bundle: nil)
     
     tableView.registerCellWithNib(
       identifier: String(describing: OngoingTableViewCell.self), bundle: nil)
@@ -228,10 +230,10 @@ extension MissionViewController: UITableViewDataSource {
     
     case 0:
       let cell = tableView.dequeueReusableCell(
-        withIdentifier: String(describing: UnclaimedCellView.self),
+        withIdentifier: String(describing: UnclaimedTableViewCellView.self),
         for: indexPath)
       
-      guard let unclaimedCell = cell as? UnclaimedCellView else { return cell }
+      guard let unclaimedCell = cell as? UnclaimedTableViewCellView else { return cell }
       
       unclaimedCell.delegate = self
       
@@ -247,6 +249,8 @@ extension MissionViewController: UITableViewDataSource {
         for: indexPath)
       
       guard let ongoingCell = cell as? OngoingTableViewCell else { return cell }
+      
+      ongoingCell.delegate = self
       
       ongoingCell.setUpCellStyle()
       
@@ -277,10 +281,10 @@ extension MissionViewController: SectionViewDelegate {
 }
 
 extension MissionViewController: MissionCellDelegate {
-  
-  func clickButtonToAccept(get index: Int) {
+
+  func clickButtonToAccept(at index: Int) {
     
-    FirebaseProvider.shared.update(selectedChore: undoList[index]) { result in
+    FirebaseProvider.shared.updateOwner(selectedChore: undoList[index]) { result in
       
       switch result {
       
@@ -295,6 +299,23 @@ extension MissionViewController: MissionCellDelegate {
       
     }
     
+  }
+  
+  func clickButtonToFinish(at index: Int) {
+    
+    FirebaseProvider.shared.updateStatus(selectedChore: doingList[index]) { result in
+      
+      switch result {
+      
+      case .success(let success):
+        print(success)
+      
+      case .failure(let error):
+        print(error)
+        
+      }
+      
+    }
   }
   
 }

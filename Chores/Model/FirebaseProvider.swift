@@ -9,16 +9,16 @@ import Foundation
 import Firebase
 import FirebaseFirestoreSwift
 
-enum FirebaseError: Error {
-    case firebaseError
-}
+//enum FirebaseError: Error {
+//    case firebaseError
+//}
 
-enum FirebaseReference {
-    
-    case collection(CollectionReference)
-    
-    case document(DocumentReference)
-}
+//enum FirebaseReference {
+//    
+//    case collection(CollectionReference)
+//    
+//    case document(DocumentReference)
+//}
 
 class FirebaseProvider {
   
@@ -62,45 +62,22 @@ class FirebaseProvider {
     }
 
   }
-  
-  func fetchChoresData(completion: @escaping (Result<[Chore], Error>) -> Void) {
-    
-    let document = database.collection(groups).document("XW1OPQRPZig550EXPDQG").collection(chores)
-      
-    document.getDocuments() { querySnapshot, error in
-          
-              if let error = error {
-                  
-                  completion(.failure(error))
-                
-              } else {
-                  
-                  var chores = [Chore]()
-                  
-                  for document in querySnapshot!.documents {
 
-                      do {
-                          if let chore = try document.data(as: Chore.self, decoder: Firestore.Decoder()) {
-                            chores.append(chore)
-                          }
-                          
-                      } catch {
-                          
-                          completion(.failure(error))
-
-                      }
-                  }
-                  
-                  completion(.success(chores))
-              }
-      }
-  }
-  
-  func update(selectedChore: Chore, completion: @escaping (Result<String, Error>) -> Void) {
+  func updateOwner(selectedChore: Chore, completion: @escaping (Result<String, Error>) -> Void) {
     
     let document = database.collection(groups).document("XW1OPQRPZig550EXPDQG").collection(chores).document(selectedChore.id)
     
-    document.updateData(["owner": "XC6b6Ys1VY1qLcBJ5M8z"])
+    document.updateData(["owner": UserProvider.shared.user.name])
+    
+    completion(.success("Success"))
+    
+  }
+  
+  func updateStatus(selectedChore: Chore, completion: @escaping (Result<String, Error>) -> Void) {
+    
+    let document = database.collection(groups).document("XW1OPQRPZig550EXPDQG").collection(chores).document(selectedChore.id)
+    
+    document.updateData(["status": 1])
     
     completion(.success("Success"))
     
@@ -127,19 +104,19 @@ class FirebaseProvider {
         })
         
         completion(.success(choresList))
-        
+
       }
-      
+
     }
-    
+
   }
   
   func listenRecords(completion: @escaping (Result<[Chore], Error>) -> Void) {
     
-    let document = database.collection(groups).document("XW1OPQRPZig550EXPDQG").collection(chores).whereField("status", isEqualTo: 1)
+    let document = database.collection(groups).document("XW1OPQRPZig550EXPDQG").collection(chores).whereField("status", isEqualTo: 1).whereField("owner", isEqualTo: UserProvider.shared.user.name)
     
     document.addSnapshotListener { querySnapshot, error in
-      
+
       if let error = error {
         
         completion(.failure(error))
@@ -196,49 +173,37 @@ class FirebaseProvider {
     }
   }
   
-  func fetchFinishChores(completion: @escaping (Result<[Chore], Error>) -> Void) {
-    
-    let document = database.collection(groups).document("XW1OPQRPZig550EXPDQG").collection(chores)
-    
-    document.order(by: "owner").order(by: "status").start(at: ["XC6b6Ys1VY1qLcBJ5M8z", "1"]).getDocuments { querySnapshot, error in
-      
-      if let error = error {
-          
-          completion(.failure(error))
-        
-      } else {
-          
-          var chores = [Chore]()
-          
-          for document in querySnapshot!.documents {
+//  func fetchChoresData(completion: @escaping (Result<[Chore], Error>) -> Void) {
+//
+//    let document = database.collection(groups).document("XW1OPQRPZig550EXPDQG").collection(chores)
+//
+//    document.getDocuments() { querySnapshot, error in
+//
+//              if let error = error {
+//
+//                  completion(.failure(error))
+//
+//              } else {
+//
+//                  var chores = [Chore]()
+//
+//                  for document in querySnapshot!.documents {
+//
+//                      do {
+//                          if let chore = try document.data(as: Chore.self, decoder: Firestore.Decoder()) {
+//                            chores.append(chore)
+//                          }
+//
+//                      } catch {
+//
+//                          completion(.failure(error))
+//
+//                      }
+//                  }
+//
+//                  completion(.success(chores))
+//              }
+//      }
+//  }
 
-              do {
-                  if let chore = try document.data(as: Chore.self, decoder: Firestore.Decoder()) {
-                    chores.append(chore)
-                  }
-                  
-              } catch {
-                  
-                  completion(.failure(error))
-
-              }
-          }
-          
-          completion(.success(chores))
-      }
-}
-    
-    
-    
-    
-    
-  }
-  
-  
-  
-  
-  
-  
-  
-  
 }

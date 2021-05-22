@@ -32,8 +32,21 @@ class RecordsTableViewCell: UITableViewCell {
 
     }
   
-//  func layoutCell(chores:) {
-//    
-//  }
+  func layoutCell(chore: Chore) {
+    
+    choreItem.text = chore.item
+    
+    
+    if let imageName = ChoreImages.imageNames[chore.item] {
+      
+      choreImage.image = UIImage(named: imageName)
+      
+    } else {
+
+      choreImage.image = UIImage.asset(.CustomChore)
+      
+    }
+    
+  }
     
 }

@@ -38,12 +38,14 @@ class OngoingTableViewCell: UITableViewCell {
   }
   
   @IBAction func clickToFinishTask(_ sender: Any) {
+    
     if let index = getIndexPath()?.row {
-      self.delegate?.clickButtonToAccept(get: index)
+      
+      self.delegate?.clickButtonToFinish(at: index)
+      
     }
+    
   }
-  
-  
 
   func setUpCellStyle() {
     
@@ -53,13 +55,13 @@ class OngoingTableViewCell: UITableViewCell {
 
   }
 
-  func layoutCell(chores: Chore) {
+  func layoutCell(chore: Chore) {
     
-    ownerLabel.text = chores.owner
+    ownerLabel.text = chore.owner
     
-    choreItemLabel.text = chores.item
+    choreItemLabel.text = chore.item
 
-      if let imageName = ChoreImages.imageNames[chores.item] {
+      if let imageName = ChoreImages.imageNames[chore.item] {
         
         choreImage.image = UIImage(named: imageName)
         
