@@ -9,11 +9,11 @@ import Foundation
 
 struct Group: Codable {
   
-  var groupID: String
+  var id: String
   
   var chores: Chore
   
-  var choresItem: [String]
+  var choreItems: [String]
   
 }
 

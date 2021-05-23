@@ -10,16 +10,11 @@ import UIKit
 class RecordsTableViewCell: UITableViewCell {
 
   @IBOutlet weak var recordView: CardView!
-  
-  
+
   @IBOutlet weak var choreImage: UIImageView!
-  
-  
+
   @IBOutlet weak var choreItem: UILabel!
-  
-  
-  
-  
+
   override func awakeFromNib() {
         super.awakeFromNib()
     
@@ -34,9 +29,8 @@ class RecordsTableViewCell: UITableViewCell {
   
   func layoutCell(chore: Chore) {
     
-    choreItem.text = chore.item
-    
-    
+    choreItem.text = "總共完成 \(chore.item)"
+
     if let imageName = ChoreImages.imageNames[chore.item] {
       
       choreImage.image = UIImage(named: imageName)

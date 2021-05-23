@@ -34,11 +34,11 @@ class MissionViewController: UIViewController {
   // 記錄每個 Section 的狀態，預設false
   var isExpandedList: [Bool] = [false, false]
 
-  var allChoreList: [Chore] = []
+  var allChores: [Chore] = []
   
-  var undoList: [Chore] = []
+  var unclaimedChores: [Chore] = []
   
-  var doingList: [Chore] = []
+  var ongoingChores: [Chore] = []
 
   override func viewDidLoad() {
 
@@ -83,7 +83,7 @@ class MissionViewController: UIViewController {
       identifier: String(describing: SectionView.self), bundle: nil)
     
     tableView.registerCellWithNib(
-      identifier: String(describing: UnclaimedTableViewCellView.self), bundle: nil)
+      identifier: String(describing: UnclaimedTableViewCell.self), bundle: nil)
     
     tableView.registerCellWithNib(
       identifier: String(describing: OngoingTableViewCell.self), bundle: nil)
@@ -122,11 +122,11 @@ class MissionViewController: UIViewController {
       
       case .success(let chores):
         
-        self.allChoreList = chores
+        self.allChores = chores
         
-        self.undoList = self.allChoreList.filter { $0.owner == nil }
+        self.unclaimedChores = self.allChores.filter { $0.owner == nil }
         
-        self.doingList = self.allChoreList.filter { $0.owner != nil }
+        self.ongoingChores = self.allChores.filter { $0.owner != nil }
         
         self.tableView.reloadData()
         
@@ -207,11 +207,11 @@ extension MissionViewController: UITableViewDataSource {
       
       if section == 0 {
         
-        return undoList.count
+        return unclaimedChores.count
         
       } else {
         
-        return doingList.count
+        return ongoingChores.count
         
       }
 
@@ -230,16 +230,16 @@ extension MissionViewController: UITableViewDataSource {
     
     case 0:
       let cell = tableView.dequeueReusableCell(
-        withIdentifier: String(describing: UnclaimedTableViewCellView.self),
+        withIdentifier: String(describing: UnclaimedTableViewCell.self),
         for: indexPath)
       
-      guard let unclaimedCell = cell as? UnclaimedTableViewCellView else { return cell }
+      guard let unclaimedCell = cell as? UnclaimedTableViewCell else { return cell }
       
       unclaimedCell.delegate = self
       
       unclaimedCell.setUpCellStyle()
       
-      unclaimedCell.layoutCell(chores: undoList[index])
+      unclaimedCell.layoutCell(chore: unclaimedChores[index])
       
       return unclaimedCell
       
@@ -254,7 +254,7 @@ extension MissionViewController: UITableViewDataSource {
       
       ongoingCell.setUpCellStyle()
       
-      ongoingCell.layoutCell(chores: doingList[index])
+      ongoingCell.layoutCell(chore: ongoingChores[index])
       
       return ongoingCell
       
@@ -284,7 +284,7 @@ extension MissionViewController: MissionCellDelegate {
 
   func clickButtonToAccept(at index: Int) {
     
-    FirebaseProvider.shared.updateOwner(selectedChore: undoList[index]) { result in
+    FirebaseProvider.shared.updateOwner(selectedChore: unclaimedChores[index]) { result in
       
       switch result {
       
@@ -303,7 +303,7 @@ extension MissionViewController: MissionCellDelegate {
   
   func clickButtonToFinish(at index: Int) {
     
-    FirebaseProvider.shared.updateStatus(selectedChore: doingList[index]) { result in
+    FirebaseProvider.shared.updateStatus(selectedChore: ongoingChores[index]) { result in
       
       switch result {
       

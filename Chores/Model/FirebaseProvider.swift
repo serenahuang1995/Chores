@@ -9,16 +9,16 @@ import Foundation
 import Firebase
 import FirebaseFirestoreSwift
 
-//enum FirebaseError: Error {
+// enum FirebaseError: Error {
 //    case firebaseError
-//}
+// }
 
-//enum FirebaseReference {
+// enum FirebaseReference {
 //    
 //    case collection(CollectionReference)
 //    
 //    case document(DocumentReference)
-//}
+// }
 
 class FirebaseProvider {
   
@@ -36,13 +36,13 @@ class FirebaseProvider {
   // 這時 func 丟進來的 Chores 跟與本的 Chores 是不同 reference
   func addToDoChoreData(data: inout Chore, completion: @escaping (Result<String, Error>) -> Void) {
 
-    let document = database.collection(groups).document("XW1OPQRPZig550EXPDQG").collection(chores).document()
+    let docRefernce = database.collection(groups).document("XW1OPQRPZig550EXPDQG").collection(chores).document()
     
-    data.id = document.documentID
+    data.id = docRefernce.documentID
     
     do {
       
-      try document.setData(from: data) { error in
+      try docRefernce.setData(from: data) { error in
         
         if let error = error {
           
@@ -65,9 +65,9 @@ class FirebaseProvider {
 
   func updateOwner(selectedChore: Chore, completion: @escaping (Result<String, Error>) -> Void) {
     
-    let document = database.collection(groups).document("XW1OPQRPZig550EXPDQG").collection(chores).document(selectedChore.id)
+    let docRefernce = database.collection(groups).document("XW1OPQRPZig550EXPDQG").collection(chores).document(selectedChore.id)
     
-    document.updateData(["owner": UserProvider.shared.user.name])
+    docRefernce.updateData(["owner": UserProvider.shared.user.name])
     
     completion(.success("Success"))
     
@@ -75,9 +75,9 @@ class FirebaseProvider {
   
   func updateStatus(selectedChore: Chore, completion: @escaping (Result<String, Error>) -> Void) {
     
-    let document = database.collection(groups).document("XW1OPQRPZig550EXPDQG").collection(chores).document(selectedChore.id)
+    let docRefernce = database.collection(groups).document("XW1OPQRPZig550EXPDQG").collection(chores).document(selectedChore.id)
     
-    document.updateData(["status": 1])
+    docRefernce.updateData(["status": 1])
     
     completion(.success("Success"))
     
@@ -85,9 +85,9 @@ class FirebaseProvider {
   
   func listenChores(completion: @escaping (Result<[Chore], Error>) -> Void) {
     
-    let document = database.collection(groups).document("XW1OPQRPZig550EXPDQG").collection(chores).whereField("status", isEqualTo: 0)
+    let docRefernce = database.collection(groups).document("XW1OPQRPZig550EXPDQG").collection(chores).whereField("status", isEqualTo: 0)
     
-    document.addSnapshotListener { querySnapshot, error in
+    docRefernce.addSnapshotListener { querySnapshot, error in
       
       if let error = error {
         
@@ -113,9 +113,9 @@ class FirebaseProvider {
   
   func listenRecords(completion: @escaping (Result<[Chore], Error>) -> Void) {
     
-    let document = database.collection(groups).document("XW1OPQRPZig550EXPDQG").collection(chores).whereField("status", isEqualTo: 1).whereField("owner", isEqualTo: UserProvider.shared.user.name)
+    let docRefernce = database.collection(groups).document("XW1OPQRPZig550EXPDQG").collection(chores).whereField("status", isEqualTo: 1).whereField("owner", isEqualTo: UserProvider.shared.user.name)
     
-    document.addSnapshotListener { querySnapshot, error in
+    docRefernce.addSnapshotListener { querySnapshot, error in
 
       if let error = error {
         
@@ -143,7 +143,7 @@ class FirebaseProvider {
     
     let docRefernce = database.collection(users)
     
-    docRefernce.getDocuments() { querySnapshot, error in
+    docRefernce.getDocuments () { querySnapshot, error in
       
       if let error = error {
         
