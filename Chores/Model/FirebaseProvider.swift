@@ -32,17 +32,22 @@ class FirebaseProvider {
   
   let chores = "chores"
   
+  let user = UserProvider.shared.user
+  
   // struct has no reference，為了要修改原本 struct 的值 必須加inout
   // 這時 func 丟進來的 Chores 跟與本的 Chores 是不同 reference
   func addToDoChoreData(data: inout Chore, completion: @escaping (Result<String, Error>) -> Void) {
 
-    let docRefernce = database.collection(groups).document("XW1OPQRPZig550EXPDQG").collection(chores).document()
+    let docReference = database.collection(groups)
+      .document(user.groupId)
+      .collection(chores)
+      .document()
     
-    data.id = docRefernce.documentID
+    data.id = docReference.documentID
     
     do {
       
-      try docRefernce.setData(from: data) { error in
+      try docReference.setData(from: data) { error in
         
         if let error = error {
           
@@ -65,9 +70,12 @@ class FirebaseProvider {
 
   func updateOwner(selectedChore: Chore, completion: @escaping (Result<String, Error>) -> Void) {
     
-    let docRefernce = database.collection(groups).document("XW1OPQRPZig550EXPDQG").collection(chores).document(selectedChore.id)
+    let docReference = database.collection(groups)
+      .document(user.groupId)
+      .collection(chores)
+      .document(selectedChore.id)
     
-    docRefernce.updateData(["owner": UserProvider.shared.user.name])
+    docReference.updateData(["owner": user.name])
     
     completion(.success("Success"))
     
@@ -75,7 +83,10 @@ class FirebaseProvider {
   
   func updateStatus(selectedChore: Chore, completion: @escaping (Result<String, Error>) -> Void) {
     
-    let docRefernce = database.collection(groups).document("XW1OPQRPZig550EXPDQG").collection(chores).document(selectedChore.id)
+    let docRefernce = database.collection(groups)
+      .document(user.groupId)
+      .collection(chores)
+      .document(selectedChore.id)
     
     docRefernce.updateData(["status": 1])
     
@@ -85,7 +96,10 @@ class FirebaseProvider {
   
   func listenChores(completion: @escaping (Result<[Chore], Error>) -> Void) {
     
-    let docRefernce = database.collection(groups).document("XW1OPQRPZig550EXPDQG").collection(chores).whereField("status", isEqualTo: 0)
+    let docRefernce = database.collection(groups)
+      .document(user.groupId)
+      .collection(chores)
+      .whereField("status", isEqualTo: 0)
     
     docRefernce.addSnapshotListener { querySnapshot, error in
       
@@ -113,9 +127,13 @@ class FirebaseProvider {
   
   func listenRecords(completion: @escaping (Result<[Chore], Error>) -> Void) {
     
-    let docRefernce = database.collection(groups).document("XW1OPQRPZig550EXPDQG").collection(chores).whereField("status", isEqualTo: 1).whereField("owner", isEqualTo: UserProvider.shared.user.name)
+    let docReference = database.collection(groups)
+      .document(user.groupId)
+      .collection(chores)
+      .whereField("status", isEqualTo: 1)
+      .whereField("owner", isEqualTo: user.name)
     
-    docRefernce.addSnapshotListener { querySnapshot, error in
+    docReference.addSnapshotListener { querySnapshot, error in
 
       if let error = error {
         
@@ -134,16 +152,16 @@ class FirebaseProvider {
         completion(.success(choresList))
         
       }
-      
+
     }
-    
+
   }
   
   func fetchUserData(completion: @escaping (Result<User, Error>) -> Void) {
     
-    let docRefernce = database.collection(users)
+    let docReference = database.collection(users)
     
-    docRefernce.getDocuments () { querySnapshot, error in
+    docReference.getDocuments () { querySnapshot, error in
       
       if let error = error {
         

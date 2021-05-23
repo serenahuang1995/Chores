@@ -33,3 +33,5 @@ class RuleViewController: UIViewController {
   }
   
 }
+
+//extension RuleViewController: 

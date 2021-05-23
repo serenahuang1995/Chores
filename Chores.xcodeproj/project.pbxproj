@@ -41,6 +41,8 @@
 		DCB98A12264CF6C100A8C794 /* UnclaimedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC913CF1264CB46E00C18251 /* UnclaimedTableViewCell.xib */; };
 		DCBB101E2653A36600A8C1E4 /* RuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBB101D2653A36600A8C1E4 /* RuleViewController.swift */; };
 		DCBB10212653F9AA00A8C1E4 /* ChoreImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBB10202653F9AA00A8C1E4 /* ChoreImages.swift */; };
+		DCCD761B265A8D2C0004E82B /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCD761A265A8D2C0004E82B /* File.swift */; };
+		DCCD761E265A9BFA0004E82B /* CustomChoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCD761D265A9BFA0004E82B /* CustomChoreViewController.swift */; };
 		DCD7379F26520B9A00F1DEF8 /* ChoresRecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD7379E26520B9A00F1DEF8 /* ChoresRecordsViewController.swift */; };
 		DCD737A226520BB300F1DEF8 /* ChoresDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD737A126520BB300F1DEF8 /* ChoresDataViewController.swift */; };
 		DCD737A726520E7200F1DEF8 /* RecordsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD737A526520E7200F1DEF8 /* RecordsTableViewCell.swift */; };
@@ -96,6 +98,8 @@
 		DCB98A0D264CDF7200A8C794 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		DCBB101D2653A36600A8C1E4 /* RuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleViewController.swift; sourceTree = "<group>"; };
 		DCBB10202653F9AA00A8C1E4 /* ChoreImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoreImages.swift; sourceTree = "<group>"; };
+		DCCD761A265A8D2C0004E82B /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		DCCD761D265A9BFA0004E82B /* CustomChoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomChoreViewController.swift; sourceTree = "<group>"; };
 		DCD7379E26520B9A00F1DEF8 /* ChoresRecordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoresRecordsViewController.swift; sourceTree = "<group>"; };
 		DCD737A126520BB300F1DEF8 /* ChoresDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoresDataViewController.swift; sourceTree = "<group>"; };
 		DCD737A526520E7200F1DEF8 /* RecordsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsTableViewCell.swift; sourceTree = "<group>"; };
@@ -202,12 +206,21 @@
 				DCA433F3264BA2BD00242617 /* SceneDelegate.swift */,
 				DCA433FF264BA2C500242617 /* Info.plist */,
 				DC531C99265523D100F3FD4B /* GoogleService-Info.plist */,
+				DCCD7611265A790A0004E82B /* Third Party Wrapper */,
 				DCEEAA36264BCD0600A64D37 /* Extension */,
 				DCEEAA33264BCCA200A64D37 /* Model */,
 				DCEEAA35264BCCD600A64D37 /* View */,
 				DCEEAA34264BCCB400A64D37 /* Controller */,
 			);
 			path = Chores;
+			sourceTree = "<group>";
+		};
+		DCCD7611265A790A0004E82B /* Third Party Wrapper */ = {
+			isa = PBXGroup;
+			children = (
+				DCCD761A265A8D2C0004E82B /* File.swift */,
+			);
+			path = "Third Party Wrapper";
 			sourceTree = "<group>";
 		};
 		DCD737AA26520E7D00F1DEF8 /* Profile */ = {
@@ -294,6 +307,7 @@
 			children = (
 				DCA433F5264BA2BD00242617 /* MissionViewController.swift */,
 				DC203D06264E823C002FADDA /* AddChoresViewController.swift */,
+				DCCD761D265A9BFA0004E82B /* CustomChoreViewController.swift */,
 				DCBB101D2653A36600A8C1E4 /* RuleViewController.swift */,
 				DCA589EF265553920033EE63 /* RuleSegue.swift */,
 			);
@@ -490,8 +504,10 @@
 				DCA433F6264BA2BD00242617 /* MissionViewController.swift in Sources */,
 				DC913CE3264C144400C18251 /* SectionView.swift in Sources */,
 				DCEEAA73264BEDEC00A64D37 /* AuthViewController.swift in Sources */,
+				DCCD761E265A9BFA0004E82B /* CustomChoreViewController.swift in Sources */,
 				DC203D07264E823C002FADDA /* AddChoresViewController.swift in Sources */,
 				DCA433F2264BA2BD00242617 /* AppDelegate.swift in Sources */,
+				DCCD761B265A8D2C0004E82B /* File.swift in Sources */,
 				DC913CEE264C517500C18251 /* NavigationController.swift in Sources */,
 				DC203D00264E6099002FADDA /* OngoingTableViewCell.swift in Sources */,
 				DCD737A726520E7200F1DEF8 /* RecordsTableViewCell.swift in Sources */,

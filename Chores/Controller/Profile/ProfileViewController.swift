@@ -78,6 +78,18 @@ class ProfileViewController: UIViewController {
     }
 
   }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    
+    navigationController?.isNavigationBarHidden = true
+    
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    
+    navigationController?.isNavigationBarHidden = false
+
+  }
 
   override func viewDidLayoutSubviews() {
 
@@ -103,6 +115,21 @@ class ProfileViewController: UIViewController {
     }
     
   }
+  
+//  @IBAction func clickConsumptionButton(_ sender: UIButton) {
+//    let storyboard : UIStoryboard = .profile
+//    let popupVC = storyboard.instantiateViewController(identifier: "publisher")
+//    popupVC.modalPresentationStyle = .overCurrentContext
+//    popupVC.modalTransitionStyle = .crossDissolve
+//
+//    let pVC = popupVC.popoverPresentationController
+//    pVC?.permittedArrowDirections = .any
+//    pVC?.delegate = self
+//    pVC?.sourceView = sender
+//    present(popupVC, animated: true, completion: nil)
+//  }
+  
+  
 
   @IBAction func clickSwitchButton(_ sender: UIButton) {
 

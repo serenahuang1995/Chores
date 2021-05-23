@@ -88,11 +88,15 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XPH-ax-6ea">
-                                <rect key="frame" x="320" y="175.5" width="62" height="30"/>
-                                <state key="normal" title="自訂家事">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XPH-ax-6ea">
+                                <rect key="frame" x="292" y="181.5" width="90" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="自訂家事" image="pencil">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
+                                <connections>
+                                    <segue destination="eSj-at-oYo" kind="custom" identifier="111" customClass="MIBlurPopupSegue" customModule="MIBlurPopup" id="J9N-5J-5fw"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="獲得積分" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deT-o1-4gz">
                                 <rect key="frame" x="32" y="653.5" width="69.5" height="21"/>
@@ -211,6 +215,84 @@
             </objects>
             <point key="canvasLocation" x="1886.9565217391305" y="-354.24107142857139"/>
         </scene>
+        <!--Custom Chore View Controller-->
+        <scene sceneID="oxo-ge-KHi">
+            <objects>
+                <viewController modalPresentationStyle="overCurrentContext" id="eSj-at-oYo" customClass="CustomChoreViewController" customModule="Chores" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uXK-cL-vrN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xMt-NQ-f4Q" customClass="CardView" customModule="Chores" customModuleProvider="target">
+                                <rect key="frame" x="32" y="358" width="350" height="180"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UW3-RI-ha3">
+                                        <rect key="frame" x="110" y="124" width="36" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="36" id="1aQ-Bu-iQq"/>
+                                            <constraint firstAttribute="height" constant="36" id="qgS-qS-ZQ6"/>
+                                        </constraints>
+                                        <state key="normal" image="remove"/>
+                                        <connections>
+                                            <action selector="repentToAdd:" destination="eSj-at-oYo" eventType="touchUpInside" id="aVJ-Q8-1QH"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wdc-Kq-Sxc">
+                                        <rect key="frame" x="204" y="124" width="36" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="36" id="3v1-0P-VVf"/>
+                                            <constraint firstAttribute="height" constant="36" id="rsd-ng-MT6"/>
+                                        </constraints>
+                                        <state key="normal" image="Icon32px_Plus"/>
+                                        <connections>
+                                            <action selector="sureToAdd:" destination="eSj-at-oYo" eventType="touchUpInside" id="HRG-Cf-jmx"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="輸入你喜歡的家事" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GhO-oX-1s5">
+                                        <rect key="frame" x="105.5" y="20" width="139" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nea-Qb-mPe">
+                                        <rect key="frame" x="68" y="61" width="214" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="namePhonePad"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="GhO-oX-1s5" firstAttribute="top" secondItem="xMt-NQ-f4Q" secondAttribute="top" constant="20" id="2Ih-Fs-PML"/>
+                                    <constraint firstItem="nea-Qb-mPe" firstAttribute="centerX" secondItem="xMt-NQ-f4Q" secondAttribute="centerX" id="A6b-7W-bqv"/>
+                                    <constraint firstItem="nea-Qb-mPe" firstAttribute="leading" secondItem="xMt-NQ-f4Q" secondAttribute="leading" constant="68" id="BNu-q8-R1W"/>
+                                    <constraint firstAttribute="height" constant="180" id="Jmr-y3-5zP"/>
+                                    <constraint firstItem="UW3-RI-ha3" firstAttribute="leading" secondItem="xMt-NQ-f4Q" secondAttribute="leading" constant="110" id="Vik-T2-A2n"/>
+                                    <constraint firstAttribute="trailing" secondItem="Wdc-Kq-Sxc" secondAttribute="trailing" constant="110" id="dS4-rs-XA9"/>
+                                    <constraint firstAttribute="bottom" secondItem="UW3-RI-ha3" secondAttribute="bottom" constant="20" id="fVh-nE-dOd"/>
+                                    <constraint firstAttribute="bottom" secondItem="Wdc-Kq-Sxc" secondAttribute="bottom" constant="20" id="g5k-Fe-21I"/>
+                                    <constraint firstAttribute="width" constant="350" id="iWl-9u-6QB"/>
+                                    <constraint firstItem="nea-Qb-mPe" firstAttribute="top" secondItem="GhO-oX-1s5" secondAttribute="bottom" constant="20" id="ibz-aB-yMG"/>
+                                    <constraint firstItem="GhO-oX-1s5" firstAttribute="centerX" secondItem="xMt-NQ-f4Q" secondAttribute="centerX" id="p2t-M3-VyE"/>
+                                    <constraint firstAttribute="trailing" secondItem="nea-Qb-mPe" secondAttribute="trailing" constant="68" id="ul1-Zb-6TF"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="9hW-Ja-9w2"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="xMt-NQ-f4Q" firstAttribute="centerX" secondItem="uXK-cL-vrN" secondAttribute="centerX" id="ZHv-1n-FSL"/>
+                            <constraint firstItem="xMt-NQ-f4Q" firstAttribute="centerY" secondItem="uXK-cL-vrN" secondAttribute="centerY" id="zr5-XQ-90P"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="customChoreTextField" destination="nea-Qb-mPe" id="Bey-tv-Y6Z"/>
+                        <outlet property="popView" destination="xMt-NQ-f4Q" id="Qyf-mh-M8B"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YmM-wL-l7T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2622" y="-692"/>
+        </scene>
         <!--Rule View Controller-->
         <scene sceneID="JIn-jW-Gji">
             <objects>
@@ -228,7 +310,7 @@
                                             <constraint firstAttribute="height" constant="30" id="Qm8-MB-HZL"/>
                                             <constraint firstAttribute="width" constant="30" id="dQ8-NR-nLs"/>
                                         </constraints>
-                                        <state key="normal" image="cancel"/>
+                                        <state key="normal" image="remove"/>
                                         <connections>
                                             <action selector="backToAddChoresPage:" destination="a1b-Uc-CbC" eventType="touchUpInside" id="x8S-yP-LvW"/>
                                         </connections>
@@ -400,10 +482,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Icon32px_Plus" width="32" height="32"/>
         <image name="Icon32px_PointRule" width="32" height="32"/>
         <image name="Icon32px_Reminder" width="32" height="32"/>
-        <image name="cancel" width="512" height="512"/>
+        <image name="pencil" width="24" height="24"/>
         <image name="previous" width="512" height="512"/>
+        <image name="remove" width="128" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

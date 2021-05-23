@@ -18,6 +18,6 @@ class UserProvider {
       points: 66666666666,
       weekHours: 666,
       totalHours: 66666666666,
-      groupId: "151house")
+      groupId: "XW1OPQRPZig550EXPDQG")
     
 }

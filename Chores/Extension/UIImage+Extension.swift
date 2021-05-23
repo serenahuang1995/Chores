@@ -19,11 +19,10 @@ enum ImageAsset: String {
   case Icon32px_Profile_Normal
   case Icon32px_Profile_Selected
   
-  case house
-  
   case Icon32px_AddChores
-  
+  case Icon32px_Plus
   case CustomChore
+  
 }
 
 // swiftlint:enable identifier_name

@@ -60,7 +60,7 @@ class MissionViewController: UIViewController {
   private func resetNavigationBarButton() {
     
     let backButton = UIBarButtonItem(
-      image: UIImage.asset(.Icon32px_AddChores),
+      image: UIImage.asset(.Icon32px_Plus),
       style: .plain,
       target: self,
       action: #selector(tapAddButton))

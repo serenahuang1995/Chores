@@ -10,6 +10,8 @@ target 'Chores' do
   pod 'Firebase/Firestore'
   pod 'FirebaseFirestoreSwift'
   pod 'IQKeyboardManagerSwift', '~> 6.5'
+  pod 'MIBlurPopup', '~> 1.0'
+  pod 'Charts', '~> 3.6'
 
 
 end
