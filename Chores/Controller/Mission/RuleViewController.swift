@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import MIBlurPopup
 
 class RuleViewController: UIViewController {
   
-  let blackView = UIView(frame: UIScreen.main.bounds)
+  @IBOutlet weak var popView: CardView!
+  
+//  let blackView = UIView(frame: UIScreen.main.bounds)
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -21,7 +24,7 @@ class RuleViewController: UIViewController {
   @IBAction func backToAddChoresPage(_ sender: Any) {
     
     dismiss(animated: true, completion: nil)
-    blackView.removeFromSuperview()
+//    blackView.removeFromSuperview()
     
   }
   
@@ -34,4 +37,22 @@ class RuleViewController: UIViewController {
   
 }
 
-//extension RuleViewController: 
+extension RuleViewController: MIBlurPopupDelegate {
+  var popupView: UIView {
+    popView
+  }
+  
+  var blurEffectStyle: UIBlurEffect.Style? {
+    .dark
+  }
+  
+  var initialScaleAmmount: CGFloat {
+    0.0
+  }
+  
+  var animationDuration: TimeInterval {
+    0.2
+  }
+  
+  
+}

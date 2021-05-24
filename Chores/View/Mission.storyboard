@@ -146,7 +146,7 @@
                                 </constraints>
                                 <state key="normal" image="Icon32px_PointRule"/>
                                 <connections>
-                                    <segue destination="a1b-Uc-CbC" kind="showDetail" customClass="RuleSegue" customModule="Chores" customModuleProvider="target" animates="NO" id="di3-Qv-ZPI"/>
+                                    <segue destination="a1b-Uc-CbC" kind="showDetail" customClass="MIBlurPopupSegue" customModule="MIBlurPopup" animates="NO" id="di3-Qv-ZPI"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2VQ-tz-pKs">
@@ -457,6 +457,9 @@
                             <constraint firstItem="jT6-2g-6UV" firstAttribute="centerY" secondItem="MIw-LH-nLU" secondAttribute="centerY" id="yjM-nj-Vqv"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="popView" destination="jT6-2g-6UV" id="zAR-zo-5dR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FO5-7f-UVi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
