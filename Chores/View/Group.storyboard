@@ -45,9 +45,6 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="70" height="90"/>
-                                        <connections>
-                                            <segue destination="Hho-Mi-gQl" kind="custom" identifier="AddMember" customClass="MIBlurPopupSegue" customModule="MIBlurPopup" id="8Pp-wm-jbI"/>
-                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -196,6 +193,7 @@
                         <outletCollection property="switchButtons" destination="ejt-Lj-Cgs" collectionClass="NSMutableArray" id="esK-Kd-eYA"/>
                         <outletCollection property="switchButtons" destination="sdK-8L-5oY" collectionClass="NSMutableArray" id="nI5-ha-TFp"/>
                         <outletCollection property="switchButtons" destination="Gmj-in-MRO" collectionClass="NSMutableArray" id="Lyy-u6-ETb"/>
+                        <segue destination="Hho-Mi-gQl" kind="custom" identifier="AddMember" customClass="MIBlurPopupSegue" customModule="MIBlurPopup" id="AOt-d3-rLb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2vQ-fc-2Yc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -235,16 +233,33 @@
             </objects>
             <point key="canvasLocation" x="1293" y="589"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Member View Controller-->
         <scene sceneID="ml6-Op-2gq">
             <objects>
-                <viewController id="Hho-Mi-gQl" sceneMemberID="viewController">
+                <viewController id="Hho-Mi-gQl" customClass="AddMemberViewController" customModule="Chores" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="e89-G4-2kD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y8h-2p-Vy3">
+                                <rect key="frame" x="32" y="348" width="350" height="200"/>
+                                <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="350" id="Ucb-lI-6wA"/>
+                                    <constraint firstAttribute="height" constant="200" id="uP0-qs-V5I"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="pFh-dG-TiL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Y8h-2p-Vy3" firstAttribute="centerY" secondItem="e89-G4-2kD" secondAttribute="centerY" id="MK1-73-6wv"/>
+                            <constraint firstItem="Y8h-2p-Vy3" firstAttribute="centerX" secondItem="e89-G4-2kD" secondAttribute="centerX" id="MWK-qS-5LA"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="popView" destination="Y8h-2p-Vy3" id="Cdt-VH-Ufr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VMP-6i-ivR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -287,6 +302,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

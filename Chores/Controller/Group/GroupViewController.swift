@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol AddMemberCellDelegate: AnyObject {
+  func showMemberView()
+}
+
 class GroupViewController: UIViewController {
   
   private enum PageType: Int {
@@ -60,6 +64,8 @@ class GroupViewController: UIViewController {
     return [weekDataView, monthDataView, totalDataView]
 
   }
+  
+  var mockCount = 11
   
   override func viewDidLoad() {
     
@@ -164,19 +170,21 @@ extension GroupViewController: UICollectionViewDataSource {
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     
-    return 11
+    return mockCount
     
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     
-    if indexPath.row == 10 {
+    if indexPath.row == mockCount - 1 {
       
       let cell = collectionView.dequeueReusableCell(
         withReuseIdentifier: String(describing: AddMemberCell.self),
         for: indexPath)
       
       guard let addMemberCell = cell as? AddMemberCell else { return cell }
+      
+      addMemberCell.delegate = self
       
       return addMemberCell
       
@@ -212,4 +220,14 @@ extension GroupViewController: UICollectionViewDelegateFlowLayout {
     
   }
 
+}
+
+extension GroupViewController: AddMemberCellDelegate {
+  
+  func showMemberView() {
+    
+    performSegue(withIdentifier: "AddMember", sender: nil)
+    
+  }
+  
 }

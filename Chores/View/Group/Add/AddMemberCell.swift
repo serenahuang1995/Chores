@@ -12,15 +12,17 @@ class AddMemberCell: UICollectionViewCell {
   
   @IBOutlet weak var addMemberButton: UIButton!
   
+  weak var delegate: AddMemberCellDelegate?
+  
   override func awakeFromNib() {
     super.awakeFromNib()
     
   }
   
   @IBAction func toAddMember(_ sender: Any) {
-
-  
     
-  
+    self.delegate?.showMemberView()
+
   }
+  
 }

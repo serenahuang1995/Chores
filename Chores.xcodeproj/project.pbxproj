@@ -43,6 +43,7 @@
 		DCBB10212653F9AA00A8C1E4 /* ChoreImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBB10202653F9AA00A8C1E4 /* ChoreImages.swift */; };
 		DCCD761B265A8D2C0004E82B /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCD761A265A8D2C0004E82B /* File.swift */; };
 		DCCD761E265A9BFA0004E82B /* CustomChoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCD761D265A9BFA0004E82B /* CustomChoreViewController.swift */; };
+		DCCD7638265BE0C60004E82B /* AddMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCD7637265BE0C50004E82B /* AddMemberViewController.swift */; };
 		DCD7379F26520B9A00F1DEF8 /* ChoresRecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD7379E26520B9A00F1DEF8 /* ChoresRecordsViewController.swift */; };
 		DCD737A226520BB300F1DEF8 /* ChoresDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD737A126520BB300F1DEF8 /* ChoresDataViewController.swift */; };
 		DCD737A726520E7200F1DEF8 /* RecordsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD737A526520E7200F1DEF8 /* RecordsTableViewCell.swift */; };
@@ -100,6 +101,7 @@
 		DCBB10202653F9AA00A8C1E4 /* ChoreImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoreImages.swift; sourceTree = "<group>"; };
 		DCCD761A265A8D2C0004E82B /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		DCCD761D265A9BFA0004E82B /* CustomChoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomChoreViewController.swift; sourceTree = "<group>"; };
+		DCCD7637265BE0C50004E82B /* AddMemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemberViewController.swift; sourceTree = "<group>"; };
 		DCD7379E26520B9A00F1DEF8 /* ChoresRecordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoresRecordsViewController.swift; sourceTree = "<group>"; };
 		DCD737A126520BB300F1DEF8 /* ChoresDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoresDataViewController.swift; sourceTree = "<group>"; };
 		DCD737A526520E7200F1DEF8 /* RecordsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsTableViewCell.swift; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 			isa = PBXGroup;
 			children = (
 				DCEEAA69264BED9F00A64D37 /* GroupViewController.swift */,
+				DCCD7637265BE0C50004E82B /* AddMemberViewController.swift */,
 				DC92B8472652C2A900041D01 /* MemberDataViewController.swift */,
 			);
 			path = Group;
@@ -507,6 +510,7 @@
 				DCCD761E265A9BFA0004E82B /* CustomChoreViewController.swift in Sources */,
 				DC203D07264E823C002FADDA /* AddChoresViewController.swift in Sources */,
 				DCA433F2264BA2BD00242617 /* AppDelegate.swift in Sources */,
+				DCCD7638265BE0C60004E82B /* AddMemberViewController.swift in Sources */,
 				DCCD761B265A8D2C0004E82B /* File.swift in Sources */,
 				DC913CEE264C517500C18251 /* NavigationController.swift in Sources */,
 				DC203D00264E6099002FADDA /* OngoingTableViewCell.swift in Sources */,
