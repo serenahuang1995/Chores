@@ -47,7 +47,7 @@ class MissionViewController: UIViewController {
     resetNavigationBarButton()
     
 //    reload()
-    listenImmediately()
+    setChoresListener()
 
   }
   
@@ -114,7 +114,7 @@ class MissionViewController: UIViewController {
 //    }
 //  }
   
-  func listenImmediately() {
+  func setChoresListener() {
     
     FirebaseProvider.shared.listenChores { result in
       

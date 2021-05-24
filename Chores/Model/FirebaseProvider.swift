@@ -161,7 +161,7 @@ class FirebaseProvider {
     
     let docReference = database.collection(users)
     
-    docReference.getDocuments () { querySnapshot, error in
+    docReference.getDocuments() { querySnapshot, error in
       
       if let error = error {
         
@@ -189,6 +189,48 @@ class FirebaseProvider {
         }
       }
     }
+  }
+  
+  func fetchChoreTypes(completion: @escaping (Result<[String], Error>) -> Void) {
+    let docReference = database.collection(groups).document(user.groupId)
+    docReference.addSnapshotListener {  querySnapshot, error in
+      if let error = error {
+        
+        completion(.failure(error))
+        
+      } else {
+        
+        let group = try? querySnapshot?.data(as: Group.self)
+        
+        if let group = group {
+          completion(.success(group.choreTypes))
+
+        }
+        
+      }
+      
+    }
+  }
+  
+  func addChoreType(choreType: String, completion: @escaping (Result<String, Error>) -> Void) {
+    
+    let docReference = database.collection(groups).document(user.groupId)
+      
+    docReference
+      .updateData(["choreTypes": FieldValue.arrayUnion([choreType])]) { error in
+        
+        if let error = error {
+          
+          completion(.failure(error))
+          
+        } else {
+          
+          completion(.success(choreType))
+          
+        }
+        
+      }
+    
   }
   
 //  func fetchChoresData(completion: @escaping (Result<[Chore], Error>) -> Void) {

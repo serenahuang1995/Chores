@@ -10,10 +10,8 @@ import Foundation
 struct Group: Codable {
   
   var id: String
-  
-  var chores: Chore
-  
-  var choreItems: [String]
+    
+  var choreTypes: [String]
   
 }
 

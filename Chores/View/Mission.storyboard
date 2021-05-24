@@ -135,7 +135,7 @@
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="toAddChoreItems:" destination="WHV-rw-kbC" eventType="touchUpInside" id="SVP-ei-Hta"/>
+                                    <action selector="toAddChoreItem:" destination="WHV-rw-kbC" eventType="touchUpInside" id="SVP-ei-Hta"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Xu-y9-ImH">

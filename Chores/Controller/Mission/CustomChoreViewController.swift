@@ -22,7 +22,7 @@ class CustomChoreViewController: UIViewController {
     
   }
   
-  var addCutomChoreItem: ((String) -> Void)?
+//  var addCutomChoreItem: ((String) -> Void)?
   
   override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,14 +30,10 @@ class CustomChoreViewController: UIViewController {
     }
 
   @IBAction func sureToAdd(_ sender: Any) {
-    
-    if let addCutomChore = addCutomChoreItem {
-      
-      addCutomChore(customChoreTextField.text!)
 
-    }
+    guard let choreType = customChoreTextField.text else { return }
     
-    dismiss(animated: true, completion: nil)
+    addChoreType(choreType: choreType)
 
   }
   
@@ -46,6 +42,26 @@ class CustomChoreViewController: UIViewController {
     dismiss(animated: true, completion: nil)
     
   }
+  
+  func addChoreType(choreType: String) {
+    
+    FirebaseProvider.shared.addChoreType(choreType: choreType) { [weak self] result in
+      
+      switch result {
+      
+      case .success(let choreType):
+        print(choreType)
+        
+        self?.dismiss(animated: true, completion: nil)
+      
+      case .failure(let error):
+        print(error)
+      }
+      
+    }
+    
+  }
+  
 }
 
 extension CustomChoreViewController: UITextFieldDelegate {
@@ -61,21 +77,21 @@ extension CustomChoreViewController: UITextFieldDelegate {
 //  func textField(_ textField: UITextField,
 //                 shouldChangeCharactersIn range: NSRange,
 //                 replacementString string: String) -> Bool {
-//    
+//
 //    if let customChoreTextField = customChoreTextField {
-//      
+//
 //      if customChoreTextField.text!.count > 4 {
-//        
+//
 //        customChoreTextField.textColor = .red
-//        
+//
 //        return false
-//        
+//
 //      }
-//      
+//
 //    }
-//    
+//
 //    return true
-//    
+//
 //  }
   
 }
