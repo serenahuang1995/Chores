@@ -23,15 +23,12 @@ class TagCollectionViewCell: UICollectionViewCell {
     editButton.isHidden = true
 
   }
-  
-  
+
   @IBAction func toEditChoreItem(_ sender: Any) {
     
-    if let index = getIndexPath()?.row {
-      
-      self.delegate?.deleteChoreItem(at: index)
-      
-    }
+    guard let choreType = choreTagLabel.text else { return }
+    
+    deleteChoreType(choreType: choreType)
     
     print("yayayaya你按到了")
   }
@@ -75,6 +72,24 @@ class TagCollectionViewCell: UICollectionViewCell {
 
     contentView.layer.cornerRadius = 5
     
+  }
+  
+  func deleteChoreType(choreType: String) {
+    
+    FirebaseProvider.shared.deleteChoreType(selectedChoreType: choreType) { result in
+      
+      switch result {
+      
+      case .success(let choreType):
+        print(choreType)
+        
+      case .failure(let error):
+        print(error)
+      
+      }
+    
+    }
+  
   }
 
 }

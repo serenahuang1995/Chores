@@ -189,30 +189,6 @@ class AddChoresViewController: UIViewController {
  
     }
   }
-  
-  func deleteChoreType(choreType: String) {
-    
-    FirebaseProvider.shared.deleteChoreType(selectedChoreType: choreType) { result in
-      
-      switch result {
-      
-      case .success(let choreType):
-        print(choreType)
-        
-      case .failure(let error):
-        print(error)
-      
-      
-      
-      
-      }
-      
-      
-      
-    }
-    
-    
-  }
 
 }
 
@@ -311,10 +287,3 @@ extension AddChoresViewController: UITextFieldDelegate {
   }
 }
 
-extension AddChoresViewController: TagCellDelegate {
-  
-  func deleteChoreItem(at index: Int) {
-
-  }
-  
-}

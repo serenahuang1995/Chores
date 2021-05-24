@@ -23,6 +23,9 @@
                             <constraint firstAttribute="height" constant="60" id="j3J-KK-8re"/>
                         </constraints>
                         <state key="normal" image="add"/>
+                        <connections>
+                            <action selector="toAddMember:" destination="gTV-IL-0wX" eventType="touchUpInside" id="fmM-zr-gTh"/>
+                        </connections>
                     </button>
                 </subviews>
             </view>
@@ -32,6 +35,9 @@
                 <constraint firstItem="MOR-4t-3ne" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="L0u-yb-RE1"/>
                 <constraint firstItem="MOR-4t-3ne" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="fDF-zL-h4q"/>
             </constraints>
+            <connections>
+                <outlet property="addMemberButton" destination="MOR-4t-3ne" id="SpO-LV-xnr"/>
+            </connections>
             <point key="canvasLocation" x="82.608695652173921" y="69.642857142857139"/>
         </collectionViewCell>
     </objects>

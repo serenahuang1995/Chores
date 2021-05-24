@@ -45,6 +45,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="70" height="90"/>
+                                        <connections>
+                                            <segue destination="Hho-Mi-gQl" kind="custom" identifier="AddMember" customClass="MIBlurPopupSegue" customModule="MIBlurPopup" id="8Pp-wm-jbI"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -137,19 +140,19 @@
                                 </segments>
                             </segmentedControl>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bJB-zC-pjo">
-                                <rect key="frame" x="0.0" y="367" width="414" height="446"/>
+                                <rect key="frame" x="0.0" y="366.5" width="414" height="446.5"/>
                                 <connections>
                                     <segue destination="qUT-ry-sQR" kind="embed" identifier="SegueMonth" id="q4l-aI-nDZ"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YxP-eX-Jgr">
-                                <rect key="frame" x="0.0" y="367" width="414" height="446"/>
+                                <rect key="frame" x="0.0" y="366.5" width="414" height="446.5"/>
                                 <connections>
                                     <segue destination="xa0-5y-5wK" kind="embed" identifier="SegueWeek" id="yWK-CH-9nu"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PAd-Fw-Lnb">
-                                <rect key="frame" x="0.0" y="367" width="414" height="446"/>
+                                <rect key="frame" x="0.0" y="366.5" width="414" height="446.5"/>
                                 <connections>
                                     <segue destination="pjs-j0-7KR" kind="embed" identifier="SegueTotal" id="cZQ-8f-wvh"/>
                                 </connections>
@@ -222,42 +225,60 @@
             <objects>
                 <viewController id="qUT-ry-sQR" customClass="MemberDataViewController" customModule="Chores" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OmP-XT-m1d">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="446"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="446.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="4bR-Sf-IA1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ucQ-CV-4AT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2049" y="131"/>
+            <point key="canvasLocation" x="1293" y="589"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ml6-Op-2gq">
+            <objects>
+                <viewController id="Hho-Mi-gQl" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="e89-G4-2kD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="pFh-dG-TiL"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VMP-6i-ivR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1342" y="-358"/>
         </scene>
         <!--Member Data View Controller-->
         <scene sceneID="ckD-M9-XXB">
             <objects>
                 <viewController id="xa0-5y-5wK" customClass="MemberDataViewController" customModule="Chores" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pmi-BB-gZQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="446"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="446.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="w2F-kZ-eVb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YvO-FK-109" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1354" y="-84"/>
+            <point key="canvasLocation" x="1342" y="174"/>
         </scene>
         <!--Member Data View Controller-->
         <scene sceneID="lyQ-ZO-jeQ">
             <objects>
                 <viewController id="pjs-j0-7KR" customClass="MemberDataViewController" customModule="Chores" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8Ts-dN-8vW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="446"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="446.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="nVK-bg-nx9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YyG-8I-DjV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1354" y="417"/>
+            <point key="canvasLocation" x="549" y="728"/>
         </scene>
     </scenes>
     <resources>

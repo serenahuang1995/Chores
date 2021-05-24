@@ -6,12 +6,21 @@
 //
 
 import UIKit
+import MIBlurPopup
 
 class AddMemberCell: UICollectionViewCell {
   
+  @IBOutlet weak var addMemberButton: UIButton!
+  
   override func awakeFromNib() {
-        super.awakeFromNib()
+    super.awakeFromNib()
+    
+  }
+  
+  @IBAction func toAddMember(_ sender: Any) {
 
-    }
-
+  
+    
+  
+  }
 }
