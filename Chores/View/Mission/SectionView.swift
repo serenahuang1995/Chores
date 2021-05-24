@@ -42,6 +42,8 @@ class SectionView: UITableViewHeaderFooterView {
     }
     
   }
+  
+  @IBOutlet weak var cardViewTopConstraint: NSLayoutConstraint!
 
   @IBAction func pressToExpand(_ sender: Any) {
     
@@ -53,23 +55,27 @@ class SectionView: UITableViewHeaderFooterView {
     
     sectionTitleLabel.text = SectionTitle.unclaimed.rawValue
     
-    cardView.translatesAutoresizingMaskIntoConstraints = false
+    cardViewTopConstraint.constant = 150
     
-    NSLayoutConstraint.activate([
-      cardView.topAnchor.constraint(equalTo: self.topAnchor, constant: 150)
-    ])
+//    cardView.translatesAutoresizingMaskIntoConstraints = false
+//    
+//    NSLayoutConstraint.activate([
+//      cardView.topAnchor.constraint(equalTo: self.topAnchor, constant: 150)
+//    ])
 
   }
 
   func layoutOngoingSection() {
     
     sectionTitleLabel.text = SectionTitle.ongoing.rawValue
-
-    cardView.translatesAutoresizingMaskIntoConstraints = false
     
-    NSLayoutConstraint.activate([
-      cardView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10)
-    ])
+    cardViewTopConstraint.constant = 10
+
+//    cardView.translatesAutoresizingMaskIntoConstraints = false
+//
+//    NSLayoutConstraint.activate([
+//      cardView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10)
+//    ])
 
   }
 

@@ -74,6 +74,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="cardView" destination="dvT-13-swg" id="MQ8-XB-11c"/>
+                <outlet property="cardViewTopConstraint" destination="hae-cf-P9w" id="Stz-lJ-iSl"/>
                 <outlet property="sectionTitleLabel" destination="kYY-ww-2yz" id="1jt-bP-mEd"/>
                 <outlet property="showMoreItemButton" destination="vWH-Lr-HpE" id="hZB-QX-HQU"/>
             </connections>
