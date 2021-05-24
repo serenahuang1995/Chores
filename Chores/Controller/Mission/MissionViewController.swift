@@ -135,8 +135,77 @@ class MissionViewController: UIViewController {
         print(error)
         
       }
+
+    }
+
+  }
+  
+  func updatePointsForCompletedChore(chore: Chore) {
+    
+    guard let userId = chore.owner else { return }
+    
+    FirebaseProvider.shared.fetchUser(userId: userId) { [weak self] result in
+      
+      switch result {
+        
+      case .success(var user):
+        print(user)
+        
+        var multiple = 1.0
+        
+        switch user.weekHours {
+        
+        case 0...50:
+          print("積分 1 倍")
+          multiple = 1
+        
+        case 51...100:
+          print("積分 1.2 倍")
+          multiple = 1.2
+          
+        case 101...150:
+          print("積分 1.5 倍")
+          multiple = 1.5
+          
+        default:
+          print("積分 2 倍")
+          multiple = 2
+   
+        }
+      
+        user.weekHours += chore.hours
+        
+        user.totalHours += chore.hours
+        
+        user.points += Int(Double(chore.points) * multiple)
+  
+        self?.updatePoints(user: user)
+
+      case .failure(let error):
+        print(error)
+        
+      }
+      
+    }
+    
+  }
+  
+  func updatePoints(user: User) {
+    FirebaseProvider.shared.updateUserPoints(user: user) { result in
+      
+      switch result {
+      
+      case .success(let success):
+        print(success)
+      
+      case .failure(let error):
+        print(error)
+      
+      }
+         
     }
   }
+  
 }
 
 extension MissionViewController: UITableViewDelegate {
@@ -303,12 +372,13 @@ extension MissionViewController: MissionCellDelegate {
   
   func clickButtonToFinish(at index: Int) {
     
-    FirebaseProvider.shared.updateStatus(selectedChore: ongoingChores[index]) { result in
+    FirebaseProvider.shared.updateStatus(selectedChore: ongoingChores[index]) { [weak self] result in
       
       switch result {
       
-      case .success(let success):
-        print(success)
+      case .success(let finishedChore):
+        
+        self?.updatePointsForCompletedChore(chore: finishedChore)
       
       case .failure(let error):
         print(error)

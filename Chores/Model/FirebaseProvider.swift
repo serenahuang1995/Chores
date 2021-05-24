@@ -81,7 +81,7 @@ class FirebaseProvider {
     
   }
   
-  func updateStatus(selectedChore: Chore, completion: @escaping (Result<String, Error>) -> Void) {
+  func updateStatus(selectedChore: Chore, completion: @escaping (Result<Chore, Error>) -> Void) {
     
     let docRefernce = database.collection(groups)
       .document(user.groupId)
@@ -90,7 +90,7 @@ class FirebaseProvider {
     
     docRefernce.updateData(["status": 1])
     
-    completion(.success("Success"))
+    completion(.success(selectedChore))
     
   }
   
@@ -191,6 +191,39 @@ class FirebaseProvider {
     }
   }
   
+  func fetchUser(userId: String, completion: @escaping (Result<User, Error>) -> Void) {
+    
+    let docReference = database.collection(users).document(userId)
+    
+    docReference.getDocument { querySnapshot, error in
+      
+      if let error = error {
+        
+        completion(.failure(error))
+        
+      } else {
+          
+          do {
+            
+            let user = try querySnapshot?.data(as: User.self, decoder: Firestore.Decoder())
+            
+            if let user = user {
+              
+              completion(.success(user))
+              
+            }
+            
+          } catch {
+            
+            completion(.failure(error))
+            
+          }
+
+      }
+    }
+  
+  }
+  
   func fetchChoreTypes(completion: @escaping (Result<[String], Error>) -> Void) {
     let docReference = database.collection(groups).document(user.groupId)
     docReference.addSnapshotListener {  querySnapshot, error in
@@ -251,14 +284,21 @@ class FirebaseProvider {
         }
         
       }
-    
-    
-    
-    
+        
   }
   
-  
-  
+  func updateUserPoints(user: User, completion: @escaping (Result<String, Error>) -> Void) {
+    
+    let docReference = database.collection(users).document(user.id)
+    
+    docReference.updateData(["points": user.points,
+                             "totalHours": user.totalHours,
+                             "weekHours": user.weekHours])
+    
+    completion(.success("Update points success"))
+    
+  }
+ 
 //  func fetchChoresData(completion: @escaping (Result<[Chore], Error>) -> Void) {
 //
 //    let document = database.collection(groups).document("XW1OPQRPZig550EXPDQG").collection(chores)
