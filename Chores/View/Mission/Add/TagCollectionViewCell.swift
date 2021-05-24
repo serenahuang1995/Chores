@@ -13,9 +13,27 @@ class TagCollectionViewCell: UICollectionViewCell {
   
   @IBOutlet weak var choreTagLabel: UILabel!
   
+  @IBOutlet weak var editButton: UIButton!
+  
+  weak var delegate: TagCellDelegate?
+  
   override func awakeFromNib() {
     super.awakeFromNib()
+    
+    editButton.isHidden = true
 
+  }
+  
+  
+  @IBAction func toEditChoreItem(_ sender: Any) {
+    
+    if let index = getIndexPath()?.row {
+      
+      self.delegate?.deleteChoreItem(at: index)
+      
+    }
+    
+    print("yayayaya你按到了")
   }
   
   // 利用 dic 的特質 取到key，就可以叫出對應的 value
@@ -28,9 +46,13 @@ class TagCollectionViewCell: UICollectionViewCell {
       
       choreImage.image = UIImage(named: imageName)
       
+      editButton.isHidden = true
+      
     } else {
       // 如果沒有找到對應的 item，image 會改成你預設的圖片
       choreImage.image = UIImage.asset(.CustomChore)
+      
+      editButton.isHidden = false
     }
   }
   

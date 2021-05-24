@@ -16,3 +16,22 @@ extension UICollectionView {
         register(nib, forCellWithReuseIdentifier: identifier)
     }
 }
+
+extension UICollectionViewCell {
+  
+  static var identifier: String {
+    
+    return String(describing: self)
+  }
+  
+  func getIndexPath() -> IndexPath? {
+    
+    guard let collectionView = superview as? UICollectionView else { return nil }
+    
+    let indexPath = collectionView.indexPath(for: self)
+    
+    return indexPath
+    
+  }
+  
+}

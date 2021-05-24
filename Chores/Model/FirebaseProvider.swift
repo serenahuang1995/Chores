@@ -233,6 +233,32 @@ class FirebaseProvider {
     
   }
   
+  func deleteChoreType(selectedChoreType: String, completion: @escaping (Result<String, Error>) -> Void) {
+    
+    let docReference = database.collection(groups).document(user.groupId)
+    
+    docReference
+      .updateData(["choreTypes": FieldValue.arrayRemove([selectedChoreType])]) { error in
+        
+        if let error = error {
+          
+          completion(.failure(error))
+          
+        } else {
+          
+          completion(.success(selectedChoreType))
+          
+        }
+        
+      }
+    
+    
+    
+    
+  }
+  
+  
+  
 //  func fetchChoresData(completion: @escaping (Result<[Chore], Error>) -> Void) {
 //
 //    let document = database.collection(groups).document("XW1OPQRPZig550EXPDQG").collection(chores)

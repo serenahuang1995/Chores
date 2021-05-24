@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -28,12 +29,25 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="78s-pJ-FsO">
+                        <rect key="frame" x="65" y="5" width="12" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="12" id="jA0-gK-u3L"/>
+                            <constraint firstAttribute="height" constant="12" id="m7h-BM-Apq"/>
+                        </constraints>
+                        <state key="normal" image="trash"/>
+                        <connections>
+                            <action selector="toEditChoreItem:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Yb1-ki-n8P"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="3Uo-xA-87E" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="5q3-hA-1AD"/>
+                <constraint firstAttribute="trailing" secondItem="78s-pJ-FsO" secondAttribute="trailing" constant="3" id="KMQ-d4-hIA"/>
                 <constraint firstItem="D67-it-cWL" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="KTH-yM-1UO"/>
+                <constraint firstItem="78s-pJ-FsO" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="XvM-5E-pvV"/>
                 <constraint firstAttribute="bottom" secondItem="3Uo-xA-87E" secondAttribute="bottom" id="ebZ-d8-amJ"/>
                 <constraint firstItem="D67-it-cWL" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="ody-7j-Et0"/>
                 <constraint firstAttribute="trailing" secondItem="3Uo-xA-87E" secondAttribute="trailing" id="syL-U6-Xb1"/>
@@ -43,11 +57,13 @@
             <connections>
                 <outlet property="choreImage" destination="D67-it-cWL" id="1Sr-cc-Vgu"/>
                 <outlet property="choreTagLabel" destination="3Uo-xA-87E" id="9BC-W5-RHB"/>
+                <outlet property="editButton" destination="78s-pJ-FsO" id="eBq-d4-4NH"/>
             </connections>
             <point key="canvasLocation" x="31.884057971014496" y="63.616071428571423"/>
         </collectionViewCell>
     </objects>
     <resources>
         <image name="dish-soap" width="512" height="512"/>
+        <image name="trash" width="32" height="32"/>
     </resources>
 </document>

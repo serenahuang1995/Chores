@@ -17,7 +17,7 @@ class RuleViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    showBlackView()
+//    showBlackView()
 
   }
   
@@ -28,12 +28,12 @@ class RuleViewController: UIViewController {
     
   }
   
-  private func showBlackView() {
-    
-    blackView.backgroundColor = .black
-    blackView.alpha = 0.7
-    presentingViewController?.view.addSubview(blackView)
-  }
+//  private func showBlackView() {
+//
+//    blackView.backgroundColor = .black
+//    blackView.alpha = 0.7
+//    presentingViewController?.view.addSubview(blackView)
+//  }
   
 }
 
