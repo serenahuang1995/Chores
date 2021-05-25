@@ -16,8 +16,7 @@ class PublisherViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    
+
 //    showBlackView()
     
   }

@@ -17,20 +17,20 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dvT-13-swg" customClass="CardView" customModule="Chores" customModuleProvider="target">
-                        <rect key="frame" x="20" y="0.0" width="374" height="150"/>
+                        <rect key="frame" x="20" y="0.0" width="374" height="140"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="PWX-CF-KCc">
-                                <rect key="frame" x="106.5" y="55" width="161.5" height="40"/>
+                                <rect key="frame" x="109" y="52.5" width="156.5" height="35"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="251" image="checklist" translatesAutoresizingMaskIntoConstraints="NO" id="ZCf-Xw-xdh">
-                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="W9B-un-Jdh"/>
-                                            <constraint firstAttribute="height" constant="40" id="dfE-06-Rxo"/>
+                                            <constraint firstAttribute="width" constant="35" id="W9B-un-Jdh"/>
+                                            <constraint firstAttribute="height" constant="35" id="dfE-06-Rxo"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="家事認領區" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kYY-ww-2yz">
-                                        <rect key="frame" x="45" y="0.0" width="116.5" height="40"/>
+                                        <rect key="frame" x="40" y="0.0" width="116.5" height="35"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -38,10 +38,10 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vWH-Lr-HpE">
-                                <rect key="frame" x="322" y="100" width="30" height="30"/>
+                                <rect key="frame" x="327" y="95" width="25" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Thr-Ed-J3f"/>
-                                    <constraint firstAttribute="width" constant="30" id="XJ4-Vj-frc"/>
+                                    <constraint firstAttribute="height" constant="25" id="Thr-Ed-J3f"/>
+                                    <constraint firstAttribute="width" constant="25" id="XJ4-Vj-frc"/>
                                 </constraints>
                                 <state key="normal" image="double-chevron"/>
                                 <connections>
@@ -52,8 +52,7 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="vWH-Lr-HpE" secondAttribute="bottom" constant="20" id="D9g-Da-GHv"/>
                             <constraint firstItem="PWX-CF-KCc" firstAttribute="centerX" secondItem="dvT-13-swg" secondAttribute="centerX" id="MJA-wH-76o"/>
-                            <constraint firstAttribute="height" constant="150" id="Nul-ow-Dad"/>
-                            <constraint firstAttribute="height" constant="150" id="gt8-MC-JpV"/>
+                            <constraint firstAttribute="height" constant="140" id="gt8-MC-JpV"/>
                             <constraint firstAttribute="trailing" secondItem="vWH-Lr-HpE" secondAttribute="trailing" constant="22" id="i7J-bC-isP"/>
                             <constraint firstItem="PWX-CF-KCc" firstAttribute="centerY" secondItem="dvT-13-swg" secondAttribute="centerY" id="tRJ-lI-CmJ"/>
                             <constraint firstAttribute="bottom" secondItem="vWH-Lr-HpE" secondAttribute="bottom" constant="20" id="yB2-jq-bvZ"/>

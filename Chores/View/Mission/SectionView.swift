@@ -15,9 +15,9 @@ protocol SectionViewDelegate: AnyObject {
 
 private enum SectionTitle: String {
 
-  case unclaimed = "待接受任務"
+  case unclaimed = "任務認領區"
   
-  case ongoing = "任務現正進行中"
+  case ongoing = "任務進行中"
   
 }
 
@@ -55,7 +55,7 @@ class SectionView: UITableViewHeaderFooterView {
     
     sectionTitleLabel.text = SectionTitle.unclaimed.rawValue
     
-    cardViewTopConstraint.constant = 150
+    cardViewTopConstraint.constant = 160
     
 //    cardView.translatesAutoresizingMaskIntoConstraints = false
 //    
@@ -69,7 +69,7 @@ class SectionView: UITableViewHeaderFooterView {
     
     sectionTitleLabel.text = SectionTitle.ongoing.rawValue
     
-    cardViewTopConstraint.constant = 10
+    cardViewTopConstraint.constant = 20
 
 //    cardView.translatesAutoresizingMaskIntoConstraints = false
 //

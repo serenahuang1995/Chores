@@ -58,6 +58,13 @@ class ProfileViewController: UIViewController {
     
     updateContainerView(type: .records)
     
+
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    
+    navigationController?.isNavigationBarHidden = true
+    
     FirebaseProvider.shared.fetchUserData { result in
 
       switch result {
@@ -77,11 +84,6 @@ class ProfileViewController: UIViewController {
 
     }
 
-  }
-  
-  override func viewWillAppear(_ animated: Bool) {
-    
-    navigationController?.isNavigationBarHidden = true
     
   }
   

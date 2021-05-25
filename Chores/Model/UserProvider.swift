@@ -12,7 +12,7 @@ class UserProvider {
     static let shared = UserProvider()
     
     var user: User = User(
-      id: "54Serena",
+      id: "XC6b6Ys1VY1qLcBJ5M8z",
       name: "Serena",
       picture: "",
       points: 66666666666,

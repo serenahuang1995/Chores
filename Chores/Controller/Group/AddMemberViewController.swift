@@ -12,23 +12,19 @@ class AddMemberViewController: UIViewController {
 
   @IBOutlet weak var popView: UIView!
   
+  @IBOutlet weak var addMemberTextField: UITextField!
+  
   override func viewDidLoad() {
-        super.viewDidLoad()
+    super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
+  }
+
+  @IBAction func backToGroupPage(_ sender: Any) {
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    dismiss(animated: true, completion: nil)
+    
+  }
+  
 }
 
 extension AddMemberViewController: MIBlurPopupDelegate {
@@ -47,6 +43,5 @@ extension AddMemberViewController: MIBlurPopupDelegate {
   var animationDuration: TimeInterval {
     0.2
   }
-  
-  
+
 }

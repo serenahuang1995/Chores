@@ -28,7 +28,7 @@ class ChoresRecordsViewController: UIViewController {
   override func viewDidLoad() {
         super.viewDidLoad()
     
-    listenImmediately()
+    setUpRecordsListener()
 
     }
 
@@ -43,7 +43,7 @@ class ChoresRecordsViewController: UIViewController {
     
   }
   
-  func listenImmediately() {
+  func setUpRecordsListener() {
     
     FirebaseProvider.shared.listenRecords { result in
       

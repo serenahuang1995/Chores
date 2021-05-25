@@ -72,9 +72,9 @@ class AddChoresViewController: UIViewController {
   
   var selectedIndex: Int?
   
-  var time: String? = ""
-
-  var point: String? = ""
+//  var time: String? = ""
+//
+//  var point: String? = ""
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -107,28 +107,29 @@ class AddChoresViewController: UIViewController {
   
   @IBAction func toAddChoreItem(_ sender: Any) {
     
-    guard let time = time, let point = point, let selectedIndex = selectedIndex else { return }
+    guard let time = timeTextField.text, let point = pointResultTextField.text, let selectedIndex = selectedIndex else { return }
 
     var data = Chore(
       id: "",
       item: choreTypes[selectedIndex],
       points: Int(point) ?? 0,
       hours: Int(time) ?? 0,
-      owner: owner,
-      status: status)
-  
+      owner: nil,
+      status: 0)
+
     FirebaseProvider.shared.addToDoChoreData(data: &data) { result in
-      
+
       switch result {
-      
+
       case .success(let data):
       print(data)
-      
+//      self?.dismiss(animated: true, completion: nil)
+
       case .failure(let error):
         print(error)
-      
+
       }
-      
+
     }
     
   }
@@ -272,13 +273,13 @@ extension AddChoresViewController: UITextFieldDelegate {
       return true
   }
   
-  func textFieldDidEndEditing(_ textField: UITextField) {
-    
-    time = timeTextField.text
-  
-    point = pointResultTextField.text
-    
-  }
+//  func textFieldDidEndEditing(_ textField: UITextField) {
+//
+//    time = timeTextField.text
+//
+//    point = pointResultTextField.text
+//
+//  }
 
   func textFieldDidChangeSelection(_ textField: UITextField) {
 

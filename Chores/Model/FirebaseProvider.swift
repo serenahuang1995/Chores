@@ -75,7 +75,7 @@ class FirebaseProvider {
       .collection(chores)
       .document(selectedChore.id)
     
-    docReference.updateData(["owner": user.name])
+    docReference.updateData(["owner": user.id])
     
     completion(.success("Success"))
     
@@ -131,7 +131,7 @@ class FirebaseProvider {
       .document(user.groupId)
       .collection(chores)
       .whereField("status", isEqualTo: 1)
-      .whereField("owner", isEqualTo: user.name)
+      .whereField("owner", isEqualTo: user.id)
     
     docReference.addSnapshotListener { querySnapshot, error in
 
