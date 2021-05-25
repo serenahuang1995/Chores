@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Charts
 
 protocol AddMemberCellDelegate: AnyObject {
   func showMemberView()
@@ -23,15 +24,15 @@ class GroupViewController: UIViewController {
     
   }
   
-  private struct Segue {
-    
-    static let week = "SegueWeek"
-    
-    static let month = "SegueMonth"
-    
-    static let total = "SegueTotal"
-    
-  }
+//  private struct Segue {
+//
+//    static let week = "SegueWeek"
+//
+//    static let month = "SegueMonth"
+//
+//    static let total = "SegueTotal"
+//
+//  }
   
   @IBOutlet weak var indicatorView: UIView! {
     didSet {
@@ -39,11 +40,13 @@ class GroupViewController: UIViewController {
     }
   }
   
-  @IBOutlet weak var weekDataView: UIView!
-  
-  @IBOutlet weak var monthDataView: UIView!
-  
+//  @IBOutlet weak var weekDataView: UIView!
+//
+//  @IBOutlet weak var monthDataView: UIView!
+//
   @IBOutlet weak var totalDataView: UIView!
+  
+  @IBOutlet weak var horizontalBarChartView: HorizontalBarChartView!
   
   @IBOutlet weak var collectionView: UICollectionView! {
     didSet {
@@ -59,12 +62,14 @@ class GroupViewController: UIViewController {
   
   @IBOutlet var switchButtons: [UIButton]!
   
-  var containerViews: [UIView] {
-
-    return [weekDataView, monthDataView, totalDataView]
-
-  }
+//  var containerViews: [UIView] {
+//
+//    return [weekDataView, monthDataView, totalDataView]
+//
+//  }
   
+  var entries: [BarChartDataEntry] = []
+    
   var mockCount = 11
   
   override func viewDidLoad() {
@@ -72,6 +77,11 @@ class GroupViewController: UIViewController {
     super.viewDidLoad()
     
     updateContainerView(type: .week)
+    
+    horizontalBarChartView.delegate = self
+    
+    
+
     
   }
   
@@ -81,28 +91,46 @@ class GroupViewController: UIViewController {
 
   }
   
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-    let identifier = segue.identifier
-
-    switch identifier {
-
-    case Segue.week:
-      _ = segue.destination as? MemberDataViewController
-      weekDataView.backgroundColor = .blue7990CA
-
-    case Segue.month:
-      _ = segue.destination as? MemberDataViewController
-      monthDataView.backgroundColor = .orangeFBDAA0
-      
-    case Segue.total:
-      _ = segue.destination as? MemberDataViewController
-      totalDataView.backgroundColor = .beigeEBDDCE
-
-    default:
-      return
-      
+//  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//
+//    let identifier = segue.identifier
+//
+//    switch identifier {
+//
+//    case Segue.week:
+//      _ = segue.destination as? MemberDataViewController
+//      weekDataView.backgroundColor = .blue7990CA
+//
+//    case Segue.month:
+//      _ = segue.destination as? MemberDataViewController
+//      monthDataView.backgroundColor = .orangeFBDAA0
+//
+//    case Segue.total:
+//      _ = segue.destination as? MemberDataViewController
+//      totalDataView.backgroundColor = .beigeEBDDCE
+//
+//    default:
+//      return
+//
+//    }
+//
+//  }
+  
+  func setUpChartView() {
+    
+//    var entries: [BarChartDataEntry] = []
+    
+    for yyy in 0...10 {
+      entries.append(BarChartDataEntry(x: Double.random(in: 1...30), y: Double(yyy)))
     }
+    
+    let set = BarChartDataSet(entries: entries, label: "chores")
+    
+    set.colors = ChartColorTemplates.joyful()
+
+    let data = BarChartData(dataSet: set)
+    
+    horizontalBarChartView.data = data
     
   }
   
@@ -144,18 +172,27 @@ class GroupViewController: UIViewController {
 
   private func updateContainerView(type: PageType) {
 
-    containerViews.forEach({ $0.isHidden = true })
+//    containerViews.forEach({ $0.isHidden = true })
 
     switch type {
 
     case .week:
-      weekDataView.isHidden = false
+      
+      setUpChartView()
+      horizontalBarChartView.backgroundColor = .none
+      
+//      weekDataView.isHidden = false
 
     case .month:
-      monthDataView.isHidden = false
+      setUpChartView()
+      horizontalBarChartView.backgroundColor = .beigeEBDDCE
+
+//      monthDataView.isHidden = false
       
     case .total:
-      totalDataView.isHidden = false
+      setUpChartView()
+      horizontalBarChartView.backgroundColor = .orangeE89E21
+//      totalDataView.isHidden = false
 
     }
   }
@@ -229,5 +266,9 @@ extension GroupViewController: AddMemberCellDelegate {
     performSegue(withIdentifier: "AddMember", sender: nil)
     
   }
+  
+}
+
+extension GroupViewController: ChartViewDelegate {
   
 }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Firebase
 
 struct Group: Codable {
   
@@ -28,6 +29,8 @@ struct Chore: Codable {
   var owner: String?
   
   var status: Int
+  
+  var completedDate: Timestamp?
   
 //  var dictTransfor: [String: Any] {
 //    

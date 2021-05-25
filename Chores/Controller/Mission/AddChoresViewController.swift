@@ -124,7 +124,8 @@ class AddChoresViewController: UIViewController {
       points: Int(point) ?? 0,
       hours: Int(time) ?? 0,
       owner: nil,
-      status: 0)
+      status: 0,
+      completedDate: nil)
 
     FirebaseProvider.shared.addToDoChoreData(data: &data) { [weak self] result in
 
@@ -134,8 +135,7 @@ class AddChoresViewController: UIViewController {
         print(data)
       
         KRProgressHUD.showSuccess(withMessage: "家事新增成功")
-        
-        
+
       self?.navigationController?.popViewController(animated: true)
 
       case .failure(let error):

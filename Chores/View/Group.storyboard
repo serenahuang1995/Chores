@@ -76,7 +76,7 @@
                                                     <color key="titleColor" systemColor="labelColor"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="clickSwitchButton:" destination="RvQ-Xh-3Zo" eventType="touchUpInside" id="zhp-bM-iTL"/>
+                                                    <action selector="clickSwitchButton:" destination="RvQ-Xh-3Zo" eventType="touchUpInside" id="pOX-k2-2fT"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sdK-8L-5oY">
@@ -94,7 +94,7 @@
                                                     <color key="titleColor" systemColor="labelColor"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="clickSwitchButton:" destination="RvQ-Xh-3Zo" eventType="touchUpInside" id="Gp9-Le-AAS"/>
+                                                    <action selector="clickSwitchButton:" destination="RvQ-Xh-3Zo" eventType="touchUpInside" id="smw-Af-066"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gmj-in-MRO">
@@ -138,21 +138,12 @@
                             </segmentedControl>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bJB-zC-pjo">
                                 <rect key="frame" x="0.0" y="366.5" width="414" height="446.5"/>
-                                <connections>
-                                    <segue destination="qUT-ry-sQR" kind="embed" identifier="SegueMonth" id="q4l-aI-nDZ"/>
-                                </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YxP-eX-Jgr">
                                 <rect key="frame" x="0.0" y="366.5" width="414" height="446.5"/>
-                                <connections>
-                                    <segue destination="xa0-5y-5wK" kind="embed" identifier="SegueWeek" id="yWK-CH-9nu"/>
-                                </connections>
                             </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PAd-Fw-Lnb">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PAd-Fw-Lnb" customClass="HorizontalBarChartView" customModule="Charts">
                                 <rect key="frame" x="0.0" y="366.5" width="414" height="446.5"/>
-                                <connections>
-                                    <segue destination="pjs-j0-7KR" kind="embed" identifier="SegueTotal" id="cZQ-8f-wvh"/>
-                                </connections>
                             </containerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PIr-8W-8Zv"/>
@@ -186,10 +177,8 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="4xz-AK-oue" id="N88-wS-k5l"/>
+                        <outlet property="horizontalBarChartView" destination="PAd-Fw-Lnb" id="nyi-rj-gXI"/>
                         <outlet property="indicatorView" destination="0Ya-xV-Avm" id="0ec-bJ-BDU"/>
-                        <outlet property="monthDataView" destination="YxP-eX-Jgr" id="rLS-2S-BRI"/>
-                        <outlet property="totalDataView" destination="PAd-Fw-Lnb" id="zby-Ix-XTU"/>
-                        <outlet property="weekDataView" destination="bJB-zC-pjo" id="rIF-Rh-cM5"/>
                         <outletCollection property="switchButtons" destination="ejt-Lj-Cgs" collectionClass="NSMutableArray" id="esK-Kd-eYA"/>
                         <outletCollection property="switchButtons" destination="sdK-8L-5oY" collectionClass="NSMutableArray" id="nI5-ha-TFp"/>
                         <outletCollection property="switchButtons" destination="Gmj-in-MRO" collectionClass="NSMutableArray" id="Lyy-u6-ETb"/>
@@ -217,21 +206,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eZi-BZ-akt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-359.4202898550725" y="130.58035714285714"/>
-        </scene>
-        <!--Member Data View Controller-->
-        <scene sceneID="8DJ-HO-XfV">
-            <objects>
-                <viewController id="qUT-ry-sQR" customClass="MemberDataViewController" customModule="Chores" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="OmP-XT-m1d">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="446.5"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="4bR-Sf-IA1"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ucQ-CV-4AT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1293" y="589"/>
         </scene>
         <!--Add Member View Controller-->
         <scene sceneID="ml6-Op-2gq">
@@ -322,34 +296,31 @@
             <point key="canvasLocation" x="1342" y="-358"/>
         </scene>
         <!--Member Data View Controller-->
-        <scene sceneID="ckD-M9-XXB">
-            <objects>
-                <viewController id="xa0-5y-5wK" customClass="MemberDataViewController" customModule="Chores" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="pmi-BB-gZQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="446.5"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="w2F-kZ-eVb"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YvO-FK-109" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1342" y="174"/>
-        </scene>
-        <!--Member Data View Controller-->
         <scene sceneID="lyQ-ZO-jeQ">
             <objects>
                 <viewController id="pjs-j0-7KR" customClass="MemberDataViewController" customModule="Chores" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8Ts-dN-8vW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="446.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cAe-hX-qqq" customClass="HorizontalBarChartView" customModule="Chores" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="nVK-bg-nx9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cAe-hX-qqq" firstAttribute="leading" secondItem="nVK-bg-nx9" secondAttribute="leading" id="5DD-6j-CIg"/>
+                            <constraint firstItem="nVK-bg-nx9" firstAttribute="trailing" secondItem="cAe-hX-qqq" secondAttribute="trailing" id="BKM-Sw-xha"/>
+                            <constraint firstItem="nVK-bg-nx9" firstAttribute="bottom" secondItem="cAe-hX-qqq" secondAttribute="bottom" id="IG1-yG-TdI"/>
+                            <constraint firstItem="cAe-hX-qqq" firstAttribute="top" secondItem="nVK-bg-nx9" secondAttribute="top" id="n4q-lZ-J84"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YyG-8I-DjV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="549" y="728"/>
+            <point key="canvasLocation" x="729" y="1036"/>
         </scene>
     </scenes>
     <resources>
