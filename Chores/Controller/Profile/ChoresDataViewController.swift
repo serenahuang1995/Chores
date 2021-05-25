@@ -6,23 +6,45 @@
 //
 
 import UIKit
+import Charts
 
 class ChoresDataViewController: UIViewController {
 
+  @IBOutlet weak var selfChoreDataView: PieChartView!
+  
+  var nubmerOfPieChartData = [PieChartDataEntry]()
+  var walkDog = PieChartDataEntry(value: 40)
+  var washDishes = PieChartDataEntry(value: 50)
+  var repair = PieChartDataEntry(value: 10)
+  
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+      walkDog.value = walkDog.value
+      walkDog.label = "遛狗"
+      
+      washDishes.value = washDishes.value
+      washDishes.label = "洗碗"
+      
+      repair.value = repair.value
+      repair.label = "修繕"
+      
+      nubmerOfPieChartData = [walkDog, washDishes, repair]
+      
+      updateSelfChoreData()
     }
+  
+  func updateSelfChoreData() {
+    
+    let chartDataSet = PieChartDataSet(entries: nubmerOfPieChartData, label: nil)
+    let chartData = PieChartData(dataSet: chartDataSet)
+    
+    let colors = [UIColor.blue7990CA, UIColor.orangeE89E21, UIColor.beigeEBDDCE]
+    
+    chartDataSet.colors = colors
+    
+    selfChoreDataView.data = chartData
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+  }
 
 }

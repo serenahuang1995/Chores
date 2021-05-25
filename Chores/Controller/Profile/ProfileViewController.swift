@@ -133,8 +133,6 @@ class ProfileViewController: UIViewController {
 //    present(popupVC, animated: true, completion: nil)
   
 //  }
-  
-  
 
   @IBAction func clickSwitchButton(_ sender: UIButton) {
 

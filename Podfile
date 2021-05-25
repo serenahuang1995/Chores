@@ -12,6 +12,7 @@ target 'Chores' do
   pod 'IQKeyboardManagerSwift', '~> 6.5'
   pod 'MIBlurPopup', '~> 1.0'
   pod 'Charts', '~> 3.6'
+  pod 'KRProgressHUD', '~> 3.4'
 
 
 end
