@@ -36,6 +36,7 @@ class FirebaseProvider {
   
   // struct has no reference，為了要修改原本 struct 的值 必須加inout
   // 這時 func 丟進來的 Chores 跟與本的 Chores 是不同 reference
+  // 用戶新增家事
   func addToDoChoreData(data: inout Chore, completion: @escaping (Result<String, Error>) -> Void) {
 
     let docReference = database.collection(groups)
@@ -67,7 +68,8 @@ class FirebaseProvider {
     }
 
   }
-
+  
+  // 用戶點選挑戰家事後，會assign owner(也就是自己)進去
   func updateOwner(selectedChore: Chore, completion: @escaping (Result<String, Error>) -> Void) {
     
     let docReference = database.collection(groups)
@@ -81,6 +83,7 @@ class FirebaseProvider {
     
   }
   
+  //用戶完成家事後，點選完成會改變家事的狀態
   func updateStatus(selectedChore: Chore, completion: @escaping (Result<Chore, Error>) -> Void) {
     
     let docRefernce = database.collection(groups)
@@ -94,6 +97,7 @@ class FirebaseProvider {
     
   }
   
+  // 監聽家事列表頁面的變動，一開始只會query狀態是未完成的
   func listenChores(completion: @escaping (Result<[Chore], Error>) -> Void) {
     
     let docRefernce = database.collection(groups)
@@ -125,6 +129,7 @@ class FirebaseProvider {
 
   }
   
+  // 監聽個人家事紀錄的變動，會 query 狀態是已完成、owner 是自己的項目
   func listenRecords(completion: @escaping (Result<[Chore], Error>) -> Void) {
     
     let docReference = database.collection(groups)
@@ -157,73 +162,75 @@ class FirebaseProvider {
 
   }
   
-  func fetchUserData(completion: @escaping (Result<User, Error>) -> Void) {
-    
-    let docReference = database.collection(users)
-    
-    docReference.getDocuments() { querySnapshot, error in
-      
-      if let error = error {
-        
-        completion(.failure(error))
-        
-      } else {
-        
-        for document in querySnapshot!.documents {
-          
-          do {
-            
-            let user = try document.data(as: User.self, decoder: Firestore.Decoder())
-            
-            if let user = user {
-              
-              completion(.success(user))
-              
-            }
-            
-          } catch {
-            
-            completion(.failure(error))
-            
-          }
-        }
-      }
-    }
-  }
+//  func fetchUserData(completion: @escaping (Result<User, Error>) -> Void) {
+//    
+//    let docReference = database.collection(users)
+//    
+//    docReference.getDocuments() { querySnapshot, error in
+//      
+//      if let error = error {
+//        
+//        completion(.failure(error))
+//        
+//      } else {
+//        
+//        for document in querySnapshot!.documents {
+//          
+//          do {
+//            
+//            let user = try document.data(as: User.self, decoder: Firestore.Decoder())
+//            
+//            if let user = user {
+//              
+//              completion(.success(user))
+//              
+//            }
+//            
+//          } catch {
+//            
+//            completion(.failure(error))
+//            
+//          }
+//        }
+//      }
+//    }
+//  }
   
-  func fetchUser(userId: String, completion: @escaping (Result<User, Error>) -> Void) {
-    
-    let docReference = database.collection(users).document(userId)
-    
-    docReference.getDocument { querySnapshot, error in
-      
-      if let error = error {
-        
-        completion(.failure(error))
-        
-      } else {
-          
-          do {
-            
-            let user = try querySnapshot?.data(as: User.self, decoder: Firestore.Decoder())
-            
-            if let user = user {
-              
-              completion(.success(user))
-              
-            }
-            
-          } catch {
-            
-            completion(.failure(error))
-            
-          }
-
-      }
-    }
+//  // 一次性的fetch user，完成任務 先 query 用戶的資料，再去改變它的積分與時數
+//  func fetchUser(userId: String, completion: @escaping (Result<User, Error>) -> Void) {
+//    
+//    let docReference = database.collection(users).document(userId)
+//    
+//    docReference.getDocument { querySnapshot, error in
+//      
+//      if let error = error {
+//        
+//        completion(.failure(error))
+//        
+//      } else {
+//          
+//          do {
+//            
+//            let user = try querySnapshot?.data(as: User.self, decoder: Firestore.Decoder())
+//            
+//            if let user = user {
+//              
+//              completion(.success(user))
+//              
+//            }
+//            
+//          } catch {
+//            
+//            completion(.failure(error))
+//            
+//          }
+//
+//      }
+//    }
+//  
+//  }
   
-  }
-  
+  // 獲得目前所有家事種類
   func fetchChoreTypes(completion: @escaping (Result<[String], Error>) -> Void) {
     let docReference = database.collection(groups).document(user.groupId)
     docReference.addSnapshotListener {  querySnapshot, error in
@@ -245,6 +252,7 @@ class FirebaseProvider {
     }
   }
   
+  // 給用戶自己新增自訂家事
   func addChoreType(choreType: String, completion: @escaping (Result<String, Error>) -> Void) {
     
     let docReference = database.collection(groups).document(user.groupId)
@@ -266,6 +274,7 @@ class FirebaseProvider {
     
   }
   
+  // 用戶刪除自訂家事
   func deleteChoreType(selectedChoreType: String, completion: @escaping (Result<String, Error>) -> Void) {
     
     let docReference = database.collection(groups).document(user.groupId)
@@ -287,6 +296,7 @@ class FirebaseProvider {
         
   }
   
+  // 更新用戶的點數與時數
   func updateUserPoints(user: User, completion: @escaping (Result<String, Error>) -> Void) {
     
     let docReference = database.collection(users).document(user.id)

@@ -27,9 +27,42 @@ class PublisherViewController: UIViewController {
   }
   
   @IBAction func sureToSpendPoint(_ sender: Any) {
+    
+//    spendPoints(user: User)
+    
     dismiss(animated: true, completion: nil)
-//    blackView.removeFromSuperview()
+
   }
+  
+//  func spendPoints(user: User) {
+//
+//    if user.points >= 300 {
+//      
+//    } else {
+//      
+//    }
+//    
+//    
+//    
+//    
+//  }
+//  
+//  func updatePoints(user: User) {
+//    
+//    FirebaseProvider.shared.updateUserPoints(user: user) { result in
+//      
+//      switch result {
+//      
+//      case .success(let success):
+//        print(success)
+//      
+//      case .failure(let error):
+//        print(error)
+//      
+//      }
+//         
+//    }
+//  }
   
   
   

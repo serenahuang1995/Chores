@@ -34,7 +34,15 @@ class AddChoresViewController: UIViewController {
   
   @IBOutlet weak var ruleButton: UIButton!
   
-  @IBOutlet weak var addChoreButton: UIButton!
+  @IBOutlet weak var addChoreButton: UIButton! {
+    
+    didSet {
+      
+      addChoreButton.layer.cornerRadius = 10
+      
+    }
+    
+  }
   
   @IBOutlet weak var timeTextField: UITextField! {
     
@@ -117,13 +125,13 @@ class AddChoresViewController: UIViewController {
       owner: nil,
       status: 0)
 
-    FirebaseProvider.shared.addToDoChoreData(data: &data) { result in
+    FirebaseProvider.shared.addToDoChoreData(data: &data) { [weak self] result in
 
       switch result {
 
       case .success(let data):
       print(data)
-//      self?.dismiss(animated: true, completion: nil)
+        self?.navigationController?.popViewController(animated: true)
 
       case .failure(let error):
         print(error)

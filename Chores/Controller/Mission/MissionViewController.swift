@@ -140,11 +140,12 @@ class MissionViewController: UIViewController {
 
   }
   
+  //先確認用戶的資料，再去改變它的積分與時數，還有積分加權的處理
   func updatePointsForCompletedChore(chore: Chore) {
     
     guard let userId = chore.owner else { return }
     
-    FirebaseProvider.shared.fetchUser(userId: userId) { [weak self] result in
+    UserProvider.shared.fetchUser(userId: userId) { [weak self] result in
       
       switch result {
         
@@ -191,6 +192,7 @@ class MissionViewController: UIViewController {
   }
   
   func updatePoints(user: User) {
+    
     FirebaseProvider.shared.updateUserPoints(user: user) { result in
       
       switch result {
@@ -204,6 +206,7 @@ class MissionViewController: UIViewController {
       }
          
     }
+    
   }
   
 }

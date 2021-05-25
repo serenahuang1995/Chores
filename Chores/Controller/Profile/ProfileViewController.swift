@@ -58,6 +58,8 @@ class ProfileViewController: UIViewController {
     
     updateContainerView(type: .records)
     
+    setUpUserListener()
+    
 
   }
   
@@ -65,24 +67,24 @@ class ProfileViewController: UIViewController {
     
     navigationController?.isNavigationBarHidden = true
     
-    FirebaseProvider.shared.fetchUserData { result in
-
-      switch result {
-
-      case .success(let user):
-        print(user)
-
-        self.userNameLabel.text = user.name
-        self.totalPointsLabel.text = "累積點數：\(user.points)"
-        self.weekHoursLabel.text = "本週時數：\(user.weekHours) / 50"
-
-      case .failure(let error):
-
-        print(error)
-
-      }
-
-    }
+//    FirebaseProvider.shared.fetchUserData { result in
+//
+//      switch result {
+//
+//      case .success(let user):
+//        print(user)
+//
+//        self.userNameLabel.text = user.name
+//        self.totalPointsLabel.text = "累積點數：\(user.points)"
+//        self.weekHoursLabel.text = "本週時數：\(user.weekHours) / 50"
+//
+//      case .failure(let error):
+//
+//        print(error)
+//
+//      }
+//
+//    }
 
     
   }
@@ -129,6 +131,7 @@ class ProfileViewController: UIViewController {
 //    pVC?.delegate = self
 //    pVC?.sourceView = sender
 //    present(popupVC, animated: true, completion: nil)
+  
 //  }
   
   
@@ -172,6 +175,33 @@ class ProfileViewController: UIViewController {
       dataContainerView.isHidden = false
 
     }
+  }
+  
+  func setUpUserListener() {
+    
+    UserProvider.shared.onFetchUserListener { result in
+      
+      switch result {
+      
+      case .success(let user):
+        
+        self.userNameLabel.text = user.name
+        
+        self.totalPointsLabel.text = "累積點數：\(user.points)"
+        
+        self.weekHoursLabel.text = "本週時數：\(user.weekHours) / 50"
+        
+      case .failure(let error):
+        
+        print(error)
+        
+      }
+
+    }
+    
+    
+    
+    
   }
   
 }

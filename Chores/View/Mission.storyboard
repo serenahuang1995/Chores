@@ -134,6 +134,11 @@
                                 <state key="normal" title="新增">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="objectCornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="toAddChoreItem:" destination="WHV-rw-kbC" eventType="touchUpInside" id="SVP-ei-Hta"/>
                                 </connections>
