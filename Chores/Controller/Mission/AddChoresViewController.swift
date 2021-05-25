@@ -131,12 +131,17 @@ class AddChoresViewController: UIViewController {
       switch result {
 
       case .success(let data):
-      print(data)
+        print(data)
+      
+        KRProgressHUD.showSuccess(withMessage: "家事新增成功")
+        
         
       self?.navigationController?.popViewController(animated: true)
 
       case .failure(let error):
         print(error)
+        KRProgressHUD.showError(withMessage: "資料不能是空的喲")
+        
 
       }
 
