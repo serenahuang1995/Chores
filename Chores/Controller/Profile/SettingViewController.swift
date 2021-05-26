@@ -41,11 +41,6 @@ class SettingViewController: UIViewController {
   }
   
   let blackView = UIView(frame: UIScreen.main.bounds)
-  
-//  var blurEffectStyle: UIBlurEffect.Style?
-//  
-//  var visualEffectBlurView = UIVisualEffectView()
-
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -53,8 +48,6 @@ class SettingViewController: UIViewController {
     showBlackView()
     
   }
-  
-  
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     
@@ -72,12 +65,26 @@ class SettingViewController: UIViewController {
 
   private func showBlackView() {
     
-    blackView.backgroundColor = .black
-    
-    blackView.alpha = 0.7
-    
+    blackView.backgroundColor = .clear
+        
     presentingViewController?.view.addSubview(blackView)
     
+    setUpVisualEffect()
+    
+  }
+  
+  private func setUpVisualEffect() {
+
+    let effect = UIBlurEffect(style: .dark)
+
+    let effectView = UIVisualEffectView(effect: effect)
+    
+    effectView.alpha = 0.8
+
+    effectView.frame = blackView.frame
+
+    blackView.addSubview(effectView)
+
   }
   
   private func setUpButtonStyle(_ button: UIButton) {
