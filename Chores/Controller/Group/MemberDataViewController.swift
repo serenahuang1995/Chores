@@ -6,23 +6,49 @@
 //
 
 import UIKit
+import Charts
 
 class MemberDataViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
+   
+  @IBOutlet weak var barChartView: HorizontalBarChartView!
+  
+  var entries: [BarChartDataEntry] = []
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
     
+    barChartView.delegate = self
+    
+    setUpChartView()
+    
+  }
+  
+  func setUpChartView() {
+    
+    let xxx = 30.0
+    
+    let yyy = 4.0
+    
+    let rrr = 25.0
+    
+    let ttt = 5.0
+    
+    entries.append(BarChartDataEntry(x: xxx, y: yyy))
+    
+    entries.append(BarChartDataEntry(x: rrr, y: ttt))
 
-    /*
-    // MARK: - Navigation
+    let set = BarChartDataSet(entries: entries, label: "chores")
+    
+    set.colors = ChartColorTemplates.liberty()
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    let data = BarChartData(dataSet: set)
+    
+    barChartView.data = data
+    
+  }
 
+}
+
+extension MemberDataViewController: ChartViewDelegate {
+  
 }

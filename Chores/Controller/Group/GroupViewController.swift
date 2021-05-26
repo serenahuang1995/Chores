@@ -43,10 +43,8 @@ class GroupViewController: UIViewController {
 //  @IBOutlet weak var weekDataView: UIView!
 //
 //  @IBOutlet weak var monthDataView: UIView!
-//
-  @IBOutlet weak var totalDataView: UIView!
   
-  @IBOutlet weak var horizontalBarChartView: HorizontalBarChartView!
+  @IBOutlet weak var containerView: UIView!
   
   @IBOutlet weak var collectionView: UICollectionView! {
     didSet {
@@ -68,7 +66,6 @@ class GroupViewController: UIViewController {
 //
 //  }
   
-  var entries: [BarChartDataEntry] = []
     
   var mockCount = 11
   
@@ -77,11 +74,6 @@ class GroupViewController: UIViewController {
     super.viewDidLoad()
     
     updateContainerView(type: .week)
-    
-    horizontalBarChartView.delegate = self
-    
-    
-
     
   }
   
@@ -116,23 +108,23 @@ class GroupViewController: UIViewController {
 //
 //  }
   
-  func setUpChartView() {
+//  func setUpChartView() {
     
 //    var entries: [BarChartDataEntry] = []
     
-    for yyy in 0...10 {
-      entries.append(BarChartDataEntry(x: Double.random(in: 1...30), y: Double(yyy)))
-    }
-    
-    let set = BarChartDataSet(entries: entries, label: "chores")
-    
-    set.colors = ChartColorTemplates.joyful()
-
-    let data = BarChartData(dataSet: set)
-    
-    horizontalBarChartView.data = data
-    
-  }
+//    for yyy in 0...10 {
+//      entries.append(BarChartDataEntry(x: Double.random(in: 1...30), y: Double(yyy)))
+//    }
+//
+//    let set = BarChartDataSet(entries: entries, label: "chores")
+//
+//    set.colors = ChartColorTemplates.joyful()
+//
+//    let data = BarChartData(dataSet: set)
+//
+//    horizontalBarChartView.data = data
+//
+//  }
   
   @IBAction func clickSwitchButton(_ sender: UIButton) {
 
@@ -178,20 +170,20 @@ class GroupViewController: UIViewController {
 
     case .week:
       
-      setUpChartView()
-      horizontalBarChartView.backgroundColor = .none
+//      setUpChartView()
+      containerView.backgroundColor = .none
       
 //      weekDataView.isHidden = false
 
     case .month:
-      setUpChartView()
-      horizontalBarChartView.backgroundColor = .beigeEBDDCE
+//      setUpChartView()
+      containerView.backgroundColor = .beigeEBDDCE
 
 //      monthDataView.isHidden = false
       
     case .total:
-      setUpChartView()
-      horizontalBarChartView.backgroundColor = .orangeE89E21
+//      setUpChartView()
+      containerView.backgroundColor = .orangeE89E21
 //      totalDataView.isHidden = false
 
     }
@@ -269,6 +261,6 @@ extension GroupViewController: AddMemberCellDelegate {
   
 }
 
-extension GroupViewController: ChartViewDelegate {
-  
-}
+//extension GroupViewController: ChartViewDelegate {
+//  
+//}
