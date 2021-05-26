@@ -62,13 +62,16 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zv2-ab-NJ2">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zv2-ab-NJ2" userLabel="Setting">
                                         <rect key="frame" x="359" y="60" width="25" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="3RB-FL-pku"/>
                                             <constraint firstAttribute="width" constant="25" id="G6W-1g-AhK"/>
                                         </constraints>
                                         <state key="normal" image="Icon32px_Setting"/>
+                                        <connections>
+                                            <segue destination="zD8-8N-Nla" kind="presentation" identifier="Popover" id="afR-rc-Mql"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bcz-8E-O7j">
                                         <rect key="frame" x="0.0" y="237" width="414" height="40"/>
@@ -169,6 +172,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="0q3-pb-oHB"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="dataContainerView" destination="zcM-cf-l7v" id="wc4-Hc-rid"/>
                         <outlet property="indicatorView" destination="hZJ-85-2uF" id="kmk-93-ypP"/>
@@ -182,7 +186,89 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rmj-S7-R7u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="692.75362318840587" y="-59.598214285714285"/>
+            <point key="canvasLocation" x="-154" y="-60"/>
+        </scene>
+        <!--Setting View Controller-->
+        <scene sceneID="0aM-KS-Wuv">
+            <objects>
+                <viewController modalPresentationStyle="overCurrentContext" id="zD8-8N-Nla" customClass="SettingViewController" customModule="Chores" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uF8-NM-XzU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6YR-GC-uk9" customClass="CardView" customModule="Chores" customModuleProvider="target">
+                                <rect key="frame" x="32" y="567" width="350" height="245"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y0r-EK-t1h">
+                                        <rect key="frame" x="25" y="170" width="300" height="55"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="55" id="RB5-T2-pAM"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                        <state key="normal" title="退出小屋" image="exit">
+                                            <color key="titleColor" systemColor="labelColor"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U1L-ec-dS3">
+                                        <rect key="frame" x="25" y="20" width="300" height="55"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="55" id="RVo-ID-o6H"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                        <state key="normal" title="更改暱稱" image="edit">
+                                            <color key="titleColor" systemColor="labelColor"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Rc-uh-n7n">
+                                        <rect key="frame" x="25" y="95" width="300" height="55"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="55" id="LgX-KR-IbL"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                        <state key="normal" title="更改頭像" image="camera">
+                                            <color key="titleColor" systemColor="labelColor"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Y0r-EK-t1h" secondAttribute="bottom" constant="20" id="ItV-kt-UfC"/>
+                                    <constraint firstItem="Y0r-EK-t1h" firstAttribute="top" secondItem="4Rc-uh-n7n" secondAttribute="bottom" constant="20" id="N7A-rh-1RN"/>
+                                    <constraint firstItem="4Rc-uh-n7n" firstAttribute="top" secondItem="U1L-ec-dS3" secondAttribute="bottom" constant="20" id="Nnn-Qp-vXK"/>
+                                    <constraint firstItem="U1L-ec-dS3" firstAttribute="centerX" secondItem="6YR-GC-uk9" secondAttribute="centerX" id="NpB-89-gFP"/>
+                                    <constraint firstItem="4Rc-uh-n7n" firstAttribute="leading" secondItem="6YR-GC-uk9" secondAttribute="leading" constant="25" id="QCP-aG-THJ"/>
+                                    <constraint firstItem="Y0r-EK-t1h" firstAttribute="leading" secondItem="6YR-GC-uk9" secondAttribute="leading" constant="25" id="TGV-Af-7oY"/>
+                                    <constraint firstItem="U1L-ec-dS3" firstAttribute="top" secondItem="6YR-GC-uk9" secondAttribute="top" constant="20" id="UgC-4b-IAu"/>
+                                    <constraint firstItem="4Rc-uh-n7n" firstAttribute="centerX" secondItem="6YR-GC-uk9" secondAttribute="centerX" id="aah-Lv-WJp"/>
+                                    <constraint firstAttribute="trailing" secondItem="Y0r-EK-t1h" secondAttribute="trailing" constant="25" id="bpv-Lc-dpK"/>
+                                    <constraint firstAttribute="height" constant="245" id="cFX-oy-yHK"/>
+                                    <constraint firstItem="Y0r-EK-t1h" firstAttribute="centerX" secondItem="6YR-GC-uk9" secondAttribute="centerX" id="hOu-8X-urj"/>
+                                    <constraint firstAttribute="trailing" secondItem="4Rc-uh-n7n" secondAttribute="trailing" constant="25" id="nCR-AZ-2Z2"/>
+                                    <constraint firstAttribute="trailing" secondItem="U1L-ec-dS3" secondAttribute="trailing" constant="25" id="nPd-Nc-ZTz"/>
+                                    <constraint firstItem="U1L-ec-dS3" firstAttribute="leading" secondItem="6YR-GC-uk9" secondAttribute="leading" constant="25" id="wFT-a3-uo7"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="9e9-fh-mKD"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9e9-fh-mKD" firstAttribute="bottom" secondItem="6YR-GC-uk9" secondAttribute="bottom" constant="50" id="Wki-Hc-fQr"/>
+                            <constraint firstItem="9e9-fh-mKD" firstAttribute="trailing" secondItem="6YR-GC-uk9" secondAttribute="trailing" constant="32" id="jcS-mT-RIN"/>
+                            <constraint firstItem="6YR-GC-uk9" firstAttribute="centerX" secondItem="uF8-NM-XzU" secondAttribute="centerX" id="phP-6t-rIF"/>
+                            <constraint firstItem="6YR-GC-uk9" firstAttribute="leading" secondItem="9e9-fh-mKD" secondAttribute="leading" constant="32" id="zKb-wl-Y69"/>
+                        </constraints>
+                    </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="414" height="200"/>
+                    <connections>
+                        <outlet property="changeNameButton" destination="U1L-ec-dS3" id="cL0-HZ-sIm"/>
+                        <outlet property="changePictureButton" destination="4Rc-uh-n7n" id="krz-Mi-O4c"/>
+                        <outlet property="leaveGroupButton" destination="Y0r-EK-t1h" id="vq3-kB-T9V"/>
+                        <outlet property="popView" destination="6YR-GC-uk9" id="Eal-tm-8D1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AO9-Ih-cB3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="960.86956521739137" y="-430.58035714285711"/>
         </scene>
         <!--Publisher View Controller-->
         <scene sceneID="8EY-Lm-h1b">
@@ -271,7 +357,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YeS-uK-peO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1397.1014492753625" y="-60.267857142857139"/>
+            <point key="canvasLocation" x="1009" y="278"/>
         </scene>
         <!--Chores Records View Controller-->
         <scene sceneID="uOQ-Te-hbg">
@@ -301,7 +387,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dz3-n1-F0g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-610" y="567"/>
+            <point key="canvasLocation" x="222" y="649"/>
         </scene>
         <!--Chores Data View Controller-->
         <scene sceneID="Ug4-gB-xXx">
@@ -331,7 +417,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sw2-YQ-EOY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="186" y="567"/>
+            <point key="canvasLocation" x="-458" y="649"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KAd-yc-cE9">
@@ -349,13 +435,16 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DI1-nI-E4C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-217.39130434782609" y="-59.598214285714285"/>
+            <point key="canvasLocation" x="-1235" y="-60"/>
         </scene>
     </scenes>
     <resources>
         <image name="Icon32px_Setting" width="32" height="32"/>
+        <image name="camera" width="24" height="24"/>
         <image name="cancel" width="512" height="512"/>
         <image name="dollar" width="512" height="512"/>
+        <image name="edit" width="24" height="24"/>
+        <image name="exit" width="24" height="24"/>
         <image name="man" width="512" height="512"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -23,6 +23,8 @@ class ProfileViewController: UIViewController {
     
     static let data = "SegueData"
     
+    static let popover = "Popover"
+    
   }
   
   @IBOutlet weak var userNameLabel: UILabel!
@@ -85,8 +87,6 @@ class ProfileViewController: UIViewController {
 //      }
 //
 //    }
-
-    
   }
   
   override func viewWillDisappear(_ animated: Bool) {
@@ -112,7 +112,19 @@ class ProfileViewController: UIViewController {
 
     case Segue.data:
       _ = segue.destination as? ChoresDataViewController
+      
+    case Segue.popover:
 
+     _ = segue.destination as? SettingViewController
+
+//      popover.modalPresentationStyle = .popover
+//      popover.isBeingPresented = true
+
+//      let popoverController = popover.popoverPresentationController
+//      popoverController?.delegate = self
+//      popoverController?.permittedArrowDirections = .up
+//      present(popover, animated: true, completion: nil)
+    
     default:
       return
       
@@ -133,7 +145,13 @@ class ProfileViewController: UIViewController {
 //    present(popupVC, animated: true, completion: nil)
   
 //  }
+  
+  @IBAction func popover(_ sender: Any) {
+        
+//   performSegue(withIdentifier: "Popover", sender: nil)
 
+  }
+  
   @IBAction func clickSwitchButton(_ sender: UIButton) {
 
     for btn in switchButtons {
@@ -196,10 +214,16 @@ class ProfileViewController: UIViewController {
       }
 
     }
-    
-    
-    
-    
+
   }
   
 }
+
+//extension ProfileViewController: UIPopoverPresentationControllerDelegate {
+//
+//  func adaptivePresentationStyle(for controller: UIPresentationController,
+//                                 traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+//      return .none
+//  }
+//
+//}
