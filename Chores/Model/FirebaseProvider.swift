@@ -37,18 +37,18 @@ class FirebaseProvider {
   // struct has no reference，為了要修改原本 struct 的值 必須加inout
   // 這時 func 丟進來的 Chores 跟與本的 Chores 是不同 reference
   // 用戶新增家事
-  func addToDoChoreData(data: inout Chore, completion: @escaping (Result<String, Error>) -> Void) {
+  func addToDoChoreData(chore: inout Chore, completion: @escaping (Result<String, Error>) -> Void) {
 
     let docReference = database.collection(groups)
       .document(user.groupId)
       .collection(chores)
       .document()
     
-    data.id = docReference.documentID
+    chore.id = docReference.documentID
     
     do {
       
-      try docReference.setData(from: data) { error in
+      try docReference.setData(from: chore) { error in
         
         if let error = error {
           
@@ -83,7 +83,7 @@ class FirebaseProvider {
     
   }
   
-  //用戶完成家事後，點選完成會改變家事的狀態
+  // 用戶完成家事後，點選完成會改變家事的狀態
   func updateStatus(selectedChore: Chore, completion: @escaping (Result<Chore, Error>) -> Void) {
     
     let docRefernce = database.collection(groups)

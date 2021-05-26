@@ -16,6 +16,8 @@ class UserProvider {
     lazy var database = Firestore.firestore()
   
     let users = "users"
+    
+    let groups = "groups"
 
     var user: User = User(
       
@@ -70,12 +72,10 @@ class UserProvider {
     }
   
   }
-  
-  
+
   func onFetchUserListener(completion: @escaping (Result<User, Error>) -> Void) {
     
-    let docReference = database
-      .collection(users).document(appleUid)
+    let docReference = database.collection(users).document(appleUid)
 //      .whereField("id", isEqualTo: appleUid)
     
     docReference.addSnapshotListener {  querySnapshot, error in
@@ -97,14 +97,61 @@ class UserProvider {
       }
       
     }
-    
-    
-    
-    
+
   }
   
+  // 建立群組後 會給該群組一個 ID
+  func createGroup(group: inout Group, completion: @escaping (Result<String, Error>) -> Void) {
+    
+    let docReference = database.collection(groups).document()
+    
+    group.id = docReference.documentID
+    
+    do {
+      
+      try docReference.setData(from: group) { error in
+        
+        if let error = error {
+          
+          completion(.failure(error))
+          
+        } else {
+          
+          completion(.success("Success"))
+          
+        }
+        
+      }
+      
+    } catch {
+      
+      completion(.failure(error))
+      
+    }
+
+  }
   
-  
-  
+  // 用戶進入群組後 會 assign 該群組的 ID 給使用者
+  func updateGtoupId(sendInvitationGroup: Group,
+                     userId: String,
+                     completion: @escaping (Result<String, Error>) -> Void) {
+    
+    let docReference = database.collection(users).document(userId)
+    
+    docReference.updateData(["groupId": sendInvitationGroup.id]) { error in
+      
+      if let error = error {
+        
+        completion(.failure(error))
+        
+      } else {
+        
+        completion(.success("Success"))
+        
+      }
+      
+    }
+    
+  }
     
 }

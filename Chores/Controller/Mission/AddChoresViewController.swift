@@ -127,7 +127,7 @@ class AddChoresViewController: UIViewController {
       status: 0,
       completedDate: nil)
 
-    FirebaseProvider.shared.addToDoChoreData(data: &data) { [weak self] result in
+    FirebaseProvider.shared.addToDoChoreData(chore: &data) { [weak self] result in
 
       switch result {
 
