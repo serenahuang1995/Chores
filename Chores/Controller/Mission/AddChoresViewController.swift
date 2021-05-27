@@ -74,16 +74,10 @@ class AddChoresViewController: UIViewController {
     }
     
   }
-
-  var owner: String? = nil
   
   var status: Int = 0
   
   var selectedIndex: Int?
-  
-//  var time: String? = ""
-//
-//  var point: String? = ""
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -116,7 +110,20 @@ class AddChoresViewController: UIViewController {
   
   @IBAction func toAddChoreItem(_ sender: Any) {
     
-    guard let time = timeTextField.text, let point = pointResultTextField.text, let selectedIndex = selectedIndex else { return }
+    guard let time = timeTextField.text,
+          let point = pointResultTextField.text,
+          let selectedIndex = selectedIndex else {
+      
+      KRProgressHUD.showError(withMessage: "資料不能是空的喲！")
+
+      return
+    
+    }
+    
+//    if time == nil || point == nil || selectedIndex == nil {
+//
+//
+//    }
 
     var data = Chore(
       id: "",
@@ -136,13 +143,11 @@ class AddChoresViewController: UIViewController {
       
         KRProgressHUD.showSuccess(withMessage: "家事新增成功")
 
-      self?.navigationController?.popViewController(animated: true)
+        self?.navigationController?.popViewController(animated: true)
 
       case .failure(let error):
         print(error)
-        KRProgressHUD.showError(withMessage: "資料不能是空的喲")
         
-
       }
 
     }
@@ -184,7 +189,7 @@ class AddChoresViewController: UIViewController {
   func addDefaultChoreTypes() {
     
     let defaultTypes = [
-      "洗碗", "洗衣服", "晾衣服", "摺衣服", "燙衣服" , "煮飯", "買菜", "掃地", "拖地",
+      "洗碗", "洗衣服", "晾衣服", "摺衣服", "燙衣服", "煮飯", "買菜", "掃地", "拖地",
       "吸地", "倒垃圾", "刷廁所", "擦窗戶", "修繕", "澆花", "遛狗", "收納", "接送", "帶小孩"
     ]
     

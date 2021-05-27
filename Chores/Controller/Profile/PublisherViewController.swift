@@ -14,6 +14,8 @@ class PublisherViewController: UIViewController {
   
 //  let blackView = UIView(frame: UIScreen.main.bounds)
   
+  let userId = "XC6b6Ys1VY1qLcBJ5M8z"
+  
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -28,44 +30,56 @@ class PublisherViewController: UIViewController {
   
   @IBAction func sureToSpendPoint(_ sender: Any) {
     
+    spendUserPoints()
 //    spendPoints(user: User)
     
     dismiss(animated: true, completion: nil)
 
   }
   
-//  func spendPoints(user: User) {
+  func spendUserPoints() {
+
+//    UserProvider.shared.fetchUser(userId: userId) { [weak self] result in
 //
-//    if user.points >= 300 {
-//      
-//    } else {
-//      
-//    }
-//    
-//    
-//    
-//    
-//  }
-//  
-//  func updatePoints(user: User) {
-//    
-//    FirebaseProvider.shared.updateUserPoints(user: user) { result in
-//      
 //      switch result {
-//      
-//      case .success(let success):
-//        print(success)
-//      
+//
+//      case .success(var user):
+    
+    var user = UserProvider.shared.user
+    
+        print(user)
+
+    user.points -= 300
+
+    updatePoints(user: user)
+
 //      case .failure(let error):
 //        print(error)
-//      
+//
 //      }
-//         
+//
 //    }
-//  }
-  
-  
-  
+
+  }
+
+  func updatePoints(user: User) {
+
+    FirebaseProvider.shared.updateUserPoints(user: user) { result in
+
+      switch result {
+
+      case .success(let success):
+        print(success)
+
+      case .failure(let error):
+        print(error)
+
+      }
+
+    }
+
+  }
+
 //  private func showBlackView() {
 //    blackView.backgroundColor = .black
 //    blackView.alpha = 0.7

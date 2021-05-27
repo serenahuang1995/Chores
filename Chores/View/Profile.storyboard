@@ -281,20 +281,20 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dPc-s9-2Fw" customClass="CardView" customModule="Chores" customModuleProvider="target">
                                 <rect key="frame" x="32" y="348" width="350" height="200"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="消耗300點可以休息一週 不用打掃" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mzQ-ft-ncP">
-                                        <rect key="frame" x="10" y="71" width="330" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="消耗300點可以休息一週 不用打掃" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mzQ-ft-ncP">
+                                        <rect key="frame" x="10" y="66" width="330" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="是否確認兌換？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SD1-Yl-ns8">
-                                        <rect key="frame" x="114" y="101.5" width="122" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="是否確認兌換？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SD1-Yl-ns8">
+                                        <rect key="frame" x="114" y="96.5" width="122" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="積分兌換區" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XiH-F6-Jar">
-                                        <rect key="frame" x="131.5" y="20.5" width="87" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="積分兌換區" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XiH-F6-Jar">
+                                        <rect key="frame" x="131.5" y="20" width="87" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -326,6 +326,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="mzQ-ft-ncP" firstAttribute="top" secondItem="XiH-F6-Jar" secondAttribute="bottom" constant="25" id="7CX-st-jKx"/>
                                     <constraint firstItem="XiH-F6-Jar" firstAttribute="centerX" secondItem="dPc-s9-2Fw" secondAttribute="centerX" id="BMc-pb-gEt"/>
                                     <constraint firstItem="X02-Y9-1Xi" firstAttribute="leading" secondItem="dPc-s9-2Fw" secondAttribute="leading" constant="110" id="CeN-v8-0Jd"/>
                                     <constraint firstItem="SD1-Yl-ns8" firstAttribute="centerX" secondItem="dPc-s9-2Fw" secondAttribute="centerX" id="Df5-TC-6go"/>
@@ -333,6 +334,7 @@
                                     <constraint firstAttribute="bottom" secondItem="Tz7-Mw-jda" secondAttribute="bottom" constant="20" id="ZKC-Zp-ULP"/>
                                     <constraint firstItem="SD1-Yl-ns8" firstAttribute="top" secondItem="mzQ-ft-ncP" secondAttribute="bottom" constant="10" id="d3i-GW-PTw"/>
                                     <constraint firstAttribute="height" constant="200" id="iLW-yg-vcz"/>
+                                    <constraint firstItem="XiH-F6-Jar" firstAttribute="top" secondItem="dPc-s9-2Fw" secondAttribute="top" constant="20" id="iaj-D9-RZh"/>
                                     <constraint firstItem="mzQ-ft-ncP" firstAttribute="leading" secondItem="dPc-s9-2Fw" secondAttribute="leading" constant="10" id="ldX-np-K4E"/>
                                     <constraint firstItem="mzQ-ft-ncP" firstAttribute="centerX" secondItem="dPc-s9-2Fw" secondAttribute="centerX" id="o0V-oi-EV8"/>
                                     <constraint firstAttribute="trailing" secondItem="Tz7-Mw-jda" secondAttribute="trailing" constant="110" id="ygb-N6-zM6"/>

@@ -9,6 +9,19 @@ import Foundation
 import Firebase
 import FirebaseFirestoreSwift
 
+struct UserType {
+  
+  static let id = "id"
+  
+  static let weekHours = "weekHours"
+  
+  static let totalHours = "totalHours"
+  
+  static let points = "points"
+  
+  static let groupId = "groupId"
+}
+
 class UserProvider {
 
     static let shared = UserProvider()
@@ -90,6 +103,8 @@ class UserProvider {
         
         if let user = user {
           
+          self.user = user
+          
           completion(.success(user))
 
         }
@@ -132,13 +147,13 @@ class UserProvider {
   }
   
   // 用戶進入群組後 會 assign 該群組的 ID 給使用者
-  func updateGtoupId(sendInvitationGroup: Group,
+  func updateGroupId(sendInvitationGroup: Group,
                      userId: String,
                      completion: @escaping (Result<String, Error>) -> Void) {
     
     let docReference = database.collection(users).document(userId)
     
-    docReference.updateData(["groupId": sendInvitationGroup.id]) { error in
+    docReference.updateData([UserType.groupId: sendInvitationGroup.id]) { error in
       
       if let error = error {
         
@@ -153,5 +168,30 @@ class UserProvider {
     }
     
   }
+  
+  // 離開群組之後會移除用戶的 group id
+  func leaveGroup(userId: String,completion: @escaping (Result<String, Error>) -> Void) {
+
+    let docReference = database.collection(users).document(userId)
     
+    docReference.updateData([UserType.groupId: nil,
+                             UserType.points: 0,
+                             UserType.weekHours: 0,
+                             UserType.totalHours: 0]) { error in
+      
+      if let error = error {
+        
+        completion(.failure(error))
+        
+      } else {
+        
+        completion(.success("Success"))
+        
+      }
+      
+    }
+    
+  }
+  
+
 }

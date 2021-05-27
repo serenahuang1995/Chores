@@ -60,18 +60,20 @@ struct User: Codable {
   
   var totalHours: Int
   
-  var groupId: String
+  var groupId: String?
   
-  var dictTransfor: [String: Any] {
-    return [
-      "id": id as Any,
-      "name": name as Any,
-      "picture": picture as Any,
-      "points": points as Any,
-      "weekHours": weekHours as Any,
-      "totalHours": totalHours as Any,
-      "groupId": groupId as Any
-    ]
-  }
+//  var dictTransfor: [String: Any] {
+//    return [
+//      "id": id as Any,
+//      "name": name as Any,
+//      "picture": picture as Any,
+//      "points": points as Any,
+//      "weekHours": weekHours as Any,
+//      "totalHours": totalHours as Any,
+//      "groupId": groupId as Any
+//    ]
+//  }
 
 }
+
+
