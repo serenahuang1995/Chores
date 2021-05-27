@@ -46,9 +46,30 @@ class MissionViewController: UIViewController {
     
     resetNavigationBarButton()
     
-//    reload()
-    setChoresListener()
+    fetchUser()
 
+  }
+  
+  func fetchUser() {
+    
+    UserProvider.shared.fetchUser(userId: UserProvider.shared.appleUid) { [weak self] result in
+      
+      switch result {
+      
+      case .success(let user):
+        
+        print(user)
+        
+        self?.setChoresListener()
+
+      case .failure(let error):
+        
+        print(error)
+      
+      }
+   
+    }
+        
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

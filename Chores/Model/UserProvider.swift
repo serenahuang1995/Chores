@@ -34,13 +34,13 @@ class UserProvider {
 
     var user: User = User(
       
-      id: "XC6b6Ys1VY1qLcBJ5M8z",
-      name: "Serena",
+      id: "",
+      name: "",
       picture: "",
-      points: 66666666666,
-      weekHours: 666,
-      totalHours: 66666666666,
-      groupId: "XW1OPQRPZig550EXPDQG"
+      points: -1,
+      weekHours: -1,
+      totalHours: -1,
+      groupId: ""
       
     )
   
