@@ -8,425 +8,364 @@
 import UIKit
 
 protocol MissionCellDelegate: AnyObject {
-  
-  func clickButtonToAccept(at index: Int)
-  
-  func clickButtonToFinish(at index: Int)
-  
+    
+    func clickButtonToAccept(at index: Int)
+    
+    func clickButtonToFinish(at index: Int)
 }
 
 class MissionViewController: UIViewController {
-
-  @IBOutlet weak var tableView: UITableView! {
     
-    didSet {
-      
-      tableView.delegate = self
-      
-      tableView.dataSource = self
-      
-      setUpTableView()
-      
-    }
-    
-  }
-  
-  // 記錄每個 Section 的狀態，預設false
-  var isExpandedList: [Bool] = [false, false]
-
-  var allChores: [Chore] = []
-  
-  var unclaimedChores: [Chore] = []
-  
-  var ongoingChores: [Chore] = []
-
-  override func viewDidLoad() {
-
-    super.viewDidLoad()
-    
-    resetNavigationBarButton()
-    
-    fetchUser()
-    
-    UserProvider.shared.createGroup { result in
-      
-      switch result {
-      
-      case .success(let group):
+    @IBOutlet weak var tableView: UITableView! {
         
-        print(group)
-        
-      case .failure(let error):
-        
-        print(error)
-      
-      
-      }
-    
-    }
-
-  }
-  
-  func fetchUser() {
-    
-    UserProvider.shared.fetchUser(userId: UserProvider.shared.appleUid) { [weak self] result in
-      
-      switch result {
-      
-      case .success(let user):
-        
-        print(user)
-        
-        self?.setChoresListener()
-
-      case .failure(let error):
-        
-        print(error)
-      
-      }
-   
-    }
-        
-  }
-  
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    
-    _ = segue.destination as? AddChoresViewController
-    
-  }
-
-  private func resetNavigationBarButton() {
-    
-    let backButton = UIBarButtonItem(
-      image: UIImage.asset(.Icon32px_Plus),
-      style: .plain,
-      target: self,
-      action: #selector(tapAddButton))
-    
-    self.navigationItem.rightBarButtonItem = backButton
-    
-  }
-  
-  @objc func tapAddButton() {
-    
-    performSegue(withIdentifier: "AddChores", sender: nil)
-    
-  }
-
-  private func setUpTableView() {
-    
-    tableView.separatorStyle = .none
-  
-    tableView.registerHeaderWithNib(
-      identifier: String(describing: SectionView.self), bundle: nil)
-    
-    tableView.registerCellWithNib(
-      identifier: String(describing: UnclaimedTableViewCell.self), bundle: nil)
-    
-    tableView.registerCellWithNib(
-      identifier: String(describing: OngoingTableViewCell.self), bundle: nil)
-    
-  }
-  
-//  func reload() {
-//    FirebaseProvider.shared.fetchChoresData { result in
-//
-//      switch result {
-//
-//      case .success(let chores):
-//
-//        self.allChoreList = chores
-//
-//        self.undoList = self.allChoreList.filter { $0.owner == nil }
-//
-//        self.doingList = self.allChoreList.filter { $0.owner != nil }
-//
-//        self.tableView.reloadData()
-//
-//      case .failure(let error):
-//
-//        print(error)
-//
-//      }
-//
-//    }
-//  }
-  
-  func setChoresListener() {
-    
-    FirebaseProvider.shared.listenChores { result in
-      
-      switch result {
-      
-      case .success(let chores):
-        
-        self.allChores = chores
-        
-        self.unclaimedChores = self.allChores.filter { $0.owner == nil }
-        
-        self.ongoingChores = self.allChores.filter { $0.owner != nil }
-        
-        self.tableView.reloadData()
-        
-      case .failure(let error):
-        
-        print(error)
-        
-      }
-
-    }
-
-  }
-  
-  //先確認用戶的資料，再去改變它的積分與時數，還有積分加權的處理
-  func updatePointsForCompletedChore(chore: Chore) {
-    
-    guard let userId = chore.owner else { return }
-    
-    UserProvider.shared.fetchUser(userId: userId) { [weak self] result in
-      
-      switch result {
-        
-      case .success(var user):
-        print(user)
-        
-        var multiple = 1.0
-        
-        switch user.weekHours {
-        
-        case 0...50:
-          print("積分 1 倍")
-          multiple = 1
-        
-        case 51...100:
-          print("積分 1.2 倍")
-          multiple = 1.2
-          
-        case 101...150:
-          print("積分 1.5 倍")
-          multiple = 1.5
-          
-        default:
-          print("積分 2 倍")
-          multiple = 2
-   
+        didSet {
+            
+            tableView.delegate = self
+            
+            tableView.dataSource = self
+            
+            setUpTableView()
         }
-      
-        user.weekHours += chore.hours
-        
-        user.totalHours += chore.hours
-        
-        user.points += Int(Double(chore.points) * multiple)
-  
-        self?.updatePoints(user: user)
-
-      case .failure(let error):
-        print(error)
-        
-      }
-      
     }
     
-  }
-  
-  func updatePoints(user: User) {
+    // 記錄每個 Section 的狀態，預設false
+    var isExpandedList: [Bool] = [false, false]
     
-    FirebaseProvider.shared.updateUserPoints(user: user) { result in
-      
-      switch result {
-      
-      case .success(let success):
-        print(success)
-      
-      case .failure(let error):
-        print(error)
-      
-      }
-         
+    var allChores: [Chore] = []
+    
+    var unclaimedChores: [Chore] = []
+    
+    var ongoingChores: [Chore] = []
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        resetNavigationBarButton()
+        
+        fetchUser()
     }
     
-  }
-  
+    // 用戶每次進來都會 fetch
+    func fetchUser() {
+        
+        let appleUid = UserProvider.shared.appleUid
+        
+        UserProvider.shared.fetchUser(userId: appleUid) { [weak self] result in
+            
+            switch result {
+            
+            case .success(let user):
+                
+                print(user)
+                
+                self?.setChoresListener()
+                
+            case .failure(let error):
+                
+                print(error)
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        _ = segue.destination as? AddChoresViewController
+    }
+    
+    private func resetNavigationBarButton() {
+        
+        let backButton = UIBarButtonItem(
+            image: UIImage.asset(.Icon32px_Plus),
+            style: .plain,
+            target: self,
+            action: #selector(tapAddButton))
+        
+        self.navigationItem.rightBarButtonItem = backButton
+        
+    }
+    
+    @objc func tapAddButton() {
+        
+        performSegue(withIdentifier: Segue.addChore, sender: nil)
+    }
+    
+    private func setUpTableView() {
+        
+        tableView.separatorStyle = .none
+        
+        tableView.registerHeaderWithNib(
+            identifier: String(describing: SectionView.self), bundle: nil)
+        
+        tableView.registerCellWithNib(
+            identifier: String(describing: UnclaimedTableViewCell.self), bundle: nil)
+        
+        tableView.registerCellWithNib(
+            identifier: String(describing: OngoingTableViewCell.self), bundle: nil)
+    }
+    
+    func setChoresListener() {
+        
+        FirebaseProvider.shared.listenChores { result in
+            
+            switch result {
+            
+            case .success(let chores):
+                
+                self.allChores = chores
+                
+                self.unclaimedChores = self.allChores.filter { $0.owner == nil }
+                
+                self.ongoingChores = self.allChores.filter { $0.owner != nil }
+                
+                self.tableView.reloadData()
+                
+            case .failure(let error):
+                
+                print(error)
+            }
+        }
+    }
+    
+    // 先確認用戶的資料，再去改變它的積分與時數，還有積分加權的處理
+    func updatePointsForCompletedChore(chore: Chore) {
+        
+        guard let userId = chore.owner else { return }
+        
+        UserProvider.shared.fetchUser(userId: userId) { [weak self] result in
+            
+            switch result {
+            
+            case .success(var user):
+                
+                print(user)
+                
+                var multiple = 1.0
+                
+                switch user.weekHours {
+                
+                case 0...50:
+                    print("積分 1 倍")
+                    multiple = 1
+                    
+                case 51...100:
+                    print("積分 1.2 倍")
+                    multiple = 1.2
+                    
+                case 101...150:
+                    print("積分 1.5 倍")
+                    multiple = 1.5
+                    
+                default:
+                    print("積分 2 倍")
+                    multiple = 2
+                    
+                }
+                
+                user.weekHours += chore.hours
+                
+                user.totalHours += chore.hours
+                
+                user.points += Int(Double(chore.points) * multiple)
+                
+                self?.updatePoints(user: user)
+                
+            case .failure(let error):
+                
+                print(error)
+            
+            }
+        }
+    }
+    
+    func updatePoints(user: User) {
+        
+        FirebaseProvider.shared.updateUserPoints(user: user) { result in
+            
+            switch result {
+            
+            case .success(let success):
+                
+                print(success)
+                
+            case .failure(let error):
+                
+                print(error)
+                
+            }
+        }
+    }
+    
 }
 
 extension MissionViewController: UITableViewDelegate {
-  
-  func tableView(_ tableView: UITableView,
-                 heightForHeaderInSection section: Int) -> CGFloat {
     
-    if section == 0 {
-      
-      return 300
-      
+    func tableView(_ tableView: UITableView,
+                   heightForHeaderInSection section: Int) -> CGFloat {
+        
+        if section == 0 {
+            
+            return 300
+        }
+        
+        return 160
     }
     
-    return 160
+    func tableView(_ tableView: UITableView,
+                   heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 110
+    }
     
-  }
-  
-  func tableView(_ tableView: UITableView,
-                 heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 110
-  }
-  
 }
 
 extension MissionViewController: UITableViewDataSource {
-  
-  func tableView(_ tableView: UITableView,
-                 viewForHeaderInSection section: Int) -> UIView? {
     
-    let header = tableView.dequeueReusableHeaderFooterView(
-      withIdentifier: String(describing: SectionView.self)
-    )
-    
-    guard let sectionView = header as? SectionView else { return header }
-    
-    sectionView.isExpanded = self.isExpandedList[section]
-    
-    sectionView.buttonTag = section
-    
-    sectionView.delegate = self
-    
-    // 調整section 0 的top constraint 跟 height
-    if section == 0 {
-      
-      sectionView.layoutUnclaimedSection()
-      
-    } else {
-      
-      sectionView.layoutOngoingSection()
-      
+    func tableView(_ tableView: UITableView,
+                   viewForHeaderInSection section: Int) -> UIView? {
+        
+        let header = tableView.dequeueReusableHeaderFooterView(
+            withIdentifier: String(describing: SectionView.self)
+        )
+        
+        guard let sectionView = header as? SectionView else { return header }
+        
+        sectionView.isExpanded = self.isExpandedList[section]
+        
+        sectionView.buttonTag = section
+        
+        sectionView.delegate = self
+        
+        // 調整section 0 的top constraint 跟 height
+        if section == 0 {
+            
+            sectionView.layoutUnclaimedSection()
+        
+        } else {
+            
+            sectionView.layoutOngoingSection()
+        }
+        
+        return sectionView
     }
     
-    return sectionView
-    
-  }
-
-  func numberOfSections(in tableView: UITableView) -> Int {
-    
-    return isExpandedList.count
-    
-  }
-  
-  func tableView(_ tableView: UITableView,
-                 numberOfRowsInSection section: Int) -> Int {
-    
-    // true 的時候會依照不同 Section 去抓要顯示幾個 Row
-    if self.isExpandedList[section] {
-      
-      if section == 0 {
+    func numberOfSections(in tableView: UITableView) -> Int {
         
-        return unclaimedChores.count
-        
-      } else {
-        
-        return ongoingChores.count
-        
-      }
-
+        return isExpandedList.count
     }
     
-    return 0
-    
-  }
-  
-  func tableView(_ tableView: UITableView,
-                 cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    
-    let index = indexPath.row
-    
-    switch indexPath.section {
-    
-    case 0:
-      let cell = tableView.dequeueReusableCell(
-        withIdentifier: String(describing: UnclaimedTableViewCell.self),
-        for: indexPath)
-      
-      guard let unclaimedCell = cell as? UnclaimedTableViewCell else { return cell }
-      
-      unclaimedCell.delegate = self
-      
-      unclaimedCell.setUpCellStyle()
-      
-      unclaimedCell.layoutCell(chore: unclaimedChores[index])
-      
-      return unclaimedCell
-      
-    case 1:
-      let cell = tableView.dequeueReusableCell(
-        withIdentifier: String(describing: OngoingTableViewCell.self),
-        for: indexPath)
-      
-      guard let ongoingCell = cell as? OngoingTableViewCell else { return cell }
-      
-      ongoingCell.delegate = self
-      
-      ongoingCell.setUpCellStyle()
-      
-      ongoingCell.layoutCell(chore: ongoingChores[index])
-      
-      return ongoingCell
-      
-    default:
-      
-      return UITableViewCell()
-      
+    func tableView(_ tableView: UITableView,
+                   numberOfRowsInSection section: Int) -> Int {
+        
+        // true 的時候會依照不同 Section 去抓要顯示幾個 Row
+        if self.isExpandedList[section] {
+            
+            if section == 0 {
+                
+                return unclaimedChores.count
+                
+            } else {
+                
+                return ongoingChores.count
+            }
+        }
+        
+        return 0
     }
     
-  }
-  
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let index = indexPath.row
+        
+        switch indexPath.section {
+        
+        case 0:
+            
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: String(describing: UnclaimedTableViewCell.self),
+                for: indexPath)
+            
+            guard let unclaimedCell = cell as? UnclaimedTableViewCell else { return cell }
+            
+            unclaimedCell.delegate = self
+            
+            unclaimedCell.setUpCellStyle()
+            
+            unclaimedCell.layoutCell(chore: unclaimedChores[index])
+            
+            return unclaimedCell
+            
+        case 1:
+            
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: String(describing: OngoingTableViewCell.self),
+                for: indexPath)
+            
+            guard let ongoingCell = cell as? OngoingTableViewCell else { return cell }
+            
+            ongoingCell.delegate = self
+            
+            ongoingCell.setUpCellStyle()
+            
+            ongoingCell.layoutCell(chore: ongoingChores[index])
+            
+            return ongoingCell
+            
+        default:
+            
+            return UITableViewCell()
+        }
+    }
+    
 }
 
 extension MissionViewController: SectionViewDelegate {
-  
-  func showMoreItem(_ section: SectionView, _ didPressTag: Int, _ isExpanded: Bool) {
     
-    isExpandedList[didPressTag] = !isExpanded
+    func showMoreItem(_ section: SectionView, _ didPressTag: Int, _ isExpanded: Bool) {
+        
+        isExpandedList[didPressTag] = !isExpanded
+        
+        tableView.reloadSections(IndexSet(integer: didPressTag), with: .automatic)
+    }
     
-    tableView.reloadSections(IndexSet(integer: didPressTag), with: .automatic)
-    
-  }
-  
 }
 
 extension MissionViewController: MissionCellDelegate {
-
-  func clickButtonToAccept(at index: Int) {
     
-    FirebaseProvider.shared.updateOwner(selectedChore: unclaimedChores[index]) { result in
-      
-      switch result {
-      
-      case .success(let success):
-        print(success)
-      //        self.reload()
-      
-      case .failure(let error):
-        print(error)
+    func clickButtonToAccept(at index: Int) {
         
-      }
-      
+        FirebaseProvider.shared.updateOwner(selectedChore: unclaimedChores[index]) { result in
+            
+            switch result {
+            
+            case .success(let success):
+                
+                print(success)
+            
+            case .failure(let error):
+                
+                print(error)
+            }
+        }
     }
     
-  }
-  
-  func clickButtonToFinish(at index: Int) {
-    
-    FirebaseProvider.shared.updateStatus(selectedChore: ongoingChores[index]) { [weak self] result in
-      
-      switch result {
-      
-      case .success(let finishedChore):
+    func clickButtonToFinish(at index: Int) {
         
-        self?.updatePointsForCompletedChore(chore: finishedChore)
-      
-      case .failure(let error):
-        print(error)
-        
-      }
-      
+        FirebaseProvider.shared.updateStatus(selectedChore: ongoingChores[index]) {
+            
+            [weak self] result in
+            
+            switch result {
+            
+            case .success(let finishedChore):
+                
+                self?.updatePointsForCompletedChore(chore: finishedChore)
+                
+            case .failure(let error):
+                
+                print(error)
+                
+            }
+        }
     }
-  }
-  
+    
 }

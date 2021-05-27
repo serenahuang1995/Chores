@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -24,7 +23,7 @@
                         </constraints>
                         <state key="normal" image="add"/>
                         <connections>
-                            <action selector="toAddMember:" destination="gTV-IL-0wX" eventType="touchUpInside" id="fmM-zr-gTh"/>
+                            <action selector="addMember:" destination="gTV-IL-0wX" eventType="touchUpInside" id="fmM-zr-gTh"/>
                         </connections>
                     </button>
                 </subviews>

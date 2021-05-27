@@ -70,7 +70,7 @@
                                         </constraints>
                                         <state key="normal" image="Icon32px_Setting"/>
                                         <connections>
-                                            <segue destination="zD8-8N-Nla" kind="presentation" identifier="Popover" id="afR-rc-Mql"/>
+                                            <segue destination="zD8-8N-Nla" kind="presentation" identifier="SeguePopover" id="afR-rc-Mql"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bcz-8E-O7j">

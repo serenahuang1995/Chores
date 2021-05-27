@@ -8,75 +8,68 @@
 import UIKit
 
 protocol SectionViewDelegate: AnyObject {
-  
-  func showMoreItem(_ section: SectionView, _ didPressTag: Int, _ isExpanded: Bool)
-  
+    
+    func showMoreItem(_ section: SectionView, _ didPressTag: Int, _ isExpanded: Bool)
 }
 
 private enum SectionTitle: String {
-
-  case unclaimed = "任務認領區"
-  
-  case ongoing = "任務進行中"
-  
+    
+    case unclaimed = "任務認領區"
+    
+    case ongoing = "任務進行中"    
 }
 
 class SectionView: UITableViewHeaderFooterView {
-  
-  var buttonTag: Int = -1 // 存放 Section 索引的 buttonTag
-
-  var isExpanded: Bool = false
-
-  weak var delegate: SectionViewDelegate?
-
-  @IBOutlet weak var sectionTitleLabel: UILabel!
-  
-  @IBOutlet weak var showMoreItemButton: UIButton!
-  
-  @IBOutlet weak var cardView: CardView! {
     
-    didSet {
-      
-      self.cardView.backgroundColor = .orangeFBDAA0
-      
+    var buttonTag: Int = -1 // 存放 Section 索引的 buttonTag
+    
+    var isExpanded: Bool = false
+    
+    weak var delegate: SectionViewDelegate?
+    
+    @IBOutlet weak var sectionTitleLabel: UILabel!
+    
+    @IBOutlet weak var showMoreItemButton: UIButton!
+    
+    @IBOutlet weak var cardView: CardView! {
+        
+        didSet {
+            
+            self.cardView.backgroundColor = .orangeFBDAA0
+        }
     }
     
-  }
-  
-  @IBOutlet weak var cardViewTopConstraint: NSLayoutConstraint!
-
-  @IBAction func pressToExpand(_ sender: Any) {
+    @IBOutlet weak var cardViewTopConstraint: NSLayoutConstraint!
     
-      self.delegate?.showMoreItem(self, buttonTag, self.isExpanded)
+    @IBAction func pressToExpand(_ sender: Any) {
+        
+        self.delegate?.showMoreItem(self, buttonTag, self.isExpanded)
+    }
     
-  }
-  
-  func layoutUnclaimedSection() {
+    func layoutUnclaimedSection() {
+        
+        sectionTitleLabel.text = SectionTitle.unclaimed.rawValue
+        
+        cardViewTopConstraint.constant = 160
+        
+        //    cardView.translatesAutoresizingMaskIntoConstraints = false
+        //
+        //    NSLayoutConstraint.activate([
+        //      cardView.topAnchor.constraint(equalTo: self.topAnchor, constant: 150)
+        //    ])
+    }
     
-    sectionTitleLabel.text = SectionTitle.unclaimed.rawValue
+    func layoutOngoingSection() {
+        
+        sectionTitleLabel.text = SectionTitle.ongoing.rawValue
+        
+        cardViewTopConstraint.constant = 20
+        
+        //    cardView.translatesAutoresizingMaskIntoConstraints = false
+        //
+        //    NSLayoutConstraint.activate([
+        //      cardView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10)
+        //    ])
+    }
     
-    cardViewTopConstraint.constant = 160
-    
-//    cardView.translatesAutoresizingMaskIntoConstraints = false
-//    
-//    NSLayoutConstraint.activate([
-//      cardView.topAnchor.constraint(equalTo: self.topAnchor, constant: 150)
-//    ])
-
-  }
-
-  func layoutOngoingSection() {
-    
-    sectionTitleLabel.text = SectionTitle.ongoing.rawValue
-    
-    cardViewTopConstraint.constant = 20
-
-//    cardView.translatesAutoresizingMaskIntoConstraints = false
-//
-//    NSLayoutConstraint.activate([
-//      cardView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10)
-//    ])
-
-  }
-
 }

@@ -137,7 +137,7 @@
                                 </segments>
                             </segmentedControl>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OPq-SF-hV9">
-                                <rect key="frame" x="0.0" y="360" width="414" height="453"/>
+                                <rect key="frame" x="0.0" y="359.5" width="414" height="453.5"/>
                                 <connections>
                                     <segue destination="tLE-pj-Han" kind="embed" id="aAS-7i-MeI"/>
                                 </connections>
@@ -171,7 +171,7 @@
                         <outletCollection property="switchButtons" destination="ejt-Lj-Cgs" collectionClass="NSMutableArray" id="esK-Kd-eYA"/>
                         <outletCollection property="switchButtons" destination="sdK-8L-5oY" collectionClass="NSMutableArray" id="nI5-ha-TFp"/>
                         <outletCollection property="switchButtons" destination="Gmj-in-MRO" collectionClass="NSMutableArray" id="Lyy-u6-ETb"/>
-                        <segue destination="Hho-Mi-gQl" kind="custom" identifier="AddMember" customClass="MIBlurPopupSegue" customModule="MIBlurPopup" id="AOt-d3-rLb"/>
+                        <segue destination="Hho-Mi-gQl" kind="custom" identifier="SegueAddMember" customClass="MIBlurPopupSegue" customModule="MIBlurPopup" id="AOt-d3-rLb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2vQ-fc-2Yc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -289,14 +289,15 @@
             <objects>
                 <viewController id="tLE-pj-Han" customClass="MemberDataViewController" customModule="Chores" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fDU-mr-yKn">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="453"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="453.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hyg-BJ-22s" customClass="HorizontalBarChartView" customModule="Charts">
-                                <rect key="frame" x="20" y="44" width="374" height="409"/>
+                                <rect key="frame" x="20" y="44" width="374" height="409.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="HWt-rV-Y4V"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottomMargin" secondItem="hyg-BJ-22s" secondAttribute="bottom" id="4pa-D2-uVD"/>

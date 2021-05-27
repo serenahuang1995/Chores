@@ -8,10 +8,10 @@
 import UIKit
 
 class MemberCollectionViewCell: UICollectionViewCell {
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
-
+    
 }

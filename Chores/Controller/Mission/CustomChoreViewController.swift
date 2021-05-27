@@ -10,135 +10,117 @@ import MIBlurPopup
 import KRProgressHUD
 
 class CustomChoreViewController: UIViewController {
-
-  @IBOutlet weak var popView: CardView!
-  
-  @IBOutlet weak var customChoreTextField: UITextField! {
     
-    didSet {
-      
-      customChoreTextField.delegate = self
-      
-    }
+    @IBOutlet weak var popView: CardView!
     
-  }
-  
-//  var addCutomChoreItem: ((String) -> Void)?
-  
-  let textLimitCount = 6
-  
-  override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
-
-  @IBAction func sureToAdd(_ sender: Any) {
-
-    guard let choreType = customChoreTextField.text else { return }
-    
-    addChoreType(choreType: choreType)
-
-  }
-  
-  @IBAction func repentToAdd(_ sender: UIButton) {
-    
-    dismiss(animated: true, completion: nil)
-    
-  }
-  
-  func addChoreType(choreType: String) {
-    
-    FirebaseProvider.shared.addChoreType(choreType: choreType) { [weak self] result in
-      
-      switch result {
-      
-      case .success(let choreType):
-        print(choreType)
+    @IBOutlet weak var customChoreTextField: UITextField! {
         
-        self?.dismiss(animated: true, completion: nil)
-      
-      case .failure(let error):
-        print(error)
-      }
-      
+        didSet {
+            
+            customChoreTextField.delegate = self            
+        }
     }
     
-  }
-  
+    let textLimitCount = 6
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
+    
+    @IBAction func sureToAdd(_ sender: Any) {
+        
+        guard let choreType = customChoreTextField.text else { return }
+        
+        addChoreType(choreType: choreType)
+    }
+    
+    @IBAction func repentToAdd(_ sender: UIButton) {
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func addChoreType(choreType: String) {
+        
+        FirebaseProvider.shared.addChoreType(choreType: choreType) { [weak self] result in
+            
+            switch result {
+            
+            case .success(let choreType):
+                
+                print(choreType)
+                
+                self?.dismiss(animated: true, completion: nil)
+                
+            case .failure(let error):
+                
+                print(error)
+            }
+        }
+    }
 }
 
 extension CustomChoreViewController: UITextFieldDelegate {
-  
-  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     
-    textField.resignFirstResponder()
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        textField.resignFirstResponder()
+        
+        return true
+    }
     
-    return true
+    func textField(_ textField: UITextField,
+                   shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
+        
+        let currentText = textField.text ?? ""
+        
+        guard let stringRange = Range(range, in: currentText) else { return false }
+        
+        let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+        
+        return updatedText.count <= textLimitCount
+    }
     
-  }
-  
-  func textField(_ textField: UITextField,
-                 shouldChangeCharactersIn range: NSRange,
-                 replacementString string: String) -> Bool {
-
-    let currentText = textField.text ?? ""
-
-    guard let stringRange = Range(range, in: currentText) else { return false }
-
-    let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
-    
-    return updatedText.count <= textLimitCount
-    
+    //
+    //    //限制只能輸入10個字
+    //     let characterCountLimit = 10
+    //
+    //     //每次輸入一個character時，原本textField中的字數長度
+    //     let startingLength = textField.text?.characters.count ?? 0
+    //     //每次輸入一個character時，新輸入的字數長度
+    //     let lengthToAdd = string.characters.count
+    //     //每次輸入一個character時，需要被替換掉的字數長度
+    //     let lengthToReplace = range.length
+    //
+    //     //newLength每次輸入文字後的總長度
+    //     let newLength = startingLength + lengthToAdd - lengthToReplace
+    //
+    //     if( newLength <= characterCountLimit ){
+    //         textFieldTextcountLabel.text = String(newLength)
+    //     }
+    //     return newLength <= characterCountLimit
 }
 
-//
-//    //限制只能輸入10個字
-//     let characterCountLimit = 10
-//
-//     //每次輸入一個character時，原本textField中的字數長度
-//     let startingLength = textField.text?.characters.count ?? 0
-//     //每次輸入一個character時，新輸入的字數長度
-//     let lengthToAdd = string.characters.count
-//     //每次輸入一個character時，需要被替換掉的字數長度
-//     let lengthToReplace = range.length
-//
-//     //newLength每次輸入文字後的總長度
-//     let newLength = startingLength + lengthToAdd - lengthToReplace
-//
-//     if( newLength <= characterCountLimit ){
-//         textFieldTextcountLabel.text = String(newLength)
-//     }
-//     return newLength <= characterCountLimit
-
-    
-    
-  
-  }
-
 extension CustomChoreViewController: MIBlurPopupDelegate {
-  
-  var popupView: UIView {
     
-    popView
+    var popupView: UIView {
+        
+        popView
+    }
     
-  }
-  
-  var blurEffectStyle: UIBlurEffect.Style? {
+    var blurEffectStyle: UIBlurEffect.Style? {
+        
+        .dark
+    }
     
-    .dark
+    var initialScaleAmmount: CGFloat {
+        
+        0.0
+    }
     
-  }
-  
-  var initialScaleAmmount: CGFloat {
-    
-    0.0
-    
-  }
-  
-  var animationDuration: TimeInterval {
-    
-    0.2
-    
-  }
-
+    var animationDuration: TimeInterval {
+        
+        0.2
+    }
 }

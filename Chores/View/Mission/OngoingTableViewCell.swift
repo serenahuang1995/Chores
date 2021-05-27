@@ -8,68 +8,63 @@
 import UIKit
 
 class OngoingTableViewCell: UITableViewCell {
-
-  @IBOutlet weak var ongoingCell: CardView!
-
-  @IBOutlet weak var choreImage: UIImageView!
-
-  @IBOutlet weak var choreItemLabel: UILabel!
-
-  @IBOutlet weak var ownerLabel: UILabel!
-
-  @IBOutlet weak var finishTaskButton: UIButton!
-
-  @IBOutlet weak var changeOwnerButton: UIButton!
-
-  weak var delegate: MissionCellDelegate?
-
-  override func awakeFromNib() {
-    super.awakeFromNib()
     
-    ongoingCell.backgroundColor = .beigeEBDDCE
+    @IBOutlet weak var ongoingCell: CardView!
     
-    setUpCellStyle()
+    @IBOutlet weak var choreImage: UIImageView!
     
-  }
-
-  override func setSelected(_ selected: Bool, animated: Bool) {
-    super.setSelected(selected, animated: animated)
-
-  }
-  
-  @IBAction func clickToFinishTask(_ sender: Any) {
+    @IBOutlet weak var choreItemLabel: UILabel!
     
-    if let index = getIndexPath()?.row {
-      
-      self.delegate?.clickButtonToFinish(at: index)
-      
+    @IBOutlet weak var ownerLabel: UILabel!
+    
+    @IBOutlet weak var finishTaskButton: UIButton!
+    
+    @IBOutlet weak var changeOwnerButton: UIButton!
+    
+    weak var delegate: MissionCellDelegate?
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        ongoingCell.backgroundColor = .beigeEBDDCE
+        
+        setUpCellStyle()        
     }
     
-  }
-
-  func setUpCellStyle() {
-    
-    selectionStyle = .none
-    
-    ongoingCell.backgroundColor = .beigeEBDDCE
-
-  }
-
-  func layoutCell(chore: Chore) {
-    
-    ownerLabel.text = chore.owner
-    
-    choreItemLabel.text = chore.item
-
-      if let imageName = ChoreImages.imageNames[chore.item] {
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
         
-        choreImage.image = UIImage(named: imageName)
+    }
+    
+    @IBAction func clickToFinishTask(_ sender: Any) {
         
-      } else {
-
-        choreImage.image = UIImage.asset(.CustomChore)
-      }
-      
-  }
-  
+        if let index = getIndexPath()?.row {
+            
+            self.delegate?.clickButtonToFinish(at: index)
+        }
+    }
+    
+    func setUpCellStyle() {
+        
+        selectionStyle = .none
+        
+        ongoingCell.backgroundColor = .beigeEBDDCE
+    }
+    
+    func layoutCell(chore: Chore) {
+        
+        ownerLabel.text = chore.owner
+        
+        choreItemLabel.text = chore.item
+        
+        if let imageName = ChoreImages.imageNames[chore.item] {
+            
+            choreImage.image = UIImage(named: imageName)
+            
+        } else {
+            
+            choreImage.image = UIImage.asset(.CustomChore)
+        }
+    }
+    
 }

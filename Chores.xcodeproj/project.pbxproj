@@ -17,6 +17,12 @@
 		DC5AC61726528BBB00F99E74 /* MemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5AC61526528BBB00F99E74 /* MemberCollectionViewCell.swift */; };
 		DC5AC61826528BBB00F99E74 /* MemberCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC5AC61626528BBB00F99E74 /* MemberCollectionViewCell.xib */; };
 		DC71957E265E330F00DC3706 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC71957D265E330E00DC3706 /* SettingViewController.swift */; };
+		DC719589265FCF6400DC3706 /* ChoresInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC719588265FCF6200DC3706 /* ChoresInfo.swift */; };
+		DC719592265FF38500DC3706 /* CreateGroupCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC719590265FF38500DC3706 /* CreateGroupCollectionViewCell.swift */; };
+		DC719593265FF38500DC3706 /* CreateGroupCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC719591265FF38500DC3706 /* CreateGroupCollectionViewCell.xib */; };
+		DC719598265FF47A00DC3706 /* InvitedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC719596265FF47A00DC3706 /* InvitedCollectionViewCell.swift */; };
+		DC719599265FF47A00DC3706 /* InvitedCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC719597265FF47A00DC3706 /* InvitedCollectionViewCell.xib */; };
+		DC71959C265FF9C000DC3706 /* FlatCardCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC71959B265FF9BF00DC3706 /* FlatCardCollectionViewLayout.swift */; };
 		DC8136492650090E003CC6ED /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8136482650090E003CC6ED /* UICollectionView+Extension.swift */; };
 		DC81364D2650095C003CC6ED /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81364B2650095C003CC6ED /* TagCollectionViewCell.swift */; };
 		DC81364E2650095C003CC6ED /* TagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC81364C2650095C003CC6ED /* TagCollectionViewCell.xib */; };
@@ -56,10 +62,10 @@
 		DCEEAA58264BE28D00A64D37 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEEAA57264BE28D00A64D37 /* TabBarViewController.swift */; };
 		DCEEAA60264BEC8B00A64D37 /* Group.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCEEAA5F264BEC8B00A64D37 /* Group.storyboard */; };
 		DCEEAA63264BEC9E00A64D37 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCEEAA62264BEC9E00A64D37 /* Profile.storyboard */; };
-		DCEEAA66264BECC100A64D37 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCEEAA65264BECC000A64D37 /* Auth.storyboard */; };
+		DCEEAA66264BECC100A64D37 /* Initial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCEEAA65264BECC000A64D37 /* Initial.storyboard */; };
 		DCEEAA6A264BED9F00A64D37 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEEAA69264BED9F00A64D37 /* GroupViewController.swift */; };
 		DCEEAA6F264BEDC000A64D37 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEEAA6E264BEDC000A64D37 /* ProfileViewController.swift */; };
-		DCEEAA73264BEDEC00A64D37 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEEAA72264BEDEC00A64D37 /* AuthViewController.swift */; };
+		DCEEAA73264BEDEC00A64D37 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEEAA72264BEDEC00A64D37 /* InitialViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +80,12 @@
 		DC5AC61526528BBB00F99E74 /* MemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberCollectionViewCell.swift; sourceTree = "<group>"; };
 		DC5AC61626528BBB00F99E74 /* MemberCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberCollectionViewCell.xib; sourceTree = "<group>"; };
 		DC71957D265E330E00DC3706 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		DC719588265FCF6200DC3706 /* ChoresInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoresInfo.swift; sourceTree = "<group>"; };
+		DC719590265FF38500DC3706 /* CreateGroupCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateGroupCollectionViewCell.swift; path = Chores/View/Auth/CreateGroupCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
+		DC719591265FF38500DC3706 /* CreateGroupCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CreateGroupCollectionViewCell.xib; path = Chores/View/Auth/CreateGroupCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
+		DC719596265FF47A00DC3706 /* InvitedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitedCollectionViewCell.swift; sourceTree = "<group>"; };
+		DC719597265FF47A00DC3706 /* InvitedCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvitedCollectionViewCell.xib; sourceTree = "<group>"; };
+		DC71959B265FF9BF00DC3706 /* FlatCardCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatCardCollectionViewLayout.swift; sourceTree = "<group>"; };
 		DC8136482650090E003CC6ED /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		DC81364B2650095C003CC6ED /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
 		DC81364C2650095C003CC6ED /* TagCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -115,10 +127,10 @@
 		DCEEAA57264BE28D00A64D37 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		DCEEAA5F264BEC8B00A64D37 /* Group.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Group.storyboard; sourceTree = "<group>"; };
 		DCEEAA62264BEC9E00A64D37 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
-		DCEEAA65264BECC000A64D37 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
+		DCEEAA65264BECC000A64D37 /* Initial.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Initial.storyboard; sourceTree = "<group>"; };
 		DCEEAA69264BED9F00A64D37 /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		DCEEAA6E264BEDC000A64D37 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		DCEEAA72264BEDEC00A64D37 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		DCEEAA72264BEDEC00A64D37 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		F6E25026B54DD6C5CFA49310 /* Pods-Chores.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chores.release.xcconfig"; path = "Target Support Files/Pods-Chores/Pods-Chores.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -164,6 +176,18 @@
 				DC92B84F2652D14D00041D01 /* Add */,
 			);
 			path = Group;
+			sourceTree = "<group>";
+		};
+		DC71958C265FF2A100DC3706 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				DC719590265FF38500DC3706 /* CreateGroupCollectionViewCell.swift */,
+				DC719591265FF38500DC3706 /* CreateGroupCollectionViewCell.xib */,
+				DC719596265FF47A00DC3706 /* InvitedCollectionViewCell.swift */,
+				DC719597265FF47A00DC3706 /* InvitedCollectionViewCell.xib */,
+				DC71959B265FF9BF00DC3706 /* FlatCardCollectionViewLayout.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		DC813640264EAB4D003CC6ED /* Add */ = {
@@ -243,6 +267,7 @@
 				DCA589F226555AD10033EE63 /* FirebaseProvider.swift */,
 				DC1DB8DA26552BAB00F89E5A /* ChoresDataModel.swift */,
 				DCBB10202653F9AA00A8C1E4 /* ChoreImages.swift */,
+				DC719588265FCF6200DC3706 /* ChoresInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -254,7 +279,7 @@
 				DCEEAA5D264BEA8000A64D37 /* Mission */,
 				DCEEAA68264BED7700A64D37 /* Group */,
 				DCEEAA6C264BEDA400A64D37 /* Profile */,
-				DCEEAA71264BEDD300A64D37 /* Auth */,
+				DCEEAA71264BEDD300A64D37 /* Initial */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -267,8 +292,9 @@
 				DCEEAA5F264BEC8B00A64D37 /* Group.storyboard */,
 				DCEEAA62264BEC9E00A64D37 /* Profile.storyboard */,
 				DCA433FC264BA2C500242617 /* LaunchScreen.storyboard */,
-				DCEEAA65264BECC000A64D37 /* Auth.storyboard */,
+				DCEEAA65264BECC000A64D37 /* Initial.storyboard */,
 				DC913CE6264C1A2B00C18251 /* CardView.swift */,
+				DC71958C265FF2A100DC3706 /* Auth */,
 				DC203D03264E60AE002FADDA /* Mission */,
 				DC5AC61126528B1700F99E74 /* Group */,
 				DCD737AA26520E7D00F1DEF8 /* Profile */,
@@ -340,12 +366,12 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		DCEEAA71264BEDD300A64D37 /* Auth */ = {
+		DCEEAA71264BEDD300A64D37 /* Initial */ = {
 			isa = PBXGroup;
 			children = (
-				DCEEAA72264BEDEC00A64D37 /* AuthViewController.swift */,
+				DCEEAA72264BEDEC00A64D37 /* InitialViewController.swift */,
 			);
-			path = Auth;
+			path = Initial;
 			sourceTree = "<group>";
 		};
 		E10866BE047D532C38597333 /* Pods */ = {
@@ -429,9 +455,11 @@
 				DCB98A12264CF6C100A8C794 /* UnclaimedTableViewCell.xib in Resources */,
 				DC5AC61826528BBB00F99E74 /* MemberCollectionViewCell.xib in Resources */,
 				DCA433FB264BA2C500242617 /* Assets.xcassets in Resources */,
+				DC719599265FF47A00DC3706 /* InvitedCollectionViewCell.xib in Resources */,
 				DCA433F9264BA2BD00242617 /* Main.storyboard in Resources */,
 				DCEEAA60264BEC8B00A64D37 /* Group.storyboard in Resources */,
-				DCEEAA66264BECC100A64D37 /* Auth.storyboard in Resources */,
+				DC719593265FF38500DC3706 /* CreateGroupCollectionViewCell.xib in Resources */,
+				DCEEAA66264BECC100A64D37 /* Initial.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,11 +533,12 @@
 				DC9B10AF2659691B00F50430 /* UserProvider.swift in Sources */,
 				DC1DB8DB26552BAB00F89E5A /* ChoresDataModel.swift in Sources */,
 				DC5AC61726528BBB00F99E74 /* MemberCollectionViewCell.swift in Sources */,
+				DC719592265FF38500DC3706 /* CreateGroupCollectionViewCell.swift in Sources */,
 				DCEEAA6A264BED9F00A64D37 /* GroupViewController.swift in Sources */,
 				DCA589F0265553920033EE63 /* RuleSegue.swift in Sources */,
 				DCA433F6264BA2BD00242617 /* MissionViewController.swift in Sources */,
 				DC913CE3264C144400C18251 /* SectionView.swift in Sources */,
-				DCEEAA73264BEDEC00A64D37 /* AuthViewController.swift in Sources */,
+				DCEEAA73264BEDEC00A64D37 /* InitialViewController.swift in Sources */,
 				DCCD761E265A9BFA0004E82B /* CustomChoreViewController.swift in Sources */,
 				DC203D07264E823C002FADDA /* AddChoresViewController.swift in Sources */,
 				DCA433F2264BA2BD00242617 /* AppDelegate.swift in Sources */,
@@ -520,6 +549,7 @@
 				DCD737A726520E7200F1DEF8 /* RecordsTableViewCell.swift in Sources */,
 				DC71957E265E330F00DC3706 /* SettingViewController.swift in Sources */,
 				DCEEAA38264BCDBE00A64D37 /* UIStoryboard+Extension.swift in Sources */,
+				DC719598265FF47A00DC3706 /* InvitedCollectionViewCell.swift in Sources */,
 				DCEEAA50264BDC8B00A64D37 /* UIImage+Extension.swift in Sources */,
 				DCEEAA58264BE28D00A64D37 /* TabBarViewController.swift in Sources */,
 				DCD737A226520BB300F1DEF8 /* ChoresDataViewController.swift in Sources */,
@@ -529,6 +559,7 @@
 				DC913CF2264CB46E00C18251 /* UnclaimedTableViewCell.swift in Sources */,
 				DCBB101E2653A36600A8C1E4 /* RuleViewController.swift in Sources */,
 				DC913CEB264C1F9100C18251 /* UIColor+Extension.swift in Sources */,
+				DC71959C265FF9C000DC3706 /* FlatCardCollectionViewLayout.swift in Sources */,
 				DC913CE7264C1A2B00C18251 /* CardView.swift in Sources */,
 				DC8136492650090E003CC6ED /* UICollectionView+Extension.swift in Sources */,
 				DC92B84C2652D13D00041D01 /* AddMemberCell.swift in Sources */,
@@ -536,6 +567,7 @@
 				DC81364D2650095C003CC6ED /* TagCollectionViewCell.swift in Sources */,
 				DCA433F4264BA2BD00242617 /* SceneDelegate.swift in Sources */,
 				DCA589F326555AD10033EE63 /* FirebaseProvider.swift in Sources */,
+				DC719589265FCF6400DC3706 /* ChoresInfo.swift in Sources */,
 				DCB98A0E264CDF7200A8C794 /* UITableView+Extension.swift in Sources */,
 				DC502A5D26535D6200BEC0C3 /* PublisherViewController.swift in Sources */,
 			);

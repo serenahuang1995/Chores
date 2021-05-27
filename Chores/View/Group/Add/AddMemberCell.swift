@@ -9,20 +9,19 @@ import UIKit
 import MIBlurPopup
 
 class AddMemberCell: UICollectionViewCell {
-  
-  @IBOutlet weak var addMemberButton: UIButton!
-  
-  weak var delegate: AddMemberCellDelegate?
-  
-  override func awakeFromNib() {
-    super.awakeFromNib()
     
-  }
-  
-  @IBAction func toAddMember(_ sender: Any) {
+    @IBOutlet weak var addMemberButton: UIButton!
     
-    self.delegate?.showMemberView()
-
-  }
-  
+    weak var delegate: AddMemberCellDelegate?
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+    }
+    
+    @IBAction func addMember(_ sender: Any) {
+        
+        self.delegate?.showMemberView()
+    }
+    
 }

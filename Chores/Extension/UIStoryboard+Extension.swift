@@ -8,33 +8,34 @@
 import UIKit
 
 private struct StoryboardCategory {
-
-  static let main = "Main"
-
-  static let mission = "Mission"
-
-  static let group = "Group"
-
-  static let profile = "Profile"
-
-  static let auth = "Auth"
-  
+    
+    static let main = "Main"
+    
+    static let mission = "Mission"
+    
+    static let group = "Group"
+    
+    static let profile = "Profile"
+    
+    static let initial = "Initial"
+    
 }
 
 extension UIStoryboard {
+    
+    static var main: UIStoryboard { return stStoryboard(name: StoryboardCategory.main) }
+    
+    static var mission: UIStoryboard { return stStoryboard(name: StoryboardCategory.mission) }
+    
+    static var group: UIStoryboard { return stStoryboard(name: StoryboardCategory.group) }
+    
+    static var profile: UIStoryboard { return stStoryboard(name: StoryboardCategory.profile) }
+    
+    static var initial: UIStoryboard { return stStoryboard(name: StoryboardCategory.initial) }
+    
+    private static func stStoryboard(name: String) -> UIStoryboard {
+        
+        return UIStoryboard(name: name, bundle: nil)
+    }
 
-  static var main: UIStoryboard { return stStoryboard(name: StoryboardCategory.main) }
-
-  static var mission: UIStoryboard { return stStoryboard(name: StoryboardCategory.mission) }
-
-  static var group: UIStoryboard { return stStoryboard(name: StoryboardCategory.group) }
-
-  static var profile: UIStoryboard { return stStoryboard(name: StoryboardCategory.profile) }
-
-  static var auth: UIStoryboard { return stStoryboard(name: StoryboardCategory.auth) }
-
-  private static func stStoryboard(name: String) -> UIStoryboard {
-
-    return UIStoryboard(name: name, bundle: nil)
-  }
 }

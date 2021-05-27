@@ -13,6 +13,8 @@ target 'Chores' do
   pod 'MIBlurPopup', '~> 1.0'
   pod 'Charts', '~> 3.6'
   pod 'KRProgressHUD', '~> 3.4'
+  pod 'Firebase/Storage'
+  pod 'Firebase/Auth'
 
 
 end

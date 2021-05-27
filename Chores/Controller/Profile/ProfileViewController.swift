@@ -8,222 +8,174 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-  
-  private enum PageType: Int {
     
-    case records = 0
-    
-    case data = 1
-    
-  }
-  
-  private struct Segue {
-    
-    static let records = "SegueRecords"
-    
-    static let data = "SegueData"
-    
-    static let popover = "Popover"
-    
-  }
-  
-  @IBOutlet weak var userNameLabel: UILabel!
-  
-  @IBOutlet weak var totalPointsLabel: UILabel!
-  
-  @IBOutlet weak var weekHoursLabel: UILabel!
-  
-  @IBOutlet weak var indicatorView: UIView! {
-
-    didSet {
-
-      indicatorView.backgroundColor = .orangeE89E21
-
+    private enum PageType: Int {
+        
+        case records = 0
+        
+        case data = 1        
     }
-
-  }
-  
-  @IBOutlet weak var dataContainerView: UIView!
-  
-  @IBOutlet weak var recordsContainerView: UIView!
-  
-  @IBOutlet var switchButtons: [UIButton]!
-
-  var containerViews: [UIView] {
-
-    return [recordsContainerView, dataContainerView]
-
-  }
-
-  override func viewDidLoad() {
-    super.viewDidLoad()
     
-    updateContainerView(type: .records)
-    
-    setUpUserListener()
-    
-
-  }
-  
-  override func viewWillAppear(_ animated: Bool) {
-    
-    navigationController?.isNavigationBarHidden = true
-    
-//    FirebaseProvider.shared.fetchUserData { result in
+//    private struct Segue {
 //
-//      switch result {
+//        static let records = "SegueRecords"
 //
-//      case .success(let user):
-//        print(user)
+//        static let data = "SegueData"
 //
-//        self.userNameLabel.text = user.name
-//        self.totalPointsLabel.text = "累積點數：\(user.points)"
-//        self.weekHoursLabel.text = "本週時數：\(user.weekHours) / 50"
-//
-//      case .failure(let error):
-//
-//        print(error)
-//
-//      }
+//        static let popover = "Popover"
 //
 //    }
-  }
-  
-  override func viewWillDisappear(_ animated: Bool) {
     
-    navigationController?.isNavigationBarHidden = false
-
-  }
-
-  override func viewDidLayoutSubviews() {
-
-    indicatorView.center.x = switchButtons[0].center.x
-
-  }
-  
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-    let identifier = segue.identifier
-
-    switch identifier {
-
-    case Segue.records:
-      _ = segue.destination as? ChoresRecordsViewController
-
-    case Segue.data:
-      _ = segue.destination as? ChoresDataViewController
-      
-    case Segue.popover:
-
-     _ = segue.destination as? SettingViewController
-
-//      popover.modalPresentationStyle = .popover
-//      popover.isBeingPresented = true
-
-//      let popoverController = popover.popoverPresentationController
-//      popoverController?.delegate = self
-//      popoverController?.permittedArrowDirections = .up
-//      present(popover, animated: true, completion: nil)
+    @IBOutlet weak var userNameLabel: UILabel!
     
-    default:
-      return
-      
+    @IBOutlet weak var totalPointsLabel: UILabel!
+    
+    @IBOutlet weak var weekHoursLabel: UILabel!
+    
+    @IBOutlet weak var indicatorView: UIView! {
+        
+        didSet {
+            
+            indicatorView.backgroundColor = .orangeE89E21
+        }
     }
     
-  }
-  
-//  @IBAction func clickConsumptionButton(_ sender: UIButton) {
-//    let storyboard : UIStoryboard = .profile
-//    let popupVC = storyboard.instantiateViewController(identifier: "publisher")
-//    popupVC.modalPresentationStyle = .overCurrentContext
-//    popupVC.modalTransitionStyle = .crossDissolve
-//
-//    let pVC = popupVC.popoverPresentationController
-//    pVC?.permittedArrowDirections = .any
-//    pVC?.delegate = self
-//    pVC?.sourceView = sender
-//    present(popupVC, animated: true, completion: nil)
-  
-//  }
-  
-  @IBAction func popover(_ sender: Any) {
-        
-//   performSegue(withIdentifier: "Popover", sender: nil)
-
-  }
-  
-  @IBAction func clickSwitchButton(_ sender: UIButton) {
-
-    for btn in switchButtons {
-
-      btn.isSelected = false
-      
-    }
-
-    sender.isSelected = true
-
-    moveIndicatorView(sender: sender)
-
-    guard let type = PageType(rawValue: sender.tag) else { return }
-
-    updateContainerView(type: type)
-
-  }
-
-  private func moveIndicatorView(sender: UIButton) {
-
-    UIView.animate(withDuration: 0.3) {
-      self.indicatorView.center.x = self.switchButtons[sender.tag].center.x
-      
-    }
-  }
-
-  private func updateContainerView(type: PageType) {
-
-    containerViews.forEach({ $0.isHidden = true })
-
-    switch type {
-
-    case .records:
-      recordsContainerView.isHidden = false
-
-    case .data:
-      dataContainerView.isHidden = false
-
-    }
-  }
-  
-  func setUpUserListener() {
+    @IBOutlet weak var dataContainerView: UIView!
     
-    UserProvider.shared.onFetchUserListener { result in
-      
-      switch result {
-      
-      case .success(let user):
+    @IBOutlet weak var recordsContainerView: UIView!
+    
+    @IBOutlet var switchButtons: [UIButton]!
+    
+    var containerViews: [UIView] {
         
-        self.userNameLabel.text = user.name
-        
-        self.totalPointsLabel.text = "累積點數：\(user.points)"
-        
-        self.weekHoursLabel.text = "本週時數：\(user.weekHours) / 50"
-        
-      case .failure(let error):
-        
-        print(error)
-        
-      }
-
+        return [recordsContainerView, dataContainerView]
     }
-
-  }
-  
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        updateContainerView(type: .records)
+        
+        setUpUserListener()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        navigationController?.isNavigationBarHidden = true
+        
+        //    FirebaseProvider.shared.fetchUserData { result in
+        //
+        //      switch result {
+        //
+        //      case .success(let user):
+        //        print(user)
+        //
+        //        self.userNameLabel.text = user.name
+        //        self.totalPointsLabel.text = "累積點數：\(user.points)"
+        //        self.weekHoursLabel.text = "本週時數：\(user.weekHours) / 50"
+        //
+        //      case .failure(let error):
+        //
+        //        print(error)
+        //
+        //      }
+        //
+        //    }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        navigationController?.isNavigationBarHidden = false
+    }
+    
+    override func viewDidLayoutSubviews() {
+        
+        indicatorView.center.x = switchButtons[0].center.x
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let identifier = segue.identifier
+        
+        switch identifier {
+        
+        case Segue.records:
+            
+            _ = segue.destination as? ChoresRecordsViewController
+            
+        case Segue.data:
+            
+            _ = segue.destination as? ChoresDataViewController
+            
+        case Segue.popover:
+            
+            _ = segue.destination as? SettingViewController
+        
+        default:
+            
+            return
+        }
+    }
+    
+    @IBAction func clickSwitchButton(_ sender: UIButton) {
+        
+        for btn in switchButtons {
+            
+            btn.isSelected = false
+            
+        }
+        
+        sender.isSelected = true
+        
+        moveIndicatorView(sender: sender)
+        
+        guard let type = PageType(rawValue: sender.tag) else { return }
+        
+        updateContainerView(type: type)
+    }
+    
+    private func moveIndicatorView(sender: UIButton) {
+        
+        UIView.animate(withDuration: 0.3) {
+            
+            self.indicatorView.center.x = self.switchButtons[sender.tag].center.x
+        }
+    }
+    
+    private func updateContainerView(type: PageType) {
+        
+        containerViews.forEach({ $0.isHidden = true })
+        
+        switch type {
+        
+        case .records:
+            recordsContainerView.isHidden = false
+            
+        case .data:
+            dataContainerView.isHidden = false
+        }
+    }
+    
+    func setUpUserListener() {
+        
+        UserProvider.shared.onFetchUserListener { result in
+            
+            switch result {
+            
+            case .success(let user):
+                
+                self.userNameLabel.text = user.name
+                
+                self.totalPointsLabel.text = "累積點數：\(user.points)"
+                
+                self.weekHoursLabel.text = "本週時數：\(user.weekHours) / 50"
+                
+            case .failure(let error):
+                
+                print(error)
+                
+            }
+        }
+    }
+    
 }
-
-//extension ProfileViewController: UIPopoverPresentationControllerDelegate {
-//
-//  func adaptivePresentationStyle(for controller: UIPresentationController,
-//                                 traitCollection: UITraitCollection) -> UIModalPresentationStyle {
-//      return .none
-//  }
-//
-//}
