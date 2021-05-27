@@ -47,6 +47,23 @@ class MissionViewController: UIViewController {
     resetNavigationBarButton()
     
     fetchUser()
+    
+    UserProvider.shared.createGroup { result in
+      
+      switch result {
+      
+      case .success(let group):
+        
+        print(group)
+        
+      case .failure(let error):
+        
+        print(error)
+      
+      
+      }
+    
+    }
 
   }
   

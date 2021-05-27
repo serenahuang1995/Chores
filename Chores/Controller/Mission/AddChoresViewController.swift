@@ -108,8 +108,8 @@ class AddChoresViewController: UIViewController {
     
   }
   
-  @IBAction func toAddChoreItem(_ sender: Any) {
-    
+  @IBAction func onAddChore(_ sender: Any) {
+
     guard let time = timeTextField.text,
           let point = pointResultTextField.text,
           let selectedIndex = selectedIndex else {
@@ -120,10 +120,13 @@ class AddChoresViewController: UIViewController {
     
     }
     
-//    if time == nil || point == nil || selectedIndex == nil {
-//
-//
-//    }
+    if time.isEmpty || point.isEmpty {
+
+      KRProgressHUD.showError(withMessage: "資料不能是空的喲！")
+
+      return
+
+    }
 
     var data = Chore(
       id: "",
@@ -186,30 +189,30 @@ class AddChoresViewController: UIViewController {
   }
   
   // for future
-  func addDefaultChoreTypes() {
-    
-    let defaultTypes = [
-      "洗碗", "洗衣服", "晾衣服", "摺衣服", "燙衣服", "煮飯", "買菜", "掃地", "拖地",
-      "吸地", "倒垃圾", "刷廁所", "擦窗戶", "修繕", "澆花", "遛狗", "收納", "接送", "帶小孩"
-    ]
-    
-    for choreType in defaultTypes {
-      
-      FirebaseProvider.shared.addChoreType(choreType: choreType) { result in
-        
-        switch result {
-        
-        case .success(let choreType):
-          print(choreType)
-        
-        case .failure(let error):
-          print(error)
-        }
-        
-      }
- 
-    }
-  }
+//  func addDefaultChoreTypes() {
+//
+//    let defaultTypes = [
+//      "洗碗", "洗衣服", "晾衣服", "摺衣服", "燙衣服", "煮飯", "買菜", "掃地", "拖地",
+//      "吸地", "倒垃圾", "刷廁所", "擦窗戶", "修繕", "澆花", "遛狗", "收納", "接送", "帶小孩"
+//    ]
+//
+//    for choreType in defaultTypes {
+//
+//      FirebaseProvider.shared.addChoreType(choreType: choreType) { result in
+//
+//        switch result {
+//
+//        case .success(let choreType):
+//          print(choreType)
+//
+//        case .failure(let error):
+//          print(error)
+//        }
+//
+//      }
+//
+//    }
+//  }
 
 }
 

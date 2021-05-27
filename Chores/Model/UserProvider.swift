@@ -45,7 +45,7 @@ class UserProvider {
     )
   
   var appleUid = "XC6b6Ys1VY1qLcBJ5M8z"
-  
+
   // 一次性的fetch user
   func fetchUser(userId: String, completion: @escaping (Result<User, Error>) -> Void) {
     
@@ -116,11 +116,16 @@ class UserProvider {
   }
   
   // 建立群組後 會給該群組一個 ID
-  func createGroup(group: inout Group, completion: @escaping (Result<String, Error>) -> Void) {
+  func createGroup(completion: @escaping (Result<Group, Error>) -> Void) {
+    
+    let defaultTypes = [
+      "洗碗", "洗衣服", "晾衣服", "摺衣服", "燙衣服", "煮飯", "買菜", "掃地", "拖地",
+      "吸地", "倒垃圾", "刷廁所", "擦窗戶", "修繕", "澆花", "遛狗", "收納", "接送", "帶小孩"
+    ]
     
     let docReference = database.collection(groups).document()
     
-    group.id = docReference.documentID
+    let group = Group(id: docReference.documentID, choreTypes: defaultTypes)
     
     do {
       
@@ -132,7 +137,7 @@ class UserProvider {
           
         } else {
           
-          completion(.success("Success"))
+          completion(.success(group))
           
         }
         
@@ -147,13 +152,12 @@ class UserProvider {
   }
   
   // 用戶進入群組後 會 assign 該群組的 ID 給使用者
-  func updateGroupId(sendInvitationGroup: Group,
-                     userId: String,
+  func updateGroupId(group: Group,
                      completion: @escaping (Result<String, Error>) -> Void) {
     
-    let docReference = database.collection(users).document(userId)
+    let docReference = database.collection(users).document(user.id)
     
-    docReference.updateData([UserType.groupId: sendInvitationGroup.id]) { error in
+    docReference.updateData([UserType.groupId: group.id]) { error in
       
       if let error = error {
         
@@ -170,9 +174,9 @@ class UserProvider {
   }
   
   // 離開群組之後會移除用戶的 group id
-  func leaveGroup(userId: String,completion: @escaping (Result<String, Error>) -> Void) {
+  func leaveGroup(completion: @escaping (Result<String, Error>) -> Void) {
 
-    let docReference = database.collection(users).document(userId)
+    let docReference = database.collection(users).document(user.id)
     
     docReference.updateData([UserType.groupId: nil,
                              UserType.points: 0,
@@ -192,6 +196,5 @@ class UserProvider {
     }
     
   }
-  
 
 }
