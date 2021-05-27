@@ -248,6 +248,9 @@ class FirebaseProvider {
   // 用戶刪除自訂家事
   func deleteChoreType(selectedChoreType: String, completion: @escaping (Result<String, Error>) -> Void) {
     
+    let fffff = database.collection(groups).document("33333")
+    fffff.delete()
+    
     let docReference = database.collection(groups).document(user.groupId ?? "")
     
     docReference

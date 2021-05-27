@@ -120,6 +120,7 @@ class AddChoresViewController: UIViewController {
     
     }
     
+    // 預設的 textField 不打字也會有空字串
     if time.isEmpty || point.isEmpty {
 
       KRProgressHUD.showError(withMessage: "資料不能是空的喲！")

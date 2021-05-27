@@ -7,102 +7,76 @@
 //
 
 //import KRProgressHUD
-//
-//enum HUDType {
-//
-//    case success(String)
-//
-//    case failure(String)
-//}
-//
+////
+////enum HUDType {
+////
+////    case success(String)
+////
+////    case failure(String)
+////}
+////
 //class KRProgressHUD {
 //
-////    static let shared = KRProgressHUD()
-//
-//    private init() { }
+//    static let shared = KRProgressHUD()
 ////
-////  let hud = KRProgressHUD
+//  public static func showSuccess(withMessage message: String? = nil) {
+//      shared.show(withMessage: message, iconType: .success)
+//  }
 //
-//    var view: UIView {
-//      
-//      let appdelegate = UIApplication.shared.delegate as? AppDelegate
+//  /// Shows the HUD with information glyph.
+//  /// The HUD dismiss after `duration` secound.
+//  ///
+//  /// - Parameter message: HUD's message.
+//  public static func showInfo(withMessage message: String? = nil) {
+//      shared.show(withMessage: message, iconType: .info)
+//  }
 //
-//      return appdelegate!.window!.rootViewController!.view
+//  /// Shows the HUD with warning glyph.
+//  /// The HUD dismiss after `duration` secound.
+//  ///
+//  /// - Parameter message: HUD's message.
+//  public static func showWarning(withMessage message: String? = nil) {
+//      shared.show(withMessage: message, iconType: .warning)
+//  }
 //
-//    }
+//  /// Shows the HUD with error glyph.
+//  /// The HUD dismiss after `duration` secound.
+//  ///
+//  /// - Parameter message: HUD's message.
+//  public static func showError(withMessage message: String? = nil) {
+//      shared.show(withMessage: message, iconType: .error)
+//  }
 //
-//    static func show(type: HUDType) {
+//  /// Shows the HUD with image.
+//  /// The HUD dismiss after `duration` secound.
+//  ///
+//  /// - Parameters:
+//  ///   - image: Image that display instead of activity indicator.
+//  ///   - size: Image size.
+//  ///   - message: HUD's message.
+//  public static func showImage(_ image: UIImage, size: CGSize? = nil, message: String? = nil) {
+//      shared.show(withMessage: message, image: image, imageSize: size)
+//  }
 //
-//        switch type {
+//  /// Shows the message only HUD.
+//  /// The HUD dismiss after `duration` secound.
+//  ///
+//  /// - Parameter message: HUD's message.
+//  public static func showMessage(_ message: String) {
+//      shared.show(withMessage: message, isOnlyText: true)
+//  }
 //
-//        case .success(let text):
+//  /// Updates the HUD message.
+//  ///
+//  /// - Parameter message: Message.
+//  public static func update(message: String) {
+//      shared.messageLabel.text = message
+//  }
 //
-//            showSuccess(text: text)
-//
-//        case .failure(let text):
-//
-//            showFailure(text: text)
-//        }
-//    }
-//
-//    static func showSuccess(text: String = "新增家事成功") {
-//      
-//      KRProgressHUD.showSuccess(text: text)
-//      
-//      
-//      
-//
-////        if !Thread.isMainThread {
-////
-////            DispatchQueue.main.async {
-////                showSuccess(text: text)
-////            }
-////
-////            return
-////        }
-//
-////        shared.hud.textLabel.text = text
-////
-////        shared.hud.indicatorView = KRProgressHUDSuccessIndicatorView()
-////
-////        shared.hud.show(in: shared.view)
-////
-////        shared.hud.dismiss(afterDelay: 1.5)
-//    }
-//
-//    static func showFailure(text: String = "Failure") {
-//      
-//      KRProgressHUD.showFailure(text: text)
-//
-//        if !Thread.isMainThread {
-//
-//            DispatchQueue.main.async {
-//                showFailure(text: text)
-//            }
-//
-//            return
-//        }
-//
-//        shared.hud.textLabel.text = text
-//
-//        shared.hud.indicatorView = JGProgressHUDErrorIndicatorView()
-//
-//        shared.hud.show(in: shared.view)
-//
-//        shared.hud.dismiss(afterDelay: 1.5)
-//    }
-//
-//    static func dismiss() {
-//
-//        if !Thread.isMainThread {
-//
-//            DispatchQueue.main.async {
-//                dismiss()
-//            }
-//
-//            return
-//        }
-//
-//        shared.hud.dismiss()
-//    }
+//  /// Hides the HUD.
+//  ///
+//  /// - Parameter completion: Hide completion handler.
+//  public static func dismiss(_ completion: CompletionHandler? = nil) {
+//      shared.dismiss(completion: completion)
+//  }
 //}
