@@ -9,6 +9,8 @@ import Foundation
 
 struct Segue {
     
+    static let main = "SegueMainPage"
+    
     static let addChore = "SegueAddChore"
     
     static let addMember = "SegueAddMember"
@@ -24,4 +26,5 @@ struct Segue {
     static let data = "SegueData"
     
     static let popover = "SeguePopover"
+    
 }

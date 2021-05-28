@@ -7,6 +7,12 @@
 
 import UIKit
 
+protocol CreateGroupCellDelegate: AnyObject {
+    
+    func goToMainPage()
+}
+
+
 class InitialViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView! {
@@ -67,6 +73,8 @@ extension InitialViewController: UICollectionViewDataSource {
             
             guard let createCell = cell as? CreateGroupCollectionViewCell else { return cell }
             
+            createCell.delegate = self
+            
             return createCell
             
         case 1:
@@ -96,4 +104,13 @@ extension InitialViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: 300, height: 400)
     }
 
+}
+
+extension InitialViewController: CreateGroupCellDelegate {
+    
+    func goToMainPage() {
+        
+        performSegue(withIdentifier: Segue.main, sender: nil)
+    }
+    
 }

@@ -45,6 +45,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     let storyboard = UIStoryboard(name: "Initial", bundle: nil)
     // 指定Storyboard ID
     window?.rootViewController = storyboard.instantiateInitialViewController()
+    
     window?.makeKeyAndVisible()
     
   }

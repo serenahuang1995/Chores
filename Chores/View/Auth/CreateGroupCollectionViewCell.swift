@@ -8,6 +8,8 @@
 import UIKit
 
 class CreateGroupCollectionViewCell: UICollectionViewCell {
+    
+    weak var delegate: CreateGroupCellDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -16,6 +18,7 @@ class CreateGroupCollectionViewCell: UICollectionViewCell {
 
     @IBAction func create(_ sender: Any) {
         
+        self.delegate?.goToMainPage()
     }
     
     func createNewGroup() {
