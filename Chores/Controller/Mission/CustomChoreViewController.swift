@@ -123,4 +123,5 @@ extension CustomChoreViewController: MIBlurPopupDelegate {
         
         0.2
     }
+
 }

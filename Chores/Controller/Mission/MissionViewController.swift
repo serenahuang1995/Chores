@@ -19,11 +19,7 @@ class MissionViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView! {
         
         didSet {
-            
-            tableView.delegate = self
-            
-            tableView.dataSource = self
-            
+
             setUpTableView()
         }
     }
@@ -101,6 +97,10 @@ class MissionViewController: UIViewController {
         
         tableView.registerCellWithNib(
             identifier: String(describing: OngoingTableViewCell.self), bundle: nil)
+        
+        tableView.delegate = self
+        
+        tableView.dataSource = self
     }
     
     func setChoresListener() {

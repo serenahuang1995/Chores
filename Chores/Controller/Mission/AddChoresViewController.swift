@@ -20,10 +20,6 @@ class AddChoresViewController: UIViewController {
         didSet {
             
             setUpCollectionView()
-            
-            collectionView.delegate = self
-            
-            collectionView.dataSource = self
         }
     }
     
@@ -145,6 +141,10 @@ class AddChoresViewController: UIViewController {
         
         collectionView.registerCellWithNib(
             identifier: String(describing: TagCollectionViewCell.self), bundle: nil)
+        
+        collectionView.delegate = self
+        
+        collectionView.dataSource = self
     }
     
     func setChoreTypesListener() {

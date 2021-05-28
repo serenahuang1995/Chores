@@ -52,10 +52,6 @@ class GroupViewController: UIViewController {
         
         didSet {
             
-            collectionView.delegate = self
-            
-            collectionView.dataSource = self
-            
             setUpCollectionView()
         }
     }
@@ -67,8 +63,7 @@ class GroupViewController: UIViewController {
     //    return [weekDataView, monthDataView, totalDataView]
     //
     //  }
-    
-    
+        
     var mockCount = 11
     
     override func viewDidLoad() {
@@ -151,6 +146,10 @@ class GroupViewController: UIViewController {
         collectionView.registerCellWithNib(
             identifier: String(describing: AddMemberCell.self),
             bundle: nil)
+        
+        collectionView.delegate = self
+        
+        collectionView.dataSource = self
     }
     
     private func moveIndicatorView(sender: UIButton) {

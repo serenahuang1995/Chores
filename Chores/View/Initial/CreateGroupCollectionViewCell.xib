@@ -17,11 +17,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="300" height="400"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n9X-To-HCj">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n9X-To-HCj" customClass="CardView" customModule="Chores" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="300" height="400"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AAO-YA-E36">
-                                <rect key="frame" x="119" y="344" width="62" height="30"/>
+                                <rect key="frame" x="119" y="320" width="62" height="30"/>
                                 <state key="normal" title="創建小屋"/>
                                 <connections>
                                     <action selector="create:" destination="gTV-IL-0wX" eventType="touchUpInside" id="425-6N-g9B"/>
@@ -31,7 +31,7 @@
                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="AAO-YA-E36" secondAttribute="trailing" constant="119" id="eDH-za-Tfb"/>
-                            <constraint firstAttribute="bottom" secondItem="AAO-YA-E36" secondAttribute="bottom" constant="26" id="h4k-va-iYF"/>
+                            <constraint firstAttribute="bottom" secondItem="AAO-YA-E36" secondAttribute="bottom" constant="50" id="h4k-va-iYF"/>
                             <constraint firstItem="AAO-YA-E36" firstAttribute="leading" secondItem="n9X-To-HCj" secondAttribute="leading" constant="119" id="wEH-b2-MQi"/>
                         </constraints>
                     </view>

@@ -12,31 +12,39 @@ protocol CreateGroupCellDelegate: AnyObject {
     func goToMainPage()
 }
 
-
 class InitialViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView! {
         
         didSet {
             
-            collectionView.delegate = self
-            
-            collectionView.dataSource = self
-            
-            collectionView.showsHorizontalScrollIndicator = false
-            
-            collectionView.collectionViewLayout = cardLayout
-            
             setUpCollectionView()
         }
     }
     
-    var cardLayout = FlatCardCollectionViewLayout()
+    let screenSize = UIScreen.main.bounds
+    
+    lazy var cardLayout: FlatCardCollectionViewLayout = {
+        
+        let layout = FlatCardCollectionViewLayout()
+        
+        layout.itemSize = CGSize(width: screenSize.width * 0.62 ,
+                                 height: screenSize.height * 0.52)
+        
+        print(UIScreen.main.bounds)
+        
+        return layout
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        
+//        navigationController?.isNavigationBarHidden = true
+//    }
     
     private func setUpCollectionView() {
         
@@ -45,6 +53,16 @@ class InitialViewController: UIViewController {
         
         collectionView.registerCellWithNib(
             identifier: String(describing: InvitedCollectionViewCell.self), bundle: nil)
+        
+        collectionView.delegate = self
+        
+        collectionView.dataSource = self
+        
+        collectionView.showsHorizontalScrollIndicator = false
+        
+        collectionView.collectionViewLayout = cardLayout
+        
+        collectionView.bouncesZoom = true
     }
     
 }
@@ -95,16 +113,16 @@ extension InitialViewController: UICollectionViewDataSource {
    
 }
 
-extension InitialViewController: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        return CGSize(width: 300, height: 400)
-    }
-
-}
+//extension InitialViewController: UICollectionViewDelegateFlowLayout {
+//
+//    func collectionView(_ collectionView: UICollectionView,
+//                        layout collectionViewLayout: UICollectionViewLayout,
+//                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+//
+//        return CGSize(width: screenSize.width * 0.58, height: screenSize.height * 0.52)
+//    }
+//
+//}
 
 extension InitialViewController: CreateGroupCellDelegate {
     

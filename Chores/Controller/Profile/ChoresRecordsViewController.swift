@@ -14,10 +14,6 @@ class ChoresRecordsViewController: UIViewController {
         didSet {
             
             setUpTableView()
-            
-            tableView.delegate = self
-            
-            tableView.dataSource = self            
         }
     }
     
@@ -37,6 +33,10 @@ class ChoresRecordsViewController: UIViewController {
         
         tableView.registerCellWithNib(
             identifier: String(describing: RecordsTableViewCell.self), bundle: nil)
+        
+        tableView.delegate = self
+        
+        tableView.dataSource = self      
     }
     
     func setUpRecordsListener() {

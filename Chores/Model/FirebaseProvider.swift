@@ -237,10 +237,7 @@ class FirebaseProvider {
     // 用戶刪除自訂家事
     func deleteChoreType(selectedChoreType: String,
                          completion: @escaping (Result<String, Error>) -> Void) {
-        
-        let fffff = database.collection(groups).document("33333")
-        fffff.delete()
-        
+
         let docReference = database.collection(groups).document(user.groupId ?? "")
         
         docReference
@@ -267,6 +264,31 @@ class FirebaseProvider {
                                  "weekHours": user.weekHours])
         
         completion(.success("Update points success"))
+    }
+    
+    // 用戶自我家事一覽表
+    func fetchDifferentChoreType(chore: Chore, completion: @escaping (Result<[Chore], Error>) -> Void) {
+        
+        let docReference = database.collection(groups).document(user.groupId!).collection(chores)
+        
+        docReference.addSnapshotListener{ querySnapshot, error in
+            
+            if let error = error {
+                
+                completion(.failure(error))
+                
+            } else {
+                
+                guard let documents = querySnapshot?.documents else { return }
+                
+                let choresList = documents.compactMap({ queryDocument -> Chore? in
+                    
+                    return try? queryDocument.data(as: Chore.self)
+                })
+                
+                completion(.success(choresList))
+            }
+        }
     }
     
 }

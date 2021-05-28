@@ -81,8 +81,8 @@
 		DC5AC61626528BBB00F99E74 /* MemberCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberCollectionViewCell.xib; sourceTree = "<group>"; };
 		DC71957D265E330E00DC3706 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		DC719588265FCF6200DC3706 /* ChoresInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoresInfo.swift; sourceTree = "<group>"; };
-		DC719590265FF38500DC3706 /* CreateGroupCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateGroupCollectionViewCell.swift; path = Chores/View/Auth/CreateGroupCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
-		DC719591265FF38500DC3706 /* CreateGroupCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CreateGroupCollectionViewCell.xib; path = Chores/View/Auth/CreateGroupCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
+		DC719590265FF38500DC3706 /* CreateGroupCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateGroupCollectionViewCell.swift; path = Chores/View/Initial/CreateGroupCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
+		DC719591265FF38500DC3706 /* CreateGroupCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CreateGroupCollectionViewCell.xib; path = Chores/View/Initial/CreateGroupCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
 		DC719596265FF47A00DC3706 /* InvitedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitedCollectionViewCell.swift; sourceTree = "<group>"; };
 		DC719597265FF47A00DC3706 /* InvitedCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvitedCollectionViewCell.xib; sourceTree = "<group>"; };
 		DC71959B265FF9BF00DC3706 /* FlatCardCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatCardCollectionViewLayout.swift; sourceTree = "<group>"; };
@@ -178,7 +178,16 @@
 			path = Group;
 			sourceTree = "<group>";
 		};
-		DC71958C265FF2A100DC3706 /* Auth */ = {
+		DC813640264EAB4D003CC6ED /* Add */ = {
+			isa = PBXGroup;
+			children = (
+				DC81364B2650095C003CC6ED /* TagCollectionViewCell.swift */,
+				DC81364C2650095C003CC6ED /* TagCollectionViewCell.xib */,
+			);
+			path = Add;
+			sourceTree = "<group>";
+		};
+		DC8FE0E02661315D0016927D /* Initial */ = {
 			isa = PBXGroup;
 			children = (
 				DC719590265FF38500DC3706 /* CreateGroupCollectionViewCell.swift */,
@@ -187,16 +196,7 @@
 				DC719597265FF47A00DC3706 /* InvitedCollectionViewCell.xib */,
 				DC71959B265FF9BF00DC3706 /* FlatCardCollectionViewLayout.swift */,
 			);
-			path = Auth;
-			sourceTree = "<group>";
-		};
-		DC813640264EAB4D003CC6ED /* Add */ = {
-			isa = PBXGroup;
-			children = (
-				DC81364B2650095C003CC6ED /* TagCollectionViewCell.swift */,
-				DC81364C2650095C003CC6ED /* TagCollectionViewCell.xib */,
-			);
-			path = Add;
+			path = Initial;
 			sourceTree = "<group>";
 		};
 		DC92B84F2652D14D00041D01 /* Add */ = {
@@ -294,7 +294,7 @@
 				DCA433FC264BA2C500242617 /* LaunchScreen.storyboard */,
 				DCEEAA65264BECC000A64D37 /* Initial.storyboard */,
 				DC913CE6264C1A2B00C18251 /* CardView.swift */,
-				DC71958C265FF2A100DC3706 /* Auth */,
+				DC8FE0E02661315D0016927D /* Initial */,
 				DC203D03264E60AE002FADDA /* Mission */,
 				DC5AC61126528B1700F99E74 /* Group */,
 				DCD737AA26520E7D00F1DEF8 /* Profile */,

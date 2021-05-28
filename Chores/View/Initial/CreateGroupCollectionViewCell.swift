@@ -14,6 +14,7 @@ class CreateGroupCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
     }
 
     @IBAction func create(_ sender: Any) {
