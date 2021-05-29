@@ -21,6 +21,9 @@ struct ChoreType {
     
     static var owner = "owner"
     
+    static var weekHours = "weekHours"
+    
+    static var totalHours = "totalHours"
 }
 
 class FirebaseProvider {
@@ -260,8 +263,8 @@ class FirebaseProvider {
         let docReference = database.collection(users).document(user.id)
         
         docReference.updateData([ChoreType.points: user.points,
-                                 "totalHours": user.totalHours,
-                                 "weekHours": user.weekHours])
+                                 ChoreType.totalHours: user.totalHours,
+                                 ChoreType.weekHours: user.weekHours])
         
         completion(.success("Update points success"))
     }
@@ -298,6 +301,7 @@ class FirebaseProvider {
         }
     }
     
+    // 家事分類 將相同的家事分堆
     func classifyChoreTypes(chores: [Chore]) -> [[Chore]] {
         
         var choresList: [[Chore]] = []
@@ -306,14 +310,18 @@ class FirebaseProvider {
             
             print(chore)
             
+            // 去判斷 choresList 這邊的二維陣列中 有沒有我目前需要得分堆的家事 array
+            // 只需要去判斷每一個家事 array中的第一個(因為相同的家事會放在一起)
             let index = choresList.firstIndex { $0[0].item == chore.item }
             
             if let index = index {
                 
+                // choresList中第幾個 array 加進家事
                 choresList[index].append(chore)
                 
             } else {
                 
+                // 如果家事不存在在 choresList 中的任何 array 就會他新增一個新的 array
                 choresList.append([chore])
                 
             }

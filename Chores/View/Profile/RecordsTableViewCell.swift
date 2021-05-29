@@ -31,6 +31,7 @@ class RecordsTableViewCell: UITableViewCell {
     
     func layoutCell(chores: [Chore]) {
         
+        // chores 中的家事項目會是一樣的
         choreItem.text = "總共完成 \(chores[0].item)"
         
         countLabel.text = "\(chores.count) 次"

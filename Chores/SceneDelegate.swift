@@ -42,7 +42,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     // 如果有暫存 uid 代表有登入過
     // 把 rootViewController(login頁面) 改成 主頁面
-    let storyboard = UIStoryboard.initial
+    let storyboard = UIStoryboard.signin
     // 指定Storyboard ID
     window?.rootViewController = storyboard.instantiateInitialViewController()
     

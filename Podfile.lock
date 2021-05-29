@@ -310,6 +310,7 @@ PODS:
   - KRProgressHUD (3.4.7):
     - KRActivityIndicatorView (= 3.0.7)
   - leveldb-library (1.22.1)
+  - lottie-ios (3.2.3)
   - MIBlurPopup (1.0.0)
   - nanopb (1.30906.0):
     - nanopb/decode (= 1.30906.0)
@@ -327,6 +328,7 @@ DEPENDENCIES:
   - FirebaseFirestoreSwift
   - IQKeyboardManagerSwift (~> 6.5)
   - KRProgressHUD (~> 3.4)
+  - lottie-ios (~> 3.2)
   - MIBlurPopup (~> 1.0)
   - SwiftLint
 
@@ -351,6 +353,7 @@ SPEC REPOS:
     - KRActivityIndicatorView
     - KRProgressHUD
     - leveldb-library
+    - lottie-ios
     - MIBlurPopup
     - nanopb
     - PromisesObjC
@@ -376,11 +379,12 @@ SPEC CHECKSUMS:
   KRActivityIndicatorView: ad69e89c4ce40c986cf580595be4829dcad0e35a
   KRProgressHUD: a248f0bc6c9c2aed40a37b76e03ffecc7f85c887
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
+  lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
   MIBlurPopup: 7e855df6a79d13bc0840519c2ec9bac50b1ac01a
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
 
-PODFILE CHECKSUM: 493015b165e46b9261fd38ce422b5fb8bbf6e44f
+PODFILE CHECKSUM: b77347d0e06c1cf6a3920d61629f6345ed49ec11
 
 COCOAPODS: 1.10.1

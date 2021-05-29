@@ -26,6 +26,8 @@
 		DC8136492650090E003CC6ED /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8136482650090E003CC6ED /* UICollectionView+Extension.swift */; };
 		DC81364D2650095C003CC6ED /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81364B2650095C003CC6ED /* TagCollectionViewCell.swift */; };
 		DC81364E2650095C003CC6ED /* TagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC81364C2650095C003CC6ED /* TagCollectionViewCell.xib */; };
+		DC8FE0E5266299D20016927D /* Signin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC8FE0E4266299D10016927D /* Signin.storyboard */; };
+		DC8FE0E826629A1B0016927D /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8FE0E726629A1B0016927D /* SigninViewController.swift */; };
 		DC913CE3264C144400C18251 /* SectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC913CE1264C144400C18251 /* SectionView.swift */; };
 		DC913CE4264C144400C18251 /* SectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC913CE2264C144400C18251 /* SectionView.xib */; };
 		DC913CE7264C1A2B00C18251 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC913CE6264C1A2B00C18251 /* CardView.swift */; };
@@ -89,6 +91,9 @@
 		DC8136482650090E003CC6ED /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		DC81364B2650095C003CC6ED /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
 		DC81364C2650095C003CC6ED /* TagCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagCollectionViewCell.xib; sourceTree = "<group>"; };
+		DC8FE0E4266299D10016927D /* Signin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Signin.storyboard; sourceTree = "<group>"; };
+		DC8FE0E726629A1B0016927D /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
+		DC8FE1132662A8BC0016927D /* Chores.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Chores.entitlements; sourceTree = "<group>"; };
 		DC913CE1264C144400C18251 /* SectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionView.swift; sourceTree = "<group>"; };
 		DC913CE2264C144400C18251 /* SectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionView.xib; sourceTree = "<group>"; };
 		DC913CE6264C1A2B00C18251 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -199,6 +204,21 @@
 			path = Initial;
 			sourceTree = "<group>";
 		};
+		DC8FE0E22662999F0016927D /* Signin */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Signin;
+			sourceTree = "<group>";
+		};
+		DC8FE0E3266299B60016927D /* Signin */ = {
+			isa = PBXGroup;
+			children = (
+				DC8FE0E726629A1B0016927D /* SigninViewController.swift */,
+			);
+			path = Signin;
+			sourceTree = "<group>";
+		};
 		DC92B84F2652D14D00041D01 /* Add */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,6 +250,7 @@
 		DCA433F0264BA2BD00242617 /* Chores */ = {
 			isa = PBXGroup;
 			children = (
+				DC8FE1132662A8BC0016927D /* Chores.entitlements */,
 				DCA433F1264BA2BD00242617 /* AppDelegate.swift */,
 				DCA433F3264BA2BD00242617 /* SceneDelegate.swift */,
 				DCA433FF264BA2C500242617 /* Info.plist */,
@@ -280,6 +301,7 @@
 				DCEEAA68264BED7700A64D37 /* Group */,
 				DCEEAA6C264BEDA400A64D37 /* Profile */,
 				DCEEAA71264BEDD300A64D37 /* Initial */,
+				DC8FE0E3266299B60016927D /* Signin */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -293,7 +315,9 @@
 				DCEEAA62264BEC9E00A64D37 /* Profile.storyboard */,
 				DCA433FC264BA2C500242617 /* LaunchScreen.storyboard */,
 				DCEEAA65264BECC000A64D37 /* Initial.storyboard */,
+				DC8FE0E4266299D10016927D /* Signin.storyboard */,
 				DC913CE6264C1A2B00C18251 /* CardView.swift */,
+				DC8FE0E22662999F0016927D /* Signin */,
 				DC8FE0E02661315D0016927D /* Initial */,
 				DC203D03264E60AE002FADDA /* Mission */,
 				DC5AC61126528B1700F99E74 /* Group */,
@@ -443,6 +467,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC8FE0E5266299D20016927D /* Signin.storyboard in Resources */,
 				DCD737A826520E7200F1DEF8 /* RecordsTableViewCell.xib in Resources */,
 				DC92B84D2652D13D00041D01 /* AddMemberCell.xib in Resources */,
 				DC531C9A265523D100F3FD4B /* GoogleService-Info.plist in Resources */,
@@ -539,6 +564,7 @@
 				DCA433F6264BA2BD00242617 /* MissionViewController.swift in Sources */,
 				DC913CE3264C144400C18251 /* SectionView.swift in Sources */,
 				DCEEAA73264BEDEC00A64D37 /* InitialViewController.swift in Sources */,
+				DC8FE0E826629A1B0016927D /* SigninViewController.swift in Sources */,
 				DCCD761E265A9BFA0004E82B /* CustomChoreViewController.swift in Sources */,
 				DC203D07264E823C002FADDA /* AddChoresViewController.swift in Sources */,
 				DCA433F2264BA2BD00242617 /* AppDelegate.swift in Sources */,
@@ -717,6 +743,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Chores/Chores.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Chores/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -736,6 +763,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Chores/Chores.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Chores/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -31,28 +31,16 @@ class ChoresDataViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        nubmerOfPieChartData.append(finishedChoresList)
-        
-//        walkDog.value = walkDog.value
-//        walkDog.label = "遛狗"
-//
-//        washDishes.value = washDishes.value
-//        washDishes.label = "洗碗"
-//
-//        repair.value = repair.value
-//        repair.label = "修繕"
-//
-//        nubmerOfPieChartData = [walkDog, washDishes, repair]
-        
-//        updateSelfChoreData()
-        
         setUpRecordsListener()
     }
     
     func updateSelfChoreData(choresList: [[Chore]]) {
         
-        var pieChartData: [PieChartDataEntry] = Array()
+        var pieChartData: [PieChartDataEntry] = []
         
+        
+        // reduce 後面接的第一個參數是初始值，表示你希望運算從何而起
+        // closure 中第一個變數代表每次運算的結果，第二個是每次所傳進去的陣列，把當前的總和與傳進去的元素相加
         let sum = choresList.reduce(0, { (sum, chores) -> Int in
             
 //            print("sum = \(sum)", "\(chores[0].item)", "\(chores.count)")

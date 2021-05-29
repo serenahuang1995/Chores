@@ -15,6 +15,7 @@ target 'Chores' do
   pod 'KRProgressHUD', '~> 3.4'
   pod 'Firebase/Storage'
   pod 'Firebase/Auth'
+  pod 'lottie-ios', '~> 3.2'
 
 
 end
