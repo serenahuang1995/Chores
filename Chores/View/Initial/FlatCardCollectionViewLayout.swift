@@ -51,7 +51,6 @@ class FlatCardCollectionViewLayout: UICollectionViewFlowLayout {
             
             // cell 中心點 和 collectionView 中心點的間距
             let delta = Swift.abs(attribute.center.x - centerX)
-            print("delta \(delta)")
             
             // 根據間隔距離計算縮放比例
             let scale = 1.3 - delta / collectionView!.frame.size.width

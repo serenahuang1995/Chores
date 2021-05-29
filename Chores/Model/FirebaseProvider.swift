@@ -82,7 +82,7 @@ class FirebaseProvider {
             .collection(chores)
             .document(selectedChore.id)
         
-        docReference.updateData(["owner": user.id])
+        docReference.updateData([ChoreType.owner: user.id])
         
         completion(.success(success))
     }
@@ -96,7 +96,7 @@ class FirebaseProvider {
             .collection(chores)
             .document(selectedChore.id)
         
-        docRefernce.updateData(["status": 1])
+        docRefernce.updateData([ChoreType.status: 1])
         
         completion(.success(selectedChore))
     }
@@ -107,7 +107,7 @@ class FirebaseProvider {
         let docRefernce = database.collection(groups)
             .document(user.groupId ?? "")
             .collection(chores)
-            .whereField("status", isEqualTo: 0)
+            .whereField(ChoreType.status, isEqualTo: 0)
         
         docRefernce.addSnapshotListener { querySnapshot, error in
             
@@ -133,10 +133,10 @@ class FirebaseProvider {
     func listenRecords(completion: @escaping (Result<[Chore], Error>) -> Void) {
         
         let docReference = database.collection(groups)
-            .document(user.groupId ?? "")
+            .document(user.groupId!)
             .collection(chores)
-            .whereField("status", isEqualTo: 1)
-            .whereField("owner", isEqualTo: user.id)
+            .whereField(ChoreType.status, isEqualTo: 1)
+            .whereField(ChoreType.owner, isEqualTo: user.id)
         
         docReference.addSnapshotListener { querySnapshot, error in
             
@@ -259,7 +259,7 @@ class FirebaseProvider {
         
         let docReference = database.collection(users).document(user.id)
         
-        docReference.updateData(["points": user.points,
+        docReference.updateData([ChoreType.points: user.points,
                                  "totalHours": user.totalHours,
                                  "weekHours": user.weekHours])
         
@@ -267,10 +267,15 @@ class FirebaseProvider {
     }
     
     // 用戶自我家事一覽表
-    func fetchDifferentChoreType(chore: Chore, completion: @escaping (Result<[Chore], Error>) -> Void) {
+    func fetchDifferentChoreType(completion: @escaping (Result<[[Chore]], Error>) -> Void) {
         
-        let docReference = database.collection(groups).document(user.groupId!).collection(chores)
-        
+        let docReference = database
+            .collection(groups)
+            .document(user.groupId!)
+            .collection(chores)
+            .whereField(ChoreType.owner, isEqualTo: user.id)
+            .whereField(ChoreType.status, isEqualTo: 1)
+
         docReference.addSnapshotListener{ querySnapshot, error in
             
             if let error = error {
@@ -281,14 +286,41 @@ class FirebaseProvider {
                 
                 guard let documents = querySnapshot?.documents else { return }
                 
-                let choresList = documents.compactMap({ queryDocument -> Chore? in
+                let chores = documents.compactMap({ queryDocument -> Chore? in
                     
                     return try? queryDocument.data(as: Chore.self)
                 })
                 
+                let choresList = self.classifyChoreTypes(chores: chores)
+                
                 completion(.success(choresList))
             }
         }
+    }
+    
+    func classifyChoreTypes(chores: [Chore]) -> [[Chore]] {
+        
+        var choresList: [[Chore]] = []
+        
+        for chore in chores {
+            
+            print(chore)
+            
+            let index = choresList.firstIndex { $0[0].item == chore.item }
+            
+            if let index = index {
+                
+                choresList[index].append(chore)
+                
+            } else {
+                
+                choresList.append([chore])
+                
+            }
+            
+        }
+        
+        return choresList
     }
     
 }

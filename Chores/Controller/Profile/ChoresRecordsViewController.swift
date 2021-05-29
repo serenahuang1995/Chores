@@ -17,7 +17,7 @@ class ChoresRecordsViewController: UIViewController {
         }
     }
     
-    var finishedChores: [Chore] = []
+    var finishedChoresList: [[Chore]] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,16 +41,18 @@ class ChoresRecordsViewController: UIViewController {
     
     func setUpRecordsListener() {
         
-        FirebaseProvider.shared.listenRecords { result in
+        FirebaseProvider.shared.fetchDifferentChoreType { [weak self] result in
             
             switch result {
             
-            case .success(let chores):
+            case .success(let choresList):
                 
-                self.finishedChores = chores
+                self?.finishedChoresList = choresList
                 
-                self.tableView.reloadData()
+//                choresList.map { print("\($0[0].item): \($0.count)") }
                 
+                self?.tableView.reloadData()
+            
             case .failure(let error):
                 
                 print(error)
@@ -73,7 +75,7 @@ extension ChoresRecordsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return finishedChores.count
+        return finishedChoresList.count
     }
     
     func tableView(_ tableView: UITableView,
@@ -87,7 +89,7 @@ extension ChoresRecordsViewController: UITableViewDataSource {
         
         guard let recordsCell = cell as? RecordsTableViewCell else { return cell }
         
-        recordsCell.layoutCell(chore: finishedChores[index])
+        recordsCell.layoutCell(chores: finishedChoresList[index])
         
         return recordsCell
     }

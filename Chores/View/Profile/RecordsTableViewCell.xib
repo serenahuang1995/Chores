@@ -28,7 +28,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200次" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bgd-T2-Zg6">
-                                <rect key="frame" x="286" y="24.5" width="48" height="21"/>
+                                <rect key="frame" x="281" y="24.5" width="48" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -45,7 +45,7 @@
                             <constraint firstItem="aXF-Vj-uHE" firstAttribute="centerY" secondItem="3IE-E7-WS3" secondAttribute="centerY" id="DI9-wK-pjY"/>
                             <constraint firstAttribute="height" constant="70" id="Mlh-uB-CJY"/>
                             <constraint firstItem="Bgd-T2-Zg6" firstAttribute="centerY" secondItem="3IE-E7-WS3" secondAttribute="centerY" id="Sdn-sd-WJn"/>
-                            <constraint firstAttribute="trailing" secondItem="Bgd-T2-Zg6" secondAttribute="trailing" constant="20" id="l8U-TZ-l7i"/>
+                            <constraint firstAttribute="trailing" secondItem="Bgd-T2-Zg6" secondAttribute="trailing" constant="25" id="l8U-TZ-l7i"/>
                             <constraint firstItem="x7g-p9-Cv4" firstAttribute="centerY" secondItem="3IE-E7-WS3" secondAttribute="centerY" id="rNT-Aq-HaI"/>
                             <constraint firstItem="x7g-p9-Cv4" firstAttribute="leading" secondItem="aXF-Vj-uHE" secondAttribute="trailing" constant="20" id="tHM-yi-1Vw"/>
                             <constraint firstItem="aXF-Vj-uHE" firstAttribute="leading" secondItem="3IE-E7-WS3" secondAttribute="leading" constant="20" id="vAn-9r-JF0"/>
@@ -72,6 +72,7 @@
             <connections>
                 <outlet property="choreImage" destination="aXF-Vj-uHE" id="vQd-0x-OSj"/>
                 <outlet property="choreItem" destination="x7g-p9-Cv4" id="EbM-hu-O4r"/>
+                <outlet property="countLabel" destination="Bgd-T2-Zg6" id="e0H-zt-1KU"/>
                 <outlet property="recordView" destination="3IE-E7-WS3" id="6Be-w2-4Cx"/>
             </connections>
             <point key="canvasLocation" x="75" y="70"/>

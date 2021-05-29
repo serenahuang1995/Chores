@@ -15,6 +15,9 @@ class RecordsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var choreItem: UILabel!
     
+    
+    @IBOutlet weak var countLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -26,11 +29,13 @@ class RecordsTableViewCell: UITableViewCell {
         
     }
     
-    func layoutCell(chore: Chore) {
+    func layoutCell(chores: [Chore]) {
         
-        choreItem.text = "總共完成 \(chore.item)"
+        choreItem.text = "總共完成 \(chores[0].item)"
         
-        if let imageName = ChoreImages.imageNames[chore.item] {
+        countLabel.text = "\(chores.count) 次"
+        
+        if let imageName = ChoreImages.imageNames[chores[0].item] {
             
             choreImage.image = UIImage(named: imageName)
             
