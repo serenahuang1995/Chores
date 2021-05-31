@@ -19,6 +19,12 @@ class SigninViewController: UIViewController {
     
     fileprivate var currentNonce: String?
     
+    var email: String?
+    
+    var name: String?
+    
+    var uid: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -92,59 +98,116 @@ class SigninViewController: UIViewController {
     
     func fetchUser() {
         
-        UserProvider.shared.fetchUser(userId: <#T##String#>) { result in
+        UserProvider.shared.fetchUser { [weak self] result in
             
+            switch result {
             
-            
+            case .success(let user):
+                
+                print("user = \(user)")
+                
+                if let user = user {
+                    
+                    self?.performToNextPage(user: user)
+
+                } else {
+                    
+                    self?.addUser()
+                }
+                
+            case .failure(let error):
+                
+                print(error)
+            }
         }
+    }
+    
+    func addUser() {
         
+        let user = User(id: uid ?? "",
+                        name: name ?? "User",
+                        picture: ImageAsset.man.rawValue,
+                        points: 0,
+                        weekHours: 0,
+                        totalHours: 0,
+                        groupId: nil)
         
+        UserProvider.shared.addNewUser(user: user) { [weak self] result in
+            
+            switch result {
+            
+            case .success(let message):
+                
+                print(message)
+                
+                self?.performSegue(withIdentifier: Segue.initial, sender: nil)
+                
+            case .failure(let error):
+                
+                print(error)
+            }
+        }
     }
     
     private func randomNonceString(length: Int = 32) -> String {
         
-      precondition(length > 0)
-      let charset: Array<Character> =
-          Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
-      var result = ""
-      var remainingLength = length
-
-      while remainingLength > 0 {
-        let randoms: [UInt8] = (0 ..< 16).map { _ in
-          var random: UInt8 = 0
-          let errorCode = SecRandomCopyBytes(kSecRandomDefault, 1, &random)
-          if errorCode != errSecSuccess {
-            fatalError("Unable to generate nonce. SecRandomCopyBytes failed with OSStatus \(errorCode)")
-          }
-          return random
+        precondition(length > 0)
+        let charset: Array<Character> =
+            Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
+        var result = ""
+        var remainingLength = length
+        
+        while remainingLength > 0 {
+            let randoms: [UInt8] = (0 ..< 16).map { _ in
+                var random: UInt8 = 0
+                let errorCode = SecRandomCopyBytes(kSecRandomDefault, 1, &random)
+                if errorCode != errSecSuccess {
+                    fatalError("Unable to generate nonce. SecRandomCopyBytes failed with OSStatus \(errorCode)")
+                }
+                return random
+            }
+            
+            randoms.forEach { random in
+                if remainingLength == 0 {
+                    return
+                }
+                
+                if random < charset.count {
+                    result.append(charset[Int(random)])
+                    remainingLength -= 1
+                }
+            }
         }
-
-        randoms.forEach { random in
-          if remainingLength == 0 {
-            return
-          }
-
-          if random < charset.count {
-            result.append(charset[Int(random)])
-            remainingLength -= 1
-          }
-        }
-      }
-
-      return result
+        
+        return result
     }
     
     @available(iOS 13, *)
     private func sha256(_ input: String) -> String {
-      let inputData = Data(input.utf8)
-      let hashedData = SHA256.hash(data: inputData)
-      let hashString = hashedData.compactMap {
-        return String(format: "%02x", $0)
-      }.joined()
-
-      return hashString
+        let inputData = Data(input.utf8)
+        let hashedData = SHA256.hash(data: inputData)
+        let hashString = hashedData.compactMap {
+            return String(format: "%02x", $0)
+        }.joined()
+        
+        return hashString
     }
-
+    
+    func performToNextPage(user: User) {
+        
+        if user.groupId != nil {
+            
+            let userDefault = UserDefaults()
+            
+            userDefault.setValue(user.groupId, forKey: "GroupID")
+            
+            performSegue(withIdentifier: Segue.main, sender: nil)
+            
+        } else {
+            
+            performSegue(withIdentifier: Segue.initial, sender: nil)
+        }
+    }
 }
 
 @available(iOS 13.0, *)
@@ -177,7 +240,7 @@ extension SigninViewController: ASAuthorizationControllerDelegate {
                                                       idToken: idTokenString,
                                                       rawNonce: nonce)
             // Sign in with Firebase.
-            Auth.auth().signIn(with: credential) { (authResult, error) in
+            Auth.auth().signIn(with: credential) { [self] (authResult, error) in
                 
                 if let error = error {
 
@@ -191,17 +254,25 @@ extension SigninViewController: ASAuthorizationControllerDelegate {
                     
                     guard let user = authResult?.user else { return }
                     
-                    print(user.email as Any)
+//                    print(user.email as Any)
                     
-                    print(user.displayName as Any)
+                    self.email = user.email
+                    
+//                    print(user.displayName as Any)
+                    
+                    self.name = user.displayName
                     
                     guard let uid = Auth.auth().currentUser?.uid else { return }
                     
-                    print(uid)
+//                    print(uid)
+                    
+                    self.uid = uid
                     
                     let userDefault = UserDefaults()
                         
                     userDefault.setValue(uid, forKey: "FirebaseUid")
+                    
+                    fetchUser()
                 }
             }
         }

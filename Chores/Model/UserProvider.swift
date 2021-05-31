@@ -44,10 +44,40 @@ class UserProvider {
         
     )
     
-    var appleUid = "XC6b6Ys1VY1qLcBJ5M8z"
+    // FirebaseUid
+    var uid = "XC6b6Ys1VY1qLcBJ5M8z"
+//        UserDefaults.standard.string(forKey: "FirebaseUid")
+    
+//    let userId = UserDefaults.standard.string(forKey: "FirebaseUid")
+    
+    func addNewUser(user: User, completion: @escaping (Result<String, Error>) -> Void) {
+        
+        let docReference = database.collection(users).document(user.id)
+        
+        do {
+            
+            try docReference.setData(from: user) { error in
+                
+                if let error = error {
+                    
+                    completion(.failure(error))
+                    
+                } else {
+                    
+                    completion(.success(FirebaseProvider.shared.success))
+
+                }
+            }
+
+        } catch {
+            
+            completion(.failure(error))
+        }
+        
+    }
     
     // 一次性的fetch user
-    func fetchUser(userId: String, completion: @escaping (Result<User, Error>) -> Void) {
+    func fetchOwner(userId: String, completion: @escaping (Result<User, Error>) -> Void) {
         
         let docReference = database.collection(users).document(userId)
         
@@ -65,7 +95,7 @@ class UserProvider {
                     
                     if let user = user {
                         
-                        if user.id == self.appleUid {
+                        if user.id == self.uid {
                             
                             self.user = user
                         }
@@ -81,9 +111,40 @@ class UserProvider {
         }
     }
     
+    func fetchUser(completion: @escaping (Result<User?, Error>) -> Void) {
+        
+        let docReference = database.collection(users).document(uid ?? "")
+        
+        docReference.getDocument { querySnapshot, error in
+            
+            if let error = error {
+                
+                completion(.failure(error))
+                
+            } else {
+                
+                do {
+                    
+                    let user = try querySnapshot?.data(as: User.self, decoder: Firestore.Decoder())
+                    
+                    if let user = user {
+                        
+                        self.user = user
+                    }
+                    
+                    completion(.success(user))
+                    
+                } catch {
+                    
+                    completion(.failure(error))
+                }
+            }
+        }
+    }
+    
     func onFetchUserListener(completion: @escaping (Result<User, Error>) -> Void) {
         
-        let docReference = database.collection(users).document(appleUid)
+        let docReference = database.collection(users).document(uid)
         //      .whereField("id", isEqualTo: appleUid)
         
         docReference.addSnapshotListener {  querySnapshot, error in

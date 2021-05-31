@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 // swiftlint:disable all
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -40,11 +41,46 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // Called as the scene transitions from the background to the foreground.
     // Use this method to undo the changes made on entering the background.
     
+    // 清除資料區
+//    let userDefault = UserDefaults()
+//
+//    userDefault.setValue(nil, forKey: "GroupID")
+//
+//    userDefault.setValue(nil, forKey: "FirebaseUid")
+//
+//    do {
+//
+//        try Auth.auth().signOut()
+//
+//    } catch {
+//
+//        print(error)
+//    }
+    
+    var storyboard: UIStoryboard?
+
     // 如果有暫存 uid 代表有登入過
+    if Auth.auth().currentUser == nil {
+        
+        storyboard = .signin
+        
+    } else {
+        
+        let groupId = UserDefaults.standard.string(forKey: "GroupID")
+        
+        if groupId == nil {
+            
+            storyboard = .initial
+            
+        } else {
+            
+            storyboard = .main
+        }
+    }
+
     // 把 rootViewController(login頁面) 改成 主頁面
-    let storyboard = UIStoryboard.signin
     // 指定Storyboard ID
-    window?.rootViewController = storyboard.instantiateInitialViewController()
+    window?.rootViewController = storyboard?.instantiateInitialViewController()
     
     window?.makeKeyAndVisible()
     

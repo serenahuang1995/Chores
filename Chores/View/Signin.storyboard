@@ -78,6 +78,7 @@
                         <outlet property="privacyButton" destination="xda-Ed-eBB" id="8wM-zv-2hk"/>
                         <outlet property="signinView" destination="Q6s-MM-duU" id="Of3-tG-QaM"/>
                         <segue destination="1YN-tM-qF6" kind="show" identifier="SegueInitialPage" animates="NO" id="XFb-t0-aDq"/>
+                        <segue destination="EEY-G7-2GW" kind="show" identifier="SegueMainPage" animates="NO" id="2Ys-JV-OGB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kyT-F4-dgQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -93,6 +94,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t6T-bz-bxV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="660" y="-46"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="DoB-pc-2Ad">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="EEY-G7-2GW" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Kbx-sX-EVC"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qco-ta-lV5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="660" y="9"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Fds-gi-3aZ">

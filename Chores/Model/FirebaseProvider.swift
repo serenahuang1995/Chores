@@ -24,6 +24,8 @@ struct ChoreType {
     static var weekHours = "weekHours"
     
     static var totalHours = "totalHours"
+    
+    static var completedDate = "completedDate"
 }
 
 class FirebaseProvider {
@@ -99,7 +101,8 @@ class FirebaseProvider {
             .collection(chores)
             .document(selectedChore.id)
         
-        docRefernce.updateData([ChoreType.status: 1])
+        docRefernce.updateData([ChoreType.status: 1,
+                                ChoreType.completedDate: Timestamp.self])
         
         completion(.success(selectedChore))
     }

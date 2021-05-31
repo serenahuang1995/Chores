@@ -59,9 +59,9 @@ class MissionViewController: UIViewController {
     // 用戶每次進來都會 fetch
     func fetchUser() {
         
-        let appleUid = UserProvider.shared.appleUid
+        let uid = UserProvider.shared.uid ?? ""
         
-        UserProvider.shared.fetchUser(userId: appleUid) { [weak self] result in
+        UserProvider.shared.fetchOwner(userId: uid) { [weak self] result in
             
             switch result {
             
@@ -142,7 +142,7 @@ class MissionViewController: UIViewController {
         
         guard let userId = chore.owner else { return }
         
-        UserProvider.shared.fetchUser(userId: userId) { [weak self] result in
+        UserProvider.shared.fetchOwner(userId: userId) { [weak self] result in
             
             switch result {
             

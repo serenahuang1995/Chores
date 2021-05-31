@@ -22,6 +22,7 @@ enum ImageAsset: String {
     case Icon32px_AddChores
     case Icon32px_Plus
     case CustomChore
+    case man
     
 }
 
