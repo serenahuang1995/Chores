@@ -12,7 +12,7 @@
         <!--Initial View Controller-->
         <scene sceneID="MVG-WQ-TSB">
             <objects>
-                <viewController storyboardIdentifier="Initial" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0hh-kS-wZH" customClass="InitialViewController" customModule="Chores" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Initial" modalPresentationStyle="overCurrentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0hh-kS-wZH" customClass="InitialViewController" customModule="Chores" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6oh-G0-LmR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

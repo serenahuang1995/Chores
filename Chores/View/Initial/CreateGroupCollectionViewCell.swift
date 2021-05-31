@@ -6,20 +6,35 @@
 //
 
 import UIKit
+import Lottie
 
 class CreateGroupCollectionViewCell: UICollectionViewCell {
+    
+    @IBOutlet weak var groupView: AnimationView!
     
     weak var delegate: CreateGroupCellDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         
+        setUpLottie()
     }
 
     @IBAction func create(_ sender: Any) {
         
         self.delegate?.goToMainPage()
+    }
+    
+    func setUpLottie() {
+        
+        let animation = Animation.named("CreateGroup")
+        
+        groupView.animation = animation
+        
+        groupView.play()
+        
+        groupView.loopMode = .loop
+
     }
     
     func createNewGroup() {

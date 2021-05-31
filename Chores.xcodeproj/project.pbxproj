@@ -46,6 +46,9 @@
 		DCA433FE264BA2C500242617 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCA433FC264BA2C500242617 /* LaunchScreen.storyboard */; };
 		DCA589F0265553920033EE63 /* RuleSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA589EF265553920033EE63 /* RuleSegue.swift */; };
 		DCA589F326555AD10033EE63 /* FirebaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA589F226555AD10033EE63 /* FirebaseProvider.swift */; };
+		DCA684292663D60600797EAB /* Signin.json in Resources */ = {isa = PBXBuildFile; fileRef = DCA684282663D60600797EAB /* Signin.json */; };
+		DCA6842C2663F22000797EAB /* CreateGroup.json in Resources */ = {isa = PBXBuildFile; fileRef = DCA6842B2663F22000797EAB /* CreateGroup.json */; };
+		DCA6842F2663FCA900797EAB /* Chores.json in Resources */ = {isa = PBXBuildFile; fileRef = DCA6842E2663FCA900797EAB /* Chores.json */; };
 		DCB98A0E264CDF7200A8C794 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB98A0D264CDF7200A8C794 /* UITableView+Extension.swift */; };
 		DCB98A12264CF6C100A8C794 /* UnclaimedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC913CF1264CB46E00C18251 /* UnclaimedTableViewCell.xib */; };
 		DCBB101E2653A36600A8C1E4 /* RuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBB101D2653A36600A8C1E4 /* RuleViewController.swift */; };
@@ -115,6 +118,9 @@
 		DCA433FF264BA2C500242617 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCA589EF265553920033EE63 /* RuleSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleSegue.swift; sourceTree = "<group>"; };
 		DCA589F226555AD10033EE63 /* FirebaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseProvider.swift; sourceTree = "<group>"; };
+		DCA684282663D60600797EAB /* Signin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Signin.json; sourceTree = "<group>"; };
+		DCA6842B2663F22000797EAB /* CreateGroup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CreateGroup.json; sourceTree = "<group>"; };
+		DCA6842E2663FCA900797EAB /* Chores.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Chores.json; sourceTree = "<group>"; };
 		DCB98A0D264CDF7200A8C794 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		DCBB101D2653A36600A8C1E4 /* RuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleViewController.swift; sourceTree = "<group>"; };
 		DCBB10202653F9AA00A8C1E4 /* ChoreImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoreImages.swift; sourceTree = "<group>"; };
@@ -219,6 +225,16 @@
 			path = Signin;
 			sourceTree = "<group>";
 		};
+		DC8FE14E2663D1190016927D /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				DCA684282663D60600797EAB /* Signin.json */,
+				DCA6842B2663F22000797EAB /* CreateGroup.json */,
+				DCA6842E2663FCA900797EAB /* Chores.json */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
 		DC92B84F2652D14D00041D01 /* Add */ = {
 			isa = PBXGroup;
 			children = (
@@ -317,6 +333,7 @@
 				DCEEAA65264BECC000A64D37 /* Initial.storyboard */,
 				DC8FE0E4266299D10016927D /* Signin.storyboard */,
 				DC913CE6264C1A2B00C18251 /* CardView.swift */,
+				DC8FE14E2663D1190016927D /* Animation */,
 				DC8FE0E22662999F0016927D /* Signin */,
 				DC8FE0E02661315D0016927D /* Initial */,
 				DC203D03264E60AE002FADDA /* Mission */,
@@ -468,6 +485,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC8FE0E5266299D20016927D /* Signin.storyboard in Resources */,
+				DCA6842C2663F22000797EAB /* CreateGroup.json in Resources */,
 				DCD737A826520E7200F1DEF8 /* RecordsTableViewCell.xib in Resources */,
 				DC92B84D2652D13D00041D01 /* AddMemberCell.xib in Resources */,
 				DC531C9A265523D100F3FD4B /* GoogleService-Info.plist in Resources */,
@@ -484,7 +502,9 @@
 				DCA433F9264BA2BD00242617 /* Main.storyboard in Resources */,
 				DCEEAA60264BEC8B00A64D37 /* Group.storyboard in Resources */,
 				DC719593265FF38500DC3706 /* CreateGroupCollectionViewCell.xib in Resources */,
+				DCA6842F2663FCA900797EAB /* Chores.json in Resources */,
 				DCEEAA66264BECC100A64D37 /* Initial.storyboard in Resources */,
+				DCA684292663D60600797EAB /* Signin.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -745,6 +765,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Chores/Chores.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X4829HAJSP;
 				INFOPLIST_FILE = Chores/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -765,6 +786,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Chores/Chores.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X4829HAJSP;
 				INFOPLIST_FILE = Chores/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

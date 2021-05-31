@@ -7,17 +7,29 @@
 
 import UIKit
 import AuthenticationServices
+import FirebaseAuth
+import Lottie
 
 class SigninViewController: UIViewController {
 
     @IBOutlet weak var privacyButton: UIButton!
     
+    @IBOutlet weak var signinView: AnimationView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpSigninButton()
-    }
         
+        setUpLottie()
+    }
+    
+    
+    @IBAction func skip(_ sender: Any) {
+        
+        performSegue(withIdentifier: Segue.initial, sender: nil)
+    }
+    
     func setUpSigninButton() {
         
         let signinButton = ASAuthorizationAppleIDButton(
@@ -57,18 +69,35 @@ class SigninViewController: UIViewController {
         
         controller.performRequests()
     }
+    
+    func setUpLottie() {
+        
+        let animation = Animation.named("Signin")
+        
+        signinView.animation = animation
+        
+        signinView.play()
+        
+        signinView.loopMode = .loop
+    }
 
 }
 
 extension SigninViewController: ASAuthorizationControllerDelegate {
     
-    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+    func authorizationController(controller: ASAuthorizationController,
+                                 didCompleteWithAuthorization authorization: ASAuthorization) {
         
         guard let credential = authorization.credential as? ASAuthorizationAppleIDCredential else { return }
         // upload credential to api
+        
+        print(credential)
     }
-    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+    func authorizationController(controller: ASAuthorizationController,
+                                 didCompleteWithError error: Error) {
         // Show error
+        
+        print(error)
     }
 }
 extension SigninViewController: ASAuthorizationControllerPresentationContextProviding {

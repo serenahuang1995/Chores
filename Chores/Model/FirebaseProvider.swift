@@ -312,6 +312,7 @@ class FirebaseProvider {
             
             // 去判斷 choresList 這邊的二維陣列中 有沒有我目前需要得分堆的家事 array
             // 只需要去判斷每一個家事 array中的第一個(因為相同的家事會放在一起)
+            // firstIndex回傳第一個符合條件的成員在 array 裡的編號
             let index = choresList.firstIndex { $0[0].item == chore.item }
             
             if let index = index {

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 protocol MissionCellDelegate: AnyObject {
     
@@ -23,6 +24,10 @@ class MissionViewController: UIViewController {
             setUpTableView()
         }
     }
+
+    @IBOutlet weak var lobbyView: UIView!
+    
+    @IBOutlet weak var lottieView: AnimationView!
     
     // 記錄每個 Section 的狀態，預設false
     var isExpandedList: [Bool] = [false, false]
@@ -39,6 +44,16 @@ class MissionViewController: UIViewController {
         resetNavigationBarButton()
         
         fetchUser()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        if !lobbyView.isHidden {
+            
+            lottieView.play()
+            
+            lottieView.loopMode = .loop
+        }
     }
     
     // 用戶每次進來都會 fetch
@@ -105,19 +120,15 @@ class MissionViewController: UIViewController {
     
     func setChoresListener() {
         
-        FirebaseProvider.shared.listenChores { result in
+        FirebaseProvider.shared.listenChores { [weak self] result in
             
             switch result {
             
             case .success(let chores):
                 
-                self.allChores = chores
+                self?.allChores = chores
                 
-                self.unclaimedChores = self.allChores.filter { $0.owner == nil }
-                
-                self.ongoingChores = self.allChores.filter { $0.owner != nil }
-                
-                self.tableView.reloadData()
+                self?.displayData(isDisplay: chores.count != 0)
                 
             case .failure(let error):
                 
@@ -193,6 +204,37 @@ class MissionViewController: UIViewController {
                 
             }
         }
+    }
+    
+    func displayData(isDisplay: Bool) {
+        
+        tableView.isHidden = !isDisplay
+        
+        if isDisplay {
+            
+            self.unclaimedChores = self.allChores.filter { $0.owner == nil }
+            
+            self.ongoingChores = self.allChores.filter { $0.owner != nil }
+            
+            self.tableView.reloadData()
+            
+        } else {
+            
+            lobbyView.isHidden = false
+            
+            setUpLottie()
+        }
+    }
+    
+    func setUpLottie() {
+        
+        let anination = Animation.named("Chores")
+        
+        lottieView.animation = anination
+        
+        lottieView.play()
+        
+        lottieView.loopMode = .loop
     }
     
 }

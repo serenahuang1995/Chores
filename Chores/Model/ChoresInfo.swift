@@ -9,6 +9,8 @@ import Foundation
 
 struct Segue {
     
+    static let initial = "SegueInitialPage"
+    
     static let main = "SegueMainPage"
     
     static let addChore = "SegueAddChore"

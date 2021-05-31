@@ -55,6 +55,10 @@ class SettingViewController: UIViewController {
         }
     }
     
+    
+    
+    
+    
     private func showBlackView() {
         
         blackView.backgroundColor = .clear
