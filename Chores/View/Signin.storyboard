@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xda-Ed-eBB">
-                                <rect key="frame" x="32" y="753.5" width="350" height="26.5"/>
+                                <rect key="frame" x="32" y="754.5" width="350" height="25.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="350" id="sVI-Qr-yca"/>
                                 </constraints>
@@ -26,7 +26,8 @@
                                         <fragment content="服務條款與隱私權政策">
                                             <attributes>
                                                 <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" metaFont="cellTitle"/>
+                                                <font key="NSFont" size="12" name=".PingFangTC-Regular"/>
+                                                <font key="NSOriginalFont" metaFont="cellTitle"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 <integer key="NSUnderline" value="1"/>
                                             </attributes>
