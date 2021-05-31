@@ -36,8 +36,12 @@ class InitialViewController: UIViewController {
         return layout
     }()
     
+    var user: User?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        fetchUser()
         
     }
     
@@ -63,6 +67,27 @@ class InitialViewController: UIViewController {
         collectionView.collectionViewLayout = cardLayout
         
         collectionView.bouncesZoom = true
+    }
+    
+    func fetchUser() {
+        
+        UserProvider.shared.fetchUser { result in
+            
+            switch result {
+            
+            case .success(let user):
+                
+                print(user)
+                
+                self.user = user
+                
+            case .failure(let error):
+                
+                print(error)
+            }
+            
+        }
+        
     }
     
 }
@@ -102,7 +127,9 @@ extension InitialViewController: UICollectionViewDataSource {
                 for: indexPath)
             
             guard let invitedCell = cell as? InvitedCollectionViewCell else { return cell }
-            
+                
+                invitedCell.layoutCell()
+
             return invitedCell
                       
         default:
@@ -112,17 +139,6 @@ extension InitialViewController: UICollectionViewDataSource {
     }
    
 }
-
-//extension InitialViewController: UICollectionViewDelegateFlowLayout {
-//
-//    func collectionView(_ collectionView: UICollectionView,
-//                        layout collectionViewLayout: UICollectionViewLayout,
-//                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-//
-//        return CGSize(width: screenSize.width * 0.58, height: screenSize.height * 0.52)
-//    }
-//
-//}
 
 extension InitialViewController: CreateGroupCellDelegate {
     

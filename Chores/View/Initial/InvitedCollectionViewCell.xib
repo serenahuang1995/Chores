@@ -18,7 +18,62 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fVQ-Rf-4bO" customClass="CardView" customModule="Chores" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="300" height="400"/>
-                        <color key="backgroundColor" red="1" green="0.85693759314544238" blue="0.93281645614157771" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LWD-Iv-NGr">
+                                <rect key="frame" x="40" y="152.5" width="220" height="220"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="220" id="L7c-un-lLZ"/>
+                                    <constraint firstAttribute="width" constant="220" id="XLI-Uq-Ng6"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="還沒加入小屋嗎？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bcW-dy-sH5">
+                                <rect key="frame" x="16" y="30" width="122.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step1：請成員輸入ID或是掃QRCode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdT-Rx-Jdo">
+                                <rect key="frame" x="16" y="63" width="268" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step2：開心的加入" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GEd-dI-4S6">
+                                <rect key="frame" x="16" y="88" width="107" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="使用者ID:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="thh-cx-ffn">
+                                <rect key="frame" x="16" y="123" width="268" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="wdT-Rx-Jdo" firstAttribute="leading" secondItem="fVQ-Rf-4bO" secondAttribute="leading" constant="16" id="0c2-Ka-AfD"/>
+                            <constraint firstItem="bcW-dy-sH5" firstAttribute="top" secondItem="fVQ-Rf-4bO" secondAttribute="top" constant="30" id="0i6-QO-MCO"/>
+                            <constraint firstItem="LWD-Iv-NGr" firstAttribute="top" secondItem="thh-cx-ffn" secondAttribute="bottom" constant="15" id="9hY-fE-Hay"/>
+                            <constraint firstItem="LWD-Iv-NGr" firstAttribute="centerX" secondItem="fVQ-Rf-4bO" secondAttribute="centerX" id="Ep0-HS-ESc"/>
+                            <constraint firstItem="GEd-dI-4S6" firstAttribute="top" secondItem="wdT-Rx-Jdo" secondAttribute="bottom" constant="10" id="RIf-Od-602"/>
+                            <constraint firstItem="thh-cx-ffn" firstAttribute="top" secondItem="GEd-dI-4S6" secondAttribute="bottom" constant="20" id="TTN-c6-8pl"/>
+                            <constraint firstAttribute="trailing" secondItem="thh-cx-ffn" secondAttribute="trailing" constant="16" id="drn-Sa-ATK"/>
+                            <constraint firstItem="thh-cx-ffn" firstAttribute="leading" secondItem="fVQ-Rf-4bO" secondAttribute="leading" constant="16" id="i33-l9-CGR"/>
+                            <constraint firstItem="wdT-Rx-Jdo" firstAttribute="top" secondItem="bcW-dy-sH5" secondAttribute="bottom" constant="15" id="j9R-eZ-a26"/>
+                            <constraint firstAttribute="trailing" secondItem="wdT-Rx-Jdo" secondAttribute="trailing" constant="16" id="jJ6-5i-ZLD"/>
+                            <constraint firstItem="bcW-dy-sH5" firstAttribute="leading" secondItem="fVQ-Rf-4bO" secondAttribute="leading" constant="16" id="twq-pn-9VJ"/>
+                            <constraint firstItem="GEd-dI-4S6" firstAttribute="leading" secondItem="fVQ-Rf-4bO" secondAttribute="leading" constant="16" id="y5k-Mj-Ssf"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
             </view>
@@ -30,6 +85,10 @@
                 <constraint firstAttribute="trailing" secondItem="fVQ-Rf-4bO" secondAttribute="trailing" id="lCp-jX-msy"/>
                 <constraint firstItem="fVQ-Rf-4bO" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="uCP-89-2zM"/>
             </constraints>
+            <connections>
+                <outlet property="qrcodeImage" destination="LWD-Iv-NGr" id="FwM-fg-g1p"/>
+                <outlet property="userIdLabel" destination="thh-cx-ffn" id="qWL-Gv-eEJ"/>
+            </connections>
             <point key="canvasLocation" x="121.73913043478262" y="67.633928571428569"/>
         </collectionViewCell>
     </objects>

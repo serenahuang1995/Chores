@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="300" height="400"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AAO-YA-E36">
-                                <rect key="frame" x="50" y="320" width="200" height="30"/>
+                                <rect key="frame" x="50" y="340" width="200" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="CFA-aw-EpG"/>
                                 </constraints>
@@ -31,22 +31,34 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b6w-h4-kUM" customClass="AnimationView" customModule="Lottie">
-                                <rect key="frame" x="50" y="90" width="200" height="200"/>
+                                <rect key="frame" x="0.0" y="10" width="300" height="300"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="F2C-jZ-Lxw"/>
-                                    <constraint firstAttribute="width" constant="200" id="kmN-dt-T1h"/>
+                                    <constraint firstAttribute="height" constant="300" id="F2C-jZ-Lxw"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.97039339740823771" blue="0.7973235509545199" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="AAO-YA-E36" firstAttribute="top" secondItem="b6w-h4-kUM" secondAttribute="bottom" constant="30" id="8QE-XL-5lN"/>
                             <constraint firstItem="b6w-h4-kUM" firstAttribute="centerX" secondItem="n9X-To-HCj" secondAttribute="centerX" id="AWA-r8-r2s"/>
+                            <constraint firstItem="b6w-h4-kUM" firstAttribute="leading" secondItem="n9X-To-HCj" secondAttribute="leading" id="U1D-Oa-Spa"/>
+                            <constraint firstAttribute="trailing" secondItem="b6w-h4-kUM" secondAttribute="trailing" id="UPo-dK-SLl"/>
                             <constraint firstAttribute="trailing" secondItem="AAO-YA-E36" secondAttribute="trailing" constant="50" id="XwY-cy-x5e"/>
                             <constraint firstItem="AAO-YA-E36" firstAttribute="leading" secondItem="n9X-To-HCj" secondAttribute="leading" constant="50" id="Y3j-FQ-11V"/>
-                            <constraint firstAttribute="bottom" secondItem="AAO-YA-E36" secondAttribute="bottom" constant="50" id="h4k-va-iYF"/>
+                            <constraint firstAttribute="bottom" secondItem="AAO-YA-E36" secondAttribute="bottom" constant="30" id="h4k-va-iYF"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="objectBorderWidth">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" systemColor="labelColor"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
             </view>
@@ -68,6 +80,9 @@
         <designable name="b6w-h4-kUM"/>
     </designables>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

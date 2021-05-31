@@ -40,12 +40,13 @@ class UserProvider {
         points: -1,
         weekHours: -1,
         totalHours: -1,
-        groupId: ""
+        groupId: nil
         
     )
     
     // FirebaseUid
-    var uid = "XC6b6Ys1VY1qLcBJ5M8z"
+    var uid =
+        "XC6b6Ys1VY1qLcBJ5M8z"
 //        UserDefaults.standard.string(forKey: "FirebaseUid")
     
 //    let userId = UserDefaults.standard.string(forKey: "FirebaseUid")
@@ -144,7 +145,7 @@ class UserProvider {
     
     func onFetchUserListener(completion: @escaping (Result<User, Error>) -> Void) {
         
-        let docReference = database.collection(users).document(uid)
+        let docReference = database.collection(users).document(uid ?? "")
         //      .whereField("id", isEqualTo: appleUid)
         
         docReference.addSnapshotListener {  querySnapshot, error in
