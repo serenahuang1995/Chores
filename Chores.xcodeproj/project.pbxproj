@@ -49,6 +49,8 @@
 		DCA684292663D60600797EAB /* Signin.json in Resources */ = {isa = PBXBuildFile; fileRef = DCA684282663D60600797EAB /* Signin.json */; };
 		DCA6842C2663F22000797EAB /* CreateGroup.json in Resources */ = {isa = PBXBuildFile; fileRef = DCA6842B2663F22000797EAB /* CreateGroup.json */; };
 		DCA6842F2663FCA900797EAB /* Chores.json in Resources */ = {isa = PBXBuildFile; fileRef = DCA6842E2663FCA900797EAB /* Chores.json */; };
+		DCB5128A26662F3600B4B8A5 /* QRCodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB5128926662F3600B4B8A5 /* QRCodeScannerViewController.swift */; };
+		DCB5128E26667B1600B4B8A5 /* InvitationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB5128D26667B1600B4B8A5 /* InvitationViewController.swift */; };
 		DCB98A0E264CDF7200A8C794 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB98A0D264CDF7200A8C794 /* UITableView+Extension.swift */; };
 		DCB98A12264CF6C100A8C794 /* UnclaimedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC913CF1264CB46E00C18251 /* UnclaimedTableViewCell.xib */; };
 		DCBB101E2653A36600A8C1E4 /* RuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBB101D2653A36600A8C1E4 /* RuleViewController.swift */; };
@@ -121,6 +123,8 @@
 		DCA684282663D60600797EAB /* Signin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Signin.json; sourceTree = "<group>"; };
 		DCA6842B2663F22000797EAB /* CreateGroup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CreateGroup.json; sourceTree = "<group>"; };
 		DCA6842E2663FCA900797EAB /* Chores.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Chores.json; sourceTree = "<group>"; };
+		DCB5128926662F3600B4B8A5 /* QRCodeScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScannerViewController.swift; sourceTree = "<group>"; };
+		DCB5128D26667B1600B4B8A5 /* InvitationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationViewController.swift; sourceTree = "<group>"; };
 		DCB98A0D264CDF7200A8C794 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		DCBB101D2653A36600A8C1E4 /* RuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleViewController.swift; sourceTree = "<group>"; };
 		DCBB10202653F9AA00A8C1E4 /* ChoreImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoreImages.swift; sourceTree = "<group>"; };
@@ -390,6 +394,7 @@
 			children = (
 				DCEEAA69264BED9F00A64D37 /* GroupViewController.swift */,
 				DCCD7637265BE0C50004E82B /* AddMemberViewController.swift */,
+				DCB5128926662F3600B4B8A5 /* QRCodeScannerViewController.swift */,
 				DC92B8472652C2A900041D01 /* MemberDataViewController.swift */,
 			);
 			path = Group;
@@ -411,6 +416,7 @@
 			isa = PBXGroup;
 			children = (
 				DCEEAA72264BEDEC00A64D37 /* InitialViewController.swift */,
+				DCB5128D26667B1600B4B8A5 /* InvitationViewController.swift */,
 			);
 			path = Initial;
 			sourceTree = "<group>";
@@ -601,7 +607,9 @@
 				DCD737A226520BB300F1DEF8 /* ChoresDataViewController.swift in Sources */,
 				DCEEAA6F264BEDC000A64D37 /* ProfileViewController.swift in Sources */,
 				DCEEAA4D264BD98C00A64D37 /* UIView+Extension.swift in Sources */,
+				DCB5128A26662F3600B4B8A5 /* QRCodeScannerViewController.swift in Sources */,
 				DC92B8482652C2A900041D01 /* MemberDataViewController.swift in Sources */,
+				DCB5128E26667B1600B4B8A5 /* InvitationViewController.swift in Sources */,
 				DC913CF2264CB46E00C18251 /* UnclaimedTableViewCell.swift in Sources */,
 				DCBB101E2653A36600A8C1E4 /* RuleViewController.swift in Sources */,
 				DC913CEB264C1F9100C18251 /* UIColor+Extension.swift in Sources */,

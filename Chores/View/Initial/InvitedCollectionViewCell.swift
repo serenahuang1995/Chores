@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import AVFoundation
 
 private enum QRCode: String {
     

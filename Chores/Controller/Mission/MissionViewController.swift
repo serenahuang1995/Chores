@@ -86,7 +86,7 @@ class MissionViewController: UIViewController {
     private func resetNavigationBarButton() {
         
         let backButton = UIBarButtonItem(
-            image: UIImage.asset(.Icon32px_Plus),
+            image: UIImage.asset(.Icon24px_Plus),
             style: .plain,
             target: self,
             action: #selector(tapAddButton))
@@ -301,6 +301,10 @@ extension MissionViewController: UITableViewDataSource {
         if self.isExpandedList[section] {
             
             if section == 0 {
+                
+//                if unclaimedChores.isEmpty {
+//                    
+//                }
                 
                 return unclaimedChores.count
                 

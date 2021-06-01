@@ -101,8 +101,7 @@ class FirebaseProvider {
             .collection(chores)
             .document(selectedChore.id)
         
-        docRefernce.updateData([ChoreType.status: 1,
-                                ChoreType.completedDate: Timestamp.self])
+        docRefernce.updateData([ChoreType.status: 1])
         
         completion(.success(selectedChore))
     }
@@ -111,7 +110,7 @@ class FirebaseProvider {
     func listenChores(completion: @escaping (Result<[Chore], Error>) -> Void) {
         
         let docRefernce = database.collection(groups)
-            .document(user.groupId ?? "")
+            .document(user.groupId!)
             .collection(chores)
             .whereField(ChoreType.status, isEqualTo: 0)
         

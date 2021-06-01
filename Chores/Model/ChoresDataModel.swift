@@ -73,5 +73,11 @@ struct User: Codable {
     //      "groupId": groupId as Any
     //    ]
     //  }
+}
+
+struct Invitations: Codable {
     
+    var group: String?
+    
+    var name: String?
 }

@@ -170,6 +170,11 @@ class ProfileViewController: UIViewController {
                 
                 self.weekHoursLabel.text = "本週時數：\(user.weekHours) / 50"
                 
+//                if user.weekHours < 50 {
+//                    
+//                    self.weekHoursLabel.textColor = .red
+//                }
+                
             case .failure(let error):
                 
                 print(error)

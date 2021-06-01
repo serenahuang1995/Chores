@@ -240,31 +240,35 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qr-code" translatesAutoresizingMaskIntoConstraints="NO" id="LTy-qm-F4m">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iz2-s7-s0C" userLabel="Scanner">
                                         <rect key="frame" x="280" y="61" width="40" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="CkJ-j5-EPk"/>
-                                            <constraint firstAttribute="width" constant="40" id="MfB-QM-cOl"/>
+                                            <constraint firstAttribute="height" constant="40" id="XCO-91-MaE"/>
+                                            <constraint firstAttribute="width" constant="40" id="e8m-mZ-gha"/>
                                         </constraints>
-                                    </imageView>
+                                        <state key="normal" image="qr-code"/>
+                                        <connections>
+                                            <segue destination="tVc-hB-D3Y" kind="showDetail" animates="NO" id="QgF-8U-ZV1"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="7qg-gx-5dT" secondAttribute="bottom" constant="20" id="F4h-xI-2a1"/>
-                                    <constraint firstItem="LZ1-l9-z4u" firstAttribute="centerY" secondItem="LTy-qm-F4m" secondAttribute="centerY" id="MSZ-0b-gBs"/>
-                                    <constraint firstItem="LTy-qm-F4m" firstAttribute="top" secondItem="gPB-pe-I6L" secondAttribute="bottom" constant="20" id="QEn-Hl-Asy"/>
+                                    <constraint firstItem="LZ1-l9-z4u" firstAttribute="top" secondItem="gPB-pe-I6L" secondAttribute="bottom" constant="20" id="LKS-yl-76a"/>
                                     <constraint firstAttribute="width" constant="350" id="Ucb-lI-6wA"/>
+                                    <constraint firstAttribute="trailing" secondItem="Iz2-s7-s0C" secondAttribute="trailing" constant="30" id="V1E-2r-nrV"/>
                                     <constraint firstItem="gPB-pe-I6L" firstAttribute="centerX" secondItem="Y8h-2p-Vy3" secondAttribute="centerX" id="VTU-XO-HLk"/>
                                     <constraint firstItem="LZ1-l9-z4u" firstAttribute="leading" secondItem="Y8h-2p-Vy3" secondAttribute="leading" constant="30" id="XeN-YU-X7T"/>
                                     <constraint firstAttribute="bottom" secondItem="UTh-1c-sVd" secondAttribute="bottom" constant="20" id="bg3-hj-kMV"/>
+                                    <constraint firstItem="Iz2-s7-s0C" firstAttribute="leading" secondItem="LZ1-l9-z4u" secondAttribute="trailing" constant="15" id="fUI-2p-AZy"/>
                                     <constraint firstItem="7qg-gx-5dT" firstAttribute="leading" secondItem="Y8h-2p-Vy3" secondAttribute="leading" constant="110" id="jG6-Sj-Aiy"/>
                                     <constraint firstAttribute="trailing" secondItem="gPB-pe-I6L" secondAttribute="trailing" constant="10" id="kIW-fF-HhQ"/>
                                     <constraint firstItem="gPB-pe-I6L" firstAttribute="leading" secondItem="Y8h-2p-Vy3" secondAttribute="leading" constant="10" id="oeE-Sf-57M"/>
-                                    <constraint firstItem="LTy-qm-F4m" firstAttribute="leading" secondItem="LZ1-l9-z4u" secondAttribute="trailing" constant="15" id="qZO-XF-dru"/>
                                     <constraint firstAttribute="trailing" secondItem="UTh-1c-sVd" secondAttribute="trailing" constant="110" id="ro5-23-zYU"/>
                                     <constraint firstItem="gPB-pe-I6L" firstAttribute="top" secondItem="Y8h-2p-Vy3" secondAttribute="top" constant="20" id="rw2-xd-T9V"/>
-                                    <constraint firstAttribute="trailing" secondItem="LTy-qm-F4m" secondAttribute="trailing" constant="30" id="u3n-ge-NyQ"/>
                                     <constraint firstAttribute="height" constant="200" id="uP0-qs-V5I"/>
+                                    <constraint firstItem="Iz2-s7-s0C" firstAttribute="centerY" secondItem="LZ1-l9-z4u" secondAttribute="centerY" id="woF-4k-uLG"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -282,7 +286,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VMP-6i-ivR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1342" y="-358"/>
+            <point key="canvasLocation" x="1380" y="131"/>
+        </scene>
+        <!--Code Scanner View Controller-->
+        <scene sceneID="P6H-wR-O28">
+            <objects>
+                <viewController id="tVc-hB-D3Y" customClass="QRCodeScannerViewController" customModule="Chores" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JbP-y6-xgb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="2Su-L1-4M5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="RuO-WE-7ih"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uXf-XQ-mw8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2161" y="131"/>
         </scene>
         <!--Member Data View Controller-->
         <scene sceneID="A3a-SN-hh5">

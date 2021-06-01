@@ -20,33 +20,64 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n9X-To-HCj" customClass="CardView" customModule="Chores" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="300" height="400"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AAO-YA-E36">
-                                <rect key="frame" x="50" y="340" width="200" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="CFA-aw-EpG"/>
-                                </constraints>
-                                <state key="normal" title="創建小屋"/>
-                                <connections>
-                                    <action selector="create:" destination="gTV-IL-0wX" eventType="touchUpInside" id="425-6N-g9B"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b6w-h4-kUM" customClass="AnimationView" customModule="Lottie">
-                                <rect key="frame" x="0.0" y="10" width="300" height="300"/>
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="250"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="F2C-jZ-Lxw"/>
+                                    <constraint firstAttribute="height" constant="250" id="F2C-jZ-Lxw"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uwo-xz-rNM" customClass="CardView" customModule="Chores" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="250" width="300" height="150"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AAO-YA-E36">
+                                        <rect key="frame" x="50" y="100" width="200" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="CFA-aw-EpG"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
+                                        <state key="normal" title="創建小屋" image="Icon24px_Plus">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="create:" destination="gTV-IL-0wX" eventType="touchUpInside" id="425-6N-g9B"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="朋友，還沒有小屋嗎？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uPU-zH-vP4" userLabel="Label">
+                                        <rect key="frame" x="16" y="16" width="153" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="立刻創建一個吧！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUs-vI-Y5s">
+                                        <rect key="frame" x="16" y="41" width="123" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.078431372549019607" green="0.12941176470588234" blue="0.23921568627450979" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="uPU-zH-vP4" firstAttribute="top" secondItem="uwo-xz-rNM" secondAttribute="top" constant="16" id="7ga-5E-O8F"/>
+                                    <constraint firstAttribute="bottom" secondItem="AAO-YA-E36" secondAttribute="bottom" constant="20" id="Djd-xX-uue"/>
+                                    <constraint firstItem="AAO-YA-E36" firstAttribute="leading" secondItem="uwo-xz-rNM" secondAttribute="leading" constant="50" id="NHa-Ai-gGy"/>
+                                    <constraint firstItem="RUs-vI-Y5s" firstAttribute="top" secondItem="uPU-zH-vP4" secondAttribute="bottom" constant="7" id="NcK-9L-Pep"/>
+                                    <constraint firstItem="RUs-vI-Y5s" firstAttribute="leading" secondItem="uwo-xz-rNM" secondAttribute="leading" constant="16" id="PFb-fz-b4f"/>
+                                    <constraint firstItem="uPU-zH-vP4" firstAttribute="leading" secondItem="uwo-xz-rNM" secondAttribute="leading" constant="16" id="RIq-Pq-9SA"/>
+                                    <constraint firstAttribute="height" constant="150" id="VFl-3N-De7"/>
+                                    <constraint firstAttribute="trailing" secondItem="AAO-YA-E36" secondAttribute="trailing" constant="50" id="ddK-Qz-PiD"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="AAO-YA-E36" firstAttribute="top" secondItem="b6w-h4-kUM" secondAttribute="bottom" constant="30" id="8QE-XL-5lN"/>
                             <constraint firstItem="b6w-h4-kUM" firstAttribute="centerX" secondItem="n9X-To-HCj" secondAttribute="centerX" id="AWA-r8-r2s"/>
                             <constraint firstItem="b6w-h4-kUM" firstAttribute="leading" secondItem="n9X-To-HCj" secondAttribute="leading" id="U1D-Oa-Spa"/>
                             <constraint firstAttribute="trailing" secondItem="b6w-h4-kUM" secondAttribute="trailing" id="UPo-dK-SLl"/>
-                            <constraint firstAttribute="trailing" secondItem="AAO-YA-E36" secondAttribute="trailing" constant="50" id="XwY-cy-x5e"/>
-                            <constraint firstItem="AAO-YA-E36" firstAttribute="leading" secondItem="n9X-To-HCj" secondAttribute="leading" constant="50" id="Y3j-FQ-11V"/>
-                            <constraint firstAttribute="bottom" secondItem="AAO-YA-E36" secondAttribute="bottom" constant="30" id="h4k-va-iYF"/>
+                            <constraint firstItem="uwo-xz-rNM" firstAttribute="leading" secondItem="n9X-To-HCj" secondAttribute="leading" id="iEE-Ac-vxa"/>
+                            <constraint firstAttribute="trailing" secondItem="uwo-xz-rNM" secondAttribute="trailing" id="oZZ-aU-HlC"/>
+                            <constraint firstItem="b6w-h4-kUM" firstAttribute="top" secondItem="n9X-To-HCj" secondAttribute="top" id="yib-kA-2u4"/>
+                            <constraint firstAttribute="bottom" secondItem="uwo-xz-rNM" secondAttribute="bottom" id="yyw-rv-JuY" customClass="Car"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="objectBorderWidth">
@@ -73,13 +104,14 @@
             <connections>
                 <outlet property="groupView" destination="b6w-h4-kUM" id="gBy-b4-JJN"/>
             </connections>
-            <point key="canvasLocation" x="122" y="68"/>
+            <point key="canvasLocation" x="121.73913043478262" y="67.633928571428569"/>
         </collectionViewCell>
     </objects>
     <designables>
         <designable name="b6w-h4-kUM"/>
     </designables>
     <resources>
+        <image name="Icon24px_Plus" width="24" height="24"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

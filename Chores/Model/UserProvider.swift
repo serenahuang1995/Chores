@@ -32,6 +32,8 @@ class UserProvider {
     
     let groups = "groups"
     
+    let invitations = "invitations"
+    
     var user: User = User(
         
         id: "",
@@ -40,13 +42,14 @@ class UserProvider {
         points: -1,
         weekHours: -1,
         totalHours: -1,
-        groupId: nil
+        groupId: ""
         
     )
     
     // FirebaseUid
     var uid =
-        "XC6b6Ys1VY1qLcBJ5M8z"
+        "ARNaS8WOtYviuzarS5nb"
+//        "XC6b6Ys1VY1qLcBJ5M8z"
 //        UserDefaults.standard.string(forKey: "FirebaseUid")
     
 //    let userId = UserDefaults.standard.string(forKey: "FirebaseUid")
@@ -114,7 +117,7 @@ class UserProvider {
     
     func fetchUser(completion: @escaping (Result<User?, Error>) -> Void) {
         
-        let docReference = database.collection(users).document(uid ?? "")
+        let docReference = database.collection(users).document(uid)
         
         docReference.getDocument { querySnapshot, error in
             
@@ -145,7 +148,7 @@ class UserProvider {
     
     func onFetchUserListener(completion: @escaping (Result<User, Error>) -> Void) {
         
-        let docReference = database.collection(users).document(uid ?? "")
+        let docReference = database.collection(users).document(uid)
         //      .whereField("id", isEqualTo: appleUid)
         
         docReference.addSnapshotListener {  querySnapshot, error in
@@ -240,4 +243,58 @@ class UserProvider {
         }        
     }
     
+    func sendInviation(invitation: Invitations,
+                       userId: String,
+                       completion: @escaping (Result<String, Error>) -> Void) {
+        
+        let docReference = database.collection(users)
+            .document(userId)
+            .collection(invitations)
+            .document()
+        
+        do {
+            
+            try docReference.setData(from: invitation) { error in
+                
+                if let error = error {
+                    
+                    completion(.failure(error))
+                    
+                } else {
+                    
+                    completion(.success(FirebaseProvider.shared.success))
+                }
+            }
+
+        } catch {
+            
+            completion(.failure(error))
+        }
+    }
+    
+    func listenInvitation(completion: @escaping (Result<Invitations, Error>) -> Void) {
+        
+        let docReference = database.collection(users)
+            .document(uid)
+            .collection(invitations).document()
+        
+        docReference.addSnapshotListener { querySnapshot, error in
+            
+            if let error = error {
+                
+                completion(.failure(error))
+                
+            } else {
+                
+                let invitation = try? querySnapshot?.data(as: Invitations.self)
+                    
+                if let invitation = invitation {
+                    
+                    completion(.success(invitation))
+                }
+            }
+        }
+    }
+    
+
 }
