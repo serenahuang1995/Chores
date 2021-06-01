@@ -48,8 +48,8 @@ class UserProvider {
     
     // FirebaseUid
     var uid =
-        "ARNaS8WOtYviuzarS5nb" // 被邀請
-//        "XC6b6Ys1VY1qLcBJ5M8z"  // Serena mock data
+//        "ARNaS8WOtYviuzarS5nb" // 被邀請
+        "XC6b6Ys1VY1qLcBJ5M8z"  // Serena mock data
     
 //        UserDefaults.standard.string(forKey: "FirebaseUid")
     
@@ -147,6 +147,7 @@ class UserProvider {
         }
     }
     
+    // Profile在用的
     func onFetchUserListener(completion: @escaping (Result<User, Error>) -> Void) {
         
         let docReference = database.collection(users).document(uid)

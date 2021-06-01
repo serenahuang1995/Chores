@@ -210,6 +210,8 @@ class MissionViewController: UIViewController {
         
         tableView.isHidden = !isDisplay
         
+        lobbyView.isHidden = isDisplay
+
         if isDisplay {
             
             self.unclaimedChores = self.allChores.filter { $0.owner == nil }
