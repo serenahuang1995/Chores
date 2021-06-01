@@ -106,6 +106,8 @@ class AddChoresViewController: UIViewController {
         if time.isEmpty || point.isEmpty {
             
             KRProgressHUD.showError(withMessage: "資料不能是空的喲！")
+            
+            return
         }
         
         var data = Chore(
