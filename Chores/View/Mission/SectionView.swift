@@ -72,4 +72,9 @@ class SectionView: UITableViewHeaderFooterView {
         //    ])
     }
     
+    func setExpandButtonVisible(isVisible: Bool) {
+        
+        showMoreItemButton.isHidden = !isVisible        
+    }
+    
 }

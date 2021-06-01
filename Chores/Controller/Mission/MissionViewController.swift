@@ -256,7 +256,7 @@ extension MissionViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView,
                    heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 110
+        return 100
     }
     
 }
@@ -282,10 +282,14 @@ extension MissionViewController: UITableViewDataSource {
         if section == 0 {
             
             sectionView.layoutUnclaimedSection()
+            
+            sectionView.setExpandButtonVisible(isVisible: unclaimedChores.count != 0)
         
         } else {
             
             sectionView.layoutOngoingSection()
+            
+            sectionView.setExpandButtonVisible(isVisible: ongoingChores.count != 0)
         }
         
         return sectionView
@@ -303,10 +307,6 @@ extension MissionViewController: UITableViewDataSource {
         if self.isExpandedList[section] {
             
             if section == 0 {
-                
-//                if unclaimedChores.isEmpty {
-//                    
-//                }
                 
                 return unclaimedChores.count
                 

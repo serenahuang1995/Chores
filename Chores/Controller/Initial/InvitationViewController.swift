@@ -27,10 +27,14 @@ class InvitationViewController: UIViewController {
 
     @IBAction func acceptInvitation(_ sender: Any) {
         
+        // user 加入 invitation 內的 group id 成功加入之後再 dismiss
+        
         dismiss(animated: true, completion: nil)
     }
 
     @IBAction func rejectInvitation(_ sender: Any) {
+        
+        // 刪除 invitation 刪除後 Success 再 dismiss
         
         dismiss(animated: true, completion: nil)
 
@@ -58,7 +62,4 @@ extension InvitationViewController: MIBlurPopupDelegate {
     var animationDuration: TimeInterval {
         0.2
     }
-    
-    
-    
 }
