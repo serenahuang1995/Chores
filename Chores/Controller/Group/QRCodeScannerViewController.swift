@@ -115,8 +115,8 @@ class QRCodeScannerViewController: UIViewController {
     // 對誰發送邀請
     func sendInvitation(user: User) {
         
-        let invitation = Invitations(
-            group: UserProvider.shared.user.groupId,
+        let invitation = Invitation(
+            group: UserProvider.shared.user.groupId ?? "",
             name: UserProvider.shared.user.name)
         
         UserProvider.shared.sendInviation(invitation: invitation,

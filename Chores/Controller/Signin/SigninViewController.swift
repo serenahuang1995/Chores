@@ -122,6 +122,22 @@ class SigninViewController: UIViewController {
         }
     }
     
+    func performToNextPage(user: User) {
+        
+        if user.groupId != nil {
+            
+            let userDefault = UserDefaults()
+            
+            userDefault.setValue(user.groupId, forKey: "GroupID")
+            
+            performSegue(withIdentifier: Segue.main, sender: nil)
+            
+        } else {
+            
+            performSegue(withIdentifier: Segue.initial, sender: nil)
+        }
+    }
+    
     func addUser() {
         
         let user = User(id: uid ?? "",
@@ -209,22 +225,6 @@ class SigninViewController: UIViewController {
         }.joined()
         
         return hashString
-    }
-    
-    func performToNextPage(user: User) {
-        
-        if user.groupId != nil {
-            
-            let userDefault = UserDefaults()
-            
-            userDefault.setValue(user.groupId, forKey: "GroupID")
-            
-            performSegue(withIdentifier: Segue.main, sender: nil)
-            
-        } else {
-            
-            performSegue(withIdentifier: Segue.initial, sender: nil)
-        }
     }
 }
 

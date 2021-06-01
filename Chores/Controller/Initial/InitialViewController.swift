@@ -36,20 +36,26 @@ class InitialViewController: UIViewController {
         return layout
     }()
     
-    var user: User?
+//    var user: User?
+    
+    var invitation: Invitation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
 //        fetchUser()
         
+        onInviteListener()
+        
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        
-//        navigationController?.isNavigationBarHidden = true
-//    }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let destination = segue.destination as? InvitationViewController else { return }
+        
+        destination.invitation = invitation
+    }
+
     private func setUpCollectionView() {
         
         collectionView.registerCellWithNib(
@@ -69,26 +75,50 @@ class InitialViewController: UIViewController {
         collectionView.bouncesZoom = true
     }
     
-    func fetchUser() {
+    func onInviteListener() {
         
-        UserProvider.shared.fetchUser { result in
+        UserProvider.shared.listenInvitation { [weak self] result in
             
             switch result {
             
-            case .success(let user):
+            case .success(let invitations):
                 
-                print(user)
+                print(invitations)
                 
-                self.user = user
-                
+                if invitations.count > 0 {
+                    
+                    self?.invitation = invitations[0]
+
+                    self?.performSegue(withIdentifier: Segue.invitation, sender: nil)
+                }
+
             case .failure(let error):
                 
                 print(error)
             }
-            
         }
-        
     }
+    
+//    func fetchUser() {
+//        
+//        UserProvider.shared.fetchUser { result in
+//            
+//            switch result {
+//            
+//            case .success(let user):
+//                
+//                print(user)
+//                
+//                self.user = user
+//                
+//            case .failure(let error):
+//                
+//                print(error)
+//            }
+//            
+//        }
+//        
+//    }
     
 }
 

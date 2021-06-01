@@ -48,8 +48,9 @@ class UserProvider {
     
     // FirebaseUid
     var uid =
-        "ARNaS8WOtYviuzarS5nb"
-//        "XC6b6Ys1VY1qLcBJ5M8z"
+        "ARNaS8WOtYviuzarS5nb" // 被邀請
+//        "XC6b6Ys1VY1qLcBJ5M8z"  // Serena mock data
+    
 //        UserDefaults.standard.string(forKey: "FirebaseUid")
     
 //    let userId = UserDefaults.standard.string(forKey: "FirebaseUid")
@@ -243,7 +244,7 @@ class UserProvider {
         }        
     }
     
-    func sendInviation(invitation: Invitations,
+    func sendInviation(invitation: Invitation,
                        userId: String,
                        completion: @escaping (Result<String, Error>) -> Void) {
         
@@ -272,11 +273,11 @@ class UserProvider {
         }
     }
     
-    func listenInvitation(completion: @escaping (Result<Invitations, Error>) -> Void) {
+    func listenInvitation(completion: @escaping (Result<[Invitation], Error>) -> Void) {
         
         let docReference = database.collection(users)
             .document(uid)
-            .collection(invitations).document()
+            .collection(invitations)
         
         docReference.addSnapshotListener { querySnapshot, error in
             
@@ -286,15 +287,16 @@ class UserProvider {
                 
             } else {
                 
-                let invitation = try? querySnapshot?.data(as: Invitations.self)
+                guard let invitations = querySnapshot?.documents else { return }
+                
+                let invitation = invitations.compactMap({ queryDocument -> Invitation? in
                     
-                if let invitation = invitation {
-                    
-                    completion(.success(invitation))
-                }
+                    return try? queryDocument.data(as: Invitation.self)
+                })
+                
+                completion(.success(invitation))
             }
         }
     }
     
-
 }

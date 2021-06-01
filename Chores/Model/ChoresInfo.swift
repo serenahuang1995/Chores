@@ -11,6 +11,8 @@ struct Segue {
     
     static let initial = "SegueInitialPage"
     
+    static let invitation = "SegueInvitation"
+    
     static let main = "SegueMainPage"
     
     static let addChore = "SegueAddChore"

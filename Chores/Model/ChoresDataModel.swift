@@ -75,9 +75,9 @@ struct User: Codable {
     //  }
 }
 
-struct Invitations: Codable {
+struct Invitation: Codable {
     
-    var group: String?
+    var group: String
     
-    var name: String?
+    var name: String
 }
