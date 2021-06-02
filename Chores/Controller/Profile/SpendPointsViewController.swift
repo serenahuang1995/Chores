@@ -1,5 +1,5 @@
 //
-//  PublisherViewController.swift
+//  SpendPointsViewController.swift
 //  Chores
 //
 //  Created by 黃瀞萱 on 2021/5/18.
@@ -9,7 +9,7 @@ import UIKit
 import MIBlurPopup
 import KRProgressHUD
 
-class PublisherViewController: UIViewController {
+class SpendPointsViewController: UIViewController {
     
     @IBOutlet weak var popView: CardView!
     
@@ -32,7 +32,6 @@ class PublisherViewController: UIViewController {
     @IBAction func sureToSpendPoint(_ sender: Any) {
         
         spendUserPoints()
-        //    spendPoints(user: User)
         
         dismiss(animated: true, completion: nil)
     }
@@ -82,7 +81,7 @@ class PublisherViewController: UIViewController {
     
 }
 
-extension PublisherViewController: MIBlurPopupDelegate {
+extension SpendPointsViewController: MIBlurPopupDelegate {
     
     var popupView: UIView {
         
@@ -105,15 +104,3 @@ extension PublisherViewController: MIBlurPopupDelegate {
     }
     
 }
-
-// extension PublisherViewController: UIViewControllerAnimatedTransitioning {
-//  func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-//    <#code#>
-//  }
-//  
-//  func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-//    <#code#>
-//  }
-//  
-//  
-// }

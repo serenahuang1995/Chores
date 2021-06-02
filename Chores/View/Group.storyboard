@@ -207,36 +207,41 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y8h-2p-Vy3" customClass="CardView" customModule="Chores" customModuleProvider="target">
                                 <rect key="frame" x="32" y="348" width="350" height="200"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qg-gx-5dT">
-                                        <rect key="frame" x="110" y="144" width="36" height="36"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="36" id="2ld-bA-Qnq"/>
-                                            <constraint firstAttribute="width" constant="36" id="gFd-dU-qz7"/>
-                                        </constraints>
-                                        <state key="normal" image="remove"/>
-                                        <connections>
-                                            <action selector="backToGroupPage:" destination="Hho-Mi-gQl" eventType="touchUpInside" id="VBt-zc-wgZ"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UTh-1c-sVd">
-                                        <rect key="frame" x="204" y="144" width="36" height="36"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="36" id="2gl-oj-Skq"/>
-                                            <constraint firstAttribute="height" constant="36" id="FDy-wt-ugq"/>
-                                        </constraints>
-                                        <state key="normal" image="Icon32px_Plus"/>
-                                        <connections>
-                                            <action selector="addMember:" destination="Hho-Mi-gQl" eventType="touchUpInside" id="Gmb-zx-c5R"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="68" translatesAutoresizingMaskIntoConstraints="NO" id="YLY-PQ-v6J">
+                                        <rect key="frame" x="111" y="150" width="128" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qg-gx-5dT">
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="2ld-bA-Qnq"/>
+                                                    <constraint firstAttribute="width" constant="30" id="gFd-dU-qz7"/>
+                                                </constraints>
+                                                <state key="normal" image="remove"/>
+                                                <connections>
+                                                    <action selector="backToGroupPage:" destination="Hho-Mi-gQl" eventType="touchUpInside" id="VBt-zc-wgZ"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UTh-1c-sVd">
+                                                <rect key="frame" x="98" y="0.0" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="2gl-oj-Skq"/>
+                                                    <constraint firstAttribute="height" constant="30" id="FDy-wt-ugq"/>
+                                                </constraints>
+                                                <state key="normal" image="Icon32px_Plus"/>
+                                                <connections>
+                                                    <action selector="addMember:" destination="Hho-Mi-gQl" eventType="touchUpInside" id="Gmb-zx-c5R"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新增小屋成員" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPB-pe-I6L">
-                                        <rect key="frame" x="10" y="20" width="330" height="21"/>
+                                        <rect key="frame" x="10" y="20" width="330" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="輸入成員 ID 或是掃 QRcode" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LZ1-l9-z4u">
-                                        <rect key="frame" x="30" y="61" width="235" height="40"/>
+                                        <rect key="frame" x="30" y="60.5" width="235" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="jmg-XQ-hao"/>
                                         </constraints>
@@ -244,7 +249,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iz2-s7-s0C" userLabel="Scanner">
-                                        <rect key="frame" x="280" y="61" width="40" height="40"/>
+                                        <rect key="frame" x="280" y="60.5" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="XCO-91-MaE"/>
                                             <constraint firstAttribute="width" constant="40" id="e8m-mZ-gha"/>
@@ -257,18 +262,15 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="7qg-gx-5dT" secondAttribute="bottom" constant="20" id="F4h-xI-2a1"/>
+                                    <constraint firstItem="YLY-PQ-v6J" firstAttribute="centerX" secondItem="Y8h-2p-Vy3" secondAttribute="centerX" id="0Xc-LU-2bx"/>
+                                    <constraint firstAttribute="bottom" secondItem="YLY-PQ-v6J" secondAttribute="bottom" constant="20" id="Hej-vV-6dc"/>
                                     <constraint firstItem="LZ1-l9-z4u" firstAttribute="top" secondItem="gPB-pe-I6L" secondAttribute="bottom" constant="20" id="LKS-yl-76a"/>
-                                    <constraint firstAttribute="width" constant="350" id="Ucb-lI-6wA"/>
                                     <constraint firstAttribute="trailing" secondItem="Iz2-s7-s0C" secondAttribute="trailing" constant="30" id="V1E-2r-nrV"/>
                                     <constraint firstItem="gPB-pe-I6L" firstAttribute="centerX" secondItem="Y8h-2p-Vy3" secondAttribute="centerX" id="VTU-XO-HLk"/>
                                     <constraint firstItem="LZ1-l9-z4u" firstAttribute="leading" secondItem="Y8h-2p-Vy3" secondAttribute="leading" constant="30" id="XeN-YU-X7T"/>
-                                    <constraint firstAttribute="bottom" secondItem="UTh-1c-sVd" secondAttribute="bottom" constant="20" id="bg3-hj-kMV"/>
                                     <constraint firstItem="Iz2-s7-s0C" firstAttribute="leading" secondItem="LZ1-l9-z4u" secondAttribute="trailing" constant="15" id="fUI-2p-AZy"/>
-                                    <constraint firstItem="7qg-gx-5dT" firstAttribute="leading" secondItem="Y8h-2p-Vy3" secondAttribute="leading" constant="110" id="jG6-Sj-Aiy"/>
                                     <constraint firstAttribute="trailing" secondItem="gPB-pe-I6L" secondAttribute="trailing" constant="10" id="kIW-fF-HhQ"/>
                                     <constraint firstItem="gPB-pe-I6L" firstAttribute="leading" secondItem="Y8h-2p-Vy3" secondAttribute="leading" constant="10" id="oeE-Sf-57M"/>
-                                    <constraint firstAttribute="trailing" secondItem="UTh-1c-sVd" secondAttribute="trailing" constant="110" id="ro5-23-zYU"/>
                                     <constraint firstItem="gPB-pe-I6L" firstAttribute="top" secondItem="Y8h-2p-Vy3" secondAttribute="top" constant="20" id="rw2-xd-T9V"/>
                                     <constraint firstAttribute="height" constant="200" id="uP0-qs-V5I"/>
                                     <constraint firstItem="Iz2-s7-s0C" firstAttribute="centerY" secondItem="LZ1-l9-z4u" secondAttribute="centerY" id="woF-4k-uLG"/>
@@ -278,6 +280,8 @@
                         <viewLayoutGuide key="safeArea" id="pFh-dG-TiL"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="pFh-dG-TiL" firstAttribute="trailing" secondItem="Y8h-2p-Vy3" secondAttribute="trailing" constant="32" id="1VX-7K-B4f"/>
+                            <constraint firstItem="Y8h-2p-Vy3" firstAttribute="leading" secondItem="pFh-dG-TiL" secondAttribute="leading" constant="32" id="3lX-jV-28I"/>
                             <constraint firstItem="Y8h-2p-Vy3" firstAttribute="centerY" secondItem="e89-G4-2kD" secondAttribute="centerY" id="MK1-73-6wv"/>
                             <constraint firstItem="Y8h-2p-Vy3" firstAttribute="centerX" secondItem="e89-G4-2kD" secondAttribute="centerX" id="MWK-qS-5LA"/>
                         </constraints>
