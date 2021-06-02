@@ -265,6 +265,7 @@ class UserProvider {
             .collection(invitations)
             .document()
         
+        // 用 documentId 當作 invitation id
         let documentId = docReference.documentID
         
         var newInvitation = invitation
@@ -334,6 +335,12 @@ class UserProvider {
                 completion(.success("Success"))
             }
         }
+    }
+    
+    func fetchSameGroup(group: Group) {
+        
+        let docRerence = database.collection(users).whereField(UserType.groupId, isEqualTo: group.id)
+        
     }
     
 }

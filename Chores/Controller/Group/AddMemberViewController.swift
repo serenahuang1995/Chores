@@ -41,6 +41,7 @@ class AddMemberViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    // 去找被掃到的人是不是一個存在的 user
     func fetchUser(userId: String) {
         
         UserProvider.shared.fetchOwner(userId: userId) { [weak self] result in
@@ -71,6 +72,7 @@ class AddMemberViewController: UIViewController {
         }
     }
     
+    // 對誰發出邀請
     func sendInvitation(userId: String) {
         
         let invitation = Invitation(

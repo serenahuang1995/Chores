@@ -348,7 +348,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="CFf-B9-CNk">
-                                        <rect key="frame" x="40" y="234" width="270.5" height="20"/>
+                                        <rect key="frame" x="19" y="234" width="312" height="20"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon32px_Reminder" translatesAutoresizingMaskIntoConstraints="NO" id="zMg-zv-6tZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -357,9 +357,9 @@
                                                     <constraint firstAttribute="width" constant="20" id="Il2-iT-GVj"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小提醒 ：每週家事最低時數是50分鐘哦！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V9v-Zk-MHL">
-                                                <rect key="frame" x="25" y="0.0" width="245.5" height="20"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小提醒 ：每週家事最低時數是50分鐘，每週一時數會歸零" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V9v-Zk-MHL">
+                                                <rect key="frame" x="25" y="0.0" width="287" height="20"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>

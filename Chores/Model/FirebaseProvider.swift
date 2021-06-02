@@ -21,11 +21,16 @@ struct ChoreType {
     
     static var owner = "owner"
     
-    static var weekHours = "weekHours"
+//    static var completedDate = "completedDate"
+}
+
+struct GroupType {
     
-    static var totalHours = "totalHours"
+    static var id = "id"
     
-    static var completedDate = "completedDate"
+    static var choreTypes = "choreTypes"
+
+
 }
 
 class FirebaseProvider {
@@ -40,7 +45,7 @@ class FirebaseProvider {
     
     let chores = "chores"
     
-    let user = UserProvider.shared.user
+    let currentUser = UserProvider.shared.user
     
     let success = "Success"
     
@@ -51,7 +56,7 @@ class FirebaseProvider {
                           completion: @escaping (Result<String, Error>) -> Void) {
         
         let docReference = database.collection(groups)
-            .document(user.groupId!)
+            .document(currentUser.groupId!)
             .collection(chores)
             .document()
         
@@ -83,11 +88,11 @@ class FirebaseProvider {
                      completion: @escaping (Result<String, Error>) -> Void) {
         
         let docReference = database.collection(groups)
-            .document(user.groupId!)
+            .document(currentUser.groupId!)
             .collection(chores)
             .document(selectedChore.id)
         
-        docReference.updateData([ChoreType.owner: user.id])
+        docReference.updateData([ChoreType.owner: currentUser.id])
         
         completion(.success(success))
     }
@@ -97,7 +102,7 @@ class FirebaseProvider {
                       completion: @escaping (Result<Chore, Error>) -> Void) {
         
         let docRefernce = database.collection(groups)
-            .document(user.groupId ?? "")
+            .document(currentUser.groupId ?? "")
             .collection(chores)
             .document(selectedChore.id)
         
@@ -110,7 +115,7 @@ class FirebaseProvider {
     func listenChores(completion: @escaping (Result<[Chore], Error>) -> Void) {
         
         let docRefernce = database.collection(groups)
-            .document(user.groupId!)
+            .document(currentUser.groupId!)
             .collection(chores)
             .whereField(ChoreType.status, isEqualTo: 0)
         
@@ -138,10 +143,10 @@ class FirebaseProvider {
     func listenRecords(completion: @escaping (Result<[Chore], Error>) -> Void) {
         
         let docReference = database.collection(groups)
-            .document(user.groupId!)
+            .document(currentUser.groupId!)
             .collection(chores)
             .whereField(ChoreType.status, isEqualTo: 1)
-            .whereField(ChoreType.owner, isEqualTo: user.id)
+            .whereField(ChoreType.owner, isEqualTo: currentUser.id)
         
         docReference.addSnapshotListener { querySnapshot, error in
             
@@ -163,44 +168,10 @@ class FirebaseProvider {
         }
     }
     
-    //  // 一次性的fetch user，完成任務 先 query 用戶的資料，再去改變它的積分與時數
-    //  func fetchUser(userId: String, completion: @escaping (Result<User, Error>) -> Void) {
-    //
-    //    let docReference = database.collection(users).document(userId)
-    //
-    //    docReference.getDocument { querySnapshot, error in
-    //
-    //      if let error = error {
-    //
-    //        completion(.failure(error))
-    //
-    //      } else {
-    //
-    //          do {
-    //
-    //            let user = try querySnapshot?.data(as: User.self, decoder: Firestore.Decoder())
-    //
-    //            if let user = user {
-    //
-    //              completion(.success(user))
-    //
-    //            }
-    //
-    //          } catch {
-    //
-    //            completion(.failure(error))
-    //
-    //          }
-    //
-    //      }
-    //    }
-    //
-    //  }
-    
     // 獲得目前所有家事種類
     func fetchChoreTypes(completion: @escaping (Result<[String], Error>) -> Void) {
         
-        let docReference = database.collection(groups).document(user.groupId ?? "")
+        let docReference = database.collection(groups).document(currentUser.groupId ?? "")
         
         docReference.addSnapshotListener {  querySnapshot, error in
             
@@ -223,10 +194,10 @@ class FirebaseProvider {
     // 給用戶自己新增自訂家事
     func addChoreType(choreType: String, completion: @escaping (Result<String, Error>) -> Void) {
         
-        let docReference = database.collection(groups).document(user.groupId ?? "")
+        let docReference = database.collection(groups).document(currentUser.groupId ?? "")
         
         docReference
-            .updateData(["choreTypes": FieldValue.arrayUnion([choreType])]) { error in
+            .updateData([GroupType.choreTypes: FieldValue.arrayUnion([choreType])]) { error in
                 
                 if let error = error {
                     
@@ -243,10 +214,10 @@ class FirebaseProvider {
     func deleteChoreType(selectedChoreType: String,
                          completion: @escaping (Result<String, Error>) -> Void) {
 
-        let docReference = database.collection(groups).document(user.groupId ?? "")
+        let docReference = database.collection(groups).document(currentUser.groupId ?? "")
         
         docReference
-            .updateData(["choreTypes": FieldValue.arrayRemove([selectedChoreType])]) { error in
+            .updateData([GroupType.choreTypes: FieldValue.arrayRemove([selectedChoreType])]) { error in
                 
                 if let error = error {
                     
@@ -259,14 +230,14 @@ class FirebaseProvider {
             }
     }
     
-    // 更新用戶的點數與時數
+    // 更新用戶的點數與時數，因為有可能會是別人幫你按完成，但點數要更新在自己身上，所以parameter會帶一個 user
     func updateUserPoints(user: User, completion: @escaping (Result<String, Error>) -> Void) {
         
         let docReference = database.collection(users).document(user.id)
         
-        docReference.updateData([ChoreType.points: user.points,
-                                 ChoreType.totalHours: user.totalHours,
-                                 ChoreType.weekHours: user.weekHours])
+        docReference.updateData([UserType.points: user.points,
+                                 UserType.totalHours: user.totalHours,
+                                 UserType.weekHours: user.weekHours])
         
         completion(.success("Update points success"))
     }
@@ -276,9 +247,9 @@ class FirebaseProvider {
         
         let docReference = database
             .collection(groups)
-            .document(user.groupId!)
+            .document(currentUser.groupId!)
             .collection(chores)
-            .whereField(ChoreType.owner, isEqualTo: user.id)
+            .whereField(ChoreType.owner, isEqualTo: currentUser.id)
             .whereField(ChoreType.status, isEqualTo: 1)
 
         docReference.addSnapshotListener{ querySnapshot, error in
@@ -326,12 +297,20 @@ class FirebaseProvider {
                 
                 // 如果家事不存在在 choresList 中的任何 array 就會他新增一個新的 array
                 choresList.append([chore])
-                
             }
-            
         }
         
         return choresList
     }
-    
+
+    // 目前是自己登入以後會更新自己的每週時數
+    func updateWeekHours(completion: @escaping (Result<String, Error>) -> Void) {
+        
+        let docReference = database.collection(users).document(UserProvider.shared.uid)
+        
+        docReference.updateData([UserType.weekHours: 0])
+        
+        completion(.success("Update weekHours success"))
+        
+    }
 }

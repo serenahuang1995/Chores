@@ -57,30 +57,13 @@ class ProfileViewController: UIViewController {
         updateContainerView(type: .records)
         
         setUpUserListener()
+        
+        confirmWeekday()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
         navigationController?.isNavigationBarHidden = true
-        
-        //    FirebaseProvider.shared.fetchUserData { result in
-        //
-        //      switch result {
-        //
-        //      case .success(let user):
-        //        print(user)
-        //
-        //        self.userNameLabel.text = user.name
-        //        self.totalPointsLabel.text = "累積點數：\(user.points)"
-        //        self.weekHoursLabel.text = "本週時數：\(user.weekHours) / 50"
-        //
-        //      case .failure(let error):
-        //
-        //        print(error)
-        //
-        //      }
-        //
-        //    }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -170,15 +153,45 @@ class ProfileViewController: UIViewController {
                 
                 self.weekHoursLabel.text = "本週時數：\(user.weekHours) / 50"
                 
-//                if user.weekHours < 50 {
-//                    
-//                    self.weekHoursLabel.textColor = .red
-//                }
-                
             case .failure(let error):
                 
                 print(error)
                 
+            }
+        }
+    }
+    
+    func confirmWeekday() {
+        
+        let date = Date()
+        
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateFormat = "EEEE"
+        
+        let currentDateString = dateFormatter.string(from: date)
+        
+        print("Current date is \(currentDateString)")
+        
+        if currentDateString == "Monday" {
+            
+            resetWeekHours()
+        }
+    }
+    
+    func resetWeekHours() {
+        
+        FirebaseProvider.shared.updateWeekHours { result in
+            
+            switch result {
+            
+            case .success(let success):
+                
+                print(success)
+                
+            case .failure(let error):
+                
+                print(error)
             }
         }
     }
