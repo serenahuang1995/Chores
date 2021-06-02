@@ -42,20 +42,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // Use this method to undo the changes made on entering the background.
     
     // 清除資料區
-    let userDefault = UserDefaults()
-
-    userDefault.setValue(nil, forKey: "GroupID")
-
-    userDefault.setValue(nil, forKey: "FirebaseUid")
-
-    do {
-
-        try Auth.auth().signOut()
-
-    } catch {
-
-        print(error)
-    }
+//    let userDefault = UserDefaults()
+//
+//    userDefault.setValue(nil, forKey: "GroupID")
+//
+//    userDefault.setValue(nil, forKey: "FirebaseUid")
+//
+//    do {
+//
+//        try Auth.auth().signOut()
+//
+//    } catch {
+//
+//        print(error)
+//    }
     
     var storyboard: UIStoryboard?
 

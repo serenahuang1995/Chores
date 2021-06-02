@@ -140,11 +140,22 @@
                     <connections>
                         <outlet property="invitationLabel" destination="eaU-wU-flD" id="nHu-eO-ZGf"/>
                         <outlet property="invitationView" destination="wLS-4W-YBh" id="GYk-a6-QM5"/>
+                        <segue destination="Kh5-Zd-blP" kind="show" identifier="SegueMainPage" animates="NO" id="Sx0-rB-FMi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MW9-iN-ts5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3594" y="-182"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="znO-4Z-j0q">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="Kh5-Zd-blP" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="q5L-sF-xqg"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d07-3l-xgO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4189" y="-182"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="E5Z-df-leM">

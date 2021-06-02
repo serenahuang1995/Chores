@@ -25,19 +25,71 @@ class InvitationViewController: UIViewController {
         }
     }
 
+    // user 加入 invitation 內的 group id 成功加入之後再 dismiss
     @IBAction func acceptInvitation(_ sender: Any) {
         
-        // user 加入 invitation 內的 group id 成功加入之後再 dismiss
+        accept()
         
-        dismiss(animated: true, completion: nil)
+//        performSegue(withIdentifier: Segue.main, sender: nil)
+
+//        dismiss(animated: true, completion: nil)
+
     }
 
+    // 刪除 invitation 刪除後 Success 再 dismiss
     @IBAction func rejectInvitation(_ sender: Any) {
         
-        // 刪除 invitation 刪除後 Success 再 dismiss
-        
+        deleteInvitation()
+                
         dismiss(animated: true, completion: nil)
+    }
+    
+    func deleteInvitation() {
+        
+        if let invitation = invitation {
+            
+            UserProvider.shared.rejectInvitation(invitation: invitation) { result in
+                
+                switch result {
+                
+                case .success(let message):
+                    
+                    print(message)
+                    
+//                    self?.dismiss(animated: true, completion: nil)
+                    
+                case .failure(let error):
+                    
+                    print(error)
+                }
+            }
+        }
+    }
+    
+    func accept() {
+        
+        if let invitation = invitation {
+            
+            UserProvider.shared.updateGroupId(invitation: invitation) { [weak self] result in
+                
+                switch result {
+                 
+                case .success(let message):
+                    
+                    print(message)
+                
+                    self?.deleteInvitation()
+                    
+                    self?.performSegue(withIdentifier: Segue.main, sender: nil)
 
+//                    self?.dismiss(animated: true, completion: nil)
+                    
+                case .failure(let error):
+                    
+                    print(error)
+                }
+            }
+        }
     }
     
 }

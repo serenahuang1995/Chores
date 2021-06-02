@@ -48,8 +48,8 @@ class UserProvider {
     
     // FirebaseUid
     var uid =
-//        "ARNaS8WOtYviuzarS5nb" // 被邀請
-        "XC6b6Ys1VY1qLcBJ5M8z"  // Serena mock data
+        "ARNaS8WOtYviuzarS5nb" // 被邀請
+//        "XC6b6Ys1VY1qLcBJ5M8z"  // Serena mock data
     
 //        UserDefaults.standard.string(forKey: "FirebaseUid")
     
@@ -206,12 +206,12 @@ class UserProvider {
     }
     
     // 用戶進入群組後 會 assign 該群組的 ID 給使用者
-    func updateGroupId(group: Group,
+    func updateGroupId(invitation: Invitation,
                        completion: @escaping (Result<String, Error>) -> Void) {
         
-        let docReference = database.collection(users).document(user.id)
+        let docReference = database.collection(users).document(uid)
         
-        docReference.updateData([UserType.groupId: group.id]) { error in
+        docReference.updateData([UserType.groupId: invitation.group]) { error in
             
             if let error = error {
                 
@@ -254,9 +254,15 @@ class UserProvider {
             .collection(invitations)
             .document()
         
+        let documentId = docReference.documentID
+        
+        var newInvitation = invitation
+        
+        newInvitation.id = documentId
+        
         do {
             
-            try docReference.setData(from: invitation) { error in
+            try docReference.setData(from: newInvitation) { error in
                 
                 if let error = error {
                     
@@ -296,6 +302,25 @@ class UserProvider {
                 })
                 
                 completion(.success(invitation))
+            }
+        }
+    }
+    
+    func rejectInvitation(invitation: Invitation, completion: @escaping (Result<String, Error>) -> Void) {
+        
+        let docRerence = database
+            .collection(users).document(uid)
+            .collection(invitations).document(invitation.id)
+        
+        docRerence.delete() { error in
+            
+            if let error = error {
+                
+                completion(.failure(error))
+                
+            } else {
+                
+                completion(.success("Success"))
             }
         }
     }

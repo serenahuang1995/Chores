@@ -80,4 +80,6 @@ struct Invitation: Codable {
     var group: String
     
     var name: String
+    
+    var id: String
 }

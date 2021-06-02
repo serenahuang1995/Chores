@@ -49,7 +49,7 @@ class InvitedCollectionViewCell: UICollectionViewCell {
     
     func layoutCell() {
         
-        userIdLabel.text = "使用者ID：\(UserProvider.shared.uid)"
+        userIdLabel.text = "ID：\(UserProvider.shared.uid)"
         
         qrcodeImage.image = getUserQRCode(from: UserProvider.shared.uid)
     }
