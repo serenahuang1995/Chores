@@ -27,14 +27,15 @@
                                     <constraint firstAttribute="height" constant="250" id="F2C-jZ-Lxw"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uwo-xz-rNM" customClass="CardView" customModule="Chores" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uwo-xz-rNM">
                                 <rect key="frame" x="0.0" y="250" width="300" height="150"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AAO-YA-E36">
-                                        <rect key="frame" x="50" y="100" width="200" height="30"/>
+                                        <rect key="frame" x="50" y="106" width="200" height="24"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="CFA-aw-EpG"/>
+                                            <constraint firstAttribute="height" constant="24" id="CFA-aw-EpG"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
                                         <state key="normal" title="創建小屋" image="Icon24px_Plus">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

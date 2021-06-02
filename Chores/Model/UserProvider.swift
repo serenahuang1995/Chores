@@ -9,6 +9,13 @@ import Foundation
 import Firebase
 import FirebaseFirestoreSwift
 
+enum UserFetchError: Error {
+    
+    case userNotExist
+    
+    case firebaseError(error: Error)
+}
+
 struct UserType {
     
     static let id = "id"
@@ -48,8 +55,8 @@ class UserProvider {
     
     // FirebaseUid
     var uid =
-        "ARNaS8WOtYviuzarS5nb" // 被邀請
-//        "XC6b6Ys1VY1qLcBJ5M8z"  // Serena mock data
+//        "ARNaS8WOtYviuzarS5nb" // 被邀請
+        "XC6b6Ys1VY1qLcBJ5M8z"  // Serena mock data
     
 //        UserDefaults.standard.string(forKey: "FirebaseUid")
     
@@ -82,7 +89,7 @@ class UserProvider {
     }
     
     // 一次性的fetch user
-    func fetchOwner(userId: String, completion: @escaping (Result<User, Error>) -> Void) {
+    func fetchOwner(userId: String, completion: @escaping (Result<User, UserFetchError>) -> Void) {
         
         let docReference = database.collection(users).document(userId)
         
@@ -90,7 +97,7 @@ class UserProvider {
             
             if let error = error {
                 
-                completion(.failure(error))
+                completion(.failure(UserFetchError.firebaseError(error: error)))
                 
             } else {
                 
@@ -106,11 +113,15 @@ class UserProvider {
                         }
                         
                         completion(.success(user))
+                        
+                    } else {
+                        
+                        completion(.failure(UserFetchError.userNotExist))
                     }
                     
                 } catch {
                     
-                    completion(.failure(error))
+                    completion(.failure(UserFetchError.firebaseError(error: error)))
                 }
             }
         }
@@ -306,7 +317,7 @@ class UserProvider {
         }
     }
     
-    func rejectInvitation(invitation: Invitation, completion: @escaping (Result<String, Error>) -> Void) {
+    func deleteInvitation(invitation: Invitation, completion: @escaping (Result<String, Error>) -> Void) {
         
         let docRerence = database
             .collection(users).document(uid)

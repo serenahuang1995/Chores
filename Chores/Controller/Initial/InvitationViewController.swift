@@ -25,30 +25,22 @@ class InvitationViewController: UIViewController {
         }
     }
 
-    // user 加入 invitation 內的 group id 成功加入之後再 dismiss
     @IBAction func acceptInvitation(_ sender: Any) {
         
-        accept()
-        
-//        performSegue(withIdentifier: Segue.main, sender: nil)
-
-//        dismiss(animated: true, completion: nil)
-
+        acceptInvitation()
     }
 
-    // 刪除 invitation 刪除後 Success 再 dismiss
     @IBAction func rejectInvitation(_ sender: Any) {
         
-        deleteInvitation()
-                
-        dismiss(animated: true, completion: nil)
+        deleteInvitation(isAccept: false)
     }
     
-    func deleteInvitation() {
+    // 接受完邀請要delete invitation 拒絕邀請也要delete
+    func deleteInvitation(isAccept: Bool) {
         
         if let invitation = invitation {
             
-            UserProvider.shared.rejectInvitation(invitation: invitation) { result in
+            UserProvider.shared.deleteInvitation(invitation: invitation) { [weak self] result in
                 
                 switch result {
                 
@@ -56,8 +48,16 @@ class InvitationViewController: UIViewController {
                     
                     print(message)
                     
-//                    self?.dismiss(animated: true, completion: nil)
-                    
+                    // 如果是按接受就 performSegue
+                    if isAccept {
+                        
+                        self?.performSegue(withIdentifier: Segue.main, sender: nil)
+                        
+                    } else {
+                        
+                        self?.dismiss(animated: true, completion: nil)
+                    }
+                                        
                 case .failure(let error):
                     
                     print(error)
@@ -65,8 +65,8 @@ class InvitationViewController: UIViewController {
             }
         }
     }
-    
-    func accept() {
+
+    func acceptInvitation() {
         
         if let invitation = invitation {
             
@@ -77,12 +77,8 @@ class InvitationViewController: UIViewController {
                 case .success(let message):
                     
                     print(message)
-                
-                    self?.deleteInvitation()
                     
-                    self?.performSegue(withIdentifier: Segue.main, sender: nil)
-
-//                    self?.dismiss(animated: true, completion: nil)
+                    self?.deleteInvitation(isAccept: true)
                     
                 case .failure(let error):
                     

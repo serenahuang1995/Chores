@@ -19,54 +19,56 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fVQ-Rf-4bO" customClass="CardView" customModule="Chores" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="300" height="400"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UlY-Xt-oSt" customClass="CardView" customModule="Chores" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="300" height="120"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UlY-Xt-oSt">
+                                <rect key="frame" x="0.0" y="280" width="300" height="120"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step1：請成員輸入ID或是掃QRCode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdT-Rx-Jdo">
+                                        <rect key="frame" x="16" y="53" width="201" height="15"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="使用者ID:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="thh-cx-ffn">
+                                        <rect key="frame" x="16" y="15" width="65" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step2：開心的加入" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GEd-dI-4S6">
+                                        <rect key="frame" x="16" y="78" width="107" height="15"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" red="0.9882352941176471" green="0.63921568627450975" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="wdT-Rx-Jdo" firstAttribute="top" secondItem="thh-cx-ffn" secondAttribute="bottom" constant="20" id="4yR-en-twT"/>
+                                    <constraint firstItem="thh-cx-ffn" firstAttribute="top" secondItem="UlY-Xt-oSt" secondAttribute="top" constant="15" id="BNe-kq-q5d"/>
+                                    <constraint firstItem="GEd-dI-4S6" firstAttribute="leading" secondItem="UlY-Xt-oSt" secondAttribute="leading" constant="16" id="XpI-aQ-vGh"/>
+                                    <constraint firstItem="thh-cx-ffn" firstAttribute="leading" secondItem="UlY-Xt-oSt" secondAttribute="leading" constant="16" id="lGw-uo-09Z"/>
                                     <constraint firstAttribute="height" constant="120" id="tpM-Q8-gUM"/>
+                                    <constraint firstItem="GEd-dI-4S6" firstAttribute="top" secondItem="wdT-Rx-Jdo" secondAttribute="bottom" constant="10" id="vMU-6G-LPF"/>
+                                    <constraint firstItem="wdT-Rx-Jdo" firstAttribute="leading" secondItem="UlY-Xt-oSt" secondAttribute="leading" constant="16" id="wOb-3y-LTN"/>
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LWD-Iv-NGr">
-                                <rect key="frame" x="40" y="135" width="220" height="220"/>
+                                <rect key="frame" x="40" y="30" width="220" height="220"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="220" id="L7c-un-lLZ"/>
                                     <constraint firstAttribute="width" constant="220" id="XLI-Uq-Ng6"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step1：請成員輸入ID或是掃QRCode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdT-Rx-Jdo">
-                                <rect key="frame" x="16" y="30" width="268" height="15"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step2：開心的加入" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GEd-dI-4S6">
-                                <rect key="frame" x="16" y="55" width="107" height="15"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="使用者ID:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="thh-cx-ffn">
-                                <rect key="frame" x="16" y="90" width="268" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="wdT-Rx-Jdo" firstAttribute="leading" secondItem="fVQ-Rf-4bO" secondAttribute="leading" constant="16" id="0c2-Ka-AfD"/>
-                            <constraint firstItem="wdT-Rx-Jdo" firstAttribute="top" secondItem="fVQ-Rf-4bO" secondAttribute="top" constant="30" id="8je-V1-qyJ"/>
-                            <constraint firstItem="LWD-Iv-NGr" firstAttribute="top" secondItem="UlY-Xt-oSt" secondAttribute="bottom" constant="15" id="BXc-MF-r6S"/>
+                            <constraint firstItem="UlY-Xt-oSt" firstAttribute="top" secondItem="LWD-Iv-NGr" secondAttribute="bottom" constant="30" id="1bR-tu-d1u"/>
                             <constraint firstItem="LWD-Iv-NGr" firstAttribute="centerX" secondItem="fVQ-Rf-4bO" secondAttribute="centerX" id="Ep0-HS-ESc"/>
-                            <constraint firstItem="UlY-Xt-oSt" firstAttribute="top" secondItem="fVQ-Rf-4bO" secondAttribute="top" id="IgW-Ay-Pgf"/>
-                            <constraint firstItem="GEd-dI-4S6" firstAttribute="top" secondItem="wdT-Rx-Jdo" secondAttribute="bottom" constant="10" id="RIf-Od-602"/>
-                            <constraint firstItem="thh-cx-ffn" firstAttribute="top" secondItem="GEd-dI-4S6" secondAttribute="bottom" constant="20" id="TTN-c6-8pl"/>
-                            <constraint firstItem="UlY-Xt-oSt" firstAttribute="leading" secondItem="fVQ-Rf-4bO" secondAttribute="leading" id="ZEw-XN-aRX"/>
-                            <constraint firstAttribute="trailing" secondItem="thh-cx-ffn" secondAttribute="trailing" constant="16" id="drn-Sa-ATK"/>
-                            <constraint firstItem="thh-cx-ffn" firstAttribute="leading" secondItem="fVQ-Rf-4bO" secondAttribute="leading" constant="16" id="i33-l9-CGR"/>
-                            <constraint firstAttribute="trailing" secondItem="wdT-Rx-Jdo" secondAttribute="trailing" constant="16" id="jJ6-5i-ZLD"/>
-                            <constraint firstAttribute="trailing" secondItem="UlY-Xt-oSt" secondAttribute="trailing" id="pwI-wh-EfB"/>
-                            <constraint firstItem="GEd-dI-4S6" firstAttribute="leading" secondItem="fVQ-Rf-4bO" secondAttribute="leading" constant="16" id="y5k-Mj-Ssf"/>
+                            <constraint firstItem="UlY-Xt-oSt" firstAttribute="leading" secondItem="fVQ-Rf-4bO" secondAttribute="leading" id="Kih-dE-TEk"/>
+                            <constraint firstItem="LWD-Iv-NGr" firstAttribute="leading" secondItem="fVQ-Rf-4bO" secondAttribute="leading" constant="40" id="Q5z-cC-f85"/>
+                            <constraint firstAttribute="trailing" secondItem="LWD-Iv-NGr" secondAttribute="trailing" constant="40" id="S3M-jS-uzL"/>
+                            <constraint firstAttribute="trailing" secondItem="UlY-Xt-oSt" secondAttribute="trailing" id="an3-ub-e2o"/>
+                            <constraint firstAttribute="bottom" secondItem="UlY-Xt-oSt" secondAttribute="bottom" id="gGF-ci-zm6"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
