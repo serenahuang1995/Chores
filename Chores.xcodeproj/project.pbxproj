@@ -38,6 +38,7 @@
 		DC92B84C2652D13D00041D01 /* AddMemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC92B84A2652D13D00041D01 /* AddMemberCell.swift */; };
 		DC92B84D2652D13D00041D01 /* AddMemberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC92B84B2652D13D00041D01 /* AddMemberCell.xib */; };
 		DC9B10AF2659691B00F50430 /* UserProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9B10AE2659691A00F50430 /* UserProvider.swift */; };
+		DCA1E1662669453500FDE9B6 /* ForwardDialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA1E1652669453500FDE9B6 /* ForwardDialogViewController.swift */; };
 		DCA433F2264BA2BD00242617 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA433F1264BA2BD00242617 /* AppDelegate.swift */; };
 		DCA433F4264BA2BD00242617 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA433F3264BA2BD00242617 /* SceneDelegate.swift */; };
 		DCA433F6264BA2BD00242617 /* MissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA433F5264BA2BD00242617 /* MissionViewController.swift */; };
@@ -113,6 +114,7 @@
 		DC92B84A2652D13D00041D01 /* AddMemberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemberCell.swift; sourceTree = "<group>"; };
 		DC92B84B2652D13D00041D01 /* AddMemberCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddMemberCell.xib; sourceTree = "<group>"; };
 		DC9B10AE2659691A00F50430 /* UserProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProvider.swift; sourceTree = "<group>"; };
+		DCA1E1652669453500FDE9B6 /* ForwardDialogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForwardDialogViewController.swift; sourceTree = "<group>"; };
 		DCA433EE264BA2BD00242617 /* Chores.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chores.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCA433F1264BA2BD00242617 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCA433F3264BA2BD00242617 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 		DCEEAA34264BCCB400A64D37 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				DCA1E1652669453500FDE9B6 /* ForwardDialogViewController.swift */,
 				DCEEAA5C264BEA7000A64D37 /* Base */,
 				DCEEAA5D264BEA8000A64D37 /* Mission */,
 				DCEEAA68264BED7700A64D37 /* Group */,
@@ -630,6 +633,7 @@
 				DC92B8482652C2A900041D01 /* MemberDataViewController.swift in Sources */,
 				DCB5128E26667B1600B4B8A5 /* InvitationViewController.swift in Sources */,
 				DC913CF2264CB46E00C18251 /* UnclaimedTableViewCell.swift in Sources */,
+				DCA1E1662669453500FDE9B6 /* ForwardDialogViewController.swift in Sources */,
 				DCBB101E2653A36600A8C1E4 /* RuleViewController.swift in Sources */,
 				DC913CEB264C1F9100C18251 /* UIColor+Extension.swift in Sources */,
 				DC71959C265FF9C000DC3706 /* FlatCardCollectionViewLayout.swift in Sources */,

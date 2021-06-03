@@ -177,7 +177,98 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HUq-Mw-2Xt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1920" y="-354"/>
+            <point key="canvasLocation" x="1114" y="427"/>
+        </scene>
+        <!--Forward Dialog View Controller-->
+        <scene sceneID="tla-jm-5pX">
+            <objects>
+                <viewController id="idn-zR-p9m" customClass="ForwardDialogViewController" customModule="Chores" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KDt-aq-30l">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ran-TB-4wx" customClass="CardView" customModule="Chores" customModuleProvider="target">
+                                <rect key="frame" x="32" y="358" width="350" height="180"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Serena 企圖將「倒垃圾」轉交給你" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rfm-pM-YRo">
+                                        <rect key="frame" x="42.5" y="20" width="265.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="是否接受?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="84j-Vu-bDQ">
+                                        <rect key="frame" x="136" y="50.5" width="78" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="gnP-Ts-HvG">
+                                        <rect key="frame" x="77" y="144" width="196" height="16"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon32px_Reminder" translatesAutoresizingMaskIntoConstraints="NO" id="BiJ-fN-BpI">
+                                                <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="16" id="6u2-Hx-GQM"/>
+                                                    <constraint firstAttribute="width" constant="16" id="mdc-Id-JUz"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="接受小屋成員轉交的家事即可獲得15點" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pp9-Db-P7V">
+                                                <rect key="frame" x="21" y="4" width="175" height="12"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="68" translatesAutoresizingMaskIntoConstraints="NO" id="Vnn-mZ-fss">
+                                        <rect key="frame" x="111" y="91" width="128" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o80-yo-l5k">
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="ctH-lK-4om"/>
+                                                    <constraint firstAttribute="width" constant="30" id="pnh-Xv-Fbx"/>
+                                                </constraints>
+                                                <state key="normal" image="remove"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aOl-Zv-tvU">
+                                                <rect key="frame" x="98" y="0.0" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="8cO-4h-e2V"/>
+                                                    <constraint firstAttribute="width" constant="30" id="gnu-f6-rfc"/>
+                                                </constraints>
+                                                <state key="normal" image="check"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Vnn-mZ-fss" firstAttribute="top" secondItem="84j-Vu-bDQ" secondAttribute="bottom" constant="20" id="6vz-zv-7Oh"/>
+                                    <constraint firstItem="Vnn-mZ-fss" firstAttribute="centerX" secondItem="Ran-TB-4wx" secondAttribute="centerX" id="D5j-cK-Nb4"/>
+                                    <constraint firstAttribute="bottom" secondItem="gnP-Ts-HvG" secondAttribute="bottom" constant="20" id="S25-Ha-UgS"/>
+                                    <constraint firstItem="84j-Vu-bDQ" firstAttribute="top" secondItem="Rfm-pM-YRo" secondAttribute="bottom" constant="10" id="S45-ek-j3X"/>
+                                    <constraint firstItem="gnP-Ts-HvG" firstAttribute="centerX" secondItem="Ran-TB-4wx" secondAttribute="centerX" id="TFu-pF-Spc"/>
+                                    <constraint firstItem="84j-Vu-bDQ" firstAttribute="centerX" secondItem="Ran-TB-4wx" secondAttribute="centerX" id="Zj4-JK-Chb"/>
+                                    <constraint firstItem="Rfm-pM-YRo" firstAttribute="centerX" secondItem="Ran-TB-4wx" secondAttribute="centerX" id="dsb-6E-fZv"/>
+                                    <constraint firstItem="Rfm-pM-YRo" firstAttribute="top" secondItem="Ran-TB-4wx" secondAttribute="top" constant="20" id="grs-nE-VOQ"/>
+                                    <constraint firstAttribute="height" constant="180" id="wto-r6-VjQ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="fYr-RA-Upv"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Ran-TB-4wx" firstAttribute="centerX" secondItem="KDt-aq-30l" secondAttribute="centerX" id="0HK-BG-6my"/>
+                            <constraint firstItem="Ran-TB-4wx" firstAttribute="centerY" secondItem="KDt-aq-30l" secondAttribute="centerY" id="bls-Zg-dEo"/>
+                            <constraint firstItem="Ran-TB-4wx" firstAttribute="leading" secondItem="fYr-RA-Upv" secondAttribute="leading" constant="32" id="dCV-c0-AGo"/>
+                            <constraint firstItem="fYr-RA-Upv" firstAttribute="trailing" secondItem="Ran-TB-4wx" secondAttribute="trailing" constant="32" id="jJP-E0-YkC"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fi0-Vb-TOc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1990" y="427"/>
         </scene>
         <!--Add Chores View Controller-->
         <scene sceneID="l4W-2f-akC">
@@ -354,7 +445,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AIn-j0-xhA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1114" y="427"/>
+            <point key="canvasLocation" x="206" y="427"/>
         </scene>
         <!--Custom Chore View Controller-->
         <scene sceneID="oxo-ge-KHi">
@@ -436,7 +527,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YmM-wL-l7T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="517" y="1158"/>
+            <point key="canvasLocation" x="-332" y="1158"/>
         </scene>
         <!--Rule View Controller-->
         <scene sceneID="JIn-jW-Gji">
@@ -609,7 +700,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FO5-7f-UVi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1716" y="1158"/>
+            <point key="canvasLocation" x="762" y="1158"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="B4s-B3-EhJ">
