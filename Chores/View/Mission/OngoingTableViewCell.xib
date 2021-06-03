@@ -46,7 +46,7 @@
                                 </constraints>
                                 <state key="normal" image="clipboard"/>
                                 <connections>
-                                    <action selector="clickToFinishTask:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="FAs-4X-Xgg"/>
+                                    <action selector="clickToFinishChore:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="FAs-4X-Xgg"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lBO-Uh-W6G">
@@ -56,6 +56,9 @@
                                     <constraint firstAttribute="height" constant="25" id="Tuu-lD-ugf"/>
                                 </constraints>
                                 <state key="normal" image="arrows"/>
+                                <connections>
+                                    <action selector="clickToForwardChore:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="pyQ-iD-eDH"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

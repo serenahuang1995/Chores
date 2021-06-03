@@ -337,9 +337,30 @@ class UserProvider {
         }
     }
     
-    func fetchSameGroup(group: Group) {
+    func fetchSameGroup(completion: @escaping (Result<[User], Error>) -> Void) {
         
-        let docRerence = database.collection(users).whereField(UserType.groupId, isEqualTo: group.id)
+        let docRerence = database
+            .collection(users)
+            .whereField(UserType.groupId, isEqualTo: user.groupId ?? "")
+        
+        docRerence.addSnapshotListener { querySnapshot, error in
+            
+            if let error = error {
+                
+                completion(.failure(error))
+                
+            } else {
+                
+                guard let users = querySnapshot?.documents else { return }
+
+                let user = users.compactMap({ queryDocument -> User? in
+                                        
+                    return try? queryDocument.data(as: User.self)
+                })
+                
+                completion(.success(user))
+            }
+        }
         
     }
     

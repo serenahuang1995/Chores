@@ -200,7 +200,8 @@ extension GroupViewController: UICollectionViewDataSource {
         return mockCount
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if indexPath.row == mockCount - 1 {
             

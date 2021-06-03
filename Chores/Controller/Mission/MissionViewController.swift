@@ -13,6 +13,11 @@ protocol MissionCellDelegate: AnyObject {
     func clickButtonToAccept(at index: Int)
     
     func clickButtonToFinish(at index: Int)
+    
+    func clickButtonToForward(at index: Int)
+    
+//    func showForwardDialog()
+
 }
 
 class MissionViewController: UIViewController {
@@ -37,6 +42,9 @@ class MissionViewController: UIViewController {
     var unclaimedChores: [Chore] = []
     
     var ongoingChores: [Chore] = []
+    
+    var selectedIndex: Int?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,7 +88,25 @@ class MissionViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        _ = segue.destination as? AddChoresViewController
+        switch segue.identifier {
+        
+        case Segue.addChore:
+            
+            _ = segue.destination as? AddChoresViewController
+            
+        case Segue.forward:
+            
+            let destination = segue.destination as? ForwardChoreViewController
+            
+            if let selectedIndex = selectedIndex {
+                
+                destination?.forwardChore = ongoingChores[selectedIndex]
+            }
+            
+        default:
+            
+            return
+        }
     }
     
     private func resetNavigationBarButton() {
@@ -378,7 +404,7 @@ extension MissionViewController: SectionViewDelegate {
 }
 
 extension MissionViewController: MissionCellDelegate {
-    
+            
     func clickButtonToAccept(at index: Int) {
         
         FirebaseProvider.shared.updateOwner(selectedChore: unclaimedChores[index]) { result in
@@ -414,6 +440,13 @@ extension MissionViewController: MissionCellDelegate {
                 
             }
         }
+    }
+    
+    func clickButtonToForward(at index: Int) {
+        
+        selectedIndex = index
+        
+        performSegue(withIdentifier: Segue.forward, sender: nil)
     }
     
 }

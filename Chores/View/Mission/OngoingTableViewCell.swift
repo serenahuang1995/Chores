@@ -36,11 +36,20 @@ class OngoingTableViewCell: UITableViewCell {
         
     }
     
-    @IBAction func clickToFinishTask(_ sender: Any) {
+    @IBAction func clickToFinishChore(_ sender: Any) {
         
         if let index = getIndexPath()?.row {
             
             self.delegate?.clickButtonToFinish(at: index)
+        }
+    }
+    
+    
+    @IBAction func clickToForwardChore(_ sender: Any) {
+        
+        if let index = getIndexPath()?.row {
+            
+            self.delegate?.clickButtonToForward(at: index)
         }
     }
     
