@@ -64,13 +64,15 @@ class GroupViewController: UIViewController {
     //
     //  }
         
-    var mockCount = 11
+    var users: [User] = []
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
         updateContainerView(type: .week)
+        
+        fetchGroupMember()
     }
     
     override func viewDidLayoutSubviews() {
@@ -187,6 +189,27 @@ class GroupViewController: UIViewController {
         }
     }
     
+    func fetchGroupMember() {
+        
+        UserProvider.shared.fetchGroupMember { result in
+            
+            switch result {
+            
+            case .success(let users):
+                
+                print(users)
+                
+                self.users = users
+                
+                self.collectionView.reloadData()
+                
+            case .failure(let error):
+                
+                print(error)
+            }
+        }
+    }
+    
 }
 
 extension GroupViewController: UICollectionViewDelegate {
@@ -197,13 +220,15 @@ extension GroupViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return mockCount
+        return users.count
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if indexPath.row == mockCount - 1 {
+        let index = indexPath.row
+        
+        if index == users.count {
             
             let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: String(describing: AddMemberCell.self),
@@ -221,6 +246,8 @@ extension GroupViewController: UICollectionViewDataSource {
             for: indexPath)
         
         guard let memberCell = cell as? MemberCollectionViewCell else { return cell }
+        
+        memberCell.layoutCell(user: users[index])
         
         return memberCell
     }

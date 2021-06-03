@@ -41,6 +41,10 @@
                 <constraint firstItem="6V3-Jl-KGE" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="gtt-JE-HyK"/>
                 <constraint firstItem="6V3-Jl-KGE" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="sYj-kR-rH9"/>
             </constraints>
+            <connections>
+                <outlet property="memberImage" destination="mnP-xC-pJk" id="K3x-Kb-SUd"/>
+                <outlet property="memberNameLabel" destination="6V3-Jl-KGE" id="p6u-m5-CmO"/>
+            </connections>
             <point key="canvasLocation" x="27.536231884057973" y="69.642857142857139"/>
         </collectionViewCell>
     </objects>

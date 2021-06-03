@@ -50,7 +50,7 @@ class ForwardChoreViewController: UIViewController {
 
     func fetchGroupMember() {
         
-        UserProvider.shared.fetchSameGroup { result in
+        UserProvider.shared.fetchGroupMember { result in
             
             switch result {
             
@@ -58,6 +58,7 @@ class ForwardChoreViewController: UIViewController {
                 
                 print(users)
                 
+                // 轉交對象不會有自已 所以要把自己排除
                 self.users = users.filter { UserProvider.shared.uid != $0.id }
                 
                 self.collectionView.reloadData()

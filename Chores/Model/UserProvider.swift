@@ -337,7 +337,7 @@ class UserProvider {
         }
     }
     
-    func fetchSameGroup(completion: @escaping (Result<[User], Error>) -> Void) {
+    func fetchGroupMember(completion: @escaping (Result<[User], Error>) -> Void) {
         
         let docRerence = database
             .collection(users)

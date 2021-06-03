@@ -9,9 +9,26 @@ import UIKit
 
 class MemberCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var memberImage: UIImageView! {
+        
+        didSet {
+            
+            memberImage.layer.cornerRadius = memberImage.frame.height / 2
+        }
+    }
+
+    @IBOutlet weak var memberNameLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
+    }
+    
+    func layoutCell(user: User) {
+        
+        memberImage.image = UIImage(named: user.picture)
+        
+        memberNameLabel.text = user.name
     }
     
 }
