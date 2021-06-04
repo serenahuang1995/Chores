@@ -21,7 +21,7 @@ struct ChoreType {
     
     static var owner = "owner"
     
-    static var forward = "forward"
+    static var transfer = "transfer"
     
 //    static var completedDate = "completedDate"
 }
@@ -31,7 +31,6 @@ struct GroupType {
     static var id = "id"
     
     static var choreTypes = "choreTypes"
-
 
 }
 
@@ -239,9 +238,17 @@ class FirebaseProvider {
         
         docReference.updateData([UserType.points: user.points,
                                  UserType.totalHours: user.totalHours,
-                                 UserType.weekHours: user.weekHours])
-        
-        completion(.success("Update points success"))
+                                 UserType.weekHours: user.weekHours]) { error in
+            
+            if let error = error {
+                
+                completion(.failure(error))
+                
+            } else {
+                
+                completion(.success("Update points success"))
+            }
+        }
     }
     
     // 用戶自我家事一覽表
@@ -315,13 +322,85 @@ class FirebaseProvider {
         completion(.success("Update weekHours success"))
     }
     
-    func updateChoreOwner(user: User, selectedChore: Chore, completion: @escaping (Result<String, Error>) -> Void) {
+    // 當選擇好轉交的對象與家事之後 會在 transfer 欄位 update 那個對象的 user id
+    func updateTransferUser(user: User, selectedChore: Chore, completion: @escaping (Result<String, Error>) -> Void) {
     
         let docReference = database
             .collection(groups).document(currentUser.groupId ?? "")
             .collection(chores).document(selectedChore.id)
         
-        docReference.updateData([ChoreType.forward: user.id]) { error in
+        docReference.updateData([ChoreType.transfer: user.id]) { error in
+            
+            if let error = error {
+                
+                completion(.failure(error))
+                
+            } else {
+                
+                completion(.success(self.success))
+            }
+        }
+    }
+    
+    // query transfer 欄位是自己 id 的家事 這樣可以知道有誰傳送轉交家事給你
+    func listenTransfer(userId: String,
+                        completion: @escaping (Result<[Chore], Error>) -> Void) {
+        
+        let docReference = database
+            .collection(groups).document(currentUser.groupId ?? "")
+            .collection(chores).whereField(ChoreType.transfer, isEqualTo: currentUser.id)
+        
+        docReference.addSnapshotListener { querySnapshot, error in
+            
+            if let error = error {
+                
+                completion(.failure(error))
+                
+            } else {
+                
+                guard let choreList = querySnapshot?.documents else { return }
+
+                let chore = choreList.compactMap({ queryDocument -> Chore? in
+                                        
+                    return try? queryDocument.data(as: Chore.self)
+                })
+                
+                completion(.success(chore))
+            }
+        }
+    }
+    
+    // 對方接受之後會把 transfer 清空 owner 改寫成自己
+    func assignNewChoreOwner(selectedChore: Chore,
+                             completion: @escaping (Result<String, Error>) -> Void) {
+        
+        let docReference = database
+            .collection(groups).document(currentUser.groupId ?? "")
+            .collection(chores).document(selectedChore.id)
+        
+        docReference.updateData([ChoreType.owner: currentUser.id,
+                                 ChoreType.transfer: nil]) { error in
+            
+            if let error = error {
+                
+                completion(.failure(error))
+                
+            } else {
+                
+                completion(.success(self.success))
+            }
+        }
+    }
+    
+    // 不管用戶是接受還是拒絕 都要清空 transfer 欄位
+    func resetTransferOwner(selectedChore: Chore,
+                            completion: @escaping (Result<String, Error>) -> Void) {
+        
+        let docReference = database
+            .collection(groups).document(currentUser.groupId ?? "")
+            .collection(chores).document(selectedChore.id)
+        
+        docReference.updateData([ChoreType.transfer: nil ?? ""]) { error in
             
             if let error = error {
                 

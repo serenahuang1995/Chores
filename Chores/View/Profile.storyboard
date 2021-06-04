@@ -178,6 +178,7 @@
                         <outlet property="indicatorView" destination="hZJ-85-2uF" id="kmk-93-ypP"/>
                         <outlet property="recordsContainerView" destination="Xb7-Zc-ZNF" id="wEj-5i-CIy"/>
                         <outlet property="totalPointsLabel" destination="rXi-uL-Cpb" id="PFu-M0-PgU"/>
+                        <outlet property="userImage" destination="aC3-gf-Xyn" id="a8z-YP-Tbj"/>
                         <outlet property="userNameLabel" destination="PJH-5l-fzR" id="oFO-Uf-qfb"/>
                         <outlet property="weekHoursLabel" destination="yt8-Yu-sP6" id="15n-oy-awK"/>
                         <outletCollection property="switchButtons" destination="dVa-Kk-6Hv" collectionClass="NSMutableArray" id="gPN-xb-C7o"/>

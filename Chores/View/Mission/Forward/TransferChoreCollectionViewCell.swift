@@ -1,5 +1,5 @@
 //
-//  ForwardChoreCollectionViewCell.swift
+//  TransferChoreCollectionViewCell.swift
 //  Chores
 //
 //  Created by 黃瀞萱 on 2021/6/3.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ForwardChoreCollectionViewCell: UICollectionViewCell {
+class TransferChoreCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var memberImage: UIImageView! {
         

@@ -69,17 +69,18 @@
                         <outlet property="lottieView" destination="fdb-0J-6G4" id="4OQ-hR-Nre"/>
                         <outlet property="tableView" destination="3SW-XI-5gA" id="t2t-Om-R7B"/>
                         <segue destination="WHV-rw-kbC" kind="push" identifier="SegueAddChore" id="sAh-U6-CCJ"/>
-                        <segue destination="rtu-r2-1KM" kind="custom" identifier="SegueForward" customClass="MIBlurPopupSegue" customModule="MIBlurPopup" id="pfh-KI-5y8"/>
+                        <segue destination="rtu-r2-1KM" kind="custom" identifier="SegueTransfer" customClass="MIBlurPopupSegue" customModule="MIBlurPopup" id="pfh-KI-5y8"/>
+                        <segue destination="idn-zR-p9m" kind="custom" identifier="SegueTransferDialog" customClass="MIBlurPopupSegue" customModule="MIBlurPopup" id="41h-14-ETO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YXK-0a-4Gi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1114.4927536231885" y="-353.57142857142856"/>
         </scene>
-        <!--Forward Chore View Controller-->
+        <!--Transfer Chore View Controller-->
         <scene sceneID="Fgw-iv-rCz">
             <objects>
-                <viewController id="rtu-r2-1KM" customClass="ForwardChoreViewController" customModule="Chores" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="rtu-r2-1KM" customClass="TransferChoreViewController" customModule="Chores" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zcL-BB-ClR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -182,10 +183,10 @@
             </objects>
             <point key="canvasLocation" x="1114" y="427"/>
         </scene>
-        <!--Forward Dialog View Controller-->
+        <!--Transfer Dialog View Controller-->
         <scene sceneID="tla-jm-5pX">
             <objects>
-                <viewController id="idn-zR-p9m" customClass="ForwardDialogViewController" customModule="Chores" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="idn-zR-p9m" customClass="TransferDialogViewController" customModule="Chores" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KDt-aq-30l">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -233,6 +234,9 @@
                                                     <constraint firstAttribute="width" constant="30" id="pnh-Xv-Fbx"/>
                                                 </constraints>
                                                 <state key="normal" image="remove"/>
+                                                <connections>
+                                                    <action selector="rejectChore:" destination="idn-zR-p9m" eventType="touchUpInside" id="yru-iI-kld"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aOl-Zv-tvU">
                                                 <rect key="frame" x="98" y="0.0" width="30" height="30"/>
@@ -241,6 +245,9 @@
                                                     <constraint firstAttribute="width" constant="30" id="gnu-f6-rfc"/>
                                                 </constraints>
                                                 <state key="normal" image="check"/>
+                                                <connections>
+                                                    <action selector="acceptChore:" destination="idn-zR-p9m" eventType="touchUpInside" id="8a8-oy-WZM"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -268,6 +275,11 @@
                             <constraint firstItem="fYr-RA-Upv" firstAttribute="trailing" secondItem="Ran-TB-4wx" secondAttribute="trailing" constant="32" id="jJP-E0-YkC"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="zK6-Xn-FP0"/>
+                    <connections>
+                        <outlet property="popView" destination="Ran-TB-4wx" id="WzZ-Z6-jjB"/>
+                        <outlet property="transferLabel" destination="Rfm-pM-YRo" id="5vs-q5-XnD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fi0-Vb-TOc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -17,6 +17,8 @@ class OngoingTableViewCell: UITableViewCell {
     
     @IBOutlet weak var ownerLabel: UILabel!
     
+    @IBOutlet weak var transferLabel: UILabel!
+    
     @IBOutlet weak var finishTaskButton: UIButton!
     
     @IBOutlet weak var changeOwnerButton: UIButton!
@@ -27,6 +29,10 @@ class OngoingTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         ongoingCell.backgroundColor = .beigeEBDDCE
+        
+        changeOwnerButton.isHidden = true
+        
+        transferLabel.isHidden = true
         
         setUpCellStyle()        
     }
@@ -43,9 +49,8 @@ class OngoingTableViewCell: UITableViewCell {
             self.delegate?.clickButtonToFinish(at: index)
         }
     }
-    
-    
-    @IBAction func clickToForwardChore(_ sender: Any) {
+
+    @IBAction func clickToTransferChore(_ sender: Any) {
         
         if let index = getIndexPath()?.row {
             
@@ -62,7 +67,21 @@ class OngoingTableViewCell: UITableViewCell {
     
     func layoutCell(chore: Chore) {
         
-        ownerLabel.text = chore.owner
+        ownerLabel.text = UserProvider.shared.getUserNameById(id: chore.owner ?? "")
+        
+        if chore.owner == UserProvider.shared.uid {
+            
+            changeOwnerButton.isHidden = false
+        }
+        
+        if chore.transfer?.isEmpty == false {
+            
+            transferLabel.isHidden = false
+            
+            transferLabel.text = "待轉交給 \(UserProvider.shared.getUserNameById(id: chore.transfer ?? "") ?? "")"
+            
+            transferLabel.textColor = .red
+        }
         
         choreItemLabel.text = chore.item
         

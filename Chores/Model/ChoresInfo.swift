@@ -15,7 +15,9 @@ struct Segue {
     
     static let main = "SegueMainPage"
     
-    static let forward = "SegueForward"
+    static let transfer = "SegueTransfer"
+    
+    static let dialog = "SegueTransferDialog"
 
     static let addChore = "SegueAddChore"
     

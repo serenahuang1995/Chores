@@ -1,5 +1,5 @@
 //
-//  ForwardChoreViewController.swift
+//  TransferChoreViewController.swift
 //  Chores
 //
 //  Created by 黃瀞萱 on 2021/6/3.
@@ -7,8 +7,9 @@
 
 import UIKit
 import MIBlurPopup
+import KRProgressHUD
 
-class ForwardChoreViewController: UIViewController {
+class TransferChoreViewController: UIViewController {
       
     @IBOutlet weak var collectionView: UICollectionView! {
         
@@ -22,7 +23,7 @@ class ForwardChoreViewController: UIViewController {
     
     var selectedIndex: Int?
     
-    var forwardChore: Chore?
+    var transferChore: Chore?
     
     var users: [User] = []
     
@@ -34,9 +35,9 @@ class ForwardChoreViewController: UIViewController {
 
     @IBAction func sureToForwardChore(_ sender: Any) {
         
-        if let selectedIndex = selectedIndex, let forwardChore = forwardChore {
+        if let selectedIndex = selectedIndex, let forwardChore = transferChore {
             
-            forwardChoreToGroupMember(user: users[selectedIndex], chore: forwardChore)
+            transferChoreToGroupMember(user: users[selectedIndex], chore: forwardChore)
         }
     }
     
@@ -48,7 +49,7 @@ class ForwardChoreViewController: UIViewController {
     private func setUpCollectionView() {
 
         collectionView.registerCellWithNib(
-            identifier: String(describing: ForwardChoreCollectionViewCell.self),
+            identifier: String(describing: TransferChoreCollectionViewCell.self),
             bundle: nil)
         
         collectionView.delegate = self
@@ -78,15 +79,19 @@ class ForwardChoreViewController: UIViewController {
         }
     }
     
-    func forwardChoreToGroupMember(user: User, chore: Chore) {
+    func transferChoreToGroupMember(user: User, chore: Chore) {
         
-        FirebaseProvider.shared.updateChoreOwner(user: user, selectedChore: chore) { result in
+        FirebaseProvider.shared.updateTransferUser(user: user, selectedChore: chore) { [weak self] result in
             
             switch result {
             
             case .success(let success):
                 
                 print(success)
+                
+                self?.dismiss(animated: true, completion: nil)
+                
+                KRProgressHUD.showSuccess(withMessage: "轉讓請求已送出，靜候佳音")
                 
             case .failure(let error):
                 
@@ -97,7 +102,7 @@ class ForwardChoreViewController: UIViewController {
     
 }
 
-extension ForwardChoreViewController: UICollectionViewDelegate {
+extension TransferChoreViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
@@ -109,7 +114,7 @@ extension ForwardChoreViewController: UICollectionViewDelegate {
    
 }
 
-extension ForwardChoreViewController: UICollectionViewDataSource {
+extension TransferChoreViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
@@ -122,10 +127,10 @@ extension ForwardChoreViewController: UICollectionViewDataSource {
         let index = indexPath.row
         
         let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: String(describing: ForwardChoreCollectionViewCell.self),
+            withReuseIdentifier: String(describing: TransferChoreCollectionViewCell.self),
             for: indexPath)
         
-        guard let forwardCell = cell as? ForwardChoreCollectionViewCell else { return cell }
+        guard let forwardCell = cell as? TransferChoreCollectionViewCell else { return cell }
         
         forwardCell.layoutCell(user: users[index])
         
@@ -143,7 +148,7 @@ extension ForwardChoreViewController: UICollectionViewDataSource {
 
 }
 
-extension ForwardChoreViewController: UICollectionViewDelegateFlowLayout {
+extension TransferChoreViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
@@ -161,7 +166,7 @@ extension ForwardChoreViewController: UICollectionViewDelegateFlowLayout {
     
 }
 
-extension ForwardChoreViewController: MIBlurPopupDelegate {
+extension TransferChoreViewController: MIBlurPopupDelegate {
     
     var popupView: UIView {
         

@@ -53,15 +53,18 @@ class UserProvider {
         
     )
     
+    var groupMembers: [User] = []
+    
     // FirebaseUid
     var uid =
-//        "ARNaS8WOtYviuzarS5nb" // 被邀請
-        "XC6b6Ys1VY1qLcBJ5M8z"  // Serena mock data
+        "ARNaS8WOtYviuzarS5nb" // 被邀請
+//        "XC6b6Ys1VY1qLcBJ5M8z"  // Serena mock data
 //    "N8VeGRV8Ev9CHvGPp7Bd"
     
 //        UserDefaults.standard.string(forKey: "FirebaseUid")
     
 //    let userId = UserDefaults.standard.string(forKey: "FirebaseUid")
+    
     
     func addNewUser(user: User, completion: @escaping (Result<String, Error>) -> Void) {
         
@@ -241,7 +244,7 @@ class UserProvider {
         
         let docReference = database.collection(users).document(user.id)
         
-        docReference.updateData([UserType.groupId: nil,
+        docReference.updateData([UserType.groupId: nil ?? "",
                                  UserType.points: 0,
                                  UserType.weekHours: 0,
                                  UserType.totalHours: 0]) { error in
@@ -337,7 +340,7 @@ class UserProvider {
             }
         }
     }
-    
+
     func fetchGroupMember(completion: @escaping (Result<[User], Error>) -> Void) {
         
         let docRerence = database
@@ -354,16 +357,31 @@ class UserProvider {
                 
                 guard let users = querySnapshot?.documents else { return }
 
-                let user = users.compactMap({ queryDocument -> User? in
+                let groupUsers = users.compactMap({ queryDocument -> User? in
                                         
                     return try? queryDocument.data(as: User.self)
                 })
                 
-                completion(.success(user))
+                self.groupMembers = groupUsers
+                
+                completion(.success(groupUsers))
             }
         }
     }
     
-
-    
+    func getUserNameById(id: String) -> String? {
+        
+        var foundUser: User?
+        
+        for user in groupMembers {
+            
+            if id == user.id {
+                
+                foundUser = user
+            }
+        }
+        
+        return foundUser?.name
+    }
+  
 }

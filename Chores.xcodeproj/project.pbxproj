@@ -38,7 +38,7 @@
 		DC92B84C2652D13D00041D01 /* AddMemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC92B84A2652D13D00041D01 /* AddMemberCell.swift */; };
 		DC92B84D2652D13D00041D01 /* AddMemberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC92B84B2652D13D00041D01 /* AddMemberCell.xib */; };
 		DC9B10AF2659691B00F50430 /* UserProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9B10AE2659691A00F50430 /* UserProvider.swift */; };
-		DCA1E1662669453500FDE9B6 /* ForwardDialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA1E1652669453500FDE9B6 /* ForwardDialogViewController.swift */; };
+		DCA1E1662669453500FDE9B6 /* TransferDialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA1E1652669453500FDE9B6 /* TransferDialogViewController.swift */; };
 		DCA433F2264BA2BD00242617 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA433F1264BA2BD00242617 /* AppDelegate.swift */; };
 		DCA433F4264BA2BD00242617 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA433F3264BA2BD00242617 /* SceneDelegate.swift */; };
 		DCA433F6264BA2BD00242617 /* MissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA433F5264BA2BD00242617 /* MissionViewController.swift */; };
@@ -52,9 +52,9 @@
 		DCA6842F2663FCA900797EAB /* Chores.json in Resources */ = {isa = PBXBuildFile; fileRef = DCA6842E2663FCA900797EAB /* Chores.json */; };
 		DCB5128A26662F3600B4B8A5 /* QRCodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB5128926662F3600B4B8A5 /* QRCodeScannerViewController.swift */; };
 		DCB5128E26667B1600B4B8A5 /* InvitationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB5128D26667B1600B4B8A5 /* InvitationViewController.swift */; };
-		DCB512922667E53F00B4B8A5 /* ForwardChoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB512912667E53F00B4B8A5 /* ForwardChoreViewController.swift */; };
-		DCB512972668D7BF00B4B8A5 /* ForwardChoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB512952668D7BF00B4B8A5 /* ForwardChoreCollectionViewCell.swift */; };
-		DCB512982668D7BF00B4B8A5 /* ForwardChoreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCB512962668D7BF00B4B8A5 /* ForwardChoreCollectionViewCell.xib */; };
+		DCB512922667E53F00B4B8A5 /* TransferChoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB512912667E53F00B4B8A5 /* TransferChoreViewController.swift */; };
+		DCB512972668D7BF00B4B8A5 /* TransferChoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB512952668D7BF00B4B8A5 /* TransferChoreCollectionViewCell.swift */; };
+		DCB512982668D7BF00B4B8A5 /* TransferChoreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCB512962668D7BF00B4B8A5 /* TransferChoreCollectionViewCell.xib */; };
 		DCB98A0E264CDF7200A8C794 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB98A0D264CDF7200A8C794 /* UITableView+Extension.swift */; };
 		DCB98A12264CF6C100A8C794 /* UnclaimedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC913CF1264CB46E00C18251 /* UnclaimedTableViewCell.xib */; };
 		DCBB101E2653A36600A8C1E4 /* RuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBB101D2653A36600A8C1E4 /* RuleViewController.swift */; };
@@ -114,7 +114,7 @@
 		DC92B84A2652D13D00041D01 /* AddMemberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemberCell.swift; sourceTree = "<group>"; };
 		DC92B84B2652D13D00041D01 /* AddMemberCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddMemberCell.xib; sourceTree = "<group>"; };
 		DC9B10AE2659691A00F50430 /* UserProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProvider.swift; sourceTree = "<group>"; };
-		DCA1E1652669453500FDE9B6 /* ForwardDialogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForwardDialogViewController.swift; sourceTree = "<group>"; };
+		DCA1E1652669453500FDE9B6 /* TransferDialogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferDialogViewController.swift; sourceTree = "<group>"; };
 		DCA433EE264BA2BD00242617 /* Chores.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chores.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCA433F1264BA2BD00242617 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCA433F3264BA2BD00242617 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -130,9 +130,9 @@
 		DCA6842E2663FCA900797EAB /* Chores.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Chores.json; sourceTree = "<group>"; };
 		DCB5128926662F3600B4B8A5 /* QRCodeScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScannerViewController.swift; sourceTree = "<group>"; };
 		DCB5128D26667B1600B4B8A5 /* InvitationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationViewController.swift; sourceTree = "<group>"; };
-		DCB512912667E53F00B4B8A5 /* ForwardChoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForwardChoreViewController.swift; sourceTree = "<group>"; };
-		DCB512952668D7BF00B4B8A5 /* ForwardChoreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForwardChoreCollectionViewCell.swift; sourceTree = "<group>"; };
-		DCB512962668D7BF00B4B8A5 /* ForwardChoreCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForwardChoreCollectionViewCell.xib; sourceTree = "<group>"; };
+		DCB512912667E53F00B4B8A5 /* TransferChoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferChoreViewController.swift; sourceTree = "<group>"; };
+		DCB512952668D7BF00B4B8A5 /* TransferChoreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferChoreCollectionViewCell.swift; sourceTree = "<group>"; };
+		DCB512962668D7BF00B4B8A5 /* TransferChoreCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransferChoreCollectionViewCell.xib; sourceTree = "<group>"; };
 		DCB98A0D264CDF7200A8C794 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		DCBB101D2653A36600A8C1E4 /* RuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleViewController.swift; sourceTree = "<group>"; };
 		DCBB10202653F9AA00A8C1E4 /* ChoreImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoreImages.swift; sourceTree = "<group>"; };
@@ -296,8 +296,8 @@
 		DCB512942668D78700B4B8A5 /* Forward */ = {
 			isa = PBXGroup;
 			children = (
-				DCB512952668D7BF00B4B8A5 /* ForwardChoreCollectionViewCell.swift */,
-				DCB512962668D7BF00B4B8A5 /* ForwardChoreCollectionViewCell.xib */,
+				DCB512952668D7BF00B4B8A5 /* TransferChoreCollectionViewCell.swift */,
+				DCB512962668D7BF00B4B8A5 /* TransferChoreCollectionViewCell.xib */,
 			);
 			path = Forward;
 			sourceTree = "<group>";
@@ -334,7 +334,6 @@
 		DCEEAA34264BCCB400A64D37 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				DCA1E1652669453500FDE9B6 /* ForwardDialogViewController.swift */,
 				DCEEAA5C264BEA7000A64D37 /* Base */,
 				DCEEAA5D264BEA8000A64D37 /* Mission */,
 				DCEEAA68264BED7700A64D37 /* Group */,
@@ -403,7 +402,8 @@
 				DC203D06264E823C002FADDA /* AddChoresViewController.swift */,
 				DCCD761D265A9BFA0004E82B /* CustomChoreViewController.swift */,
 				DCBB101D2653A36600A8C1E4 /* RuleViewController.swift */,
-				DCB512912667E53F00B4B8A5 /* ForwardChoreViewController.swift */,
+				DCB512912667E53F00B4B8A5 /* TransferChoreViewController.swift */,
+				DCA1E1652669453500FDE9B6 /* TransferDialogViewController.swift */,
 				DCA589EF265553920033EE63 /* RuleSegue.swift */,
 			);
 			path = Mission;
@@ -530,7 +530,7 @@
 				DC719593265FF38500DC3706 /* CreateGroupCollectionViewCell.xib in Resources */,
 				DCA6842F2663FCA900797EAB /* Chores.json in Resources */,
 				DCEEAA66264BECC100A64D37 /* Initial.storyboard in Resources */,
-				DCB512982668D7BF00B4B8A5 /* ForwardChoreCollectionViewCell.xib in Resources */,
+				DCB512982668D7BF00B4B8A5 /* TransferChoreCollectionViewCell.xib in Resources */,
 				DCA684292663D60600797EAB /* Signin.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -611,7 +611,7 @@
 				DCA433F6264BA2BD00242617 /* MissionViewController.swift in Sources */,
 				DC913CE3264C144400C18251 /* SectionView.swift in Sources */,
 				DCEEAA73264BEDEC00A64D37 /* InitialViewController.swift in Sources */,
-				DCB512972668D7BF00B4B8A5 /* ForwardChoreCollectionViewCell.swift in Sources */,
+				DCB512972668D7BF00B4B8A5 /* TransferChoreCollectionViewCell.swift in Sources */,
 				DC8FE0E826629A1B0016927D /* SigninViewController.swift in Sources */,
 				DCCD761E265A9BFA0004E82B /* CustomChoreViewController.swift in Sources */,
 				DC203D07264E823C002FADDA /* AddChoresViewController.swift in Sources */,
@@ -633,7 +633,7 @@
 				DC92B8482652C2A900041D01 /* MemberDataViewController.swift in Sources */,
 				DCB5128E26667B1600B4B8A5 /* InvitationViewController.swift in Sources */,
 				DC913CF2264CB46E00C18251 /* UnclaimedTableViewCell.swift in Sources */,
-				DCA1E1662669453500FDE9B6 /* ForwardDialogViewController.swift in Sources */,
+				DCA1E1662669453500FDE9B6 /* TransferDialogViewController.swift in Sources */,
 				DCBB101E2653A36600A8C1E4 /* RuleViewController.swift in Sources */,
 				DC913CEB264C1F9100C18251 /* UIColor+Extension.swift in Sources */,
 				DC71959C265FF9C000DC3706 /* FlatCardCollectionViewLayout.swift in Sources */,
@@ -641,7 +641,7 @@
 				DC8136492650090E003CC6ED /* UICollectionView+Extension.swift in Sources */,
 				DC92B84C2652D13D00041D01 /* AddMemberCell.swift in Sources */,
 				DCD7379F26520B9A00F1DEF8 /* ChoresRecordsViewController.swift in Sources */,
-				DCB512922667E53F00B4B8A5 /* ForwardChoreViewController.swift in Sources */,
+				DCB512922667E53F00B4B8A5 /* TransferChoreViewController.swift in Sources */,
 				DC81364D2650095C003CC6ED /* TagCollectionViewCell.swift in Sources */,
 				DCA433F4264BA2BD00242617 /* SceneDelegate.swift in Sources */,
 				DCA589F326555AD10033EE63 /* FirebaseProvider.swift in Sources */,

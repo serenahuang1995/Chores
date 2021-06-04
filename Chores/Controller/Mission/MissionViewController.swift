@@ -43,14 +43,17 @@ class MissionViewController: UIViewController {
     
     var ongoingChores: [Chore] = []
     
+    var transferChores: [Chore] = []
+    
     var selectedIndex: Int?
     
-    
+//    let uid = UserProvider.shared.uid
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         resetNavigationBarButton()
-        
+    
         fetchUser()
     }
     
@@ -64,28 +67,6 @@ class MissionViewController: UIViewController {
         }
     }
     
-    // 用戶每次進來都會 fetch
-    func fetchUser() {
-        
-        let uid = UserProvider.shared.uid
-        
-        UserProvider.shared.fetchOwner(userId: uid) { [weak self] result in
-            
-            switch result {
-            
-            case .success(let user):
-                
-                print(user)
-                
-                self?.setChoresListener()
-                
-            case .failure(let error):
-                
-                print(error)
-            }
-        }
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         switch segue.identifier {
@@ -94,14 +75,20 @@ class MissionViewController: UIViewController {
             
             _ = segue.destination as? AddChoresViewController
             
-        case Segue.forward:
+        case Segue.transfer:
             
-            let destination = segue.destination as? ForwardChoreViewController
+            let destination = segue.destination as? TransferChoreViewController
             
             if let selectedIndex = selectedIndex {
                 
-                destination?.forwardChore = ongoingChores[selectedIndex]
+                destination?.transferChore = ongoingChores[selectedIndex]
             }
+            
+        case Segue.dialog:
+            
+            let destination = segue.destination as? TransferDialogViewController
+            
+            destination?.chore = transferChores[0]
             
         default:
             
@@ -142,6 +129,28 @@ class MissionViewController: UIViewController {
         tableView.delegate = self
         
         tableView.dataSource = self
+    }
+    
+    // 用戶每次進來都會 fetch
+    func fetchUser() {
+        
+        let uid = UserProvider.shared.uid
+        
+        UserProvider.shared.fetchOwner(userId: uid) { [weak self] result in
+            
+            switch result {
+            
+            case .success(let user):
+                
+                print(user)
+                
+                self?.fetchGroupMembers()
+                
+            case .failure(let error):
+                
+                print(error)
+            }
+        }
     }
     
     func setChoresListener() {
@@ -263,6 +272,53 @@ class MissionViewController: UIViewController {
         lottieView.play()
         
         lottieView.loopMode = .loop
+    }
+    
+    func onTransferListener() {
+        
+        let uid = UserProvider.shared.uid
+        
+        FirebaseProvider.shared.listenTransfer(userId: uid) { [weak self] result in
+            
+            switch result {
+            
+            case .success(let chores):
+                
+                print(chores)
+                
+                self?.transferChores = chores
+                
+                if chores.count > 0 {
+                    
+                    self?.performSegue(withIdentifier: Segue.dialog, sender: nil)
+                }
+
+            case .failure(let error):
+                
+                print(error)
+            }
+        }
+    }
+    
+    func fetchGroupMembers() {
+        
+        UserProvider.shared.fetchGroupMember { [weak self] result in
+            
+            switch result {
+            
+            case .success(let users):
+                
+                print(users)
+                
+                self?.setChoresListener()
+                
+                self?.onTransferListener()
+           
+            case .failure(let error):
+                
+                print(error)
+            }
+        }
     }
     
 }
@@ -446,7 +502,7 @@ extension MissionViewController: MissionCellDelegate {
         
         selectedIndex = index
         
-        performSegue(withIdentifier: Segue.forward, sender: nil)
+        performSegue(withIdentifier: Segue.transfer, sender: nil)
     }
     
 }

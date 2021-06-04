@@ -26,6 +26,14 @@ class ProfileViewController: UIViewController {
 //
 //    }
     
+    @IBOutlet weak var userImage: UIImageView! {
+        
+        didSet {
+            
+            userImage.layer.cornerRadius = userImage.frame.height / 2
+        }
+    }
+    
     @IBOutlet weak var userNameLabel: UILabel!
     
     @IBOutlet weak var totalPointsLabel: UILabel!
@@ -146,6 +154,8 @@ class ProfileViewController: UIViewController {
             switch result {
             
             case .success(let user):
+                
+                self.userImage.image = UIImage(named: user.picture)
                 
                 self.userNameLabel.text = user.name
                 
