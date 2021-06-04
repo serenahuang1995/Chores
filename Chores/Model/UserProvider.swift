@@ -369,19 +369,34 @@ class UserProvider {
         }
     }
     
+    // 判斷我帶進來的任一 id 有沒有符合 group members 內的 user id，找到那個user並回傳他 user 的 name
     func getUserNameById(id: String) -> String? {
         
-        var foundUser: User?
-        
-        for user in groupMembers {
+        // 利用 firstIndex 去找 groupMembers 這個 array 中第幾個 index 是符合條件的
+        let index = groupMembers.firstIndex { $0.id == id }
+
+        if let index = index {
             
-            if id == user.id {
-                
-                foundUser = user
-            }
+            return groupMembers[index].name
+
+        } else {
+
+            return nil
         }
         
-        return foundUser?.name
+//        var foundUser: User?
+//
+//        for user in groupMembers {
+//
+//            if id == user.id {
+//
+//                foundUser = user
+//
+//                break
+//            }
+//        }
+//
+//        return foundUser?.name
     }
   
 }

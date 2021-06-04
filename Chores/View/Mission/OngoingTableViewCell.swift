@@ -67,13 +67,15 @@ class OngoingTableViewCell: UITableViewCell {
     
     func layoutCell(chore: Chore) {
         
-        ownerLabel.text = UserProvider.shared.getUserNameById(id: chore.owner ?? "")
+        ownerLabel.text = "挑戰者：\(UserProvider.shared.getUserNameById(id: chore.owner ?? "") ?? "")"
         
+        // 如果 owner 是自己 才會出現轉交家事的按鈕
         if chore.owner == UserProvider.shared.uid {
             
             changeOwnerButton.isHidden = false
         }
         
+        // 如果 transfer 欄位不是 nil 也不是空字串
         if chore.transfer?.isEmpty == false {
             
             transferLabel.isHidden = false
