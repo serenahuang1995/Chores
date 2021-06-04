@@ -54,10 +54,13 @@ class SettingViewController: UIViewController {
             blackView.removeFromSuperview()
         }
     }
-    
-    
-    
-    
+
+    @IBAction func leaveGroup(_ sender: Any) {
+        
+        leaveGroup()
+        
+        performSegue(withIdentifier: Segue.initial, sender: nil)
+    }
     
     private func showBlackView() {
         
@@ -88,6 +91,23 @@ class SettingViewController: UIViewController {
         button.layer.borderWidth = 2
         
         button.layer.cornerRadius = 10
+    }
+    
+    func leaveGroup() {
+        
+        UserProvider.shared.leaveGroup { result in
+            
+            switch result {
+            
+            case .success(let message):
+                
+                print(message)
+                
+            case .failure(let error):
+                
+                print(error)
+            }
+        }
     }
     
 }

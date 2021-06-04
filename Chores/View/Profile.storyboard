@@ -208,6 +208,9 @@
                                         <state key="normal" title="退出小屋" image="exit">
                                             <color key="titleColor" systemColor="labelColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="leaveGroup:" destination="zD8-8N-Nla" eventType="touchUpInside" id="0G8-Us-Jap"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U1L-ec-dS3">
                                         <rect key="frame" x="25" y="20" width="300" height="55"/>
@@ -264,11 +267,22 @@
                         <outlet property="changePictureButton" destination="4Rc-uh-n7n" id="krz-Mi-O4c"/>
                         <outlet property="leaveGroupButton" destination="Y0r-EK-t1h" id="vq3-kB-T9V"/>
                         <outlet property="popView" destination="6YR-GC-uk9" id="Eal-tm-8D1"/>
+                        <segue destination="JEk-Bx-gUD" kind="show" identifier="SegueInitialPage" animates="NO" id="0iK-Oc-h5r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AO9-Ih-cB3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="960.86956521739137" y="-430.58035714285711"/>
+        </scene>
+        <!--Initial-->
+        <scene sceneID="HpH-C7-u5O">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Initial" id="JEk-Bx-gUD" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="hWJ-Ee-zpI"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ded-Xb-pkg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1625" y="-431"/>
         </scene>
         <!--Spend Points View Controller-->
         <scene sceneID="8EY-Lm-h1b">
