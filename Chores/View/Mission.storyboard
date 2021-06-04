@@ -108,6 +108,9 @@
                                                     <constraint firstAttribute="width" constant="30" id="vNH-Am-VvX"/>
                                                 </constraints>
                                                 <state key="normal" image="check"/>
+                                                <connections>
+                                                    <action selector="sureToForwardChore:" destination="rtu-r2-1KM" eventType="touchUpInside" id="yQM-le-dHx"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -21,7 +22,7 @@
                             <constraint firstAttribute="width" constant="60" id="3Jo-aC-5Eh"/>
                             <constraint firstAttribute="height" constant="60" id="j3J-KK-8re"/>
                         </constraints>
-                        <state key="normal" image="add"/>
+                        <state key="normal" image="add (3)"/>
                         <connections>
                             <action selector="addMember:" destination="gTV-IL-0wX" eventType="touchUpInside" id="fmM-zr-gTh"/>
                         </connections>
@@ -41,6 +42,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="add" width="512" height="512"/>
+        <image name="add (3)" width="128" height="128"/>
     </resources>
 </document>

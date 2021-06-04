@@ -116,7 +116,8 @@ class AddChoresViewController: UIViewController {
             points: Int(point) ?? 0,
             hours: Int(time) ?? 0,
             owner: nil,
-            status: 0)
+            status: 0,
+            forward: nil)
         
         FirebaseProvider.shared.addToDoChoreData(chore: &data) { [weak self] result in
             

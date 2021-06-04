@@ -21,6 +21,8 @@ struct ChoreType {
     
     static var owner = "owner"
     
+    static var forward = "forward"
+    
 //    static var completedDate = "completedDate"
 }
 
@@ -252,7 +254,7 @@ class FirebaseProvider {
             .whereField(ChoreType.owner, isEqualTo: currentUser.id)
             .whereField(ChoreType.status, isEqualTo: 1)
 
-        docReference.addSnapshotListener{ querySnapshot, error in
+        docReference.addSnapshotListener { querySnapshot, error in
             
             if let error = error {
                 
@@ -311,6 +313,25 @@ class FirebaseProvider {
         docReference.updateData([UserType.weekHours: 0])
         
         completion(.success("Update weekHours success"))
-        
     }
+    
+    func updateChoreOwner(user: User, selectedChore: Chore, completion: @escaping (Result<String, Error>) -> Void) {
+    
+        let docReference = database
+            .collection(groups).document(currentUser.groupId ?? "")
+            .collection(chores).document(selectedChore.id)
+        
+        docReference.updateData([ChoreType.forward: user.id]) { error in
+            
+            if let error = error {
+                
+                completion(.failure(error))
+                
+            } else {
+                
+                completion(.success(self.success))
+            }
+        }
+    }
+
 }

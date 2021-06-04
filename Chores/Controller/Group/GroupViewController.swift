@@ -220,7 +220,7 @@ extension GroupViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return users.count
+        return users.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView,

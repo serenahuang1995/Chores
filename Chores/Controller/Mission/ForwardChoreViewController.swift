@@ -31,6 +31,14 @@ class ForwardChoreViewController: UIViewController {
         
         fetchGroupMember()
     }
+
+    @IBAction func sureToForwardChore(_ sender: Any) {
+        
+        if let selectedIndex = selectedIndex, let forwardChore = forwardChore {
+            
+            forwardChoreToGroupMember(user: users[selectedIndex], chore: forwardChore)
+        }
+    }
     
     @IBAction func backToMissionPage(_ sender: Any) {
         
@@ -69,7 +77,24 @@ class ForwardChoreViewController: UIViewController {
             }
         }
     }
-
+    
+    func forwardChoreToGroupMember(user: User, chore: Chore) {
+        
+        FirebaseProvider.shared.updateChoreOwner(user: user, selectedChore: chore) { result in
+            
+            switch result {
+            
+            case .success(let success):
+                
+                print(success)
+                
+            case .failure(let error):
+                
+                print(error)
+            }
+        }
+    }
+    
 }
 
 extension ForwardChoreViewController: UICollectionViewDelegate {

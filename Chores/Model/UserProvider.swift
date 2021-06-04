@@ -57,6 +57,7 @@ class UserProvider {
     var uid =
 //        "ARNaS8WOtYviuzarS5nb" // 被邀請
         "XC6b6Ys1VY1qLcBJ5M8z"  // Serena mock data
+//    "N8VeGRV8Ev9CHvGPp7Bd"
     
 //        UserDefaults.standard.string(forKey: "FirebaseUid")
     
@@ -361,7 +362,8 @@ class UserProvider {
                 completion(.success(user))
             }
         }
-        
     }
+    
+
     
 }

@@ -32,6 +32,8 @@ struct Chore: Codable {
     
     var completedDate: Timestamp?
     
+    var forward: String?
+    
     //  var dictTransfor: [String: Any] {
     //    
     //    return [
