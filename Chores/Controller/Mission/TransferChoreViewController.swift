@@ -35,10 +35,23 @@ class TransferChoreViewController: UIViewController {
 
     @IBAction func sureToForwardChore(_ sender: Any) {
         
-        if let selectedIndex = selectedIndex, let forwardChore = transferChore {
+        guard let selectedIndex = selectedIndex,
+              let forwardChore = transferChore else {
             
-            transferChoreToGroupMember(user: users[selectedIndex], chore: forwardChore)
+            KRProgressHUD.showError(withMessage: "請選擇你想轉交的對象")
+            
+            return
         }
+        
+        if UserProvider.shared.user.points < 15 {
+            
+            KRProgressHUD.showError(withMessage: "點數不足無法轉交家事")
+            
+            return
+        }
+        
+        transferChoreToGroupMember(user: users[selectedIndex], chore: forwardChore)
+        
     }
     
     @IBAction func backToMissionPage(_ sender: Any) {
