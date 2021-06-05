@@ -136,11 +136,8 @@
                                     <segment title="點數"/>
                                 </segments>
                             </segmentedControl>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OPq-SF-hV9">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OPq-SF-hV9" customClass="HorizontalBarChartView" customModule="Charts">
                                 <rect key="frame" x="0.0" y="359.5" width="414" height="453.5"/>
-                                <connections>
-                                    <segue destination="tLE-pj-Han" kind="embed" id="aAS-7i-MeI"/>
-                                </connections>
                             </containerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PIr-8W-8Zv"/>
@@ -165,8 +162,8 @@
                     <navigationItem key="navigationItem" title="我的小屋" id="qOY-ef-qeb"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="barChartView" destination="OPq-SF-hV9" id="ogI-uo-Yvg"/>
                         <outlet property="collectionView" destination="4xz-AK-oue" id="N88-wS-k5l"/>
-                        <outlet property="containerView" destination="OPq-SF-hV9" id="WjS-MM-X5p"/>
                         <outlet property="indicatorView" destination="0Ya-xV-Avm" id="0ec-bJ-BDU"/>
                         <outletCollection property="switchButtons" destination="ejt-Lj-Cgs" collectionClass="NSMutableArray" id="esK-Kd-eYA"/>
                         <outletCollection property="switchButtons" destination="sdK-8L-5oY" collectionClass="NSMutableArray" id="nI5-ha-TFp"/>
@@ -316,11 +313,11 @@
             <objects>
                 <viewController id="tLE-pj-Han" customClass="MemberDataViewController" customModule="Chores" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fDU-mr-yKn">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="453.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hyg-BJ-22s" customClass="HorizontalBarChartView" customModule="Charts">
-                                <rect key="frame" x="20" y="44" width="374" height="409.5"/>
+                                <rect key="frame" x="20" y="44" width="374" height="818"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -339,7 +336,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CXQ-Wu-DDu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="552" y="667"/>
+            <point key="canvasLocation" x="551" y="841"/>
         </scene>
     </scenes>
     <resources>

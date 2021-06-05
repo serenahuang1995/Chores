@@ -222,6 +222,9 @@
                                         <state key="normal" title="更改暱稱" image="edit">
                                             <color key="titleColor" systemColor="labelColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="changeName:" destination="zD8-8N-Nla" eventType="touchUpInside" id="27M-UQ-kdi"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Rc-uh-n7n">
                                         <rect key="frame" x="25" y="95" width="300" height="55"/>
@@ -232,6 +235,9 @@
                                         <state key="normal" title="更改頭像" image="camera">
                                             <color key="titleColor" systemColor="labelColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="changePicture:" destination="zD8-8N-Nla" eventType="touchUpInside" id="w5Y-MQ-5mL"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

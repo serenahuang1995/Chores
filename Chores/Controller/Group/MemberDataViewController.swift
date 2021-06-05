@@ -14,6 +14,8 @@ class MemberDataViewController: UIViewController {
     
     var entries: [BarChartDataEntry] = []
     
+    var groupMembers: [User] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

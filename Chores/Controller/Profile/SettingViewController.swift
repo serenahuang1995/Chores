@@ -54,6 +54,16 @@ class SettingViewController: UIViewController {
             blackView.removeFromSuperview()
         }
     }
+    
+    @IBAction func changeName(_ sender: Any) {
+        
+    }
+    
+    
+    @IBAction func changePicture(_ sender: Any) {
+        
+    }
+    
 
     @IBAction func leaveGroup(_ sender: Any) {
         

@@ -77,18 +77,18 @@ class MissionViewController: UIViewController {
             
         case Segue.transfer:
             
-            let destination = segue.destination as? TransferChoreViewController
+            guard let destination = segue.destination as? TransferChoreViewController else { return }
             
             if let selectedIndex = selectedIndex {
                 
-                destination?.transferChore = ongoingChores[selectedIndex]
+                destination.transferChore = ongoingChores[selectedIndex]
             }
             
         case Segue.dialog:
             
-            let destination = segue.destination as? TransferDialogViewController
+            guard let destination = segue.destination as? TransferDialogViewController else { return }
             
-            destination?.chore = transferChores[0]
+            destination.chore = transferChores[0]
             
         default:
             
@@ -105,7 +105,6 @@ class MissionViewController: UIViewController {
             action: #selector(tapAddButton))
         
         self.navigationItem.rightBarButtonItem = backButton
-        
     }
     
     @objc func tapAddButton() {
@@ -320,7 +319,6 @@ class MissionViewController: UIViewController {
             }
         }
     }
-    
 }
 
 extension MissionViewController: UITableViewDelegate {
@@ -332,7 +330,6 @@ extension MissionViewController: UITableViewDelegate {
             
             return 300
         }
-        
         return 160
     }
     
@@ -340,7 +337,6 @@ extension MissionViewController: UITableViewDelegate {
                    heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
-    
 }
 
 extension MissionViewController: UITableViewDataSource {
@@ -373,7 +369,6 @@ extension MissionViewController: UITableViewDataSource {
             
             sectionView.setExpandButtonVisible(isVisible: ongoingChores.count != 0)
         }
-        
         return sectionView
     }
     
@@ -397,7 +392,6 @@ extension MissionViewController: UITableViewDataSource {
                 return ongoingChores.count
             }
         }
-        
         return 0
     }
     
@@ -445,7 +439,6 @@ extension MissionViewController: UITableViewDataSource {
             return UITableViewCell()
         }
     }
-    
 }
 
 extension MissionViewController: SectionViewDelegate {
@@ -456,7 +449,6 @@ extension MissionViewController: SectionViewDelegate {
         
         tableView.reloadSections(IndexSet(integer: didPressTag), with: .automatic)
     }
-    
 }
 
 extension MissionViewController: MissionCellDelegate {
@@ -480,9 +472,7 @@ extension MissionViewController: MissionCellDelegate {
     
     func clickButtonToFinish(at index: Int) {
         
-        FirebaseProvider.shared.updateStatus(selectedChore: ongoingChores[index]) {
-            
-            [weak self] result in
+        FirebaseProvider.shared.updateStatus(selectedChore: ongoingChores[index]) { [weak self] result in
             
             switch result {
             
@@ -504,5 +494,4 @@ extension MissionViewController: MissionCellDelegate {
         
         performSegue(withIdentifier: Segue.transfer, sender: nil)
     }
-    
 }

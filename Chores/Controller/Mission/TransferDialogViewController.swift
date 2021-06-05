@@ -21,7 +21,7 @@ class TransferDialogViewController: UIViewController {
 
         if let chore = chore {
            
-            transferLabel.text = "\(chore.owner!) 企圖將「\(chore.item)」轉交給你"
+            transferLabel.text = "\(UserProvider.shared.getUserNameById(id: chore.owner ?? "") ?? "") 企圖將「\(chore.item)」轉交給你"
         }
     }
 
@@ -147,7 +147,6 @@ class TransferDialogViewController: UIViewController {
             }
         }
     }
-    
 }
 
 extension TransferDialogViewController: MIBlurPopupDelegate {
@@ -171,7 +170,4 @@ extension TransferDialogViewController: MIBlurPopupDelegate {
         
         0.2
     }
-    
-    
-    
 }

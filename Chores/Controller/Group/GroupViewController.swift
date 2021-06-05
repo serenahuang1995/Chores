@@ -46,7 +46,15 @@ class GroupViewController: UIViewController {
     //
     //  @IBOutlet weak var monthDataView: UIView!
     
-    @IBOutlet weak var containerView: UIView!
+//    @IBOutlet weak var barChartView: UIView!
+    
+    @IBOutlet weak var barChartView: HorizontalBarChartView! {
+        
+        didSet {
+            
+            barChartView.delegate = self
+        }
+    }
     
     @IBOutlet weak var collectionView: UICollectionView! {
         
@@ -64,15 +72,31 @@ class GroupViewController: UIViewController {
     //
     //  }
         
-    var users: [User] = []
+    var groupMembers: [User] = []
     
+    var userNames: [String] = []
+    
+    var userTotalPoints: [Int] = []
+    
+    var userWeekPoints: [Int] = []
+    
+    var userMonthPoint: [Int] = []
+    
+    var userWeekHours: [Int] = []
+    
+    var userMonthHours: [Int] = []
+    
+    var userTotalHours: [Int] = []
+    
+    var barChartData: [ChartDataEntry] = []
+
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        updateContainerView(type: .week)
-        
         fetchGroupMember()
+        
+        updateContainerView(type: .week)
     }
     
     override func viewDidLayoutSubviews() {
@@ -80,48 +104,31 @@ class GroupViewController: UIViewController {
         indicatorView.center.x = switchButtons[0].center.x
     }
     
-    //  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //
-    //    let identifier = segue.identifier
-    //
-    //    switch identifier {
-    //
-    //    case Segue.week:
-    //      _ = segue.destination as? MemberDataViewController
-    //      weekDataView.backgroundColor = .blue7990CA
-    //
-    //    case Segue.month:
-    //      _ = segue.destination as? MemberDataViewController
-    //      monthDataView.backgroundColor = .orangeFBDAA0
-    //
-    //    case Segue.total:
-    //      _ = segue.destination as? MemberDataViewController
-    //      totalDataView.backgroundColor = .beigeEBDDCE
-    //
-    //    default:
-    //      return
-    //
-    //    }
-    //
-    //  }
+//      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//
+//        guard let destination = segue.destination as? MemberDataViewController else { return }
+//
+//        destination.groupMembers = groupMembers
+//        let identifier = segue.identifier
+//
+//        switch identifier {
+//
+//        case Segue.week:
+//          _ = segue.destination as? MemberDataViewController
+//          weekDataView.backgroundColor = .blue7990CA
+//
+//        case Segue.month:
+//          _ = segue.destination as? MemberDataViewController
+//          monthDataView.backgroundColor = .orangeFBDAA0
+//
+//        case Segue.total:
+//          _ = segue.destination as? MemberDataViewController
+//          totalDataView.backgroundColor = .beigeEBDDCE
+//
+//        default:
+//          return
     
-    //  func setUpChartView() {
-    
-    //    var entries: [BarChartDataEntry] = []
-    
-    //    for yyy in 0...10 {
-    //      entries.append(BarChartDataEntry(x: Double.random(in: 1...30), y: Double(yyy)))
-    //    }
-    //
-    //    let set = BarChartDataSet(entries: entries, label: "chores")
-    //
-    //    set.colors = ChartColorTemplates.joyful()
-    //
-    //    let data = BarChartData(dataSet: set)
-    //
-    //    horizontalBarChartView.data = data
-    //
-    //  }
+//        }
     
     @IBAction func clickSwitchButton(_ sender: UIButton) {
         
@@ -170,20 +177,29 @@ class GroupViewController: UIViewController {
         
         case .week:
             
-            //      setUpChartView()
-            containerView.backgroundColor = .none
+             setUpBarChartData(names: userNames, data: userWeekHours)
+            
+//            setUpTotalPointsChartView()
+            
+//                  setUpTotalPointsChartView(users: groupMembers)
+//            containerView.backgroundColor = .none
             
         //      weekDataView.isHidden = false
         
         case .month:
-            //      setUpChartView()
-            containerView.backgroundColor = .beigeEBDDCE
+            
+            setUpBarChartData(names: userNames, data: userTotalPoints)
+
+//            containerView.backgroundColor = .beigeEBDDCE
             
         //      monthDataView.isHidden = false
         
         case .total:
-            //      setUpChartView()
-            containerView.backgroundColor = .orangeE89E21
+            
+            setUpBarChartData(names: userNames, data: userTotalPoints)
+
+//                  setUpTotalPointsChartView()
+//            containerView.backgroundColor = .orangeE89E21
         //      totalDataView.isHidden = false
         
         }
@@ -199,7 +215,33 @@ class GroupViewController: UIViewController {
                 
                 print(users)
                 
-                self.users = users
+                self.groupMembers = users
+                
+                for user in self.groupMembers {
+                    
+                    self.userNames.append(user.name)
+                }
+                
+                print(self.userNames)
+                
+                for user in self.groupMembers {
+                    
+                    // 拿到 user 們的總點數
+                    self.userTotalPoints.append(user.points)
+                }
+                
+                print(self.userTotalPoints)
+                
+                for user in self.groupMembers {
+                    
+                    // 拿到user們的每週時數
+                    self.userWeekHours.append(user.weekHours)
+                }
+                        
+                for user in self.groupMembers {
+                    
+                    self.userTotalHours.append(user.totalHours)
+                }
                 
                 self.collectionView.reloadData()
                 
@@ -210,6 +252,45 @@ class GroupViewController: UIViewController {
         }
     }
     
+    func setUpBarChartData(names: [String], data: [Int]) {
+        
+        for index in 0..<userTotalPoints.count {
+            let value = BarChartDataEntry(x: Double(index), y: Double(data[index]))
+            barChartData.append(value)
+        }
+        
+        setUpBarChartView(names: names)
+    }
+    
+    func setUpBarChartView(names: [String]) {
+        
+        let dataSet = BarChartDataSet(entries: barChartData)
+        dataSet.colors = ChartColorTemplates.joyful()
+        dataSet.drawValuesEnabled = false
+        
+        let data = BarChartData(dataSets: [dataSet])
+        data.barWidth = 0.5
+        barChartView.data = data
+        barChartView.xAxis.drawGridLinesEnabled = false
+        barChartView.xAxis.labelPosition = .bottom
+        barChartView.xAxis.axisMaximum = Double(names.count)
+        barChartView.xAxis.axisMinimum = -1
+        barChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: names)
+
+        let topAxis = barChartView.leftAxis
+        topAxis.drawGridLinesEnabled = false
+        topAxis.drawLabelsEnabled = false
+        topAxis.drawAxisLineEnabled = false
+        topAxis.axisMinimum = 0.1
+        
+        barChartView.rightAxis.drawGridLinesEnabled = false
+        barChartView.rightAxis.granularityEnabled = true
+        barChartView.rightAxis.granularity = 10
+//        barChartView.maxVisibleCount = 60
+        barChartView.notifyDataSetChanged()
+        barChartView.animate(yAxisDuration: 2)
+        barChartView.xAxis.labelFont = UIFont.systemFont(ofSize: 12)
+    }
 }
 
 extension GroupViewController: UICollectionViewDelegate {
@@ -220,7 +301,7 @@ extension GroupViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return users.count + 1
+        return groupMembers.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -228,7 +309,7 @@ extension GroupViewController: UICollectionViewDataSource {
         
         let index = indexPath.row
         
-        if index == users.count {
+        if index == groupMembers.count {
             
             let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: String(describing: AddMemberCell.self),
@@ -247,11 +328,10 @@ extension GroupViewController: UICollectionViewDataSource {
         
         guard let memberCell = cell as? MemberCollectionViewCell else { return cell }
         
-        memberCell.layoutCell(user: users[index])
+        memberCell.layoutCell(user: groupMembers[index])
         
         return memberCell
     }
-    
 }
 
 extension GroupViewController: UICollectionViewDelegateFlowLayout {
@@ -269,7 +349,6 @@ extension GroupViewController: UICollectionViewDelegateFlowLayout {
         
         return 10
     }
-    
 }
 
 extension GroupViewController: AddMemberCellDelegate {
@@ -278,9 +357,8 @@ extension GroupViewController: AddMemberCellDelegate {
         
         performSegue(withIdentifier: Segue.addMember, sender: nil)
     }
-    
 }
 
-//extension GroupViewController: ChartViewDelegate {
-//  
-//}
+extension GroupViewController: ChartViewDelegate {
+  
+}

@@ -204,7 +204,6 @@ extension AddChoresViewController: UICollectionViewDelegate {
         
         collectionView.reloadData()
     }
-    
 }
 
 extension AddChoresViewController: UICollectionViewDataSource {
@@ -237,10 +236,8 @@ extension AddChoresViewController: UICollectionViewDataSource {
             
             tagCell.initialCell()
         }
-        
         return tagCell
     }
-    
 }
 
 extension AddChoresViewController: UICollectionViewDelegateFlowLayout {
@@ -258,7 +255,6 @@ extension AddChoresViewController: UICollectionViewDelegateFlowLayout {
         
         return CGSize(width: 80, height: 90)
     }
-    
 }
 
 extension AddChoresViewController: UITextFieldDelegate {
@@ -274,5 +270,4 @@ extension AddChoresViewController: UITextFieldDelegate {
         
         pointResultTextField.text = timeTextField.text
     }
-    
 }
