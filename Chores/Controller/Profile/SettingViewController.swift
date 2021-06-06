@@ -57,13 +57,16 @@ class SettingViewController: UIViewController {
     
     @IBAction func changeName(_ sender: Any) {
         
+        popView.isHidden = true
+
+        blackView.removeFromSuperview()
+            
+        performSegue(withIdentifier: Segue.changeName, sender: nil)
     }
-    
-    
+
     @IBAction func changePicture(_ sender: Any) {
         
     }
-    
 
     @IBAction func leaveGroup(_ sender: Any) {
         

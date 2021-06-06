@@ -48,13 +48,21 @@ class GroupViewController: UIViewController {
     
 //    @IBOutlet weak var barChartView: UIView!
     
-    @IBOutlet weak var barChartView: HorizontalBarChartView! {
+    @IBOutlet weak var chartView: HorizontalBarChartView! {
         
         didSet {
             
-            barChartView.delegate = self
+            chartView.delegate = self
         }
     }
+
+//    @IBOutlet weak var hoursChartView: HorizontalBarChartView! {
+//
+//        didSet {
+//
+//            hoursChartView.delegate = self
+//        }
+//    }
     
     @IBOutlet weak var collectionView: UICollectionView! {
         
@@ -72,6 +80,8 @@ class GroupViewController: UIViewController {
     //
     //  }
         
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
     var groupMembers: [User] = []
     
     var userNames: [String] = []
@@ -88,7 +98,7 @@ class GroupViewController: UIViewController {
     
     var userTotalHours: [Int] = []
     
-    var barChartData: [ChartDataEntry] = []
+    var chartData: [ChartDataEntry] = []
 
     override func viewDidLoad() {
         
@@ -97,6 +107,9 @@ class GroupViewController: UIViewController {
         fetchGroupMember()
         
         updateContainerView(type: .week)
+        
+        confirmWeekday()
+
     }
     
     override func viewDidLayoutSubviews() {
@@ -146,6 +159,75 @@ class GroupViewController: UIViewController {
         updateContainerView(type: type)
     }
     
+    @IBAction func clickSegmentedControl(_ sender: Any) {
+        
+        if segmentedControl.selectedSegmentIndex == 0 {
+            
+            print("時數")
+        } else {
+            
+            print("點數")
+        }
+        
+    }
+    
+    func confirmWeekday() {
+        
+        let number = 7
+        
+        let date = Date()
+        
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateFormat = "yyyy-MM-dd EEEE HH:mm:ss"
+        
+        let currentDateString = dateFormatter.string(from: date)
+        
+        print("Current date is \(currentDateString)")
+        
+        if let date = dateFormatter.date(from: currentDateString) {
+            
+            print(date)
+            
+            let numberOfDays = Calendar.current.dateComponents([.day], from: date, to: Date()).day ?? 0
+            
+            print(numberOfDays)
+            
+            if numberOfDays <= number {
+                
+             print("DateVar with in number of days")
+            }
+            
+            let test = Calendar.current
+            
+            print(test)
+            
+            let dateComponents = DateComponents(calendar: Calendar.current)
+            
+            print(dateComponents)
+            
+            switch number {
+            case 0:
+                print(date)
+            case 1:
+                print(numberOfDays)
+            case 2:
+                print(numberOfDays)
+            case 3:
+                print(numberOfDays)
+            case 4:
+                print(numberOfDays)
+            case 5:
+                print(numberOfDays)
+            case 6:
+                print(numberOfDays)
+            default:
+                return
+            }
+        }
+        
+    }
+
     private func setUpCollectionView() {
         
         collectionView.registerCellWithNib(
@@ -177,7 +259,7 @@ class GroupViewController: UIViewController {
         
         case .week:
             
-             setUpBarChartData(names: userNames, data: userWeekHours)
+             setUpPointsChartData(names: userNames, data: userWeekHours)
             
 //            setUpTotalPointsChartView()
             
@@ -188,7 +270,7 @@ class GroupViewController: UIViewController {
         
         case .month:
             
-            setUpBarChartData(names: userNames, data: userTotalPoints)
+            setUpPointsChartData(names: userNames, data: userTotalPoints)
 
 //            containerView.backgroundColor = .beigeEBDDCE
             
@@ -196,7 +278,7 @@ class GroupViewController: UIViewController {
         
         case .total:
             
-            setUpBarChartData(names: userNames, data: userTotalPoints)
+            setUpPointsChartData(names: userNames, data: userTotalPoints)
 
 //                  setUpTotalPointsChartView()
 //            containerView.backgroundColor = .orangeE89E21
@@ -252,44 +334,44 @@ class GroupViewController: UIViewController {
         }
     }
     
-    func setUpBarChartData(names: [String], data: [Int]) {
+    func setUpPointsChartData(names: [String], data: [Int]) {
         
         for index in 0..<userTotalPoints.count {
             let value = BarChartDataEntry(x: Double(index), y: Double(data[index]))
-            barChartData.append(value)
+            chartData.append(value)
         }
         
-        setUpBarChartView(names: names)
+        setUpPointsChartView(names: names)
     }
     
-    func setUpBarChartView(names: [String]) {
+    func setUpPointsChartView(names: [String]) {
         
-        let dataSet = BarChartDataSet(entries: barChartData)
+        let dataSet = BarChartDataSet(entries: chartData)
         dataSet.colors = ChartColorTemplates.joyful()
         dataSet.drawValuesEnabled = false
         
         let data = BarChartData(dataSets: [dataSet])
         data.barWidth = 0.5
-        barChartView.data = data
-        barChartView.xAxis.drawGridLinesEnabled = false
-        barChartView.xAxis.labelPosition = .bottom
-        barChartView.xAxis.axisMaximum = Double(names.count)
-        barChartView.xAxis.axisMinimum = -1
-        barChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: names)
+        chartView.data = data
+        chartView.xAxis.drawGridLinesEnabled = false
+        chartView.xAxis.labelPosition = .bottom
+        chartView.xAxis.axisMaximum = Double(names.count)
+        chartView.xAxis.axisMinimum = -1
+        chartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: names)
 
-        let topAxis = barChartView.leftAxis
+        let topAxis = chartView.leftAxis
         topAxis.drawGridLinesEnabled = false
         topAxis.drawLabelsEnabled = false
         topAxis.drawAxisLineEnabled = false
         topAxis.axisMinimum = 0.1
         
-        barChartView.rightAxis.drawGridLinesEnabled = false
-        barChartView.rightAxis.granularityEnabled = true
-        barChartView.rightAxis.granularity = 10
+        chartView.rightAxis.drawGridLinesEnabled = false
+        chartView.rightAxis.granularityEnabled = true
+        chartView.rightAxis.granularity = 10
 //        barChartView.maxVisibleCount = 60
-        barChartView.notifyDataSetChanged()
-        barChartView.animate(yAxisDuration: 2)
-        barChartView.xAxis.labelFont = UIFont.systemFont(ofSize: 12)
+        chartView.notifyDataSetChanged()
+        chartView.animate(yAxisDuration: 2)
+        chartView.xAxis.labelFont = UIFont.systemFont(ofSize: 12)
     }
 }
 

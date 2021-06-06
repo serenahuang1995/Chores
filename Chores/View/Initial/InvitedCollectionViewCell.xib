@@ -19,7 +19,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fVQ-Rf-4bO" customClass="CardView" customModule="Chores" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="300" height="400"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UlY-Xt-oSt">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UlY-Xt-oSt" customClass="CardView" customModule="Chores" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="280" width="300" height="120"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step1：請成員輸入ID或是掃QRCode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdT-Rx-Jdo">

@@ -23,7 +23,7 @@ struct ChoreType {
     
     static var transfer = "transfer"
     
-//    static var completedDate = "completedDate"
+    static var completedDate = "completedDate"
 }
 
 struct GroupType {
@@ -102,12 +102,14 @@ class FirebaseProvider {
     func updateStatus(selectedChore: Chore,
                       completion: @escaping (Result<Chore, Error>) -> Void) {
         
+        let addDataTime = Timestamp.init(date: NSDate() as Date)
+
         let docRefernce = database.collection(groups)
             .document(currentUser.groupId ?? "")
             .collection(chores)
             .document(selectedChore.id)
         
-        docRefernce.updateData([ChoreType.status: 1])
+        docRefernce.updateData([ChoreType.status: 1, ChoreType.completedDate: addDataTime])
         
         completion(.success(selectedChore))
     }
@@ -411,6 +413,36 @@ class FirebaseProvider {
                 completion(.success(self.success))
             }
         }
+    }
+    
+    func fetchDate(completion: @escaping (Result<String, Error>) -> Void) {
+        
+        let date = Date()
+        
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateFormat = "yyyy-MM-dd EE HH:mm:ss"
+        
+        let currentDateString = dateFormatter.string(from: date)
+        
+        print(currentDateString)
+        
+        let test = Calendar.current
+        
+        print(test)
+        
+        let startDate = DateFormatter()
+        
+        let endDate = DateFormatter()
+        
+        let docReference = database
+            .collection(groups).document(currentUser.groupId ?? "")
+            .collection(chores)
+        
+//        docReference
+//            .whereField(ChoreType.completedDate, isGreaterThan: <#T##Any#>)
+//            .whereField(ChoreType.completedDate, isLessThan: <#T##Any#>)
+        
     }
 
 }

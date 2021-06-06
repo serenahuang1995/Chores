@@ -27,6 +27,8 @@ struct UserType {
     static let points = "points"
     
     static let groupId = "groupId"
+    
+    static let name = "name"
 }
 
 class UserProvider {
@@ -397,6 +399,23 @@ class UserProvider {
 //        }
 //
 //        return foundUser?.name
+    }
+    
+    func changeUserName(name: String, completion: @escaping (Result<String, Error>) -> Void) {
+        
+        let docReference = database.collection(users).document(uid)
+        
+        docReference.updateData([UserType.name: name]) { error in
+            
+            if let error = error {
+                
+                completion(.failure(error))
+                
+            } else {
+                
+                completion(.success(FirebaseProvider.shared.success))
+            }
+        }
     }
   
 }

@@ -25,7 +25,7 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wayne" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6V3-Jl-KGE">
                         <rect key="frame" x="10" y="67" width="50" height="18"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -37,9 +37,7 @@
                 <constraint firstAttribute="bottom" secondItem="6V3-Jl-KGE" secondAttribute="bottom" constant="5" id="2d0-GO-E93"/>
                 <constraint firstItem="mnP-xC-pJk" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="5c9-LZ-Kb1"/>
                 <constraint firstItem="mnP-xC-pJk" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="QfY-2J-sob"/>
-                <constraint firstAttribute="trailing" secondItem="6V3-Jl-KGE" secondAttribute="trailing" constant="10" id="d8e-es-seH"/>
-                <constraint firstItem="6V3-Jl-KGE" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="gtt-JE-HyK"/>
-                <constraint firstItem="6V3-Jl-KGE" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="sYj-kR-rH9"/>
+                <constraint firstItem="6V3-Jl-KGE" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="uzR-gX-nq2"/>
             </constraints>
             <connections>
                 <outlet property="memberImage" destination="mnP-xC-pJk" id="K3x-Kb-SUd"/>

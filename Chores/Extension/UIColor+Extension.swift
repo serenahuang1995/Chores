@@ -33,5 +33,15 @@ extension UIColor {
         
         return UIColor(red: 37 / 255, green: 37 / 255, blue: 37 / 255, alpha: 1)
     }
+    
+    class var darkBlue14213D: UIColor {
+        
+        return UIColor(red: 20 / 255, green: 33 / 255, blue: 61 / 255, alpha: 1)
+    }
+    
+    class var orangeFCA311: UIColor {
+        
+        return UIColor(red: 252 / 255, green: 163 / 255, blue: 17 / 255, alpha: 1)
+    }
 
 }

@@ -35,4 +35,6 @@ struct Segue {
     
     static let popover = "SeguePopover"
     
+    static let changeName = "SegueChangeName"
+    
 }

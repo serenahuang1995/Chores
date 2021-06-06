@@ -553,16 +553,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jT6-2g-6UV" customClass="CardView" customModule="Chores" customModuleProvider="target">
-                                <rect key="frame" x="32" y="313" width="350" height="270"/>
+                                <rect key="frame" x="16" y="313" width="382" height="270"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="積分規則" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ns3-8I-O6a">
-                                        <rect key="frame" x="140.5" y="18.5" width="69.5" height="20.5"/>
+                                        <rect key="frame" x="156.5" y="18.5" width="69.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="CFf-B9-CNk">
-                                        <rect key="frame" x="19" y="234" width="312" height="20"/>
+                                        <rect key="frame" x="35" y="234" width="312" height="20"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon32px_Reminder" translatesAutoresizingMaskIntoConstraints="NO" id="zMg-zv-6tZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -580,73 +580,73 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="    1 - 50 分鐘" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9cs-Ok-7u9">
-                                        <rect key="frame" x="25.5" y="66" width="100.5" height="20.5"/>
+                                        <rect key="frame" x="42.5" y="66" width="100.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  51 - 100 分鐘" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n7b-yi-IVw">
-                                        <rect key="frame" x="16" y="101.5" width="110" height="20.5"/>
+                                        <rect key="frame" x="33" y="101.5" width="110" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="101 - 150 分鐘" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7L4-uB-3SV">
-                                        <rect key="frame" x="17.5" y="137" width="108.5" height="20.5"/>
+                                        <rect key="frame" x="34.5" y="137" width="108.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="超過 151 分鐘" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aVN-1T-mY2">
-                                        <rect key="frame" x="23" y="172.5" width="103" height="20.5"/>
+                                        <rect key="frame" x="40" y="172.5" width="103" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="所得積分 x 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rPz-JK-kKz">
-                                        <rect key="frame" x="222" y="66" width="94" height="20.5"/>
+                                        <rect key="frame" x="239" y="66" width="109" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="所得積分 x 1.5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w5S-wy-6iF">
-                                        <rect key="frame" x="222" y="137" width="108" height="20.5"/>
+                                        <rect key="frame" x="239" y="137" width="108" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="所得積分 x 1.2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hTo-v9-R21">
-                                        <rect key="frame" x="222" y="101.5" width="108" height="20.5"/>
+                                        <rect key="frame" x="239" y="101.5" width="123" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="------&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7h-kN-H3y">
-                                        <rect key="frame" x="146" y="66" width="56" height="20.5"/>
+                                        <rect key="frame" x="163" y="66" width="56" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="------&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jfu-7D-kAT">
-                                        <rect key="frame" x="146" y="137" width="56" height="20.5"/>
+                                        <rect key="frame" x="163" y="137" width="56" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="------&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y8x-jR-kJn">
-                                        <rect key="frame" x="146" y="172.5" width="56" height="20.5"/>
+                                        <rect key="frame" x="163" y="172.5" width="56" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="所得積分 x 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSB-G7-eg2">
-                                        <rect key="frame" x="222" y="172.5" width="96.5" height="20.5"/>
+                                        <rect key="frame" x="239" y="172.5" width="96.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FRX-Dx-jmv">
-                                        <rect key="frame" x="309" y="16" width="25" height="25"/>
+                                        <rect key="frame" x="341" y="16" width="25" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="Qm8-MB-HZL"/>
                                             <constraint firstAttribute="width" constant="25" id="dQ8-NR-nLs"/>
@@ -660,6 +660,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="hTo-v9-R21" firstAttribute="centerY" secondItem="n7b-yi-IVw" secondAttribute="centerY" id="0YI-XZ-f4R"/>
+                                    <constraint firstItem="x7h-kN-H3y" firstAttribute="centerX" secondItem="jT6-2g-6UV" secondAttribute="centerX" id="2Oh-so-Vgt"/>
                                     <constraint firstAttribute="trailing" secondItem="FRX-Dx-jmv" secondAttribute="trailing" constant="16" id="5r8-MH-oct"/>
                                     <constraint firstItem="ns3-8I-O6a" firstAttribute="centerX" secondItem="jT6-2g-6UV" secondAttribute="centerX" id="7ai-T2-3Or"/>
                                     <constraint firstAttribute="trailing" secondItem="hTo-v9-R21" secondAttribute="trailing" constant="20" id="ChG-ea-oCh"/>
@@ -675,9 +676,11 @@
                                     <constraint firstItem="ns3-8I-O6a" firstAttribute="centerY" secondItem="FRX-Dx-jmv" secondAttribute="centerY" id="Qsf-VA-SnL"/>
                                     <constraint firstItem="y8x-jR-kJn" firstAttribute="centerY" secondItem="aVN-1T-mY2" secondAttribute="centerY" id="Uzq-Wa-vzr"/>
                                     <constraint firstItem="7L4-uB-3SV" firstAttribute="top" secondItem="n7b-yi-IVw" secondAttribute="bottom" constant="15" id="VfW-oU-p4G"/>
+                                    <constraint firstItem="Jfu-7D-kAT" firstAttribute="centerX" secondItem="jT6-2g-6UV" secondAttribute="centerX" id="bVV-Lm-xjU"/>
                                     <constraint firstItem="x7h-kN-H3y" firstAttribute="leading" secondItem="9cs-Ok-7u9" secondAttribute="trailing" constant="20" id="dZF-PI-Z8q"/>
                                     <constraint firstItem="rPz-JK-kKz" firstAttribute="leading" secondItem="x7h-kN-H3y" secondAttribute="trailing" constant="20" id="da7-3u-WZ2"/>
                                     <constraint firstItem="rPz-JK-kKz" firstAttribute="top" secondItem="FRX-Dx-jmv" secondAttribute="bottom" constant="25" id="dr1-Hd-63c"/>
+                                    <constraint firstItem="y8x-jR-kJn" firstAttribute="centerX" secondItem="jT6-2g-6UV" secondAttribute="centerX" id="eNx-M5-8eM"/>
                                     <constraint firstAttribute="trailing" secondItem="rPz-JK-kKz" secondAttribute="trailing" constant="34" id="ePA-If-EHk"/>
                                     <constraint firstItem="w5S-wy-6iF" firstAttribute="centerY" secondItem="7L4-uB-3SV" secondAttribute="centerY" id="gvk-hq-Ak0"/>
                                     <constraint firstItem="CFf-B9-CNk" firstAttribute="centerX" secondItem="jT6-2g-6UV" secondAttribute="centerX" id="i10-Rj-GlG"/>
@@ -691,7 +694,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="------&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UpV-bz-uAy">
-                                <rect key="frame" x="178" y="414.5" width="56" height="20.5"/>
+                                <rect key="frame" x="179" y="414.5" width="56" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -701,11 +704,12 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="jT6-2g-6UV" firstAttribute="centerX" secondItem="MIw-LH-nLU" secondAttribute="centerX" id="1ew-VW-2jq"/>
-                            <constraint firstItem="CQa-Fm-xKH" firstAttribute="trailing" secondItem="jT6-2g-6UV" secondAttribute="trailing" constant="32" id="CBU-Nj-2Qq"/>
-                            <constraint firstItem="jT6-2g-6UV" firstAttribute="leading" secondItem="CQa-Fm-xKH" secondAttribute="leading" constant="32" id="HLK-Uz-W7r"/>
+                            <constraint firstItem="CQa-Fm-xKH" firstAttribute="trailing" secondItem="jT6-2g-6UV" secondAttribute="trailing" constant="16" id="CBU-Nj-2Qq"/>
+                            <constraint firstItem="jT6-2g-6UV" firstAttribute="leading" secondItem="CQa-Fm-xKH" secondAttribute="leading" constant="16" id="HLK-Uz-W7r"/>
                             <constraint firstItem="UpV-bz-uAy" firstAttribute="trailing" secondItem="x7h-kN-H3y" secondAttribute="trailing" id="SS5-jy-VFA"/>
                             <constraint firstItem="UpV-bz-uAy" firstAttribute="centerY" secondItem="n7b-yi-IVw" secondAttribute="centerY" id="m1d-Zf-vrn"/>
                             <constraint firstItem="Jfu-7D-kAT" firstAttribute="trailing" secondItem="UpV-bz-uAy" secondAttribute="trailing" id="sEk-3A-cHz"/>
+                            <constraint firstItem="UpV-bz-uAy" firstAttribute="centerX" secondItem="MIw-LH-nLU" secondAttribute="centerX" id="yOT-6X-fhZ"/>
                             <constraint firstItem="jT6-2g-6UV" firstAttribute="centerY" secondItem="MIw-LH-nLU" secondAttribute="centerY" id="yjM-nj-Vqv"/>
                         </constraints>
                     </view>
@@ -725,6 +729,15 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="P8N-Oy-yJb" customClass="Na">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.078431372550000003" green="0.12941176469999999" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

@@ -131,10 +131,14 @@
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="j8D-xt-8iy">
                                 <rect key="frame" x="307" y="323.5" width="91" height="32"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <segments>
                                     <segment title="時數"/>
                                     <segment title="點數"/>
                                 </segments>
+                                <connections>
+                                    <action selector="clickSegmentedControl:" destination="RvQ-Xh-3Zo" eventType="valueChanged" id="MwZ-ys-0Kf"/>
+                                </connections>
                             </segmentedControl>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OPq-SF-hV9" customClass="HorizontalBarChartView" customModule="Charts">
                                 <rect key="frame" x="0.0" y="359.5" width="414" height="453.5"/>
@@ -162,9 +166,10 @@
                     <navigationItem key="navigationItem" title="我的小屋" id="qOY-ef-qeb"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="barChartView" destination="OPq-SF-hV9" id="ogI-uo-Yvg"/>
+                        <outlet property="chartView" destination="OPq-SF-hV9" id="ogI-uo-Yvg"/>
                         <outlet property="collectionView" destination="4xz-AK-oue" id="N88-wS-k5l"/>
                         <outlet property="indicatorView" destination="0Ya-xV-Avm" id="0ec-bJ-BDU"/>
+                        <outlet property="segmentedControl" destination="j8D-xt-8iy" id="rgY-yC-Lvh"/>
                         <outletCollection property="switchButtons" destination="ejt-Lj-Cgs" collectionClass="NSMutableArray" id="esK-Kd-eYA"/>
                         <outletCollection property="switchButtons" destination="sdK-8L-5oY" collectionClass="NSMutableArray" id="nI5-ha-TFp"/>
                         <outletCollection property="switchButtons" destination="Gmj-in-MRO" collectionClass="NSMutableArray" id="Lyy-u6-ETb"/>
@@ -183,6 +188,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9F4-Wp-ks1">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.078431372550000003" green="0.12941176469999999" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
