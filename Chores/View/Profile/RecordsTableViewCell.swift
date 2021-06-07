@@ -14,8 +14,7 @@ class RecordsTableViewCell: UITableViewCell {
     @IBOutlet weak var choreImage: UIImageView!
     
     @IBOutlet weak var choreItem: UILabel!
-    
-    
+
     @IBOutlet weak var countLabel: UILabel!
     
     override func awakeFromNib() {

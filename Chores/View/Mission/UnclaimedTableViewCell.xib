@@ -62,6 +62,14 @@
                             <constraint firstItem="ugN-H3-f94" firstAttribute="leading" secondItem="eQi-UT-o98" secondAttribute="leading" constant="20" id="sAe-eg-vOU"/>
                             <constraint firstItem="V6S-0Q-EQH" firstAttribute="leading" secondItem="K3N-vo-vDc" secondAttribute="trailing" constant="16" id="zYv-oK-bJm"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" red="0.14509803921568626" green="0.14509803921568626" blue="0.14509803921568626" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <constraints>

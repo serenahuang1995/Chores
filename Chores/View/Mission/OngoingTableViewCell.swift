@@ -9,7 +9,7 @@ import UIKit
 
 class OngoingTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var ongoingCell: CardView!
+    @IBOutlet weak var cellView: CardView!
     
     @IBOutlet weak var choreImage: UIImageView!
     
@@ -28,7 +28,7 @@ class OngoingTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        ongoingCell.backgroundColor = .beigeFFF1E6
+        cellView.backgroundColor = .beigeFFF1E6
         
         changeOwnerButton.isHidden = true
         
@@ -40,6 +40,11 @@ class OngoingTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
+    }
+    
+    override func prepareForReuse() {
+        
+        changeOwnerButton.isHidden = true
     }
     
     @IBAction func clickToFinishChore(_ sender: Any) {
@@ -62,7 +67,11 @@ class OngoingTableViewCell: UITableViewCell {
         
         selectionStyle = .none
         
-        ongoingCell.backgroundColor = .beigeFFF1E6
+        cellView.backgroundColor = .beigeFFF1E6
+        
+        cellView.layer.borderWidth = 2
+        
+        cellView.layer.borderColor = UIColor.black252525.cgColor
     }
     
     func layoutCell(chore: Chore) {
@@ -96,5 +105,4 @@ class OngoingTableViewCell: UITableViewCell {
             choreImage.image = UIImage.asset(.CustomChore)
         }
     }
-    
 }

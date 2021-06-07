@@ -46,6 +46,10 @@ class UnclaimedTableViewCell: UITableViewCell {
         selectionStyle = .none
         
         cellView.backgroundColor = .beigeFFF1E6
+        
+        cellView.layer.borderWidth = 2
+        
+        cellView.layer.borderColor = UIColor.black252525.cgColor
     }
     
     func layoutCell(chore: Chore) {
@@ -63,27 +67,4 @@ class UnclaimedTableViewCell: UITableViewCell {
             choreImage.image = UIImage.asset(.CustomChore)
         }
     }
-    
 }
-
-// extension CardView {
-//
-//  func addDashdeBorderLayer (byView view: UIView, color: UIColor, lineWidth width: CGFloat) {
-//  let shapeLayer = CAShapeLayer()
-//  let size = view.frame.size
-//
-//  let shapeRect = CGRect(x: 0, y: 0, width: size.width - 18, height: size.height)
-//  shapeLayer.bounds = shapeRect
-//  shapeLayer.position = CGPoint(x: view.bounds.midX - 9, y: view.bounds.midY + 3)
-//  shapeLayer.fillColor = UIColor.clear.cgColor
-//  shapeLayer.strokeColor = color.cgColor
-//  shapeLayer.lineWidth = width
-//  shapeLayer.lineJoin = CAShapeLayerLineJoin.round
-//
-//  shapeLayer.lineDashPattern = [3, 4]
-//  let path = UIBezierPath(roundedRect: shapeRect, cornerRadius: 5)
-//  shapeLayer.path = path.cgPath
-//  view.layer.addSublayer(shapeLayer)
-//
-//  }
-// }

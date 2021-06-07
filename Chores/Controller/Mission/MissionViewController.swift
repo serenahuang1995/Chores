@@ -412,7 +412,7 @@ extension MissionViewController: UITableViewDataSource {
             
             unclaimedCell.delegate = self
             
-            unclaimedCell.setUpCellStyle()
+//            unclaimedCell.setUpCellStyle()
             
             unclaimedCell.layoutCell(chore: unclaimedChores[index])
             
@@ -428,7 +428,7 @@ extension MissionViewController: UITableViewDataSource {
             
             ongoingCell.delegate = self
             
-            ongoingCell.setUpCellStyle()
+//            ongoingCell.setUpCellStyle()
             
             ongoingCell.layoutCell(chore: ongoingChores[index])
             

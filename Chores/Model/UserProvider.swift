@@ -59,15 +59,22 @@ class UserProvider {
     
     // FirebaseUid
     var uid =
-        "ARNaS8WOtYviuzarS5nb" // 被邀請
+//        "ARNaS8WOtYviuzarS5nb" // Ainee被邀請
 //        "XC6b6Ys1VY1qLcBJ5M8z"  // Serena mock data
-//    "N8VeGRV8Ev9CHvGPp7Bd"
+//    "N8VeGRV8Ev9CHvGPp7Bd" // Max
+//    "29cTFrYztvTPK8IHoA1m" // 沛沛
+//    "DOy8GQ6CRh5qeHnodC2y"  // 派派
+//    "E7YYDXzzUAFus39YhKoR" // James
+    "QlO66m51RGdoSMJv95FT" // Wayne
+    
+    
+    
+    
+    
+    
     
 //        UserDefaults.standard.string(forKey: "FirebaseUid")
-    
-//    let userId = UserDefaults.standard.string(forKey: "FirebaseUid")
-    
-    
+
     func addNewUser(user: User, completion: @escaping (Result<String, Error>) -> Void) {
         
         let docReference = database.collection(users).document(user.id)
