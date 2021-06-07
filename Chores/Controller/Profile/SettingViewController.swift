@@ -55,6 +55,14 @@ class SettingViewController: UIViewController {
         }
     }
     
+    // 或是按下更改暱稱會 delegate 回去 profile page 再去更改暱稱頁面 這樣就可以直接 dismiss 回 profile
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let destination = segue.destination as? ChangeNameViewController else { return }
+        
+        destination.delegate = self
+    }
+    
     @IBAction func changeName(_ sender: Any) {
         
         popView.isHidden = true
@@ -71,8 +79,6 @@ class SettingViewController: UIViewController {
     @IBAction func leaveGroup(_ sender: Any) {
         
         leaveGroup()
-        
-        performSegue(withIdentifier: Segue.initial, sender: nil)
     }
     
     private func showBlackView() {
@@ -108,7 +114,7 @@ class SettingViewController: UIViewController {
     
     func leaveGroup() {
         
-        UserProvider.shared.leaveGroup { result in
+        UserProvider.shared.leaveGroup { [weak self] result in
             
             switch result {
             
@@ -116,11 +122,22 @@ class SettingViewController: UIViewController {
                 
                 print(message)
                 
+                self?.performSegue(withIdentifier: Segue.initial, sender: nil)
+
             case .failure(let error):
                 
                 print(error)
             }
         }
     }
+}
+
+extension SettingViewController: ProfileDelegate {
     
+    func backToProfile() {
+        
+        dismiss(animated: true, completion: nil)
+        
+        blackView.removeFromSuperview()
+    }
 }

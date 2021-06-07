@@ -414,8 +414,8 @@ class FirebaseProvider {
             }
         }
     }
-    
-    func fetchDate(completion: @escaping (Result<String, Error>) -> Void) {
+
+    func fetchWeekData(completion: @escaping (Result<String, Error>) -> Void) {
         
         let date = Date()
         
@@ -444,5 +444,82 @@ class FirebaseProvider {
 //            .whereField(ChoreType.completedDate, isLessThan: <#T##Any#>)
         
     }
+    
+    func test() {
+        
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy年MM月dd日 HH:mm:ss"
+         
+        // 当月第一天日期
+        let startDate = date.startOfCurrentMonth()
+        print("本月开始时间：", dateFormatter.string(from: startDate as Date))
+         
+        // 当月最后一天日期2
+        let endDate2 = date.endOfCurrentMonth(returnDetailTime: true)
+        print("本月结束时间2：", dateFormatter.string(from: endDate2))
+        
+    }
+    
+    func test1() {
+        
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy年MM月dd日 HH:mm:ss"
+         
+        // 当月第一天日期
+        let startDate = dateFormatter.string(from: date.startOfCurrentMonth())
+//        print("本月开始时间：", dateFormatter.string(from: startDate as Date))
+        print(startDate)
+         
+        // 当月最后一天日期2
+        let endDate2 = dateFormatter.string(from: date.endOfCurrentMonth(returnDetailTime: true))
+        print(endDate2)
+//        print("本月结束时间2：", dateFormatter.string(from: endDate2))
+        
+    }
+    
+    func fetchMonthData(completion: @escaping (Result<String, Error>) -> Void) {
+        
+        let date = Date()
+        
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateFormat = "yyyy年MM月dd日 HH:mm:ss"
+        
+        // 當月第一天 00:00:00
+        let startDate = date.startOfCurrentMonth()
+         
+        // 當月最後一天 23:59:59
+        let endDate2 = date.endOfCurrentMonth(returnDetailTime: true)
+
+//        let currentYear = Calendar.current.component(.year, from: Date())
+//
+//        let currentMonth = Calendar.current.component(.month, from: Date())
+//
+//        let currentWeek = Calendar.current.component(.weekday, from: Date())
+//
+//        let dateComponents = DateComponents(year: currentYear ,
+//                                                    month: currentMonth)
+//        let date = Calendar.current.date(from: dateComponents)!
+        
+//        let startDate = DateFormatter()
+//
+//        let endDate = DateFormatter()
+        
+        let docReference = database
+            .collection(groups).document(currentUser.groupId ?? "")
+            .collection(chores)
+        
+        docReference
+            .whereField(ChoreType.completedDate, isGreaterThan: startDate)
+            .whereField(ChoreType.completedDate, isLessThan: endDate2)
+        
+    }
+    
+    
+    
+    
+ 
 
 }

@@ -15,6 +15,8 @@ struct Segue {
     
     static let main = "SegueMainPage"
     
+    static let profile = "SegueProfile"
+    
     static let transfer = "SegueTransfer"
     
     static let dialog = "SegueTransferDialog"
@@ -33,7 +35,7 @@ struct Segue {
     
     static let data = "SegueData"
     
-    static let popover = "SeguePopover"
+    static let setting = "SegueSegueSetting"
     
     static let changeName = "SegueChangeName"
     

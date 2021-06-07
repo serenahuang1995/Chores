@@ -1,13 +1,85 @@
 //
-//  Data + Extension.swift
+//  Data+Extension.swift
 //  Chores
 //
 //  Created by 黃瀞萱 on 2021/6/6.
 //
 
-//import UIKit
-//
-//extension Date {
+import UIKit
+
+extension Date {
+    
+    func currentWeekDay() -> String {
+        
+        let date = Date()
+        
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateFormat = "EEEE"
+        
+        let weekDay = dateFormatter.string(from: date)
+        
+        return weekDay
+    }
+    
+    // 當前月份開始日期
+    func startOfCurrentMonth() -> Date {
+        
+        let date = Date()
+        
+        let calendar = Calendar.current
+        
+        let components = calendar.dateComponents(
+            Set<Calendar.Component>([.year, .month]),
+            from: date)
+        
+        let startOfMonth = calendar.date(from: components)!
+        
+        return startOfMonth
+    }
+    
+    // 當前月份結束日期
+    func endOfCurrentMonth(returnDetailTime: Bool = false) -> Date {
+        
+        let calendar = Calendar.current
+        
+        var components = DateComponents()
+        
+        components.month = 1
+        
+        if returnDetailTime {
+            
+            components.second = -1
+            
+        } else {
+            
+            components.day = -1
+        }
+         
+        let endOfMonth =  calendar.date(byAdding: components,
+                                        to: startOfCurrentMonth())!
+        
+        return endOfMonth
+    }
+    
+    // 計算當天為本週的第幾天
+    func dayInWeek() -> Int {
+        
+        let calendar = Calendar.current
+        
+        let date = Date()
+        
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateFormat = "yyyy年MM月dd日 HH時mm分ss秒 Z"
+        
+        //計算本週第n天
+        let day = calendar.ordinality(of: .day, in: .weekOfMonth, for: date)
+        print("本週第\(day!)天")
+        
+        return day ?? 0
+    }
+
 //    //MARK: - 獲取日期各種值
 //    //MARK: 年
 //    func year() ->Int {
@@ -29,11 +101,15 @@
 //        return com.day!
 //
 //    }
-//    //MARK: 星期幾
+    //MARK: 星期幾
 //    func weekDay()->Int{
 //        let interval = Int(self.timeIntervalSince1970)
+//
 //        let days = Int(interval/86400) // 24*60*60
+//        print(days)
 //        let weekday = ((days + 4)%7+7)%7
+//        print(weekday)
+//
 //        return weekday == 0 ? 7 : weekday
 //    }
 //    //MARK: 當月天數
@@ -266,4 +342,4 @@
 //            return "0" + String(number)
 //        }
 //    }
-//}
+}

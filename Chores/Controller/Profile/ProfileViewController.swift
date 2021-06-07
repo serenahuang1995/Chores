@@ -98,7 +98,7 @@ class ProfileViewController: UIViewController {
             
             _ = segue.destination as? ChoresDataViewController
             
-        case Segue.popover:
+        case Segue.setting:
             
             _ = segue.destination as? SettingViewController
         
@@ -113,7 +113,6 @@ class ProfileViewController: UIViewController {
         for btn in switchButtons {
             
             btn.isSelected = false
-            
         }
         
         sender.isSelected = true
@@ -170,21 +169,15 @@ class ProfileViewController: UIViewController {
             }
         }
     }
-    
+
     func confirmWeekday() {
         
         let date = Date()
         
-        let dateFormatter = DateFormatter()
-        
-        dateFormatter.dateFormat = "EEEE"
-        
-        let currentDateString = dateFormatter.string(from: date)
-        
-        print("Current date is \(currentDateString)")
-        
-        if currentDateString == "Monday" {
-            
+        let weekDay = date.currentWeekDay()
+
+        if weekDay == "Monday" {
+
             resetWeekHours()
         }
     }
@@ -205,5 +198,4 @@ class ProfileViewController: UIViewController {
             }
         }
     }
-    
 }

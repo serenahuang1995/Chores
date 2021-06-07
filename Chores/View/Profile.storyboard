@@ -11,7 +11,7 @@
         <!--Profile View Controller-->
         <scene sceneID="gFd-UW-ulB">
             <objects>
-                <viewController id="mpx-cI-ToZ" customClass="ProfileViewController" customModule="Chores" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="overCurrentContext" id="mpx-cI-ToZ" customClass="ProfileViewController" customModule="Chores" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fzz-XH-ATw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -26,7 +26,7 @@
                                             <constraint firstAttribute="height" constant="3" id="i22-Fc-bMY"/>
                                         </constraints>
                                     </view>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="man" translatesAutoresizingMaskIntoConstraints="NO" id="aC3-gf-Xyn">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aC3-gf-Xyn">
                                         <rect key="frame" x="30" y="110" width="100" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="FZp-yL-baa"/>
@@ -70,7 +70,7 @@
                                         </constraints>
                                         <state key="normal" image="Icon32px_Setting"/>
                                         <connections>
-                                            <segue destination="zD8-8N-Nla" kind="presentation" identifier="SeguePopover" id="afR-rc-Mql"/>
+                                            <segue destination="zD8-8N-Nla" kind="presentation" identifier="SegueSetting" id="MMe-r2-Nw0"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bcz-8E-O7j">
@@ -268,19 +268,20 @@
                             <constraint firstItem="6YR-GC-uk9" firstAttribute="leading" secondItem="9e9-fh-mKD" secondAttribute="leading" constant="32" id="zKb-wl-Y69"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="IPZ-Df-XtR"/>
                     <value key="contentSizeForViewInPopover" type="size" width="414" height="200"/>
                     <connections>
                         <outlet property="changeNameButton" destination="U1L-ec-dS3" id="cL0-HZ-sIm"/>
                         <outlet property="changePictureButton" destination="4Rc-uh-n7n" id="krz-Mi-O4c"/>
                         <outlet property="leaveGroupButton" destination="Y0r-EK-t1h" id="vq3-kB-T9V"/>
                         <outlet property="popView" destination="6YR-GC-uk9" id="Eal-tm-8D1"/>
-                        <segue destination="JEk-Bx-gUD" kind="show" identifier="SegueInitialPage" animates="NO" id="0iK-Oc-h5r"/>
-                        <segue destination="8BE-MH-3Tl" kind="custom" identifier="SegueChangeName" customClass="MIBlurPopupSegue" customModule="MIBlurPopup" id="q1e-t9-WD5"/>
+                        <segue destination="JEk-Bx-gUD" kind="show" identifier="SegueInitialPage" id="C6R-HL-ckJ"/>
+                        <segue destination="8BE-MH-3Tl" kind="custom" identifier="SegueChangeName" customClass="MIBlurPopupSegue" customModule="MIBlurPopup" id="tW2-CS-qeS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AO9-Ih-cB3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="961" y="-458"/>
+            <point key="canvasLocation" x="961" y="-487"/>
         </scene>
         <!--Change Name View Controller-->
         <scene sceneID="hRU-AE-imK">
@@ -355,7 +356,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jv0-cO-D35" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1870" y="-458"/>
+            <point key="canvasLocation" x="1909" y="-488"/>
         </scene>
         <!--Initial-->
         <scene sceneID="HpH-C7-u5O">
@@ -365,7 +366,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ded-Xb-pkg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="961" y="-82"/>
+            <point key="canvasLocation" x="1477" y="-373"/>
         </scene>
         <!--Spend Points View Controller-->
         <scene sceneID="8EY-Lm-h1b">
@@ -457,7 +458,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YeS-uK-peO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="961" y="312"/>
+            <point key="canvasLocation" x="961" y="530"/>
         </scene>
         <!--Chores Records View Controller-->
         <scene sceneID="uOQ-Te-hbg">
@@ -487,7 +488,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dz3-n1-F0g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="222" y="649"/>
+            <point key="canvasLocation" x="-564" y="922"/>
         </scene>
         <!--Chores Data View Controller-->
         <scene sceneID="Ug4-gB-xXx">
@@ -517,12 +518,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sw2-YQ-EOY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-458" y="649"/>
+            <point key="canvasLocation" x="188" y="921"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KAd-yc-cE9">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="C5C-46-10H" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="overCurrentContext" id="C5C-46-10H" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="thC-IO-WrC">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -545,7 +546,6 @@
         <image name="dollar" width="512" height="512"/>
         <image name="edit" width="24" height="24"/>
         <image name="exit" width="24" height="24"/>
-        <image name="man" width="512" height="512"/>
         <image name="remove" width="128" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

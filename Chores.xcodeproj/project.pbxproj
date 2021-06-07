@@ -26,7 +26,7 @@
 		DC8136492650090E003CC6ED /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8136482650090E003CC6ED /* UICollectionView+Extension.swift */; };
 		DC81364D2650095C003CC6ED /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81364B2650095C003CC6ED /* TagCollectionViewCell.swift */; };
 		DC81364E2650095C003CC6ED /* TagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC81364C2650095C003CC6ED /* TagCollectionViewCell.xib */; };
-		DC856DB1266CC0D9005DDED1 /* Data + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC856DB0266CC0D9005DDED1 /* Data + Extension.swift */; };
+		DC856DB1266CC0D9005DDED1 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC856DB0266CC0D9005DDED1 /* Data+Extension.swift */; };
 		DC856DD2266D2346005DDED1 /* ChangeNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC856DD1266D2345005DDED1 /* ChangeNameViewController.swift */; };
 		DC8FE0E5266299D20016927D /* Signin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC8FE0E4266299D10016927D /* Signin.storyboard */; };
 		DC8FE0E826629A1B0016927D /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8FE0E726629A1B0016927D /* SigninViewController.swift */; };
@@ -102,7 +102,7 @@
 		DC8136482650090E003CC6ED /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		DC81364B2650095C003CC6ED /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
 		DC81364C2650095C003CC6ED /* TagCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagCollectionViewCell.xib; sourceTree = "<group>"; };
-		DC856DB0266CC0D9005DDED1 /* Data + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data + Extension.swift"; sourceTree = "<group>"; };
+		DC856DB0266CC0D9005DDED1 /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
 		DC856DD1266D2345005DDED1 /* ChangeNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeNameViewController.swift; sourceTree = "<group>"; };
 		DC8FE0E4266299D10016927D /* Signin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Signin.storyboard; sourceTree = "<group>"; };
 		DC8FE0E726629A1B0016927D /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
@@ -378,7 +378,7 @@
 				DCEEAA4F264BDC8B00A64D37 /* UIImage+Extension.swift */,
 				DCB98A0D264CDF7200A8C794 /* UITableView+Extension.swift */,
 				DC8136482650090E003CC6ED /* UICollectionView+Extension.swift */,
-				DC856DB0266CC0D9005DDED1 /* Data + Extension.swift */,
+				DC856DB0266CC0D9005DDED1 /* Data+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -643,7 +643,7 @@
 				DCBB101E2653A36600A8C1E4 /* RuleViewController.swift in Sources */,
 				DC856DD2266D2346005DDED1 /* ChangeNameViewController.swift in Sources */,
 				DC913CEB264C1F9100C18251 /* UIColor+Extension.swift in Sources */,
-				DC856DB1266CC0D9005DDED1 /* Data + Extension.swift in Sources */,
+				DC856DB1266CC0D9005DDED1 /* Data+Extension.swift in Sources */,
 				DC71959C265FF9C000DC3706 /* FlatCardCollectionViewLayout.swift in Sources */,
 				DC913CE7264C1A2B00C18251 /* CardView.swift in Sources */,
 				DC8136492650090E003CC6ED /* UICollectionView+Extension.swift in Sources */,

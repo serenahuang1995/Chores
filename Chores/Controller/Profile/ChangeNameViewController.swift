@@ -9,21 +9,30 @@ import UIKit
 import KRProgressHUD
 import  MIBlurPopup
 
+protocol ProfileDelegate: AnyObject {
+    
+    func backToProfile()
+}
+
 class ChangeNameViewController: UIViewController {
     
     @IBOutlet weak var nameTextField: UITextField!
         
     @IBOutlet weak var popView: CardView!
     
+    weak var delegate: ProfileDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
-
+    
     @IBAction func cancel(_ sender: Any) {
         
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true) {
+            
+            self.delegate?.backToProfile()
+        }
     }
  
     @IBAction func sureToChangeName(_ sender: Any) {
@@ -40,7 +49,6 @@ class ChangeNameViewController: UIViewController {
             KRProgressHUD.showError(withMessage: "欄位不能是空白的唷！")
 
             return
-            
         }
         
         changeUserName(name: userName)
@@ -56,7 +64,12 @@ class ChangeNameViewController: UIViewController {
                 
                 print(success)
                 
-                self?.dismiss(animated: true, completion: nil)
+                self?.dismiss(animated: true) {
+                    
+                    self?.delegate?.backToProfile()
+                }
+                
+                KRProgressHUD.showSuccess(withMessage: "更改名稱成功！")
                 
             case .failure(let error):
                 
