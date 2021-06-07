@@ -45,7 +45,7 @@ class UnclaimedTableViewCell: UITableViewCell {
         
         selectionStyle = .none
         
-        cellView.backgroundColor = .beigeEBDDCE
+        cellView.backgroundColor = .beigeFFF1E6
     }
     
     func layoutCell(chore: Chore) {

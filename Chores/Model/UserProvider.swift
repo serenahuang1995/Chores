@@ -324,7 +324,8 @@ class UserProvider {
         }
     }
     
-    func deleteInvitation(invitation: Invitation, completion: @escaping (Result<String, Error>) -> Void) {
+    func deleteInvitation(invitation: Invitation,
+                          completion: @escaping (Result<String, Error>) -> Void) {
         
         let docRerence = database
             .collection(users).document(uid)
@@ -417,5 +418,4 @@ class UserProvider {
             }
         }
     }
-  
 }

@@ -28,7 +28,7 @@ class OngoingTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        ongoingCell.backgroundColor = .beigeEBDDCE
+        ongoingCell.backgroundColor = .beigeFFF1E6
         
         changeOwnerButton.isHidden = true
         
@@ -62,7 +62,7 @@ class OngoingTableViewCell: UITableViewCell {
         
         selectionStyle = .none
         
-        ongoingCell.backgroundColor = .beigeEBDDCE
+        ongoingCell.backgroundColor = .beigeFFF1E6
     }
     
     func layoutCell(chore: Chore) {

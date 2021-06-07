@@ -31,7 +31,6 @@ struct GroupType {
     static var id = "id"
     
     static var choreTypes = "choreTypes"
-
 }
 
 class FirebaseProvider {
@@ -195,7 +194,8 @@ class FirebaseProvider {
     }
     
     // 給用戶自己新增自訂家事
-    func addChoreType(choreType: String, completion: @escaping (Result<String, Error>) -> Void) {
+    func addChoreType(choreType: String,
+                      completion: @escaping (Result<String, Error>) -> Void) {
         
         let docReference = database.collection(groups).document(currentUser.groupId ?? "")
         
@@ -415,111 +415,75 @@ class FirebaseProvider {
         }
     }
 
-    func fetchWeekData(completion: @escaping (Result<String, Error>) -> Void) {
+    func fetchWeekData(completion: @escaping (Result<[Chore], Error>) -> Void) {
         
         let date = Date()
         
-        let dateFormatter = DateFormatter()
+        let firstDate = date.getFirstDayDateInWeek()
         
-        dateFormatter.dateFormat = "yyyy-MM-dd EE HH:mm:ss"
-        
-        let currentDateString = dateFormatter.string(from: date)
-        
-        print(currentDateString)
-        
-        let test = Calendar.current
-        
-        print(test)
-        
-        let startDate = DateFormatter()
-        
-        let endDate = DateFormatter()
+        let lastDate = date.getLastDayDateInWeek()
         
         let docReference = database
-            .collection(groups).document(currentUser.groupId ?? "")
-            .collection(chores)
+            .collection(groups).document(currentUser.groupId ?? "").collection(chores)
+            .whereField(ChoreType.completedDate, isGreaterThanOrEqualTo: firstDate)
+            .whereField(ChoreType.completedDate, isLessThanOrEqualTo: lastDate)
         
-//        docReference
-//            .whereField(ChoreType.completedDate, isGreaterThan: <#T##Any#>)
-//            .whereField(ChoreType.completedDate, isLessThan: <#T##Any#>)
-        
+        docReference.addSnapshotListener { querySnapshot, error in
+            
+            if let error = error {
+                
+                completion(.failure(error))
+                
+            } else {
+                
+                guard let choreList = querySnapshot?.documents else { return }
+
+                let chore = choreList.compactMap({ queryDocument -> Chore? in
+                                        
+                    return try? queryDocument.data(as: Chore.self)
+                })
+                
+                completion(.success(chore))
+            }
+        }
     }
     
-    func test() {
-        
-        let date = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy年MM月dd日 HH:mm:ss"
-         
-        // 当月第一天日期
-        let startDate = date.startOfCurrentMonth()
-        print("本月开始时间：", dateFormatter.string(from: startDate as Date))
-         
-        // 当月最后一天日期2
-        let endDate2 = date.endOfCurrentMonth(returnDetailTime: true)
-        print("本月结束时间2：", dateFormatter.string(from: endDate2))
-        
-    }
-    
-    func test1() {
-        
-        let date = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy年MM月dd日 HH:mm:ss"
-         
-        // 当月第一天日期
-        let startDate = dateFormatter.string(from: date.startOfCurrentMonth())
-//        print("本月开始时间：", dateFormatter.string(from: startDate as Date))
-        print(startDate)
-         
-        // 当月最后一天日期2
-        let endDate2 = dateFormatter.string(from: date.endOfCurrentMonth(returnDetailTime: true))
-        print(endDate2)
-//        print("本月结束时间2：", dateFormatter.string(from: endDate2))
-        
-    }
-    
-    func fetchMonthData(completion: @escaping (Result<String, Error>) -> Void) {
+    func fetchMonthData(completion: @escaping (Result<[Chore], Error>) -> Void) {
         
         let date = Date()
         
         let dateFormatter = DateFormatter()
         
         dateFormatter.dateFormat = "yyyy年MM月dd日 HH:mm:ss"
-        
+
         // 當月第一天 00:00:00
         let startDate = date.startOfCurrentMonth()
-         
-        // 當月最後一天 23:59:59
-        let endDate2 = date.endOfCurrentMonth(returnDetailTime: true)
 
-//        let currentYear = Calendar.current.component(.year, from: Date())
-//
-//        let currentMonth = Calendar.current.component(.month, from: Date())
-//
-//        let currentWeek = Calendar.current.component(.weekday, from: Date())
-//
-//        let dateComponents = DateComponents(year: currentYear ,
-//                                                    month: currentMonth)
-//        let date = Calendar.current.date(from: dateComponents)!
-        
-//        let startDate = DateFormatter()
-//
-//        let endDate = DateFormatter()
+        // 當月最後一天 23:59:59
+        let endDate = date.endOfCurrentMonth(returnDetailTime: true)
         
         let docReference = database
-            .collection(groups).document(currentUser.groupId ?? "")
-            .collection(chores)
+            .collection(groups).document(currentUser.groupId ?? "").collection(chores)
+            .whereField(ChoreType.completedDate, isGreaterThanOrEqualTo: startDate)
+            .whereField(ChoreType.completedDate, isLessThanOrEqualTo: endDate)
         
-        docReference
-            .whereField(ChoreType.completedDate, isGreaterThan: startDate)
-            .whereField(ChoreType.completedDate, isLessThan: endDate2)
-        
-    }
-    
-    
-    
-    
- 
+        docReference.addSnapshotListener { querySnapshot, error in
+            
+            if let error = error {
+                
+                completion(.failure(error))
+                
+            } else {
+                
+                guard let choreList = querySnapshot?.documents else { return }
 
+                let chore = choreList.compactMap({ queryDocument -> Chore? in
+                                        
+                    return try? queryDocument.data(as: Chore.self)
+                })
+                
+                completion(.success(chore))
+            }
+        }
+    }
 }

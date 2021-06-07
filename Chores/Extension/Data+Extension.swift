@@ -9,9 +9,11 @@ import UIKit
 
 extension Date {
     
+    static let secondsOfDay = 86400
+    
     func currentWeekDay() -> String {
         
-        let date = Date()
+        let date = self
         
         let dateFormatter = DateFormatter()
         
@@ -25,7 +27,7 @@ extension Date {
     // 當前月份開始日期
     func startOfCurrentMonth() -> Date {
         
-        let date = Date()
+        let date = self
         
         let calendar = Calendar.current
         
@@ -63,25 +65,70 @@ extension Date {
     }
     
     // 計算當天為本週的第幾天
-    func dayInWeek() -> Int {
+    func getFirstDayDateInWeek() -> Date? {
         
-        let calendar = Calendar.current
-        
-        let date = Date()
+        let todayDate = self
         
         let dateFormatter = DateFormatter()
         
-        dateFormatter.dateFormat = "yyyy年MM月dd日 HH時mm分ss秒 Z"
+        dateFormatter.dateFormat = "yyyy年MM月dd日 HH時mm分ss秒"
         
-        //計算本週第n天
-        let day = calendar.ordinality(of: .day, in: .weekOfMonth, for: date)
+        // 計算本週第n天
+        let day = Calendar.current.ordinality(of: .day, in: .weekOfMonth, for: todayDate)
         print("本週第\(day!)天")
         
-        return day ?? 0
-    }
+        let firstDay = todayDate - Double(((day ?? 1) - 1) * Date.secondsOfDay)
+        
+        print("第一天\(firstDay) , ？？？日期 \(dateFormatter.string(from: firstDay))")
 
-//    //MARK: - 獲取日期各種值
-//    //MARK: 年
+        let newDateFormatter = DateFormatter()
+        
+        newDateFormatter.dateFormat = "yyyy年MM月dd日"
+        
+        let firstDayValue = newDateFormatter.string(from: firstDay)
+        
+        print("firstDayValue：\(firstDayValue)")
+        
+        let firstDate = newDateFormatter.date(from: firstDayValue)
+        
+        print("firstDate：\(firstDate)")
+
+        return firstDate
+    }
+    
+    func getLastDayDateInWeek() -> Date? {
+        
+        let todayDate = self
+        
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateFormat = "yyyy年MM月dd日 HH時mm分ss秒"
+        
+        // 計算本週第n天
+        let day = Calendar.current.ordinality(of: .day, in: .weekOfMonth, for: todayDate)
+        print("本週第\(day!)天")
+        
+        let lastDay = todayDate + Double((7 - (day ?? 1)) * Date.secondsOfDay)
+        
+        print("最後一天\(lastDay) , ？？？日期 \(dateFormatter.string(from: lastDay))")
+
+        let newDateFormatter = DateFormatter()
+        
+        newDateFormatter.dateFormat = "yyyy年MM月dd日"
+        
+        let lastDayValue = newDateFormatter.string(from: lastDay)
+        
+        print("lastDayValue：\(lastDayValue)")
+        
+        guard let lastDate = newDateFormatter.date(from: lastDayValue) else { return nil }
+        
+        print("lastDate：\(lastDate + Double(Date.secondsOfDay - 1))")
+
+        return lastDate + Double(Date.secondsOfDay - 1)
+    }
+    
+//    // MARK: - 獲取日期各種值
+//    // MARK: 年
 //    func year() ->Int {
 //        let calendar = NSCalendar.current
 //        let com = calendar.dateComponents([.year,.month,.day], from: self)

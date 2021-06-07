@@ -52,7 +52,7 @@ class TagCollectionViewCell: UICollectionViewCell {
     
     func initialCell() {
         
-        contentView.backgroundColor = .beigeEBDDCE
+        contentView.backgroundColor = .whiteF9F9F9
         
         contentView.layer.borderWidth = 0
         
@@ -63,7 +63,7 @@ class TagCollectionViewCell: UICollectionViewCell {
         
         contentView.layer.borderColor = UIColor.black252525.cgColor
         
-        contentView.backgroundColor = .orangeFBDAA0
+        contentView.backgroundColor = .beigeFFEDD9
         
         contentView.layer.borderWidth = 1
         

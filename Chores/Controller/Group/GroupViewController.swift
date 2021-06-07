@@ -15,7 +15,7 @@ protocol AddMemberCellDelegate: AnyObject {
 
 class GroupViewController: UIViewController {
     
-    private enum PageType: Int {
+    enum PageType: Int {
         
         case week = 0
         
@@ -38,7 +38,7 @@ class GroupViewController: UIViewController {
         
         didSet {
             
-            indicatorView.backgroundColor = .orangeE89E21
+            indicatorView.backgroundColor = .orangeFCA311
         }
     }
     
@@ -71,14 +71,8 @@ class GroupViewController: UIViewController {
             setUpCollectionView()
         }
     }
-    
     @IBOutlet var switchButtons: [UIButton]!
     
-    //  var containerViews: [UIView] {
-    //
-    //    return [weekDataView, monthDataView, totalDataView]
-    //
-    //  }
         
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
@@ -90,7 +84,7 @@ class GroupViewController: UIViewController {
     
     var userWeekPoints: [Int] = []
     
-    var userMonthPoint: [Int] = []
+    var userMonthPoints: [Int] = []
     
     var userWeekHours: [Int] = []
     
@@ -98,50 +92,20 @@ class GroupViewController: UIViewController {
     
     var userTotalHours: [Int] = []
     
-    var chartData: [ChartDataEntry] = []
+    var isDisplayPoints: Bool = true
+    
+    var currentPageType: PageType = .week
 
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         
         fetchGroupMember()
-        
-        updateContainerView(type: .week)
-        
-        confirmWeekday()
-
     }
     
     override func viewDidLayoutSubviews() {
         
         indicatorView.center.x = switchButtons[0].center.x
     }
-    
-//      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//
-//        guard let destination = segue.destination as? MemberDataViewController else { return }
-//
-//        destination.groupMembers = groupMembers
-//        let identifier = segue.identifier
-//
-//        switch identifier {
-//
-//        case Segue.week:
-//          _ = segue.destination as? MemberDataViewController
-//          weekDataView.backgroundColor = .blue7990CA
-//
-//        case Segue.month:
-//          _ = segue.destination as? MemberDataViewController
-//          monthDataView.backgroundColor = .orangeFBDAA0
-//
-//        case Segue.total:
-//          _ = segue.destination as? MemberDataViewController
-//          totalDataView.backgroundColor = .beigeEBDDCE
-//
-//        default:
-//          return
-    
-//        }
     
     @IBAction func clickSwitchButton(_ sender: UIButton) {
         
@@ -156,76 +120,16 @@ class GroupViewController: UIViewController {
         
         guard let type = PageType(rawValue: sender.tag) else { return }
         
-        updateContainerView(type: type)
+        currentPageType = type
+        
+        updateContainerView(type: currentPageType)
     }
     
     @IBAction func clickSegmentedControl(_ sender: Any) {
         
-        if segmentedControl.selectedSegmentIndex == 0 {
-            
-            print("時數")
-        } else {
-            
-            print("點數")
-        }
+        isDisplayPoints = segmentedControl.selectedSegmentIndex == 0
         
-    }
-    
-    func confirmWeekday() {
-        
-        let number = 7
-        
-        let date = Date()
-        
-        let dateFormatter = DateFormatter()
-        
-        dateFormatter.dateFormat = "yyyy-MM-dd EEEE HH:mm:ss"
-        
-        let currentDateString = dateFormatter.string(from: date)
-        
-        print("Current date is \(currentDateString)")
-        
-        if let date = dateFormatter.date(from: currentDateString) {
-            
-            print(date)
-            
-            let numberOfDays = Calendar.current.dateComponents([.day], from: date, to: Date()).day ?? 0
-            
-            print(numberOfDays)
-            
-            if numberOfDays <= number {
-                
-             print("DateVar with in number of days")
-            }
-            
-            let test = Calendar.current
-            
-            print(test)
-            
-            let dateComponents = DateComponents(calendar: Calendar.current)
-            
-            print(dateComponents)
-            
-            switch number {
-            case 0:
-                print(date)
-            case 1:
-                print(numberOfDays)
-            case 2:
-                print(numberOfDays)
-            case 3:
-                print(numberOfDays)
-            case 4:
-                print(numberOfDays)
-            case 5:
-                print(numberOfDays)
-            case 6:
-                print(numberOfDays)
-            default:
-                return
-            }
-        }
-        
+        updateContainerView(type: currentPageType)
     }
 
     private func setUpCollectionView() {
@@ -252,80 +156,80 @@ class GroupViewController: UIViewController {
     }
     
     private func updateContainerView(type: PageType) {
-        
-        //    containerViews.forEach({ $0.isHidden = true })
-        
+
         switch type {
         
         case .week:
             
-             setUpPointsChartData(names: userNames, data: userWeekHours)
+            if isDisplayPoints {
+                
+                setUpChartData(names: userNames, data: userWeekPoints)
+                
+            } else {
+                
+                setUpChartData(names: userNames, data: userWeekHours)
+            }
             
-//            setUpTotalPointsChartView()
-            
-//                  setUpTotalPointsChartView(users: groupMembers)
-//            containerView.backgroundColor = .none
-            
-        //      weekDataView.isHidden = false
-        
         case .month:
             
-            setUpPointsChartData(names: userNames, data: userTotalPoints)
-
-//            containerView.backgroundColor = .beigeEBDDCE
-            
-        //      monthDataView.isHidden = false
+            if isDisplayPoints {
+                
+                setUpChartData(names: userNames, data: userMonthPoints)
+                
+            } else {
+                
+                setUpChartData(names: userNames, data: userMonthHours)
+            }
         
         case .total:
             
-            setUpPointsChartData(names: userNames, data: userTotalPoints)
-
-//                  setUpTotalPointsChartView()
-//            containerView.backgroundColor = .orangeE89E21
-        //      totalDataView.isHidden = false
-        
+            if isDisplayPoints {
+                
+                setUpChartData(names: userNames, data: userTotalPoints)
+                
+            } else {
+                
+                setUpChartData(names: userNames, data: userTotalHours)
+            }
         }
     }
     
     func fetchGroupMember() {
         
-        UserProvider.shared.fetchGroupMember { result in
+        UserProvider.shared.fetchGroupMember { [weak self] result in
             
             switch result {
             
             case .success(let users):
                 
                 print(users)
+
+                self?.groupMembers = users
                 
-                self.groupMembers = users
+                self?.userNames = []
                 
-                for user in self.groupMembers {
+                self?.userTotalPoints = []
+                
+                self?.userTotalHours = []
+                
+                self?.userWeekHours = []
+                
+                for user in self?.groupMembers ?? [] {
                     
-                    self.userNames.append(user.name)
-                }
-                
-                print(self.userNames)
-                
-                for user in self.groupMembers {
+                    self?.userNames.append(user.name)
                     
-                    // 拿到 user 們的總點數
-                    self.userTotalPoints.append(user.points)
-                }
-                
-                print(self.userTotalPoints)
-                
-                for user in self.groupMembers {
+                    self?.userTotalPoints.append(user.points) // 拿到 user 們的總點數
+
+                    self?.userTotalHours.append(user.totalHours) // 拿到user們的總時數
                     
-                    // 拿到user們的每週時數
-                    self.userWeekHours.append(user.weekHours)
+                    self?.userWeekHours.append(user.weekHours) // 拿到user們的每週時數
                 }
-                        
-                for user in self.groupMembers {
-                    
-                    self.userTotalHours.append(user.totalHours)
-                }
+ 
+                self?.fetchWeekData()
                 
-                self.collectionView.reloadData()
+                self?.fetchMonthData()
+                
+                self?.collectionView.reloadData()
                 
             case .failure(let error):
                 
@@ -334,44 +238,148 @@ class GroupViewController: UIViewController {
         }
     }
     
-    func setUpPointsChartData(names: [String], data: [Int]) {
+    func fetchWeekData() {
         
-        for index in 0..<userTotalPoints.count {
-            let value = BarChartDataEntry(x: Double(index), y: Double(data[index]))
-            chartData.append(value)
+        FirebaseProvider.shared.fetchWeekData { [weak self] result in
+            
+            switch result {
+            
+            case .success(let chores):
+                
+                print(chores)
+                
+                self?.userWeekPoints = []
+                
+                for user in self?.groupMembers ?? [] {
+                    
+                    // filter
+                    let filter = chores.filter { $0.owner == user.id }
+                    
+                    let sum = filter.reduce(0, { (sum, chore) -> Int in
+                        
+                        return sum + chore.points
+                    })
+                    
+                    self?.userWeekPoints.append(sum)
+                }
+
+                self?.updateContainerView(type: self?.currentPageType ?? .week)
+                
+            case .failure(let error):
+                
+                print(error)
+            }
         }
-        
-        setUpPointsChartView(names: names)
     }
     
-    func setUpPointsChartView(names: [String]) {
+    func fetchMonthData() {
+        
+        FirebaseProvider.shared.fetchMonthData { [weak self] result in
+            
+            switch result {
+            
+            case .success(let chores):
+                
+                print(chores)
+                
+                self?.userMonthHours = []
+     
+                self?.userMonthPoints = []
+                
+                for user in self?.groupMembers ?? [] {
+                    
+                    // filter
+                    let filter = chores.filter { $0.owner == user.id }
+                    
+                    let hoursSum = filter.reduce(0, { (sum , chore) -> Int in
+                        
+                        return sum + chore.hours
+                    })
+                    
+                    self?.userMonthHours.append(hoursSum)
+                    
+                    let pointsSum = filter.reduce(0, { (sum, chore) -> Int in
+                        
+                        return sum + chore.points
+                    })
+                    
+                    self?.userMonthPoints.append(pointsSum)
+                }
+
+            case .failure(let error):
+                
+                print(error)
+            }
+        }
+    }
+    
+    func setUpChartData(names: [String], data: [Int]) {
+        
+        var chartData: [BarChartDataEntry] = []
+        
+        for index in 0..<groupMembers.count {
+            
+            let value = BarChartDataEntry(x: Double(index), y: Double(data[index]))
+            
+            chartData.append(value)
+        }
+
+        setUpChartView(names: names, chartData: chartData)
+    }
+    
+    func setUpChartView(names: [String], chartData: [BarChartDataEntry]) {
         
         let dataSet = BarChartDataSet(entries: chartData)
-        dataSet.colors = ChartColorTemplates.joyful()
-        dataSet.drawValuesEnabled = false
         
+        dataSet.colors = ChartColorTemplates.joyful()
+        
+        dataSet.drawValuesEnabled = false
+
         let data = BarChartData(dataSets: [dataSet])
+        
         data.barWidth = 0.5
+        
         chartView.data = data
+        
         chartView.xAxis.drawGridLinesEnabled = false
+        
         chartView.xAxis.labelPosition = .bottom
+        
         chartView.xAxis.axisMaximum = Double(names.count)
+        
         chartView.xAxis.axisMinimum = -1
+        
         chartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: names)
+        
+        chartView.xAxis.setLabelCount(names.count, force: false)
+        
+        chartView.xAxis.granularity = 1
+        
+        chartView.xAxis.labelFont = UIFont.systemFont(ofSize: 12)
+
+        chartView.doubleTapToZoomEnabled = false
 
         let topAxis = chartView.leftAxis
+        
         topAxis.drawGridLinesEnabled = false
+        
         topAxis.drawLabelsEnabled = false
+        
         topAxis.drawAxisLineEnabled = false
+        
         topAxis.axisMinimum = 0.1
         
         chartView.rightAxis.drawGridLinesEnabled = false
+        
         chartView.rightAxis.granularityEnabled = true
+        
         chartView.rightAxis.granularity = 10
-//        barChartView.maxVisibleCount = 60
+        
+        chartView.maxVisibleCount = 60
+        
         chartView.notifyDataSetChanged()
+        
         chartView.animate(yAxisDuration: 2)
-        chartView.xAxis.labelFont = UIFont.systemFont(ofSize: 12)
     }
 }
 
@@ -442,5 +450,5 @@ extension GroupViewController: AddMemberCellDelegate {
 }
 
 extension GroupViewController: ChartViewDelegate {
-  
+
 }

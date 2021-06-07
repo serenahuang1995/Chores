@@ -44,7 +44,7 @@ class ProfileViewController: UIViewController {
         
         didSet {
             
-            indicatorView.backgroundColor = .orangeE89E21
+            indicatorView.backgroundColor = .orangeFCA311
         }
     }
     

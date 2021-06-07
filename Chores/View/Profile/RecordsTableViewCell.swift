@@ -21,7 +21,7 @@ class RecordsTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        recordView.backgroundColor = .beigeEBDDCE        
+        recordView.backgroundColor = .beigeFFF1E6
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

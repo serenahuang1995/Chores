@@ -35,7 +35,7 @@ class SectionView: UITableViewHeaderFooterView {
         
         didSet {
             
-            self.cardView.backgroundColor = .orangeFBDAA0
+            self.cardView.backgroundColor = .orangeFFDEB1
         }
     }
     

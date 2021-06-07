@@ -133,8 +133,8 @@
                                 <rect key="frame" x="307" y="323.5" width="91" height="32"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <segments>
-                                    <segment title="時數"/>
                                     <segment title="點數"/>
+                                    <segment title="時數"/>
                                 </segments>
                                 <connections>
                                     <action selector="clickSegmentedControl:" destination="RvQ-Xh-3Zo" eventType="valueChanged" id="MwZ-ys-0Kf"/>

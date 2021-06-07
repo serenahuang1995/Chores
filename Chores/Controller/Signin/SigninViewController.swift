@@ -31,6 +31,12 @@ class SigninViewController: UIViewController {
         setUpSigninButton()
         
         setUpLottie()
+        
+        let date = Date()
+        
+        date.getFirstDayDateInWeek()
+        
+        date.getLastDayDateInWeek()
     }
 
     @IBAction func skip(_ sender: Any) {
