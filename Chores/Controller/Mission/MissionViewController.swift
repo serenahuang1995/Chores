@@ -12,12 +12,11 @@ protocol MissionCellDelegate: AnyObject {
     
     func clickButtonToAccept(at index: Int)
     
+    func clickButtonToDelete(at index: Int)
+
     func clickButtonToFinish(at index: Int)
     
     func clickButtonToForward(at index: Int)
-    
-//    func showForwardDialog()
-
 }
 
 class MissionViewController: UIViewController {
@@ -114,8 +113,6 @@ class MissionViewController: UIViewController {
     
     private func setUpTableView() {
         
-        tableView.separatorStyle = .none
-        
         tableView.registerHeaderWithNib(
             identifier: String(describing: SectionView.self), bundle: nil)
         
@@ -128,6 +125,8 @@ class MissionViewController: UIViewController {
         tableView.delegate = self
         
         tableView.dataSource = self
+        
+        tableView.separatorStyle = .none
     }
     
     // 用戶每次進來都會 fetch
@@ -203,7 +202,6 @@ class MissionViewController: UIViewController {
                 default:
                     print("積分 2 倍")
                     multiple = 2
-                    
                 }
                 
                 user.weekHours += chore.hours
@@ -217,7 +215,6 @@ class MissionViewController: UIViewController {
             case .failure(let error):
                 
                 print(error)
-            
             }
         }
     }
@@ -323,8 +320,7 @@ class MissionViewController: UIViewController {
 
 extension MissionViewController: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView,
-                   heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
         if section == 0 {
             
@@ -333,16 +329,15 @@ extension MissionViewController: UITableViewDelegate {
         return 160
     }
     
-    func tableView(_ tableView: UITableView,
-                   heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
         return 100
     }
 }
 
 extension MissionViewController: UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView,
-                   viewForHeaderInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let header = tableView.dequeueReusableHeaderFooterView(
             withIdentifier: String(describing: SectionView.self)
@@ -377,8 +372,7 @@ extension MissionViewController: UITableViewDataSource {
         return isExpandedList.count
     }
     
-    func tableView(_ tableView: UITableView,
-                   numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         // true 的時候會依照不同 Section 去抓要顯示幾個 Row
         if self.isExpandedList[section] {
@@ -395,8 +389,7 @@ extension MissionViewController: UITableViewDataSource {
         return 0
     }
     
-    func tableView(_ tableView: UITableView,
-                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let index = indexPath.row
         
@@ -411,9 +404,7 @@ extension MissionViewController: UITableViewDataSource {
             guard let unclaimedCell = cell as? UnclaimedTableViewCell else { return cell }
             
             unclaimedCell.delegate = self
-            
-//            unclaimedCell.setUpCellStyle()
-            
+
             unclaimedCell.layoutCell(chore: unclaimedChores[index])
             
             return unclaimedCell
@@ -427,9 +418,7 @@ extension MissionViewController: UITableViewDataSource {
             guard let ongoingCell = cell as? OngoingTableViewCell else { return cell }
             
             ongoingCell.delegate = self
-            
-//            ongoingCell.setUpCellStyle()
-            
+
             ongoingCell.layoutCell(chore: ongoingChores[index])
             
             return ongoingCell
@@ -463,6 +452,23 @@ extension MissionViewController: MissionCellDelegate {
                 
                 print(success)
             
+            case .failure(let error):
+                
+                print(error)
+            }
+        }
+    }
+    
+    func clickButtonToDelete(at index: Int) {
+        
+        FirebaseProvider.shared.deleteUnclaimedChore(selectedChore: unclaimedChores[index]) { result in
+            
+            switch result {
+            
+            case .success(let success):
+                
+                print(success)
+                
             case .failure(let error):
                 
                 print(error)

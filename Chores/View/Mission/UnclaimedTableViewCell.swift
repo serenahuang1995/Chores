@@ -19,6 +19,9 @@ class UnclaimedTableViewCell: UITableViewCell {
     
     @IBOutlet weak var acceptTaskButton: UIButton!
     
+    
+    @IBOutlet weak var deleteTaskButton: UIButton!
+    
     weak var delegate: MissionCellDelegate?
     
     override func awakeFromNib() {
@@ -37,7 +40,15 @@ class UnclaimedTableViewCell: UITableViewCell {
         if let index = getIndexPath()?.row {
             
             self.delegate?.clickButtonToAccept(at: index)
+        }
+    }
+    
+    
+    @IBAction func clickToDeleteTask(_ sender: Any) {
+        
+        if let index = getIndexPath()?.row {
             
+            self.delegate?.clickButtonToDelete(at: index)
         }
     }
     

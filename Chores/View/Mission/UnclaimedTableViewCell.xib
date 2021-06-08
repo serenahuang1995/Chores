@@ -19,14 +19,8 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eQi-UT-o98" customClass="CardView" customModule="Chores" customModuleProvider="target">
                         <rect key="frame" x="20" y="0.0" width="374" height="85"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="可獲得 10 點" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K3N-vo-vDc">
-                                <rect key="frame" x="238.5" y="34.5" width="74.5" height="16"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="買菜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="11I-bQ-nEk">
-                                <rect key="frame" x="76" y="30.5" width="41" height="24"/>
+                                <rect key="frame" x="70" y="30.5" width="41" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -39,7 +33,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V6S-0Q-EQH">
-                                <rect key="frame" x="329" y="30" width="25" height="25"/>
+                                <rect key="frame" x="288" y="30" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="dUU-Rw-51B"/>
                                     <constraint firstAttribute="width" constant="25" id="gjI-lx-UQg"/>
@@ -49,18 +43,37 @@
                                     <action selector="clickToAcceptTask:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="tHI-vT-O3W"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ieg-ni-d9S">
+                                <rect key="frame" x="329" y="30" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="s2F-SJ-Iza"/>
+                                    <constraint firstAttribute="width" constant="25" id="vQB-Gl-BFR"/>
+                                </constraints>
+                                <state key="normal" image="trash-1"/>
+                                <connections>
+                                    <action selector="clickToDeleteTask:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="NQQ-ZX-HpJ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="可獲得 10 點" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K3N-vo-vDc">
+                                <rect key="frame" x="123" y="40.5" width="64" height="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="V6S-0Q-EQH" secondAttribute="trailing" constant="20" id="AgZ-S1-Rhb"/>
-                            <constraint firstItem="K3N-vo-vDc" firstAttribute="centerY" secondItem="eQi-UT-o98" secondAttribute="centerY" id="R7h-hC-sQn"/>
+                            <constraint firstAttribute="trailing" secondItem="ieg-ni-d9S" secondAttribute="trailing" constant="20" id="2xg-Jf-bOj"/>
+                            <constraint firstItem="ieg-ni-d9S" firstAttribute="centerY" secondItem="eQi-UT-o98" secondAttribute="centerY" id="7DA-1X-EXE"/>
+                            <constraint firstItem="ieg-ni-d9S" firstAttribute="leading" secondItem="V6S-0Q-EQH" secondAttribute="trailing" constant="16" id="M8o-ku-a6R"/>
+                            <constraint firstItem="K3N-vo-vDc" firstAttribute="bottom" secondItem="11I-bQ-nEk" secondAttribute="bottom" id="WFr-F9-4kf"/>
                             <constraint firstAttribute="height" constant="85" id="c88-od-faz"/>
                             <constraint firstItem="11I-bQ-nEk" firstAttribute="centerY" secondItem="eQi-UT-o98" secondAttribute="centerY" id="gLI-mD-KUy"/>
-                            <constraint firstItem="V6S-0Q-EQH" firstAttribute="centerY" secondItem="eQi-UT-o98" secondAttribute="centerY" id="hKl-r2-gK3"/>
-                            <constraint firstItem="11I-bQ-nEk" firstAttribute="leading" secondItem="ugN-H3-f94" secondAttribute="trailing" constant="16" id="had-7h-vdL"/>
+                            <constraint firstItem="11I-bQ-nEk" firstAttribute="leading" secondItem="ugN-H3-f94" secondAttribute="trailing" constant="10" id="had-7h-vdL"/>
+                            <constraint firstItem="K3N-vo-vDc" firstAttribute="leading" secondItem="11I-bQ-nEk" secondAttribute="trailing" constant="12" id="mS2-ug-JhP"/>
                             <constraint firstItem="ugN-H3-f94" firstAttribute="centerY" secondItem="eQi-UT-o98" secondAttribute="centerY" id="rjF-f5-Z5m"/>
                             <constraint firstItem="ugN-H3-f94" firstAttribute="leading" secondItem="eQi-UT-o98" secondAttribute="leading" constant="20" id="sAe-eg-vOU"/>
-                            <constraint firstItem="V6S-0Q-EQH" firstAttribute="leading" secondItem="K3N-vo-vDc" secondAttribute="trailing" constant="16" id="zYv-oK-bJm"/>
+                            <constraint firstItem="V6S-0Q-EQH" firstAttribute="centerY" secondItem="ieg-ni-d9S" secondAttribute="centerY" id="sgP-Hc-jde"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -84,6 +97,7 @@
                 <outlet property="cellView" destination="eQi-UT-o98" id="rfm-Zu-f9o"/>
                 <outlet property="choreImage" destination="ugN-H3-f94" id="cOu-at-yUc"/>
                 <outlet property="choreItemLabel" destination="11I-bQ-nEk" id="Gc5-8e-kSG"/>
+                <outlet property="deleteTaskButton" destination="ieg-ni-d9S" id="e0X-Ok-Hii"/>
                 <outlet property="expectedPointsLabel" destination="K3N-vo-vDc" id="wcc-3j-87k"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="75"/>
@@ -92,5 +106,6 @@
     <resources>
         <image name="Grocery" width="128" height="128"/>
         <image name="goal" width="128" height="128"/>
+        <image name="trash-1" width="32" height="32"/>
     </resources>
 </document>

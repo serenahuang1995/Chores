@@ -55,10 +55,10 @@ class FirebaseProvider {
     func addToDoChoreData(chore: inout Chore,
                           completion: @escaping (Result<String, Error>) -> Void) {
         
-        let docReference = database.collection(groups)
-            .document(currentUser.groupId!)
+        let docReference = database
+            .collection(groups).document(currentUser.groupId!)
             .collection(chores)
-            .document()
+.document()
         
         chore.id = docReference.documentID
         
@@ -73,7 +73,6 @@ class FirebaseProvider {
                 } else {
                     
                     completion(.success(self.success))
-
                 }
             }
 
@@ -83,14 +82,33 @@ class FirebaseProvider {
         }
     }
     
+    func deleteUnclaimedChore(selectedChore: Chore,
+                              completion: @escaping (Result<String, Error>) -> Void) {
+        
+        let docRefernce = database
+            .collection(groups).document(currentUser.groupId!)
+            .collection(chores).document(selectedChore.id)
+        
+        docRefernce.delete { error in
+            
+            if let error = error {
+                
+                completion(.failure(error))
+                
+            } else {
+                
+                completion(.success(self.success))
+            }
+        }
+    }
+    
     // 用戶點選挑戰家事後，會assign owner(也就是自己)進去
     func updateOwner(selectedChore: Chore,
                      completion: @escaping (Result<String, Error>) -> Void) {
         
-        let docReference = database.collection(groups)
-            .document(currentUser.groupId!)
-            .collection(chores)
-            .document(selectedChore.id)
+        let docReference = database
+            .collection(groups).document(currentUser.groupId!)
+            .collection(chores).document(selectedChore.id)
         
         docReference.updateData([ChoreType.owner: currentUser.id])
         
@@ -103,10 +121,9 @@ class FirebaseProvider {
         
         let addDataTime = Timestamp.init(date: NSDate() as Date)
 
-        let docRefernce = database.collection(groups)
-            .document(currentUser.groupId ?? "")
-            .collection(chores)
-            .document(selectedChore.id)
+        let docRefernce = database
+            .collection(groups).document(currentUser.groupId ?? "")
+            .collection(chores).document(selectedChore.id)
         
         docRefernce.updateData([ChoreType.status: 1, ChoreType.completedDate: addDataTime])
         
@@ -116,8 +133,7 @@ class FirebaseProvider {
     // 監聽家事列表頁面的變動，一開始只會query狀態是未完成的
     func listenChores(completion: @escaping (Result<[Chore], Error>) -> Void) {
         
-        let docRefernce = database.collection(groups)
-            .document(currentUser.groupId!)
+        let docRefernce = database.collection(groups).document(currentUser.groupId!)
             .collection(chores)
             .whereField(ChoreType.status, isEqualTo: 0)
         
@@ -144,8 +160,7 @@ class FirebaseProvider {
     // 監聽個人家事紀錄的變動，會 query 狀態是已完成、owner 是自己的項目
     func listenRecords(completion: @escaping (Result<[Chore], Error>) -> Void) {
         
-        let docReference = database.collection(groups)
-            .document(currentUser.groupId!)
+        let docReference = database.collection(groups).document(currentUser.groupId!)
             .collection(chores)
             .whereField(ChoreType.status, isEqualTo: 1)
             .whereField(ChoreType.owner, isEqualTo: currentUser.id)
@@ -257,8 +272,7 @@ class FirebaseProvider {
     func fetchDifferentChoreType(completion: @escaping (Result<[[Chore]], Error>) -> Void) {
         
         let docReference = database
-            .collection(groups)
-            .document(currentUser.groupId!)
+            .collection(groups).document(currentUser.groupId!)
             .collection(chores)
             .whereField(ChoreType.owner, isEqualTo: currentUser.id)
             .whereField(ChoreType.status, isEqualTo: 1)

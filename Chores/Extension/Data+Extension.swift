@@ -110,7 +110,7 @@ extension Date {
         
         let lastDay = todayDate + Double((7 - (day ?? 1)) * Date.secondsOfDay)
         
-        print("最後一天\(lastDay) , ？？？日期 \(dateFormatter.string(from: lastDay))")
+        print("最後一天\(lastDay), 日期 \(dateFormatter.string(from: lastDay))")
 
         let newDateFormatter = DateFormatter()
         

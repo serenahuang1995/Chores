@@ -403,7 +403,7 @@
                                     <constraint firstAttribute="height" constant="36" id="EUi-Kd-fQo"/>
                                     <constraint firstAttribute="width" constant="36" id="PZD-W3-EKy"/>
                                 </constraints>
-                                <state key="normal" image="previous-1"/>
+                                <state key="normal" image="previous"/>
                                 <connections>
                                     <action selector="backToListPage:" destination="WHV-rw-kbC" eventType="touchUpInside" id="Fql-O6-xNu"/>
                                 </connections>
@@ -756,7 +756,7 @@
         <image name="Icon32px_Reminder" width="32" height="32"/>
         <image name="check" width="128" height="128"/>
         <image name="pencil" width="24" height="24"/>
-        <image name="previous-1" width="64" height="64"/>
+        <image name="previous" width="64" height="64"/>
         <image name="remove" width="128" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
