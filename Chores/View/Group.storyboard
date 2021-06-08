@@ -131,11 +131,12 @@
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="j8D-xt-8iy">
                                 <rect key="frame" x="307" y="323.5" width="91" height="32"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="1" green="0.94509803921568625" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
                                 <segments>
                                     <segment title="點數"/>
                                     <segment title="時數"/>
                                 </segments>
+                                <color key="selectedSegmentTintColor" red="1" green="0.94509803921568625" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="clickSegmentedControl:" destination="RvQ-Xh-3Zo" eventType="valueChanged" id="MwZ-ys-0Kf"/>
                                 </connections>
@@ -284,7 +285,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pFh-dG-TiL"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="pFh-dG-TiL" firstAttribute="trailing" secondItem="Y8h-2p-Vy3" secondAttribute="trailing" constant="32" id="1VX-7K-B4f"/>
                             <constraint firstItem="Y8h-2p-Vy3" firstAttribute="leading" secondItem="pFh-dG-TiL" secondAttribute="leading" constant="32" id="3lX-jV-28I"/>
