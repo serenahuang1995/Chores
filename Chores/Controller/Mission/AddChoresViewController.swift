@@ -33,7 +33,7 @@ class AddChoresViewController: UIViewController {
         
         didSet {
             
-            addChoreButton.layer.cornerRadius = 10
+            addChoreButton.layer.cornerRadius = 12
         }
     }
     

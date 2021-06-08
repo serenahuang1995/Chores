@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -34,7 +35,7 @@
                             <constraint firstAttribute="width" constant="12" id="jA0-gK-u3L"/>
                             <constraint firstAttribute="height" constant="12" id="m7h-BM-Apq"/>
                         </constraints>
-                        <state key="normal" image="trash"/>
+                        <state key="normal" image="crossed"/>
                         <connections>
                             <action selector="deleteChoreItem:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Yb1-ki-n8P"/>
                         </connections>
@@ -62,7 +63,7 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="crossed" width="32" height="32"/>
         <image name="dish-soap" width="512" height="512"/>
-        <image name="trash" width="32" height="32"/>
     </resources>
 </document>

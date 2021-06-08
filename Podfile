@@ -16,6 +16,7 @@ target 'Chores' do
   pod 'Firebase/Storage'
   pod 'Firebase/Auth'
   pod 'lottie-ios', '~> 3.2'
+  pod 'Firebase/Crashlytics'
 
 
 end

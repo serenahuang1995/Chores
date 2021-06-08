@@ -31,12 +31,6 @@ class SigninViewController: UIViewController {
         setUpSigninButton()
         
         setUpLottie()
-        
-        let date = Date()
-        
-        date.getFirstDayDateInWeek()
-        
-        date.getLastDayDateInWeek()
     }
 
     @IBAction func skip(_ sender: Any) {
@@ -93,9 +87,15 @@ class SigninViewController: UIViewController {
     
     func setUpLottie() {
         
-        let animation = Animation.named("Signin")
+        let animation = Animation.named("Chores")
         
         signinView.animation = animation
+        
+        let keypath = AnimationKeypath(keys: ["**", "Fill", "**", "Color"])
+        
+        let colorProvider = ColorValueProvider(UIColor.beigeFFF1E6.lottieColorValue)
+        
+        signinView.setValueProvider(colorProvider, keypath: keypath)
         
         signinView.play()
         
@@ -194,7 +194,7 @@ class SigninViewController: UIViewController {
                     
                     fatalError("Unable to generate nonce. SecRandomCopyBytes failed with OSStatus \(errorCode)")
                 }
-                
+
                 return random
             }
             
@@ -240,11 +240,6 @@ extension SigninViewController: ASAuthorizationControllerDelegate {
     func authorizationController(controller: ASAuthorizationController,
                                  didCompleteWithAuthorization authorization: ASAuthorization) {
         
-        //        guard let credential = authorization.credential as? ASAuthorizationAppleIDCredential else { return }
-        // upload credential to api
-        
-        //        print(credential)
-        
         if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
             
             guard let nonce = currentNonce else {
@@ -284,18 +279,12 @@ extension SigninViewController: ASAuthorizationControllerDelegate {
                     
                     guard let user = authResult?.user else { return }
                     
-//                    print(user.email as Any)
-                    
                     self.email = user.email
-                    
-//                    print(user.displayName as Any)
                     
                     self.name = user.displayName
                     
                     // Firebase uid
                     guard let uid = Auth.auth().currentUser?.uid else { return }
-                    
-//                    print(uid)
                     
                     self.uid = uid
                     
@@ -311,7 +300,6 @@ extension SigninViewController: ASAuthorizationControllerDelegate {
     
     func authorizationController(controller: ASAuthorizationController,
                                  didCompleteWithError error: Error) {
-        // Show error
         
         print(error)
     }

@@ -27,7 +27,7 @@ class CreateGroupCollectionViewCell: UICollectionViewCell {
     
     func setUpLottie() {
         
-        let animation = Animation.named("CreateGroup")
+        let animation = Animation.named("House")
         
         groupView.animation = animation
         

@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xda-Ed-eBB">
-                                <rect key="frame" x="32" y="754.5" width="350" height="25.5"/>
+                                <rect key="frame" x="32" y="753.5" width="350" height="26.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="350" id="sVI-Qr-yca"/>
                                 </constraints>
@@ -45,10 +45,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q6s-MM-duU" customClass="AnimationView" customModule="Lottie">
-                                <rect key="frame" x="20" y="124" width="374" height="374"/>
+                                <rect key="frame" x="16" y="134" width="382" height="450"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="374" id="4pr-ba-xF1"/>
+                                    <constraint firstAttribute="height" constant="450" id="4pr-ba-xF1"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ZG-Qf-4IU">
@@ -64,14 +64,13 @@
                         <constraints>
                             <constraint firstItem="3d8-2g-YGG" firstAttribute="trailing" secondItem="6ZG-Qf-4IU" secondAttribute="trailing" constant="16" id="DH6-i0-K5P"/>
                             <constraint firstItem="3d8-2g-YGG" firstAttribute="bottom" secondItem="AaO-sB-nv5" secondAttribute="bottom" constant="30" id="KoX-pr-9fW"/>
-                            <constraint firstItem="Q6s-MM-duU" firstAttribute="leading" secondItem="3d8-2g-YGG" secondAttribute="leading" constant="20" id="Nrl-rn-W5R"/>
-                            <constraint firstItem="3d8-2g-YGG" firstAttribute="trailing" secondItem="Q6s-MM-duU" secondAttribute="trailing" constant="20" id="Orn-Ut-OrD"/>
+                            <constraint firstItem="Q6s-MM-duU" firstAttribute="leading" secondItem="3d8-2g-YGG" secondAttribute="leading" constant="16" id="Nrl-rn-W5R"/>
                             <constraint firstItem="xda-Ed-eBB" firstAttribute="centerX" secondItem="hI0-On-nrZ" secondAttribute="centerX" id="Urr-0M-1g2"/>
                             <constraint firstItem="6ZG-Qf-4IU" firstAttribute="top" secondItem="3d8-2g-YGG" secondAttribute="top" constant="32" id="Zu5-0Y-Kyn"/>
-                            <constraint firstItem="Q6s-MM-duU" firstAttribute="centerX" secondItem="hI0-On-nrZ" secondAttribute="centerX" id="lMs-Xd-rf2"/>
                             <constraint firstItem="AaO-sB-nv5" firstAttribute="centerX" secondItem="hI0-On-nrZ" secondAttribute="centerX" id="lMt-3U-P6S"/>
+                            <constraint firstItem="3d8-2g-YGG" firstAttribute="trailing" secondItem="Q6s-MM-duU" secondAttribute="trailing" constant="16" id="pBM-de-BOd"/>
                             <constraint firstItem="AaO-sB-nv5" firstAttribute="top" secondItem="xda-Ed-eBB" secondAttribute="bottom" constant="40" id="wuI-N2-Krz"/>
-                            <constraint firstItem="Q6s-MM-duU" firstAttribute="top" secondItem="3d8-2g-YGG" secondAttribute="top" constant="80" id="ySw-B9-VDS"/>
+                            <constraint firstItem="Q6s-MM-duU" firstAttribute="top" secondItem="3d8-2g-YGG" secondAttribute="top" constant="90" id="ySw-B9-VDS"/>
                         </constraints>
                     </view>
                     <connections>
@@ -110,13 +109,13 @@
             <objects>
                 <viewController id="I2R-oJ-1gO" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dwY-eO-XMq">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HdD-5X-lBj">
                                 <rect key="frame" x="16" y="16" width="382" height="776"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <mutableString key="text">Privacy Policy
+                                <string key="text">Privacy Policy
 Last updated: June 05, 2021
 
 This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.
@@ -257,7 +256,7 @@ You are advised to review this Privacy Policy periodically for any changes. Chan
 Contact Us
 If you have any questions about this Privacy Policy, You can contact us:
 
-By email: kiki03041997@gmail.com</mutableString>
+By email: kiki03041997@gmail.com</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -278,6 +277,9 @@ By email: kiki03041997@gmail.com</mutableString>
             <point key="canvasLocation" x="12" y="640"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="Q6s-MM-duU"/>
+    </designables>
     <resources>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

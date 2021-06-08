@@ -140,7 +140,7 @@ class UserProvider {
     
     func fetchUser(completion: @escaping (Result<User?, Error>) -> Void) {
         
-        let docReference = database.collection(users).document(uid)
+        let docReference = database.collection(users).document(uid ?? "")
         
         docReference.getDocument { querySnapshot, error in
             
@@ -172,7 +172,7 @@ class UserProvider {
     // Profile在用的
     func onFetchUserListener(completion: @escaping (Result<User, Error>) -> Void) {
         
-        let docReference = database.collection(users).document(uid)
+        let docReference = database.collection(users).document(uid ?? "")
         //      .whereField("id", isEqualTo: appleUid)
         
         docReference.addSnapshotListener {  querySnapshot, error in
@@ -231,7 +231,7 @@ class UserProvider {
     func updateGroupId(invitation: Invitation,
                        completion: @escaping (Result<String, Error>) -> Void) {
         
-        let docReference = database.collection(users).document(uid)
+        let docReference = database.collection(users).document(uid ?? "")
         
         docReference.updateData([UserType.groupId: invitation.group]) { error in
             
@@ -306,7 +306,7 @@ class UserProvider {
     func listenInvitation(completion: @escaping (Result<[Invitation], Error>) -> Void) {
         
         let docReference = database.collection(users)
-            .document(uid)
+            .document(uid ?? "")
             .collection(invitations)
         
         docReference.addSnapshotListener { querySnapshot, error in
@@ -333,7 +333,7 @@ class UserProvider {
                           completion: @escaping (Result<String, Error>) -> Void) {
         
         let docRerence = database
-            .collection(users).document(uid)
+            .collection(users).document(uid ?? "")
             .collection(invitations).document(invitation.id)
         
         docRerence.delete() { error in
@@ -409,7 +409,7 @@ class UserProvider {
     
     func changeUserName(name: String, completion: @escaping (Result<String, Error>) -> Void) {
         
-        let docReference = database.collection(users).document(uid)
+        let docReference = database.collection(users).document(uid ?? "")
         
         docReference.updateData([UserType.name: name]) { error in
             

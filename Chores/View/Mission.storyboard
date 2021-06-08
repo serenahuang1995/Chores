@@ -33,7 +33,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="現在大廳空空的......" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CnF-4b-y2Z">
-                                        <rect key="frame" x="132.5" y="429" width="149" height="21"/>
+                                        <rect key="frame" x="132.5" y="434" width="149" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -43,7 +43,7 @@
                                 <constraints>
                                     <constraint firstItem="CnF-4b-y2Z" firstAttribute="centerX" secondItem="Oth-9K-sbN" secondAttribute="centerX" id="WxZ-Ig-ocM"/>
                                     <constraint firstItem="fdb-0J-6G4" firstAttribute="top" secondItem="Oth-9K-sbN" secondAttribute="top" constant="100" id="m7R-Jw-1Qi"/>
-                                    <constraint firstItem="CnF-4b-y2Z" firstAttribute="bottom" secondItem="fdb-0J-6G4" secondAttribute="bottom" constant="-50" id="q3h-Gn-cqR"/>
+                                    <constraint firstItem="CnF-4b-y2Z" firstAttribute="bottom" secondItem="fdb-0J-6G4" secondAttribute="bottom" constant="-45" id="q3h-Gn-cqR"/>
                                     <constraint firstItem="fdb-0J-6G4" firstAttribute="centerX" secondItem="Oth-9K-sbN" secondAttribute="centerX" id="vdH-wr-05E"/>
                                 </constraints>
                             </view>
@@ -333,6 +333,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XPH-ax-6ea">
                                 <rect key="frame" x="292" y="181.5" width="90" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <inset key="imageEdgeInsets" minX="-7" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="自訂家事" image="pencil">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
@@ -370,7 +371,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rwX-DI-EuJ">
-                                <rect key="frame" x="100" y="791" width="214" height="36"/>
+                                <rect key="frame" x="25" y="791" width="364" height="36"/>
                                 <color key="backgroundColor" red="0.078431372550000003" green="0.12941176469999999" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="新增">
@@ -402,7 +403,7 @@
                                     <constraint firstAttribute="height" constant="36" id="EUi-Kd-fQo"/>
                                     <constraint firstAttribute="width" constant="36" id="PZD-W3-EKy"/>
                                 </constraints>
-                                <state key="normal" image="previous"/>
+                                <state key="normal" image="previous-1"/>
                                 <connections>
                                     <action selector="backToListPage:" destination="WHV-rw-kbC" eventType="touchUpInside" id="Fql-O6-xNu"/>
                                 </connections>
@@ -416,13 +417,13 @@
                         <viewLayoutGuide key="safeArea" id="MSF-pa-fqT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="MSF-pa-fqT" firstAttribute="trailing" secondItem="rwX-DI-EuJ" secondAttribute="trailing" constant="100" id="3kg-tF-8Ly"/>
+                            <constraint firstItem="MSF-pa-fqT" firstAttribute="trailing" secondItem="rwX-DI-EuJ" secondAttribute="trailing" constant="25" id="3kg-tF-8Ly"/>
                             <constraint firstItem="iiK-CP-5Cn" firstAttribute="trailing" secondItem="10A-KL-eCn" secondAttribute="trailing" id="6TI-pm-jMw"/>
                             <constraint firstItem="10A-KL-eCn" firstAttribute="centerY" secondItem="deT-o1-4gz" secondAttribute="centerY" id="Bcw-mm-sUK"/>
                             <constraint firstItem="MSF-pa-fqT" firstAttribute="trailing" secondItem="XPH-ax-6ea" secondAttribute="trailing" constant="32" id="C4G-Vy-fnY"/>
                             <constraint firstItem="MSF-pa-fqT" firstAttribute="bottom" secondItem="rwX-DI-EuJ" secondAttribute="bottom" constant="35" id="E9a-AL-zEm"/>
                             <constraint firstItem="SzW-xA-tMj" firstAttribute="leading" secondItem="MSF-pa-fqT" secondAttribute="leading" id="I4q-kO-QUo"/>
-                            <constraint firstItem="rwX-DI-EuJ" firstAttribute="leading" secondItem="MSF-pa-fqT" secondAttribute="leading" constant="100" id="Jfs-Q6-Ran"/>
+                            <constraint firstItem="rwX-DI-EuJ" firstAttribute="leading" secondItem="MSF-pa-fqT" secondAttribute="leading" constant="25" id="Jfs-Q6-Ran"/>
                             <constraint firstItem="SzW-xA-tMj" firstAttribute="top" secondItem="ZQe-Nh-vtX" secondAttribute="bottom" constant="20" id="KK6-jX-tIW"/>
                             <constraint firstItem="ZQe-Nh-vtX" firstAttribute="top" secondItem="2Bb-CM-bRM" secondAttribute="bottom" constant="40" id="KWL-il-Iad"/>
                             <constraint firstItem="4Xu-y9-ImH" firstAttribute="centerY" secondItem="deT-o1-4gz" secondAttribute="centerY" id="N4c-8U-Qld"/>
@@ -749,16 +750,13 @@
             <point key="canvasLocation" x="205.79710144927537" y="-353.57142857142856"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="fdb-0J-6G4"/>
-    </designables>
     <resources>
         <image name="Icon32px_Plus" width="32" height="32"/>
         <image name="Icon32px_PointRule" width="32" height="32"/>
         <image name="Icon32px_Reminder" width="32" height="32"/>
         <image name="check" width="128" height="128"/>
         <image name="pencil" width="24" height="24"/>
-        <image name="previous" width="512" height="512"/>
+        <image name="previous-1" width="64" height="64"/>
         <image name="remove" width="128" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
