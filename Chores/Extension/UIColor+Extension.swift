@@ -19,14 +19,19 @@ extension UIColor {
         return UIColor(red: 255 / 255, green: 237 / 255, blue: 217 / 255, alpha: 1)
     }
     
+    class var beigeFFF1E6: UIColor {
+        
+        return UIColor(red: 255 / 255, green: 241 / 255, blue: 230 / 255, alpha: 1)
+    }
+    
     class var orangeFFDEB1: UIColor {
         
         return UIColor(red: 255 / 255, green: 222 / 255, blue: 177 / 255, alpha: 1)
     }
     
-    class var beigeFFF1E6: UIColor {
+    class var orangeFCA311: UIColor {
         
-        return UIColor(red: 255 / 255, green: 241 / 255, blue: 230 / 255, alpha: 1)
+        return UIColor(red: 252 / 255, green: 163 / 255, blue: 17 / 255, alpha: 1)
     }
     
     class var black252525: UIColor {
@@ -39,9 +44,9 @@ extension UIColor {
         return UIColor(red: 20 / 255, green: 33 / 255, blue: 61 / 255, alpha: 1)
     }
     
-    class var orangeFCA311: UIColor {
+    class var grayF2F2F2: UIColor {
         
-        return UIColor(red: 252 / 255, green: 163 / 255, blue: 17 / 255, alpha: 1)
+        return UIColor(red: 242 / 255, green: 242 / 255, blue: 242 / 255, alpha: 1)
     }
 
 }

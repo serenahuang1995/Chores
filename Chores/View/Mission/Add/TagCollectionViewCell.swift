@@ -52,11 +52,11 @@ class TagCollectionViewCell: UICollectionViewCell {
     
     func initialCell() {
         
-        contentView.backgroundColor = .whiteF9F9F9
+        contentView.backgroundColor = .grayF2F2F2
         
         contentView.layer.borderWidth = 0
         
-        contentView.layer.cornerRadius = 5
+        contentView.layer.cornerRadius = 10
     }
     
     func selectedCell() {
@@ -65,9 +65,9 @@ class TagCollectionViewCell: UICollectionViewCell {
         
         contentView.backgroundColor = .beigeFFEDD9
         
-        contentView.layer.borderWidth = 1
+        contentView.layer.borderWidth = 2
         
-        contentView.layer.cornerRadius = 5        
+        contentView.layer.cornerRadius = 10
     }
     
     func deleteChoreType(choreType: String) {
@@ -86,5 +86,4 @@ class TagCollectionViewCell: UICollectionViewCell {
             }
         }
     }
-    
 }
