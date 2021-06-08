@@ -44,6 +44,8 @@ class OngoingTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         
+        transferLabel.isHidden = true
+        
         changeOwnerButton.isHidden = true
     }
     
