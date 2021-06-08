@@ -7,6 +7,7 @@
 
 import UIKit
 import AVFoundation
+import KRProgressHUD
 
 class QRCodeScannerViewController: UIViewController {
     
@@ -103,6 +104,11 @@ class QRCodeScannerViewController: UIViewController {
                 
                 print(user)
                 
+//                if let user = nil {
+//                    
+//                    KRProgressHUD.showError(withMessage: "找不到此成員")
+//                }
+                
                 self?.sendInvitation(user: user)
                 
             case .failure(let error):
@@ -129,13 +135,14 @@ class QRCodeScannerViewController: UIViewController {
                 
                 print(message)
                 
+                KRProgressHUD.showSuccess(withMessage: "已成功發送邀請")
+                
             case .failure(let error):
                 
                 print(error)
             }
         }
     }
-
 }
 
 extension QRCodeScannerViewController: AVCaptureMetadataOutputObjectsDelegate {
@@ -172,11 +179,7 @@ extension QRCodeScannerViewController: AVCaptureMetadataOutputObjectsDelegate {
                     
                     canCatch = false
                 }
-                //                self.userId = metadataObj.stringValue
-                
-                //                messageLabel.text = metadataObj.stringValue
             }
         }
     }
-
 }

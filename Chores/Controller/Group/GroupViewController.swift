@@ -23,31 +23,15 @@ class GroupViewController: UIViewController {
         
         case total = 2
     }
-    
-    //  private struct Segue {
-    //
-    //    static let week = "SegueWeek"
-    //
-    //    static let month = "SegueMonth"
-    //
-    //    static let total = "SegueTotal"
-    //
-    //  }
-    
+
     @IBOutlet weak var indicatorView: UIView! {
         
         didSet {
             
-            indicatorView.backgroundColor = .orangeFCA311
+            indicatorView.backgroundColor = .darkBlue14213D
         }
     }
-    
-    //  @IBOutlet weak var weekDataView: UIView!
-    //
-    //  @IBOutlet weak var monthDataView: UIView!
-    
-//    @IBOutlet weak var barChartView: UIView!
-    
+
     @IBOutlet weak var chartView: HorizontalBarChartView! {
         
         didSet {
@@ -55,14 +39,6 @@ class GroupViewController: UIViewController {
             chartView.delegate = self
         }
     }
-
-//    @IBOutlet weak var hoursChartView: HorizontalBarChartView! {
-//
-//        didSet {
-//
-//            hoursChartView.delegate = self
-//        }
-//    }
     
     @IBOutlet weak var collectionView: UICollectionView! {
         
@@ -72,8 +48,7 @@ class GroupViewController: UIViewController {
         }
     }
     @IBOutlet var switchButtons: [UIButton]!
-    
-        
+
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     var groupMembers: [User] = []
@@ -288,10 +263,11 @@ class GroupViewController: UIViewController {
                 
                 for user in self?.groupMembers ?? [] {
                     
-                    // filter
+                    // filter出chore的owner與user id相同的
                     let filter = chores.filter { $0.owner == user.id }
                     
-                    let hoursSum = filter.reduce(0, { (sum , chore) -> Int in
+                    //用filter出來的新資料去reduce 一筆加一筆
+                    let hoursSum = filter.reduce(0, { (sum, chore) -> Int in
                         
                         return sum + chore.hours
                     })
@@ -329,9 +305,9 @@ class GroupViewController: UIViewController {
     
     func setUpChartView(names: [String], chartData: [BarChartDataEntry]) {
         
-        let dataSet = BarChartDataSet(entries: chartData)
+        let dataSet = BarChartDataSet(entries: chartData, label: "小屋成員數據統計")
         
-        dataSet.colors = ChartColorTemplates.joyful()
+        dataSet.colors = ChartColorTemplates.shared.wonderful()
         
         dataSet.drawValuesEnabled = false
 
