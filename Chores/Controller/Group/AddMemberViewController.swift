@@ -80,7 +80,7 @@ class AddMemberViewController: UIViewController {
             name: UserProvider.shared.user.name,
             id: "")
         
-        UserProvider.shared.sendInviation(invitation: invitation, userId: userId) { result in
+        UserProvider.shared.sendInviation(invitation: invitation, userId: userId) { [weak self] result in
             
             switch result {
             
@@ -88,13 +88,16 @@ class AddMemberViewController: UIViewController {
                 
                 print(message)
                 
+                KRProgressHUD.showSuccess(withMessage: "已成功發送邀請")
+                
+                self?.dismiss(animated: true, completion: nil)
+                
             case .failure(let error):
                 
                 print(error)
             }
         }
     }
-    
 }
 
 extension AddMemberViewController: MIBlurPopupDelegate {
@@ -118,5 +121,4 @@ extension AddMemberViewController: MIBlurPopupDelegate {
         
         0.2
     }
-    
 }

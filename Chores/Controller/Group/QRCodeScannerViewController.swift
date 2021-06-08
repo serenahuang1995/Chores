@@ -104,12 +104,9 @@ class QRCodeScannerViewController: UIViewController {
                 
                 print(user)
                 
-//                if let user = nil {
-//                    
-//                    KRProgressHUD.showError(withMessage: "找不到此成員")
-//                }
-                
                 self?.sendInvitation(user: user)
+                
+//                KRProgressHUD.showSuccess(withMessage: "已成功發送邀請")
                 
             case .failure(let error):
                 
@@ -134,9 +131,7 @@ class QRCodeScannerViewController: UIViewController {
             case .success(let message):
                 
                 print(message)
-                
-                KRProgressHUD.showSuccess(withMessage: "已成功發送邀請")
-                
+
             case .failure(let error):
                 
                 print(error)
