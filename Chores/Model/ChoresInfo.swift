@@ -25,6 +25,8 @@ struct Segue {
     
     static let addMember = "SegueAddMember"
     
+    static let scanner = "SegueScanner"
+    
     static let week = "SegueWeek"
     
     static let month = "SegueMonth"
@@ -37,6 +39,5 @@ struct Segue {
     
     static let setting = "SegueSegueSetting"
     
-    static let changeName = "SegueChangeName"
-    
+    static let changeName = "SegueChangeName"    
 }

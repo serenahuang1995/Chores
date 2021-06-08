@@ -14,12 +14,15 @@ class AddMemberViewController: UIViewController {
     @IBOutlet weak var popView: UIView!
     
     @IBOutlet weak var addMemberTextField: UITextField!
-    
-//    var invitation: Invitation?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    }
+    
+    @IBAction func scanQRCode(_ sender: Any) {
+        
+        performSegue(withIdentifier: Segue.scanner, sender: nil)
     }
 
     @IBAction func addMember(_ sender: Any) {

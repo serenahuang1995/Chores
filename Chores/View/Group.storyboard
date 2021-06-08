@@ -263,7 +263,7 @@
                                         </constraints>
                                         <state key="normal" image="qr-code"/>
                                         <connections>
-                                            <segue destination="tVc-hB-D3Y" kind="showDetail" animates="NO" id="QgF-8U-ZV1"/>
+                                            <action selector="scanQRCode:" destination="Hho-Mi-gQl" eventType="touchUpInside" id="hDK-IC-eWp"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -296,6 +296,7 @@
                     <connections>
                         <outlet property="addMemberTextField" destination="LZ1-l9-z4u" id="rKB-tY-fuM"/>
                         <outlet property="popView" destination="Y8h-2p-Vy3" id="Cdt-VH-Ufr"/>
+                        <segue destination="tVc-hB-D3Y" kind="presentation" identifier="SegueScanner" id="nPe-4c-YAd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VMP-6i-ivR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
