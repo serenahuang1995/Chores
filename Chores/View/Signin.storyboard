@@ -113,10 +113,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HdD-5X-lBj">
-                                <rect key="frame" x="16" y="16" width="382" height="776"/>
+                                <rect key="frame" x="16" y="80" width="382" height="712"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <string key="text">Privacy Policy
-Last updated: June 05, 2021
+                                <mutableString key="text">Last updated: June 05, 2021
 
 This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.
 
@@ -256,30 +255,49 @@ You are advised to review this Privacy Policy periodically for any changes. Chan
 Contact Us
 If you have any questions about this Privacy Policy, You can contact us:
 
-By email: kiki03041997@gmail.com</string>
+By email: chores2021@gmail.com</mutableString>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ez-oC-Hul">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Privacy Policy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8Z-ma-qA8">
+                                        <rect key="frame" x="0.0" y="22" width="414" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.94509803921568625" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="n8Z-ma-qA8" firstAttribute="centerY" secondItem="0ez-oC-Hul" secondAttribute="centerY" id="H5l-6z-zfa"/>
+                                    <constraint firstAttribute="height" constant="80" id="JpJ-j5-xoS"/>
+                                    <constraint firstItem="n8Z-ma-qA8" firstAttribute="centerX" secondItem="0ez-oC-Hul" secondAttribute="centerX" id="bAI-er-d2F"/>
+                                    <constraint firstItem="n8Z-ma-qA8" firstAttribute="leading" secondItem="0ez-oC-Hul" secondAttribute="leading" id="qff-Rc-UQg"/>
+                                    <constraint firstAttribute="trailing" secondItem="n8Z-ma-qA8" secondAttribute="trailing" id="sBJ-dN-qvu"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Uig-Gl-4QA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Uig-Gl-4QA" firstAttribute="bottom" secondItem="HdD-5X-lBj" secondAttribute="bottom" constant="16" id="0om-Bc-XvJ"/>
                             <constraint firstItem="Uig-Gl-4QA" firstAttribute="trailing" secondItem="HdD-5X-lBj" secondAttribute="trailing" constant="16" id="5Of-p3-Rxw"/>
+                            <constraint firstItem="Uig-Gl-4QA" firstAttribute="trailing" secondItem="0ez-oC-Hul" secondAttribute="trailing" id="V5b-bF-B2s"/>
                             <constraint firstItem="HdD-5X-lBj" firstAttribute="leading" secondItem="Uig-Gl-4QA" secondAttribute="leading" constant="16" id="bQh-qe-kLy"/>
-                            <constraint firstItem="HdD-5X-lBj" firstAttribute="top" secondItem="Uig-Gl-4QA" secondAttribute="top" constant="16" id="lb8-dS-8w0"/>
+                            <constraint firstItem="HdD-5X-lBj" firstAttribute="top" secondItem="0ez-oC-Hul" secondAttribute="bottom" id="bqt-PY-UR2"/>
+                            <constraint firstItem="0ez-oC-Hul" firstAttribute="leading" secondItem="Uig-Gl-4QA" secondAttribute="leading" id="rXH-9R-wCL"/>
+                            <constraint firstItem="0ez-oC-Hul" firstAttribute="top" secondItem="Uig-Gl-4QA" secondAttribute="top" id="wrH-HG-qlZ"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zU6-dI-YAz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="12" y="640"/>
+            <point key="canvasLocation" x="11.594202898550726" y="639.50892857142856"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="Q6s-MM-duU"/>
-    </designables>
     <resources>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
