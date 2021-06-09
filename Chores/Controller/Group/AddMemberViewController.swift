@@ -8,6 +8,7 @@
 import UIKit
 import MIBlurPopup
 import KRProgressHUD
+import IQKeyboardManagerSwift
 
 class AddMemberViewController: UIViewController {
     

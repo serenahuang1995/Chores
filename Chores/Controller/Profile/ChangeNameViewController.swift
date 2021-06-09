@@ -8,6 +8,7 @@
 import UIKit
 import KRProgressHUD
 import MIBlurPopup
+import IQKeyboardManagerSwift
 
 class ChangeNameViewController: UIViewController {
     
