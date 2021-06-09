@@ -122,9 +122,7 @@ class SigninViewController: UIViewController {
             switch result {
             
             case .success(let user):
-                
-                print("user = \(user!)")
-                
+
                 if let user = user {
                     
                     self?.performToNextPage(user: user)
@@ -299,11 +297,11 @@ extension SigninViewController: ASAuthorizationControllerDelegate {
                     // Firebase uid
                     guard let uid = Auth.auth().currentUser?.uid else { return }
                     
-                    self.uid = uid
+                    self.uid = "123456\(uid)"
                     
                     let userDefault = UserDefaults()
                         
-                    userDefault.setValue(uid, forKey: "FirebaseUid")
+                    userDefault.setValue(self.uid, forKey: "FirebaseUid")
                     
                     fetchUser()
                 }
