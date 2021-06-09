@@ -53,19 +53,17 @@
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LWD-Iv-NGr">
-                                <rect key="frame" x="40" y="25" width="220" height="240"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="240" id="L7c-un-lLZ"/>
-                                </constraints>
+                                <rect key="frame" x="25" y="25" width="250" height="230"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="UlY-Xt-oSt" firstAttribute="top" secondItem="LWD-Iv-NGr" secondAttribute="bottom" constant="15" id="1bR-tu-d1u"/>
+                            <constraint firstItem="UlY-Xt-oSt" firstAttribute="top" secondItem="LWD-Iv-NGr" secondAttribute="bottom" constant="25" id="4Yp-D8-3p0"/>
                             <constraint firstItem="LWD-Iv-NGr" firstAttribute="centerX" secondItem="fVQ-Rf-4bO" secondAttribute="centerX" id="Ep0-HS-ESc"/>
                             <constraint firstItem="UlY-Xt-oSt" firstAttribute="leading" secondItem="fVQ-Rf-4bO" secondAttribute="leading" id="Kih-dE-TEk"/>
-                            <constraint firstItem="LWD-Iv-NGr" firstAttribute="leading" secondItem="fVQ-Rf-4bO" secondAttribute="leading" constant="40" id="Q5z-cC-f85"/>
-                            <constraint firstAttribute="trailing" secondItem="LWD-Iv-NGr" secondAttribute="trailing" constant="40" id="S3M-jS-uzL"/>
+                            <constraint firstItem="LWD-Iv-NGr" firstAttribute="leading" secondItem="fVQ-Rf-4bO" secondAttribute="leading" constant="25" id="Q5z-cC-f85"/>
+                            <constraint firstAttribute="trailing" secondItem="LWD-Iv-NGr" secondAttribute="trailing" constant="25" id="S3M-jS-uzL"/>
+                            <constraint firstItem="LWD-Iv-NGr" firstAttribute="top" secondItem="fVQ-Rf-4bO" secondAttribute="top" constant="25" id="TdW-my-eLD"/>
                             <constraint firstAttribute="trailing" secondItem="UlY-Xt-oSt" secondAttribute="trailing" id="an3-ub-e2o"/>
                             <constraint firstAttribute="bottom" secondItem="UlY-Xt-oSt" secondAttribute="bottom" id="gGF-ci-zm6"/>
                         </constraints>

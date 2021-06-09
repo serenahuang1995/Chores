@@ -21,11 +21,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="300" height="400"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b6w-h4-kUM" customClass="AnimationView" customModule="Lottie">
-                                <rect key="frame" x="-6" y="0.0" width="300" height="300"/>
+                                <rect key="frame" x="-6" y="-6" width="300" height="280"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="cqq-ov-aEM"/>
-                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="objectBorderColor">
                                         <color key="value" red="0.1450980392" green="0.1450980392" blue="0.1450980392" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
@@ -75,8 +72,9 @@
                         <constraints>
                             <constraint firstItem="b6w-h4-kUM" firstAttribute="leading" secondItem="n9X-To-HCj" secondAttribute="leading" constant="-6" id="U1D-Oa-Spa"/>
                             <constraint firstAttribute="trailing" secondItem="b6w-h4-kUM" secondAttribute="trailing" constant="6" id="UPo-dK-SLl"/>
-                            <constraint firstItem="b6w-h4-kUM" firstAttribute="top" secondItem="n9X-To-HCj" secondAttribute="top" id="hCE-Vr-nfb"/>
+                            <constraint firstItem="b6w-h4-kUM" firstAttribute="top" secondItem="n9X-To-HCj" secondAttribute="top" constant="-6" id="hCE-Vr-nfb"/>
                             <constraint firstItem="uwo-xz-rNM" firstAttribute="leading" secondItem="n9X-To-HCj" secondAttribute="leading" id="iEE-Ac-vxa"/>
+                            <constraint firstItem="uwo-xz-rNM" firstAttribute="top" secondItem="b6w-h4-kUM" secondAttribute="bottom" constant="6" id="jhl-ZY-NI9"/>
                             <constraint firstAttribute="trailing" secondItem="uwo-xz-rNM" secondAttribute="trailing" id="oZZ-aU-HlC"/>
                             <constraint firstAttribute="bottom" secondItem="uwo-xz-rNM" secondAttribute="bottom" id="yyw-rv-JuY" customClass="Car"/>
                         </constraints>

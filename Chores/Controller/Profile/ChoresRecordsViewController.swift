@@ -26,17 +26,15 @@ class ChoresRecordsViewController: UIViewController {
     }
     
     private func setUpTableView() {
-        
-        tableView.separatorStyle = .none
-        
-        tableView.backgroundColor = UIColor.white
-        
+                
         tableView.registerCellWithNib(
             identifier: String(describing: RecordsTableViewCell.self), bundle: nil)
         
         tableView.delegate = self
         
-        tableView.dataSource = self      
+        tableView.dataSource = self
+        
+        tableView.separatorStyle = .none
     }
     
     func setUpRecordsListener() {
@@ -59,7 +57,6 @@ class ChoresRecordsViewController: UIViewController {
             }
         }
     }
-  
 }
 
 extension ChoresRecordsViewController: UITableViewDelegate {
@@ -68,7 +65,11 @@ extension ChoresRecordsViewController: UITableViewDelegate {
         
         return 80
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
+        tableView.separatorStyle = .none
+    }
 }
 
 extension ChoresRecordsViewController: UITableViewDataSource {
@@ -93,5 +94,4 @@ extension ChoresRecordsViewController: UITableViewDataSource {
         
         return recordsCell
     }
-    
 }

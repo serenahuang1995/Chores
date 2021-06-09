@@ -253,7 +253,12 @@ extension AddChoresViewController: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: 80, height: 90)
+        let fullSize = UIScreen.main.bounds
+        
+       return CGSize(width: 80, height: 90)
+        
+//        return CGSize(width: fullSize.width * 0.19,
+//                      height: fullSize.height * 0.1)
     }
 }
 

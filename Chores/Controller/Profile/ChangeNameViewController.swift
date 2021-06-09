@@ -7,12 +7,7 @@
 
 import UIKit
 import KRProgressHUD
-import  MIBlurPopup
-
-protocol ProfileDelegate: AnyObject {
-    
-    func backToProfile()
-}
+import MIBlurPopup
 
 class ChangeNameViewController: UIViewController {
     

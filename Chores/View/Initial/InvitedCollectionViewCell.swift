@@ -51,7 +51,7 @@ class InvitedCollectionViewCell: UICollectionViewCell {
         
         userIdLabel.text = "ID：\(UserProvider.shared.uid)"
         
-        qrcodeImage.image = getUserQRCode(from: UserProvider.shared.uid)
+        qrcodeImage.image = getUserQRCode(from: UserProvider.shared.uid ?? "")
     }
     
 }

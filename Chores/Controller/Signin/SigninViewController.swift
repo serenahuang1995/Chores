@@ -10,6 +10,7 @@ import AuthenticationServices
 import FirebaseAuth
 import Lottie
 import CryptoKit
+import FirebaseCrashlytics
 
 class SigninViewController: UIViewController {
 
@@ -31,7 +32,17 @@ class SigninViewController: UIViewController {
         setUpSigninButton()
         
         setUpLottie()
+        
+//        let button = UIButton(type: .roundedRect)
+//        button.frame = CGRect(x: 20, y: 50, width: 100, height: 30)
+//        button.setTitle("Crash", for: [])
+//        button.addTarget(self, action: #selector(self.crashButtonTapped(_:)), for: .touchUpInside)
+//        view.addSubview(button)
     }
+//
+//    @IBAction func crashButtonTapped(_ sender: AnyObject) {
+//        fatalError()
+//    }
 
     @IBAction func skip(_ sender: Any) {
         
@@ -39,6 +50,8 @@ class SigninViewController: UIViewController {
     }
     
     func setUpSigninButton() {
+        
+        let fullSize = UIScreen.main.bounds
         
         let signinButton = ASAuthorizationAppleIDButton(
             authorizationButtonType: .signIn,
@@ -53,8 +66,8 @@ class SigninViewController: UIViewController {
         view.addSubview(signinButton)
         
         NSLayoutConstraint.activate([
-            signinButton.heightAnchor.constraint(equalToConstant: 45),
-            signinButton.widthAnchor.constraint(equalToConstant: 280),
+            signinButton.heightAnchor.constraint(equalToConstant: fullSize.height * 0.05),
+            signinButton.widthAnchor.constraint(equalToConstant: fullSize.width * 0.67),
             signinButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             signinButton.bottomAnchor.constraint(equalTo: privacyButton.topAnchor, constant: -20)
         ])

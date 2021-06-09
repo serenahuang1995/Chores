@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol ProfileDelegate: AnyObject {
+    
+    func backToProfile()
+}
+
 class ProfileViewController: UIViewController {
     
     private enum PageType: Int {
@@ -15,16 +20,6 @@ class ProfileViewController: UIViewController {
         
         case data = 1        
     }
-    
-//    private struct Segue {
-//
-//        static let records = "SegueRecords"
-//
-//        static let data = "SegueData"
-//
-//        static let popover = "Popover"
-//
-//    }
     
     @IBOutlet weak var userImage: UIImageView! {
         

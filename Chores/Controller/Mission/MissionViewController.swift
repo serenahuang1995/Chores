@@ -45,8 +45,6 @@ class MissionViewController: UIViewController {
     var transferChores: [Chore] = []
     
     var selectedIndex: Int?
-    
-//    let uid = UserProvider.shared.uid
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -132,9 +130,9 @@ class MissionViewController: UIViewController {
     // 用戶每次進來都會 fetch
     func fetchUser() {
         
-        let uid = UserProvider.shared.uid
+//        let uid = UserProvider.shared.uid
         
-        UserProvider.shared.fetchOwner(userId: uid) { [weak self] result in
+        UserProvider.shared.fetchOwner(userId: UserProvider.shared.uid ?? "") { [weak self] result in
             
             switch result {
             
@@ -272,9 +270,9 @@ class MissionViewController: UIViewController {
     
     func onTransferListener() {
         
-        let uid = UserProvider.shared.uid
+//        let uid = UserProvider.shared.uid
         
-        FirebaseProvider.shared.listenTransfer(userId: uid) { [weak self] result in
+        FirebaseProvider.shared.listenTransfer(userId: UserProvider.shared.uid ?? "") { [weak self] result in
             
             switch result {
             
@@ -386,6 +384,7 @@ extension MissionViewController: UITableViewDataSource {
                 return ongoingChores.count
             }
         }
+
         return 0
     }
     

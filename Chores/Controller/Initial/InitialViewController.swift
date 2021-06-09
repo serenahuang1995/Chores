@@ -29,7 +29,7 @@ class InitialViewController: UIViewController {
         let layout = FlatCardCollectionViewLayout()
         
         layout.itemSize = CGSize(width: screenSize.width * 0.62 ,
-                                 height: screenSize.height * 0.45)
+                                 height: screenSize.height * 0.48)
         
         print(UIScreen.main.bounds)
         

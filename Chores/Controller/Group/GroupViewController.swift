@@ -120,6 +120,8 @@ class GroupViewController: UIViewController {
         collectionView.delegate = self
         
         collectionView.dataSource = self
+        
+        collectionView.showsHorizontalScrollIndicator = false
     }
     
     private func moveIndicatorView(sender: UIButton) {
@@ -405,6 +407,10 @@ extension GroupViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let fullSize = UIScreen.main.bounds
+        
+//        return CGSize(width: fullSize.width * 0.16, height: fullSize.height * 0.1)
         
         return CGSize(width: 70, height: 90)
     }

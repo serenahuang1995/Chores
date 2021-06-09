@@ -45,18 +45,15 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q6s-MM-duU" customClass="AnimationView" customModule="Lottie">
-                                <rect key="frame" x="16" y="134" width="382" height="450"/>
+                                <rect key="frame" x="16" y="124" width="382" height="450"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="450" id="4pr-ba-xF1"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ZG-Qf-4IU">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ZG-Qf-4IU">
                                 <rect key="frame" x="368" y="76" width="30" height="30"/>
                                 <state key="normal" title="Skip"/>
-                                <connections>
-                                    <action selector="skip:" destination="0IV-mX-qVl" eventType="touchUpInside" id="Bpf-Vx-8ed"/>
-                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3d8-2g-YGG"/>
@@ -70,7 +67,7 @@
                             <constraint firstItem="AaO-sB-nv5" firstAttribute="centerX" secondItem="hI0-On-nrZ" secondAttribute="centerX" id="lMt-3U-P6S"/>
                             <constraint firstItem="3d8-2g-YGG" firstAttribute="trailing" secondItem="Q6s-MM-duU" secondAttribute="trailing" constant="16" id="pBM-de-BOd"/>
                             <constraint firstItem="AaO-sB-nv5" firstAttribute="top" secondItem="xda-Ed-eBB" secondAttribute="bottom" constant="40" id="wuI-N2-Krz"/>
-                            <constraint firstItem="Q6s-MM-duU" firstAttribute="top" secondItem="3d8-2g-YGG" secondAttribute="top" constant="90" id="ySw-B9-VDS"/>
+                            <constraint firstItem="Q6s-MM-duU" firstAttribute="top" secondItem="3d8-2g-YGG" secondAttribute="top" constant="80" id="ySw-B9-VDS"/>
                         </constraints>
                     </view>
                     <connections>
@@ -115,7 +112,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HdD-5X-lBj">
                                 <rect key="frame" x="16" y="80" width="382" height="712"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <mutableString key="text">Last updated: June 05, 2021
+                                <string key="text">Last updated: June 05, 2021
 
 This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.
 
@@ -255,7 +252,7 @@ You are advised to review this Privacy Policy periodically for any changes. Chan
 Contact Us
 If you have any questions about this Privacy Policy, You can contact us:
 
-By email: chores2021@gmail.com</mutableString>
+By email: chores2021@gmail.com</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -298,6 +295,9 @@ By email: chores2021@gmail.com</mutableString>
             <point key="canvasLocation" x="11.594202898550726" y="639.50892857142856"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="Q6s-MM-duU"/>
+    </designables>
     <resources>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

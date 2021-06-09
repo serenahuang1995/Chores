@@ -68,6 +68,8 @@ class TransferChoreViewController: UIViewController {
         collectionView.delegate = self
         
         collectionView.dataSource = self
+        
+        collectionView.showsHorizontalScrollIndicator = false
     }
 
     func fetchGroupMember() {
@@ -112,7 +114,6 @@ class TransferChoreViewController: UIViewController {
             }
         }
     }
-    
 }
 
 extension TransferChoreViewController: UICollectionViewDelegate {
@@ -124,7 +125,6 @@ extension TransferChoreViewController: UICollectionViewDelegate {
         
         collectionView.reloadData()
     }
-   
 }
 
 extension TransferChoreViewController: UICollectionViewDataSource {
@@ -158,7 +158,6 @@ extension TransferChoreViewController: UICollectionViewDataSource {
         
         return forwardCell
     }
-
 }
 
 extension TransferChoreViewController: UICollectionViewDelegateFlowLayout {
@@ -167,6 +166,10 @@ extension TransferChoreViewController: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
+        let fullSize = UIScreen.main.bounds
+        
+//        return CGSize(width: fullSize.width * 0.16, height: fullSize.height * 0.1)
+
         return CGSize(width: 70.0, height: 90.0)
     }
     
@@ -176,7 +179,6 @@ extension TransferChoreViewController: UICollectionViewDelegateFlowLayout {
         
         return 10.0
     }
-    
 }
 
 extension TransferChoreViewController: MIBlurPopupDelegate {
@@ -199,6 +201,5 @@ extension TransferChoreViewController: MIBlurPopupDelegate {
     var animationDuration: TimeInterval {
         
         0.2
-    }
-    
+    }    
 }

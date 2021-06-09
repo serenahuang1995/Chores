@@ -331,7 +331,7 @@ class FirebaseProvider {
     // 目前是自己登入以後會更新自己的每週時數
     func updateWeekHours(completion: @escaping (Result<String, Error>) -> Void) {
         
-        let docReference = database.collection(users).document(UserProvider.shared.uid )
+        let docReference = database.collection(users).document(UserProvider.shared.uid ?? "" )
         
         docReference.updateData([UserType.weekHours: 0])
         
