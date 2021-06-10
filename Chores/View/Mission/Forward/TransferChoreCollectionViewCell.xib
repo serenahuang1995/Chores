@@ -39,9 +39,9 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="IY8-ga-fWn" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="1rX-75-gsA"/>
+                <constraint firstItem="IY8-ga-fWn" firstAttribute="top" secondItem="Nzw-dS-fvB" secondAttribute="bottom" constant="3" id="dnX-jg-chc"/>
                 <constraint firstItem="Nzw-dS-fvB" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="mFL-Ed-eP4"/>
                 <constraint firstItem="Nzw-dS-fvB" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="3" id="uOd-mi-g1a"/>
-                <constraint firstAttribute="bottom" secondItem="IY8-ga-fWn" secondAttribute="bottom" constant="3" id="xUy-97-hGU"/>
             </constraints>
             <connections>
                 <outlet property="memberImage" destination="Nzw-dS-fvB" id="uSj-p2-rzp"/>

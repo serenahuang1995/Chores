@@ -22,7 +22,9 @@ class CreateGroupCollectionViewCell: UICollectionViewCell {
 
     @IBAction func create(_ sender: Any) {
         
-        createNewGroup()
+        self.delegate?.goToMainPage()
+        
+//        createNewGroup()
     }
     
     func setUpLottie() {
@@ -34,7 +36,6 @@ class CreateGroupCollectionViewCell: UICollectionViewCell {
         groupView.play()
         
         groupView.loopMode = .loop
-
     }
     
     func createNewGroup() {

@@ -21,6 +21,11 @@ class AddMemberViewController: UIViewController {
 
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        
+        dismiss(animated: false, completion: nil)
+    }
+    
     @IBAction func scanQRCode(_ sender: Any) {
         
         performSegue(withIdentifier: Segue.scanner, sender: nil)

@@ -23,6 +23,11 @@ class SpendPointsViewController: UIViewController {
         //    showBlackView()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        
+        dismiss(animated: false, completion: nil)
+    }
+    
     @IBAction func backToProfilePage(_ sender: Any) {
         
         dismiss(animated: true, completion: nil)

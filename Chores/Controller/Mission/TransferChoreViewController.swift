@@ -32,6 +32,11 @@ class TransferChoreViewController: UIViewController {
         
         fetchGroupMember()
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        
+        dismiss(animated: false, completion: nil)
+    }
 
     @IBAction func sureToForwardChore(_ sender: Any) {
         
@@ -166,8 +171,8 @@ extension TransferChoreViewController: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let fullSize = UIScreen.main.bounds
-        
+//        let fullSize = UIScreen.main.bounds
+//        
 //        return CGSize(width: fullSize.width * 0.16, height: fullSize.height * 0.1)
 
         return CGSize(width: 70.0, height: 90.0)

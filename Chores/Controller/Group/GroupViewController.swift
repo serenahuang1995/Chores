@@ -245,8 +245,10 @@ class GroupViewController: UIViewController {
                     
                     self?.userWeekPoints.append(sum)
                 }
-                
+                                
                 self?.updateContainerView(type: self?.currentPageType ?? .week)
+                
+                self?.chartView.reloadInputViews()
                 
             case .failure(let error):
                 
@@ -289,6 +291,8 @@ class GroupViewController: UIViewController {
                     
                     self?.userMonthPoints.append(pointsSum)
                 }
+                
+                self?.chartView.reloadInputViews()
 
             case .failure(let error):
                 
@@ -325,6 +329,8 @@ class GroupViewController: UIViewController {
         
         chartView.data = data
         
+        chartView.data?.highlightEnabled = false
+        
         chartView.xAxis.drawGridLinesEnabled = false
         
         chartView.xAxis.labelPosition = .bottom
@@ -339,13 +345,11 @@ class GroupViewController: UIViewController {
         
         chartView.xAxis.granularity = 1
         
-        chartView.xAxis.labelFont = UIFont.systemFont(ofSize: 11)
+        chartView.xAxis.labelFont = UIFont.systemFont(ofSize: 10)
 
         chartView.doubleTapToZoomEnabled = false
         
         chartView.pinchZoomEnabled = false
-        
-        chartView.reloadInputViews()
 
         let topAxis = chartView.leftAxis
         
@@ -357,6 +361,8 @@ class GroupViewController: UIViewController {
         
         topAxis.axisMinimum = 0.1
         
+        topAxis.labelFont = UIFont.systemFont(ofSize: 10)
+        
         chartView.rightAxis.drawGridLinesEnabled = false
         
         chartView.rightAxis.granularityEnabled = true
@@ -365,9 +371,11 @@ class GroupViewController: UIViewController {
         
         chartView.maxVisibleCount = 60
         
+        chartView.drawBarShadowEnabled = false
+
         chartView.notifyDataSetChanged()
         
-        chartView.animate(yAxisDuration: 2)
+        chartView.animate(yAxisDuration: 1.5)
     }
 }
 
@@ -419,7 +427,7 @@ extension GroupViewController: UICollectionViewDelegateFlowLayout {
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
 //        let fullSize = UIScreen.main.bounds
-        
+//
 //        return CGSize(width: fullSize.width * 0.16, height: fullSize.height * 0.1)
         
         return CGSize(width: 70, height: 90)

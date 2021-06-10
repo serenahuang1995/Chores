@@ -24,7 +24,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6V3-Jl-KGE">
-                        <rect key="frame" x="18.5" y="71" width="33" height="16"/>
+                        <rect key="frame" x="18.5" y="68" width="33" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -34,8 +34,8 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="6V3-Jl-KGE" secondAttribute="bottom" constant="3" id="2d0-GO-E93"/>
                 <constraint firstItem="mnP-xC-pJk" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="5c9-LZ-Kb1"/>
+                <constraint firstItem="6V3-Jl-KGE" firstAttribute="top" secondItem="mnP-xC-pJk" secondAttribute="bottom" constant="5" id="FE7-QW-h40"/>
                 <constraint firstItem="mnP-xC-pJk" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="3" id="QfY-2J-sob"/>
                 <constraint firstItem="6V3-Jl-KGE" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="uzR-gX-nq2"/>
             </constraints>

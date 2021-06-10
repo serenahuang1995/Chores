@@ -16,6 +16,10 @@ protocol TagCellDelegate: AnyObject {
 
 class AddChoresViewController: UIViewController {
     
+    @IBOutlet weak var scrollViewHeightConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     @IBOutlet weak var collectionView: UICollectionView! {
         
         didSet {
@@ -70,6 +74,8 @@ class AddChoresViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        scrollViewHeightConstraint.constant = UIScreen.main.bounds.height - scrollView.frame.minY - (navigationController?.navigationBar.frame.maxY ?? 0)
+
         setChoreTypesListener()
     }
     
@@ -166,33 +172,6 @@ class AddChoresViewController: UIViewController {
             }
         }
     }
-    
-    // for future
-    //  func addDefaultChoreTypes() {
-    //
-    //    let defaultTypes = [
-    //      "洗碗", "洗衣服", "晾衣服", "摺衣服", "燙衣服", "煮飯", "買菜", "掃地", "拖地",
-    //      "吸地", "倒垃圾", "刷廁所", "擦窗戶", "修繕", "澆花", "遛狗", "收納", "接送", "帶小孩"
-    //    ]
-    //
-    //    for choreType in defaultTypes {
-    //
-    //      FirebaseProvider.shared.addChoreType(choreType: choreType) { result in
-    //
-    //        switch result {
-    //
-    //        case .success(let choreType):
-    //          print(choreType)
-    //
-    //        case .failure(let error):
-    //          print(error)
-    //        }
-    //
-    //      }
-    //
-    //    }
-    //  }
-    
 }
 
 extension AddChoresViewController: UICollectionViewDelegate {
@@ -258,8 +237,10 @@ extension AddChoresViewController: UICollectionViewDelegateFlowLayout {
         
        return CGSize(width: 80, height: 90)
         
-//        return CGSize(width: fullSize.width * 0.19,
-//                      height: fullSize.height * 0.1)
+//        print("大小\(CGSize(width: fullSize.width * 0.19, height: fullSize.height * 0.1))")
+//
+//        return CGSize(width: fullSize.width * 0.21,
+//                      height: fullSize.height * 0.13)
     }
 }
 

@@ -24,6 +24,11 @@ class TransferDialogViewController: UIViewController {
             transferLabel.text = "\(UserProvider.shared.getUserNameById(id: chore.owner ?? "") ?? "") 企圖將「\(chore.item)」轉交給你"
         }
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        
+        dismiss(animated: false, completion: nil)
+    }
 
     @IBAction func acceptChore(_ sender: Any) {
         
