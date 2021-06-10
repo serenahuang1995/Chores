@@ -33,16 +33,16 @@ class SigninViewController: UIViewController {
         
         setUpLottie()
         
-        let button = UIButton(type: .roundedRect)
-        button.frame = CGRect(x: 20, y: 50, width: 100, height: 30)
-        button.setTitle("Crash", for: [])
-        button.addTarget(self, action: #selector(self.crashButtonTapped(_:)), for: .touchUpInside)
-        view.addSubview(button)
+//        let button = UIButton(type: .roundedRect)
+//        button.frame = CGRect(x: 20, y: 50, width: 100, height: 30)
+//        button.setTitle("Crash", for: [])
+//        button.addTarget(self, action: #selector(self.crashButtonTapped(_:)), for: .touchUpInside)
+//        view.addSubview(button)
     }
 
-    @IBAction func crashButtonTapped(_ sender: AnyObject) {
-        fatalError()
-    }
+//    @IBAction func crashButtonTapped(_ sender: AnyObject) {
+//        fatalError()
+//    }
 
     @IBAction func skip(_ sender: Any) {
         
@@ -295,9 +295,9 @@ extension SigninViewController: ASAuthorizationControllerDelegate {
                     // Firebase uid
                     guard let uid = Auth.auth().currentUser?.uid else { return }
                     
-//                    self.uid = uid
+                    self.uid = uid
                     
-                    self.uid = "test"
+//                    self.uid = "test"
 //                    self.uid = "XC6b6Ys1VY1qLcBJ5M8z"
 
                     let userDefault = UserDefaults()

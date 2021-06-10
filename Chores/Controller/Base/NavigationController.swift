@@ -12,8 +12,8 @@ class NavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationBar.barTintColor = .darkBlue14213D
+        navigationBar.isTranslucent = false
 
+        navigationBar.barTintColor = .darkBlue14213D
     }
-    
 }
