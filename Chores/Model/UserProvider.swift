@@ -232,13 +232,15 @@ class UserProvider {
         
         let docReference = database.collection(users).document(uid ?? "")
         
-        docReference.updateData([UserType.groupId: groupId]) { error in
+        docReference.updateData([UserType.groupId: groupId]) { [weak self] error in
             
             if let error = error {
                 
                 completion(.failure(error))
                 
             } else {
+                
+                self?.user.groupId = groupId
                 
                 completion(.success("Success"))
             }
@@ -251,13 +253,15 @@ class UserProvider {
         
         let docReference = database.collection(users).document(uid ?? "")
         
-        docReference.updateData([UserType.groupId: invitation.group]) { error in
+        docReference.updateData([UserType.groupId: invitation.group]) { [weak self] error in
             
             if let error = error {
                 
                 completion(.failure(error))
                 
             } else {
+                
+                self?.user.groupId = invitation.group
                 
                 completion(.success("Success"))
             }

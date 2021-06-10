@@ -183,6 +183,11 @@ class GroupViewController: UIViewController {
 
                 self?.groupMembers = users
                 
+                if UserProvider.shared.user.groupId?.isEmpty ?? true {
+                    
+                    return
+                }
+                
                 self?.userNames = []
                 
                 self?.userTotalPoints = []

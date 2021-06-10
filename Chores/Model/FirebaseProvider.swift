@@ -45,8 +45,6 @@ class FirebaseProvider {
     
     let chores = "chores"
     
-    let currentUser = UserProvider.shared.user
-    
     let success = "Success"
     
     // struct has no reference，為了要修改原本 struct 的值 必須加inout
@@ -56,7 +54,7 @@ class FirebaseProvider {
                           completion: @escaping (Result<String, Error>) -> Void) {
         
         let docReference = database
-            .collection(groups).document(currentUser.groupId!)
+            .collection(groups).document(UserProvider.shared.user.groupId!)
             .collection(chores)
 .document()
         
@@ -86,7 +84,7 @@ class FirebaseProvider {
                               completion: @escaping (Result<String, Error>) -> Void) {
         
         let docRefernce = database
-            .collection(groups).document(currentUser.groupId!)
+            .collection(groups).document(UserProvider.shared.user.groupId!)
             .collection(chores).document(selectedChore.id)
         
         docRefernce.delete { error in
@@ -107,10 +105,10 @@ class FirebaseProvider {
                      completion: @escaping (Result<String, Error>) -> Void) {
         
         let docReference = database
-            .collection(groups).document(currentUser.groupId!)
+            .collection(groups).document(UserProvider.shared.user.groupId!)
             .collection(chores).document(selectedChore.id)
         
-        docReference.updateData([ChoreType.owner: currentUser.id])
+        docReference.updateData([ChoreType.owner: UserProvider.shared.user.id])
         
         completion(.success(success))
     }
@@ -122,7 +120,7 @@ class FirebaseProvider {
         let addDataTime = Timestamp.init(date: NSDate() as Date)
 
         let docRefernce = database
-            .collection(groups).document(currentUser.groupId ?? "")
+            .collection(groups).document(UserProvider.shared.user.groupId ?? "")
             .collection(chores).document(selectedChore.id)
         
         docRefernce.updateData([ChoreType.status: 1, ChoreType.completedDate: addDataTime])
@@ -133,7 +131,11 @@ class FirebaseProvider {
     // 監聽家事列表頁面的變動，一開始只會query狀態是未完成的
     func listenChores(completion: @escaping (Result<[Chore], Error>) -> Void) {
         
-        let docRefernce = database.collection(groups).document(currentUser.groupId ?? "")
+        guard let groupId = UserProvider.shared.user.groupId else { return }
+        
+        if groupId.isEmpty { return }
+        
+        let docRefernce = database.collection(groups).document(groupId)
             .collection(chores)
             .whereField(ChoreType.status, isEqualTo: 0)
         
@@ -160,10 +162,10 @@ class FirebaseProvider {
     // 監聽個人家事紀錄的變動，會 query 狀態是已完成、owner 是自己的項目
     func listenRecords(completion: @escaping (Result<[Chore], Error>) -> Void) {
         
-        let docReference = database.collection(groups).document(currentUser.groupId!)
+        let docReference = database.collection(groups).document(UserProvider.shared.user.groupId!)
             .collection(chores)
             .whereField(ChoreType.status, isEqualTo: 1)
-            .whereField(ChoreType.owner, isEqualTo: currentUser.id)
+            .whereField(ChoreType.owner, isEqualTo: UserProvider.shared.user.id)
         
         docReference.addSnapshotListener { querySnapshot, error in
             
@@ -188,7 +190,7 @@ class FirebaseProvider {
     // 獲得目前所有家事種類
     func fetchChoreTypes(completion: @escaping (Result<[String], Error>) -> Void) {
         
-        let docReference = database.collection(groups).document(currentUser.groupId ?? "")
+        let docReference = database.collection(groups).document(UserProvider.shared.user.groupId ?? "")
         
         docReference.addSnapshotListener {  querySnapshot, error in
             
@@ -212,7 +214,7 @@ class FirebaseProvider {
     func addChoreType(choreType: String,
                       completion: @escaping (Result<String, Error>) -> Void) {
         
-        let docReference = database.collection(groups).document(currentUser.groupId ?? "")
+        let docReference = database.collection(groups).document(UserProvider.shared.user.groupId ?? "")
         
         docReference
             .updateData([GroupType.choreTypes: FieldValue.arrayUnion([choreType])]) { error in
@@ -232,7 +234,7 @@ class FirebaseProvider {
     func deleteChoreType(selectedChoreType: String,
                          completion: @escaping (Result<String, Error>) -> Void) {
 
-        let docReference = database.collection(groups).document(currentUser.groupId ?? "")
+        let docReference = database.collection(groups).document(UserProvider.shared.user.groupId ?? "")
         
         docReference
             .updateData([GroupType.choreTypes: FieldValue.arrayRemove([selectedChoreType])]) { error in
@@ -272,9 +274,9 @@ class FirebaseProvider {
     func fetchDifferentChoreType(completion: @escaping (Result<[[Chore]], Error>) -> Void) {
         
         let docReference = database
-            .collection(groups).document(currentUser.groupId!)
+            .collection(groups).document(UserProvider.shared.user.groupId!)
             .collection(chores)
-            .whereField(ChoreType.owner, isEqualTo: currentUser.id)
+            .whereField(ChoreType.owner, isEqualTo: UserProvider.shared.user.id)
             .whereField(ChoreType.status, isEqualTo: 1)
 
         docReference.addSnapshotListener { querySnapshot, error in
@@ -342,7 +344,7 @@ class FirebaseProvider {
     func updateTransferUser(user: User, selectedChore: Chore, completion: @escaping (Result<String, Error>) -> Void) {
     
         let docReference = database
-            .collection(groups).document(currentUser.groupId ?? "")
+            .collection(groups).document(UserProvider.shared.user.groupId ?? "")
             .collection(chores).document(selectedChore.id)
         
         docReference.updateData([ChoreType.transfer: user.id]) { error in
@@ -363,8 +365,8 @@ class FirebaseProvider {
                         completion: @escaping (Result<[Chore], Error>) -> Void) {
         
         let docReference = database
-            .collection(groups).document(currentUser.groupId ?? "")
-            .collection(chores).whereField(ChoreType.transfer, isEqualTo: currentUser.id)
+            .collection(groups).document(UserProvider.shared.user.groupId ?? "")
+            .collection(chores).whereField(ChoreType.transfer, isEqualTo: UserProvider.shared.user.id)
         
         docReference.addSnapshotListener { querySnapshot, error in
             
@@ -391,10 +393,10 @@ class FirebaseProvider {
                              completion: @escaping (Result<String, Error>) -> Void) {
         
         let docReference = database
-            .collection(groups).document(currentUser.groupId ?? "")
+            .collection(groups).document(UserProvider.shared.user.groupId ?? "")
             .collection(chores).document(selectedChore.id)
         
-        docReference.updateData([ChoreType.owner: currentUser.id,
+        docReference.updateData([ChoreType.owner: UserProvider.shared.user.id,
                                  ChoreType.transfer: nil]) { error in
             
             if let error = error {
@@ -413,7 +415,7 @@ class FirebaseProvider {
                             completion: @escaping (Result<String, Error>) -> Void) {
         
         let docReference = database
-            .collection(groups).document(currentUser.groupId ?? "")
+            .collection(groups).document(UserProvider.shared.user.groupId ?? "")
             .collection(chores).document(selectedChore.id)
         
         docReference.updateData([ChoreType.transfer: nil ?? ""]) { error in
@@ -438,7 +440,7 @@ class FirebaseProvider {
         let lastDate = date.getLastDayDateInWeek()
         
         let docReference = database
-            .collection(groups).document(currentUser.groupId ?? "").collection(chores)
+            .collection(groups).document(UserProvider.shared.user.groupId ?? "").collection(chores)
             .whereField(ChoreType.completedDate, isGreaterThanOrEqualTo: firstDate)
             .whereField(ChoreType.completedDate, isLessThanOrEqualTo: lastDate)
         
@@ -477,7 +479,7 @@ class FirebaseProvider {
         let endDate = date.endOfCurrentMonth(returnDetailTime: true)
         
         let docReference = database
-            .collection(groups).document(currentUser.groupId ?? "").collection(chores)
+            .collection(groups).document(UserProvider.shared.user.groupId ?? "").collection(chores)
             .whereField(ChoreType.completedDate, isGreaterThanOrEqualTo: startDate)
             .whereField(ChoreType.completedDate, isLessThanOrEqualTo: endDate)
         

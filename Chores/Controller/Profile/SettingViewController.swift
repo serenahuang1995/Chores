@@ -122,6 +122,10 @@ class SettingViewController: UIViewController {
                 
                 print(message)
                 
+                let userDefault = UserDefaults()
+                
+                userDefault.setValue(nil, forKey: "GroupID")
+                
                 self?.performSegue(withIdentifier: Segue.initial, sender: nil)
 
             case .failure(let error):

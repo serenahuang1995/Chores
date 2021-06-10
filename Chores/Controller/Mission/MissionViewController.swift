@@ -129,9 +129,7 @@ class MissionViewController: UIViewController {
     
     // 用戶每次進來都會 fetch
     func fetchUser() {
-        
-//        let uid = UserProvider.shared.uid
-        
+
         UserProvider.shared.fetchOwner(userId: UserProvider.shared.uid ?? "") { [weak self] result in
             
             switch result {
@@ -141,6 +139,10 @@ class MissionViewController: UIViewController {
                 print(user)
                 
                 self?.fetchGroupMembers()
+                
+                self?.setChoresListener()
+
+                self?.onTransferListener()
                 
             case .failure(let error):
                 
@@ -303,10 +305,6 @@ class MissionViewController: UIViewController {
             case .success(let users):
                 
                 print(users)
-                
-                self?.setChoresListener()
-                
-                self?.onTransferListener()
            
             case .failure(let error):
                 
