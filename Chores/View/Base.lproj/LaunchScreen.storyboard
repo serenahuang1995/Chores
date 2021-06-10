@@ -15,10 +15,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="—Pngtree—frame accessories for cleaning home_4346366" translatesAutoresizingMaskIntoConstraints="NO" id="idx-4z-K9Z">
-                                <rect key="frame" x="7" y="248" width="400" height="400"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chores_icon" translatesAutoresizingMaskIntoConstraints="NO" id="idx-4z-K9Z">
+                                <rect key="frame" x="0.0" y="248" width="414" height="400"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="400" id="cgh-wE-Oez"/>
                                     <constraint firstAttribute="height" constant="400" id="jcX-hQ-vT2"/>
                                 </constraints>
                             </imageView>
@@ -28,6 +27,8 @@
                         <constraints>
                             <constraint firstItem="idx-4z-K9Z" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="H9R-q5-UKL"/>
                             <constraint firstItem="idx-4z-K9Z" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="NVa-GW-ZPS"/>
+                            <constraint firstItem="idx-4z-K9Z" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="OmK-P0-XbZ"/>
+                            <constraint firstAttribute="trailing" secondItem="idx-4z-K9Z" secondAttribute="trailing" id="tCX-PR-TTx"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -37,6 +38,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="—Pngtree—frame accessories for cleaning home_4346366" width="1200" height="1200"/>
+        <image name="chores_icon" width="720" height="720"/>
     </resources>
 </document>

@@ -23,19 +23,19 @@
                                 <rect key="frame" x="0.0" y="280" width="300" height="120"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step1：請成員輸入ID或是掃QRCode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdT-Rx-Jdo">
-                                        <rect key="frame" x="16" y="51" width="185" height="13.5"/>
+                                        <rect key="frame" x="10" y="51" width="185" height="13.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="thh-cx-ffn">
-                                        <rect key="frame" x="16" y="15" width="17" height="16"/>
+                                        <rect key="frame" x="10" y="15" width="17" height="16"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step2：開心的加入" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GEd-dI-4S6">
-                                        <rect key="frame" x="16" y="74.5" width="98.5" height="13.5"/>
+                                        <rect key="frame" x="10" y="74.5" width="98.5" height="13.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -45,11 +45,11 @@
                                 <constraints>
                                     <constraint firstItem="wdT-Rx-Jdo" firstAttribute="top" secondItem="thh-cx-ffn" secondAttribute="bottom" constant="20" id="4yR-en-twT"/>
                                     <constraint firstItem="thh-cx-ffn" firstAttribute="top" secondItem="UlY-Xt-oSt" secondAttribute="top" constant="15" id="BNe-kq-q5d"/>
-                                    <constraint firstItem="GEd-dI-4S6" firstAttribute="leading" secondItem="UlY-Xt-oSt" secondAttribute="leading" constant="16" id="XpI-aQ-vGh"/>
-                                    <constraint firstItem="thh-cx-ffn" firstAttribute="leading" secondItem="UlY-Xt-oSt" secondAttribute="leading" constant="16" id="lGw-uo-09Z"/>
+                                    <constraint firstItem="GEd-dI-4S6" firstAttribute="leading" secondItem="UlY-Xt-oSt" secondAttribute="leading" constant="10" id="XpI-aQ-vGh"/>
+                                    <constraint firstItem="thh-cx-ffn" firstAttribute="leading" secondItem="UlY-Xt-oSt" secondAttribute="leading" constant="10" id="lGw-uo-09Z"/>
                                     <constraint firstAttribute="height" constant="120" id="tpM-Q8-gUM"/>
                                     <constraint firstItem="GEd-dI-4S6" firstAttribute="top" secondItem="wdT-Rx-Jdo" secondAttribute="bottom" constant="10" id="vMU-6G-LPF"/>
-                                    <constraint firstItem="wdT-Rx-Jdo" firstAttribute="leading" secondItem="UlY-Xt-oSt" secondAttribute="leading" constant="16" id="wOb-3y-LTN"/>
+                                    <constraint firstItem="wdT-Rx-Jdo" firstAttribute="leading" secondItem="UlY-Xt-oSt" secondAttribute="leading" constant="10" id="wOb-3y-LTN"/>
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LWD-Iv-NGr">

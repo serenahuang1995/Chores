@@ -141,17 +141,17 @@ class SigninViewController: UIViewController {
     
     func performToNextPage(user: User) {
         
-        if user.groupId != nil {
+        if user.groupId?.isEmpty ?? true {
+            
+            performSegue(withIdentifier: Segue.initial, sender: nil)
+            
+        } else {
             
             let userDefault = UserDefaults()
             
             userDefault.setValue(user.groupId, forKey: "GroupID")
             
             performSegue(withIdentifier: Segue.main, sender: nil)
-            
-        } else {
-            
-            performSegue(withIdentifier: Segue.initial, sender: nil)
         }
     }
     
@@ -159,7 +159,7 @@ class SigninViewController: UIViewController {
         
         let user = User(id: uid ?? "",
                         name: name ?? "User",
-                        picture: ImageAsset.man.rawValue,
+                        picture: ImageAsset.user.rawValue,
                         points: 0,
                         weekHours: 0,
                         totalHours: 0,

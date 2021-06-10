@@ -22,7 +22,7 @@ class CreateGroupCollectionViewCell: UICollectionViewCell {
 
     @IBAction func create(_ sender: Any) {
         
-        self.delegate?.goToMainPage()
+        createNewGroup()
     }
     
     func setUpLottie() {
@@ -39,7 +39,7 @@ class CreateGroupCollectionViewCell: UICollectionViewCell {
     
     func createNewGroup() {
         
-        UserProvider.shared.createGroup { result in
+        UserProvider.shared.createGroup { [weak self] result in
             
             switch result {
             
@@ -47,6 +47,8 @@ class CreateGroupCollectionViewCell: UICollectionViewCell {
                 
                 print(group)
                 
+                self?.updateGroupId(groupId: group.id)
+
             case .failure(let error):
                 
                 print(error)
@@ -54,4 +56,26 @@ class CreateGroupCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    func updateGroupId(groupId: String) {
+        
+        UserProvider.shared.updateGroupId(groupId: groupId) { [weak self] result in
+            
+            switch result {
+            
+            case .success(let success):
+                
+                print(success)
+                
+                let userDefault = UserDefaults()
+                
+                userDefault.setValue(groupId, forKey: "GroupID")
+                
+                self?.delegate?.goToMainPage()
+                
+            case .failure(let error):
+                
+                print(error)
+            }
+        }
+    }
 }

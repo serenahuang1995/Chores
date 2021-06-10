@@ -408,7 +408,7 @@ extension GroupViewController: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let fullSize = UIScreen.main.bounds
+//        let fullSize = UIScreen.main.bounds
         
 //        return CGSize(width: fullSize.width * 0.16, height: fullSize.height * 0.1)
         

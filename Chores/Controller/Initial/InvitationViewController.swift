@@ -78,6 +78,10 @@ class InvitationViewController: UIViewController {
                     
                     print(message)
                     
+                    let userDefault = UserDefaults()
+                    
+                    userDefault.setValue(invitation.group, forKey: "GroupID")
+                    
                     self?.deleteInvitation(isAccept: true)
                     
                 case .failure(let error):

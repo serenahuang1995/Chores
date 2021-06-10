@@ -60,7 +60,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var storyboard: UIStoryboard?
 
     // 如果有暫存 uid 代表有登入過
-    if Auth.auth().currentUser == nil {
+    if UserDefaults.standard.string(forKey: "FirebaseUid") == nil {
         
         storyboard = .signin
         

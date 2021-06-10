@@ -227,6 +227,24 @@ class UserProvider {
         }
     }
     
+    func updateGroupId(groupId: String,
+                       completion: @escaping (Result<String, Error>) -> Void) {
+        
+        let docReference = database.collection(users).document(uid ?? "")
+        
+        docReference.updateData([UserType.groupId: groupId]) { error in
+            
+            if let error = error {
+                
+                completion(.failure(error))
+                
+            } else {
+                
+                completion(.success("Success"))
+            }
+        }
+    }
+    
     // 用戶進入群組後 會 assign 該群組的 ID 給使用者
     func updateGroupId(invitation: Invitation,
                        completion: @escaping (Result<String, Error>) -> Void) {

@@ -133,7 +133,7 @@ class FirebaseProvider {
     // 監聽家事列表頁面的變動，一開始只會query狀態是未完成的
     func listenChores(completion: @escaping (Result<[Chore], Error>) -> Void) {
         
-        let docRefernce = database.collection(groups).document(currentUser.groupId!)
+        let docRefernce = database.collection(groups).document(currentUser.groupId ?? "")
             .collection(chores)
             .whereField(ChoreType.status, isEqualTo: 0)
         

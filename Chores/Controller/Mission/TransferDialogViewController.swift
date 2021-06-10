@@ -99,7 +99,7 @@ class TransferDialogViewController: UIViewController {
                 
                 UserProvider.shared.user.points += 15
                 
-                //更新自己的points
+                // 更新自己的points
                 self?.updateSelfPoints()
                 
             case .failure(let error):
