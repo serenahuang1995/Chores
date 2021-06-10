@@ -183,6 +183,7 @@ class GroupViewController: UIViewController {
 
                 self?.groupMembers = users
                 
+                // 避免user離開群組之後會觸發SnapShotListener
                 if UserProvider.shared.user.groupId?.isEmpty ?? true {
                     
                     return
