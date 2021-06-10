@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chores_icon" translatesAutoresizingMaskIntoConstraints="NO" id="idx-4z-K9Z">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="—Pngtree—frame accessories for cleaning home_4346366" translatesAutoresizingMaskIntoConstraints="NO" id="idx-4z-K9Z">
                                 <rect key="frame" x="0.0" y="248" width="414" height="400"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="400" id="jcX-hQ-vT2"/>
@@ -38,6 +38,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chores_icon" width="720" height="720"/>
+        <image name="—Pngtree—frame accessories for cleaning home_4346366" width="1200" height="1200"/>
     </resources>
 </document>

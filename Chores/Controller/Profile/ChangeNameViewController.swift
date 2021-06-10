@@ -12,11 +12,19 @@ import IQKeyboardManagerSwift
 
 class ChangeNameViewController: UIViewController {
     
-    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var nameTextField: UITextField! {
+        
+        didSet {
+            
+            nameTextField.delegate = self
+        }
+    }
         
     @IBOutlet weak var popView: CardView!
     
     weak var delegate: ProfileDelegate?
+    
+    let textLimitCount = 5
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,6 +80,29 @@ class ChangeNameViewController: UIViewController {
                 print(error)
             }
         }
+    }
+}
+
+extension ChangeNameViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        textField.resignFirstResponder()
+        
+        return true
+    }
+    
+    func textField(_ textField: UITextField,
+                   shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
+        
+        let currentText = textField.text ?? ""
+        
+        guard let stringRange = Range(range, in: currentText) else { return false }
+        
+        let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+        
+        return updatedText.count <= textLimitCount
     }
 }
 

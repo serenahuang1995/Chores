@@ -16,8 +16,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="70" height="90"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="man" translatesAutoresizingMaskIntoConstraints="NO" id="Nzw-dS-fvB">
-                        <rect key="frame" x="2.5" y="5" width="65" height="65"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="Nzw-dS-fvB">
+                        <rect key="frame" x="2.5" y="3" width="65" height="65"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="65" id="2l2-Sf-LA2"/>
                             <constraint firstAttribute="height" constant="65" id="PW7-yF-GLy"/>
@@ -40,7 +40,7 @@
             <constraints>
                 <constraint firstItem="IY8-ga-fWn" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="1rX-75-gsA"/>
                 <constraint firstItem="Nzw-dS-fvB" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="mFL-Ed-eP4"/>
-                <constraint firstItem="Nzw-dS-fvB" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="uOd-mi-g1a"/>
+                <constraint firstItem="Nzw-dS-fvB" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="3" id="uOd-mi-g1a"/>
                 <constraint firstAttribute="bottom" secondItem="IY8-ga-fWn" secondAttribute="bottom" constant="3" id="xUy-97-hGU"/>
             </constraints>
             <connections>
@@ -51,6 +51,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="man" width="512" height="512"/>
+        <image name="user" width="512" height="512"/>
     </resources>
 </document>

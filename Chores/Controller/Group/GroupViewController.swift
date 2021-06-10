@@ -245,7 +245,7 @@ class GroupViewController: UIViewController {
                     
                     self?.userWeekPoints.append(sum)
                 }
-
+                
                 self?.updateContainerView(type: self?.currentPageType ?? .week)
                 
             case .failure(let error):
@@ -339,9 +339,13 @@ class GroupViewController: UIViewController {
         
         chartView.xAxis.granularity = 1
         
-        chartView.xAxis.labelFont = UIFont.systemFont(ofSize: 12)
+        chartView.xAxis.labelFont = UIFont.systemFont(ofSize: 11)
 
         chartView.doubleTapToZoomEnabled = false
+        
+        chartView.pinchZoomEnabled = false
+        
+        chartView.reloadInputViews()
 
         let topAxis = chartView.leftAxis
         
