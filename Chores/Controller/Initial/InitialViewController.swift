@@ -167,7 +167,6 @@ extension InitialViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
     }
-   
 }
 
 extension InitialViewController: CreateGroupCellDelegate {
@@ -176,5 +175,4 @@ extension InitialViewController: CreateGroupCellDelegate {
         
         performSegue(withIdentifier: Segue.main, sender: nil)
     }
-    
 }
