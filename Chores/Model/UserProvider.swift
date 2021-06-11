@@ -29,6 +29,8 @@ struct UserType {
     static let groupId = "groupId"
     
     static let name = "name"
+    
+    static let picture = "picture"
 }
 
 class UserProvider {
@@ -70,7 +72,6 @@ class UserProvider {
 //    "dacURDVFPNY4SIdW4w3S" // Hannah
 //    "dc7CXgn8G5kCX7h6rEPR" // Ben
 //    "vTphjWhWRffOaEXgqOrQ" //Wen
-
         UserDefaults.standard.string(forKey: "FirebaseUid")
 
     func addNewUser(user: User, completion: @escaping (Result<String, Error>) -> Void) {
@@ -88,7 +89,6 @@ class UserProvider {
                 } else {
                     
                     completion(.success(FirebaseProvider.shared.success))
-
                 }
             }
 
@@ -96,7 +96,6 @@ class UserProvider {
             
             completion(.failure(error))
         }
-        
     }
     
     // 一次性的fetch user
@@ -429,11 +428,31 @@ class UserProvider {
 //        return foundUser?.name
     }
     
-    func changeUserName(name: String, completion: @escaping (Result<String, Error>) -> Void) {
+    func changeUserName(name: String,
+                        completion: @escaping (Result<String, Error>) -> Void) {
         
         let docReference = database.collection(users).document(uid ?? "")
         
         docReference.updateData([UserType.name: name]) { error in
+            
+            if let error = error {
+                
+                completion(.failure(error))
+                
+            } else {
+                
+                completion(.success(FirebaseProvider.shared.success))
+            }
+        }
+    }
+    
+    func changeUserImage(imageName: String, completion: @escaping (Result<String, Error>) -> Void) {
+        
+//        let name = UserDefaults.standard.string(forKey: "URL")
+        
+        let docReference = database.collection(users).document(uid ?? "")
+        
+        docReference.updateData([UserType.picture: imageName]) { error in
             
             if let error = error {
                 

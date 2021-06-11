@@ -322,6 +322,7 @@ PODS:
   - gRPC-Core/Interface (1.28.2)
   - GTMSessionFetcher/Core (1.5.0)
   - IQKeyboardManagerSwift (6.5.6)
+  - Kingfisher (6.3.0)
   - KRActivityIndicatorView (3.0.7)
   - KRProgressHUD (3.4.7):
     - KRActivityIndicatorView (= 3.0.7)
@@ -344,6 +345,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - FirebaseFirestoreSwift
   - IQKeyboardManagerSwift (~> 6.5)
+  - Kingfisher
   - KRProgressHUD (~> 3.4)
   - lottie-ios (~> 3.2)
   - MIBlurPopup (~> 1.0)
@@ -369,6 +371,7 @@ SPEC REPOS:
     - gRPC-Core
     - GTMSessionFetcher
     - IQKeyboardManagerSwift
+    - Kingfisher
     - KRActivityIndicatorView
     - KRProgressHUD
     - leveldb-library
@@ -397,6 +400,7 @@ SPEC CHECKSUMS:
   gRPC-Core: 4afa11bfbedf7cdecd04de535a9e046893404ed5
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
+  Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
   KRActivityIndicatorView: ad69e89c4ce40c986cf580595be4829dcad0e35a
   KRProgressHUD: a248f0bc6c9c2aed40a37b76e03ffecc7f85c887
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
@@ -406,6 +410,6 @@ SPEC CHECKSUMS:
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
 
-PODFILE CHECKSUM: 18ecab52fe93279d07cba0b80c9a70f6b94d4215
+PODFILE CHECKSUM: f19d95873fdf816d4421ba0ebb74065ea440209b
 
 COCOAPODS: 1.10.1

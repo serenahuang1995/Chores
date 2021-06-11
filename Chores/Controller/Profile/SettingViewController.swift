@@ -79,6 +79,15 @@ class SettingViewController: UIViewController {
 
     @IBAction func changePicture(_ sender: Any) {
         
+         setImagePicker()
+
+        
+//        dismiss(animated: true) {
+//
+//            self.blackView.removeFromSuperview()
+//
+//            self.setImagePicker()
+//        }
     }
 
     @IBAction func leaveGroup(_ sender: Any) {
@@ -122,28 +131,84 @@ class SettingViewController: UIViewController {
         button.layer.cornerRadius = 10
     }
     
-//    func leaveGroup() {
+    func setImagePicker() {
+        
+        let picker = UIImagePickerController()
+        
+        picker.sourceType = .photoLibrary
+        
+        picker.delegate = self
+        
+        picker.allowsEditing = true
+        
+        
+//        dismiss(animated: true, completion: nil)
 //
-//        UserProvider.shared.leaveGroup { [weak self] result in
+//                present(picker, animated: true)
+
 //
-//            switch result {
-//
-//            case .success(let message):
-//
-//                print(message)
-//
-//                let userDefault = UserDefaults()
-//
-//                userDefault.setValue(nil, forKey: "GroupID")
-//
-//                self?.performSegue(withIdentifier: Segue.initial, sender: nil)
-//
-//            case .failure(let error):
-//
-//                print(error)
-//            }
-//        }
-//    }
+        present(picker, animated: true) { [weak self] in
+
+            self?.popView.removeFromSuperview()
+
+            self?.blackView.removeFromSuperview()
+        }
+    }
+    
+    func uploadUserImage(imageData: Data) {
+        
+        StorageProvider.shared.uploadUserImage(imageData: imageData) { [weak self] result in
+            
+            switch result {
+            
+            case .success(let imageName):
+                
+                print("upload image \(imageName)")
+                
+                self?.changeImageToURL(imageName: imageName)
+                
+            case .failure(let error):
+                
+                print(error)
+            }
+        }
+    }
+    
+    func changeImageToURL(imageName: String) {
+        
+        StorageProvider.shared.changeImageToURL(imageName: imageName) { [weak self] result in
+            
+            switch result {
+            
+            case .success(let url):
+                
+                print("change image to string \(url)")
+                
+                self?.updateUserImage(imageName: url)
+                
+            case .failure(let error):
+                
+                print(error)
+            }
+        }
+    }
+    
+    func updateUserImage(imageName: String) {
+        
+        UserProvider.shared.changeUserImage(imageName: imageName) { result in
+            
+            switch result {
+            
+            case .success(let success):
+                
+                print("update user image \(success)")
+            
+            case .failure(let error):
+                
+                print(error)
+            }
+        }
+    }
 }
 
 extension SettingViewController: ProfileDelegate {
@@ -153,5 +218,24 @@ extension SettingViewController: ProfileDelegate {
         dismiss(animated: true, completion: nil)
         
         blackView.removeFromSuperview()
+    }
+}
+
+extension SettingViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        picker.dismiss(animated: true, completion: nil)
+        
+        guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else { return  }
+        
+        guard let imageData = image.pngData() else { return }
+        
+        uploadUserImage(imageData: imageData)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        
+        picker.dismiss(animated: true, completion: nil)
     }
 }

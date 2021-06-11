@@ -149,8 +149,10 @@ class ProfileViewController: UIViewController {
             
             case .success(let user):
                 
-                self.userImage.image = UIImage(named: user.picture)
+//                self.userImage.image = UIImage(named: user.picture)
                 
+                self.userImage.loadImage(user.picture)
+
                 self.userNameLabel.text = user.name
                 
                 self.totalPointsLabel.text = "累積點數：\(user.points)"
@@ -160,7 +162,6 @@ class ProfileViewController: UIViewController {
             case .failure(let error):
                 
                 print(error)
-                
             }
         }
     }
@@ -193,4 +194,9 @@ class ProfileViewController: UIViewController {
             }
         }
     }
+    
+//    func changeUserImage(userImage: UIImageView) {
+//        
+//        StorageProvider.shared.downloadImage(userImage: userImage)
+//    }
 }

@@ -26,7 +26,7 @@ class MemberCollectionViewCell: UICollectionViewCell {
     
     func layoutCell(user: User) {
         
-        memberImage.image = UIImage(named: user.picture)
+        memberImage.loadImage(user.picture)
         
         memberNameLabel.text = user.name
     }

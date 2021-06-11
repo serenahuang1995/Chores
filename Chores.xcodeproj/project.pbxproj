@@ -29,6 +29,8 @@
 		DC719599265FF47A00DC3706 /* InvitedCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC719597265FF47A00DC3706 /* InvitedCollectionViewCell.xib */; };
 		DC71959C265FF9C000DC3706 /* FlatCardCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC71959B265FF9BF00DC3706 /* FlatCardCollectionViewLayout.swift */; };
 		DC7D1BFB26730BA800C3898B /* LeaveGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7D1BFA26730BA700C3898B /* LeaveGroupViewController.swift */; };
+		DC7D1BFE2673725500C3898B /* StorageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7D1BFD2673725500C3898B /* StorageProvider.swift */; };
+		DC7D1C202673947E00C3898B /* KingFisherWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7D1C1F2673947E00C3898B /* KingFisherWrapper.swift */; };
 		DC8136492650090E003CC6ED /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8136482650090E003CC6ED /* UICollectionView+Extension.swift */; };
 		DC81364D2650095C003CC6ED /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81364B2650095C003CC6ED /* TagCollectionViewCell.swift */; };
 		DC81364E2650095C003CC6ED /* TagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC81364C2650095C003CC6ED /* TagCollectionViewCell.xib */; };
@@ -110,6 +112,8 @@
 		DC719597265FF47A00DC3706 /* InvitedCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvitedCollectionViewCell.xib; sourceTree = "<group>"; };
 		DC71959B265FF9BF00DC3706 /* FlatCardCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatCardCollectionViewLayout.swift; sourceTree = "<group>"; };
 		DC7D1BFA26730BA700C3898B /* LeaveGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveGroupViewController.swift; sourceTree = "<group>"; };
+		DC7D1BFD2673725500C3898B /* StorageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageProvider.swift; sourceTree = "<group>"; };
+		DC7D1C1F2673947E00C3898B /* KingFisherWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KingFisherWrapper.swift; sourceTree = "<group>"; };
 		DC8136482650090E003CC6ED /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		DC81364B2650095C003CC6ED /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
 		DC81364C2650095C003CC6ED /* TagCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -325,6 +329,7 @@
 			isa = PBXGroup;
 			children = (
 				DCCD761A265A8D2C0004E82B /* Charts.swift */,
+				DC7D1C1F2673947E00C3898B /* KingFisherWrapper.swift */,
 			);
 			path = "Third Party Wrapper";
 			sourceTree = "<group>";
@@ -341,6 +346,7 @@
 		DCEEAA33264BCCA200A64D37 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DC7D1BFD2673725500C3898B /* StorageProvider.swift */,
 				DC9B10AE2659691A00F50430 /* UserProvider.swift */,
 				DCA589F226555AD10033EE63 /* FirebaseProvider.swift */,
 				DC1DB8DA26552BAB00F89E5A /* ChoresDataModel.swift */,
@@ -641,6 +647,7 @@
 				DCEEAA73264BEDEC00A64D37 /* InitialViewController.swift in Sources */,
 				DCB512972668D7BF00B4B8A5 /* TransferChoreCollectionViewCell.swift in Sources */,
 				DC8FE0E826629A1B0016927D /* SigninViewController.swift in Sources */,
+				DC7D1C202673947E00C3898B /* KingFisherWrapper.swift in Sources */,
 				DCCD761E265A9BFA0004E82B /* CustomChoreViewController.swift in Sources */,
 				DC203D07264E823C002FADDA /* AddChoresViewController.swift in Sources */,
 				DCA433F2264BA2BD00242617 /* AppDelegate.swift in Sources */,
@@ -663,6 +670,7 @@
 				DC913CF2264CB46E00C18251 /* UnclaimedTableViewCell.swift in Sources */,
 				DCA1E1662669453500FDE9B6 /* TransferDialogViewController.swift in Sources */,
 				DCBB101E2653A36600A8C1E4 /* RuleViewController.swift in Sources */,
+				DC7D1BFE2673725500C3898B /* StorageProvider.swift in Sources */,
 				DC856DD2266D2346005DDED1 /* ChangeNameViewController.swift in Sources */,
 				DC913CEB264C1F9100C18251 /* UIColor+Extension.swift in Sources */,
 				DC856DB1266CC0D9005DDED1 /* Data+Extension.swift in Sources */,
