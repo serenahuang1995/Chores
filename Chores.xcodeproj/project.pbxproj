@@ -14,6 +14,7 @@
 		DC203D07264E823C002FADDA /* AddChoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC203D06264E823C002FADDA /* AddChoresViewController.swift */; };
 		DC299D7F266F7C7500AC86A3 /* WashingMachine.json in Resources */ = {isa = PBXBuildFile; fileRef = DC299D7E266F7C7500AC86A3 /* WashingMachine.json */; };
 		DC299D8F266F914500AC86A3 /* Chores.json in Resources */ = {isa = PBXBuildFile; fileRef = DC299D8E266F914500AC86A3 /* Chores.json */; };
+		DC383D122673EF4C00DC768E /* ImageLoading.json in Resources */ = {isa = PBXBuildFile; fileRef = DC383D112673EF4C00DC768E /* ImageLoading.json */; };
 		DC502A5D26535D6200BEC0C3 /* SpendPointsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC502A5C26535D6200BEC0C3 /* SpendPointsViewController.swift */; };
 		DC531C9A265523D100F3FD4B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC531C99265523D100F3FD4B /* GoogleService-Info.plist */; };
 		DC5AC61726528BBB00F99E74 /* MemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5AC61526528BBB00F99E74 /* MemberCollectionViewCell.swift */; };
@@ -97,6 +98,7 @@
 		DC203D06264E823C002FADDA /* AddChoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChoresViewController.swift; sourceTree = "<group>"; };
 		DC299D7E266F7C7500AC86A3 /* WashingMachine.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = WashingMachine.json; sourceTree = "<group>"; };
 		DC299D8E266F914500AC86A3 /* Chores.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Chores.json; sourceTree = "<group>"; };
+		DC383D112673EF4C00DC768E /* ImageLoading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ImageLoading.json; sourceTree = "<group>"; };
 		DC502A5C26535D6200BEC0C3 /* SpendPointsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendPointsViewController.swift; sourceTree = "<group>"; };
 		DC531C99265523D100F3FD4B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DC5AC61526528BBB00F99E74 /* MemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 			children = (
 				DC70F634266F737C0053AEFF /* Coin.json */,
 				DC299D7E266F7C7500AC86A3 /* WashingMachine.json */,
+				DC383D112673EF4C00DC768E /* ImageLoading.json */,
 				DCAFE9AB266F78D6003EC39E /* HomeGreate.json */,
 				DCAFE9AA266F78D5003EC39E /* House.json */,
 				DC299D8E266F914500AC86A3 /* Chores.json */,
@@ -559,6 +562,7 @@
 				DC299D7F266F7C7500AC86A3 /* WashingMachine.json in Resources */,
 				DCAFE9AD266F78D6003EC39E /* HomeGreate.json in Resources */,
 				DC70F631266F5F540053AEFF /* Cook.json in Resources */,
+				DC383D122673EF4C00DC768E /* ImageLoading.json in Resources */,
 				DCA433F9264BA2BD00242617 /* Main.storyboard in Resources */,
 				DCEEAA60264BEC8B00A64D37 /* Group.storyboard in Resources */,
 				DC719593265FF38500DC3706 /* CreateGroupCollectionViewCell.xib in Resources */,

@@ -46,7 +46,7 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q6s-MM-duU" customClass="AnimationView" customModule="Lottie">
                                 <rect key="frame" x="16" y="124" width="382" height="450"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="450" id="4pr-ba-xF1"/>
                                 </constraints>
@@ -60,7 +60,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3d8-2g-YGG"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="3d8-2g-YGG" firstAttribute="trailing" secondItem="6ZG-Qf-4IU" secondAttribute="trailing" constant="16" id="DH6-i0-K5P"/>
                             <constraint firstItem="3d8-2g-YGG" firstAttribute="bottom" secondItem="AaO-sB-nv5" secondAttribute="bottom" constant="30" id="KoX-pr-9fW"/>
@@ -115,7 +115,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HdD-5X-lBj">
                                 <rect key="frame" x="16" y="80" width="382" height="712"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <mutableString key="text">Last updated: June 11, 2021
+                                <string key="text">Last updated: June 11, 2021
 
 This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.
 
@@ -253,7 +253,7 @@ You are advised to review this Privacy Policy periodically for any changes. Chan
 Contact Us
 If you have any questions about this Privacy Policy, You can contact us:
 
-By email: chores2021@gmail.com</mutableString>
+By email: chores2021@gmail.com</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

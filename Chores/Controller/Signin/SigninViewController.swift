@@ -295,9 +295,9 @@ extension SigninViewController: ASAuthorizationControllerDelegate {
                     // Firebase uid
                     guard let uid = Auth.auth().currentUser?.uid else { return }
                     
-                    self.uid = uid
+//                    self.uid = uid
                     
-//                    self.uid = "test"
+                    self.uid = "test"
 //                    self.uid = "XC6b6Ys1VY1qLcBJ5M8z"
 
                     let userDefault = UserDefaults()

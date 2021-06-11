@@ -70,7 +70,7 @@
                                         </constraints>
                                         <state key="normal" image="Icon32px_Setting"/>
                                         <connections>
-                                            <segue destination="zD8-8N-Nla" kind="presentation" identifier="SegueSetting" id="MMe-r2-Nw0"/>
+                                            <segue destination="zD8-8N-Nla" kind="presentation" identifier="SegueSetting" id="k8E-bd-lav"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bcz-8E-O7j">
@@ -257,11 +257,22 @@
                                     <constraint firstItem="U1L-ec-dS3" firstAttribute="leading" secondItem="6YR-GC-uk9" secondAttribute="leading" constant="25" id="wFT-a3-uo7"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gql-5Q-W90" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="0.0" y="227" width="390" height="390"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="gql-5Q-W90" secondAttribute="height" multiplier="1:1" id="IIL-mc-ZaT"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9e9-fh-mKD"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="gql-5Q-W90" firstAttribute="leading" secondItem="9e9-fh-mKD" secondAttribute="leading" id="NBR-5F-cuk"/>
+                            <constraint firstItem="gql-5Q-W90" firstAttribute="centerX" secondItem="uF8-NM-XzU" secondAttribute="centerX" id="Q39-0U-v1h"/>
                             <constraint firstItem="9e9-fh-mKD" firstAttribute="bottom" secondItem="6YR-GC-uk9" secondAttribute="bottom" constant="50" id="Wki-Hc-fQr"/>
+                            <constraint firstItem="9e9-fh-mKD" firstAttribute="trailing" secondItem="gql-5Q-W90" secondAttribute="trailing" id="gD5-AL-jWb"/>
+                            <constraint firstItem="gql-5Q-W90" firstAttribute="centerY" secondItem="uF8-NM-XzU" secondAttribute="centerY" id="gae-P2-iLZ"/>
                             <constraint firstItem="9e9-fh-mKD" firstAttribute="trailing" secondItem="6YR-GC-uk9" secondAttribute="trailing" constant="16" id="jcS-mT-RIN"/>
                             <constraint firstItem="6YR-GC-uk9" firstAttribute="centerX" secondItem="uF8-NM-XzU" secondAttribute="centerX" id="phP-6t-rIF"/>
                             <constraint firstItem="6YR-GC-uk9" firstAttribute="leading" secondItem="9e9-fh-mKD" secondAttribute="leading" constant="16" id="zKb-wl-Y69"/>
@@ -273,6 +284,7 @@
                         <outlet property="changeNameButton" destination="U1L-ec-dS3" id="cL0-HZ-sIm"/>
                         <outlet property="changePictureButton" destination="4Rc-uh-n7n" id="krz-Mi-O4c"/>
                         <outlet property="leaveGroupButton" destination="Y0r-EK-t1h" id="vq3-kB-T9V"/>
+                        <outlet property="lottieView" destination="gql-5Q-W90" id="Dmg-C1-4UW"/>
                         <outlet property="popView" destination="6YR-GC-uk9" id="Eal-tm-8D1"/>
                         <segue destination="8BE-MH-3Tl" kind="custom" identifier="SegueChangeName" customClass="MIBlurPopupSegue" customModule="MIBlurPopup" id="tW2-CS-qeS"/>
                         <segue destination="Cqb-K4-NbS" kind="custom" identifier="SegueLeaveGroup" customClass="MIBlurPopupSegue" customModule="MIBlurPopup" id="aex-Fn-lpe"/>
@@ -418,7 +430,7 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="uEb-cw-Oke" secondAttribute="bottom" constant="30" id="Pbm-6g-k9L"/>
                                     <constraint firstItem="99e-SN-a1g" firstAttribute="top" secondItem="kw1-El-Uux" secondAttribute="top" constant="30" id="SD5-XW-V8b"/>
@@ -580,7 +592,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Yb-xo-o0l" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="44" width="320" height="264"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="506"/>
                                 <color key="backgroundColor" systemColor="systemGrayColor"/>
                             </view>
                         </subviews>
@@ -620,6 +632,9 @@
             <point key="canvasLocation" x="-1235" y="-60"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="gql-5Q-W90"/>
+    </designables>
     <resources>
         <image name="Icon32px_Setting" width="32" height="32"/>
         <image name="camera" width="24" height="24"/>

@@ -54,6 +54,8 @@ class ProfileViewController: UIViewController {
         return [recordsContainerView, dataContainerView]
     }
     
+    var imageUpdateCount = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -95,7 +97,9 @@ class ProfileViewController: UIViewController {
             
         case Segue.setting:
             
-            _ = segue.destination as? SettingViewController
+            let destination = segue.destination as? SettingViewController
+            
+            destination?.delegate = self
         
         default:
             
@@ -149,9 +153,19 @@ class ProfileViewController: UIViewController {
             
             case .success(let user):
                 
-//                self.userImage.image = UIImage(named: user.picture)
+                if self.imageUpdateCount <= 0 {
+                    
+                    self.userImage.loadImage(user.picture)
+                    
+                } else {
+                    
+                    self.imageUpdateCount -= 1
+                }
                 
-                self.userImage.loadImage(user.picture)
+//                self.userImage.kf.setImage(with: URL(string: user.picture))
+                
+//
+//                self.userImage.loadImage(user.picture, placeHolder: UIImage(named: user.picture))
 
                 self.userNameLabel.text = user.name
                 
@@ -199,4 +213,14 @@ class ProfileViewController: UIViewController {
 //        
 //        StorageProvider.shared.downloadImage(userImage: userImage)
 //    }
+}
+
+extension ProfileViewController: SettingDelegate {
+    
+    func onImageUploaded(image: UIImage) {
+
+        userImage.image = image
+        
+        imageUpdateCount += 1
+    }
 }

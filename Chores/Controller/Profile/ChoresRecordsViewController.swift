@@ -69,6 +69,8 @@ extension ChoresRecordsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         tableView.separatorStyle = .none
+        
+        tableView.backgroundColor = .white
     }
 }
 

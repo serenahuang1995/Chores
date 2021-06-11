@@ -6,10 +6,19 @@
 //
 
 import UIKit
+import Lottie
+
+protocol SettingDelegate: AnyObject {
+    
+    func onImageUploaded(image: UIImage)
+}
 
 class SettingViewController: UIViewController {
     
     @IBOutlet weak var popView: CardView!
+    
+   
+    @IBOutlet weak var lottieView: AnimationView!
     
     @IBOutlet weak var changeNameButton: UIButton! {
         
@@ -35,10 +44,16 @@ class SettingViewController: UIViewController {
         }
     }
     
+    weak var delegate: SettingDelegate?
+    
     let blackView = UIView(frame: UIScreen.main.bounds)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setUpLottieView()
+        
+        lottieView.isHidden = true
         
         showBlackView()
     }
@@ -80,14 +95,6 @@ class SettingViewController: UIViewController {
     @IBAction func changePicture(_ sender: Any) {
         
          setImagePicker()
-
-        
-//        dismiss(animated: true) {
-//
-//            self.blackView.removeFromSuperview()
-//
-//            self.setImagePicker()
-//        }
     }
 
     @IBAction func leaveGroup(_ sender: Any) {
@@ -97,7 +104,6 @@ class SettingViewController: UIViewController {
         blackView.removeFromSuperview()
         
         performSegue(withIdentifier: Segue.leaveGroup, sender: nil)
-//        leaveGroup()
     }
     
     private func showBlackView() {
@@ -115,7 +121,7 @@ class SettingViewController: UIViewController {
         
         let effectView = UIVisualEffectView(effect: effect)
         
-        effectView.alpha = 0.8
+        effectView.alpha = 0.6
         
         effectView.frame = blackView.frame
         
@@ -131,6 +137,17 @@ class SettingViewController: UIViewController {
         button.layer.cornerRadius = 10
     }
     
+    func setUpLottieView() {
+        
+        let animation = Animation.named("ImageLoading")
+        
+        lottieView.animation = animation
+        
+        lottieView.play()
+        
+        lottieView.loopMode = .loop
+    }
+    
     func setImagePicker() {
         
         let picker = UIImagePickerController()
@@ -140,22 +157,20 @@ class SettingViewController: UIViewController {
         picker.delegate = self
         
         picker.allowsEditing = true
-        
-        
-//        dismiss(animated: true, completion: nil)
-//
-//                present(picker, animated: true)
 
-//
         present(picker, animated: true) { [weak self] in
 
             self?.popView.removeFromSuperview()
-
+            
             self?.blackView.removeFromSuperview()
         }
     }
     
-    func uploadUserImage(imageData: Data) {
+    func uploadUserImage(image: UIImage, imageData: Data) {
+        
+        lottieView.isHidden = false
+        
+        showBlackView()
         
         StorageProvider.shared.uploadUserImage(imageData: imageData) { [weak self] result in
             
@@ -164,8 +179,10 @@ class SettingViewController: UIViewController {
             case .success(let imageName):
                 
                 print("upload image \(imageName)")
-                
+
                 self?.changeImageToURL(imageName: imageName)
+                
+                self?.delegate?.onImageUploaded(image: image)
                 
             case .failure(let error):
                 
@@ -195,13 +212,19 @@ class SettingViewController: UIViewController {
     
     func updateUserImage(imageName: String) {
         
-        UserProvider.shared.changeUserImage(imageName: imageName) { result in
+        UserProvider.shared.changeUserImage(imageName: imageName) { [weak self] result in
             
             switch result {
             
             case .success(let success):
                 
                 print("update user image \(success)")
+                        
+                self?.blackView.removeFromSuperview()
+                
+                self?.lottieView.isHidden = true
+                
+                self?.dismiss(animated: true, completion: nil)
             
             case .failure(let error):
                 
@@ -231,7 +254,7 @@ extension SettingViewController: UIImagePickerControllerDelegate, UINavigationCo
         
         guard let imageData = image.pngData() else { return }
         
-        uploadUserImage(imageData: imageData)
+        uploadUserImage(image: image, imageData: imageData)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

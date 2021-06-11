@@ -23,10 +23,10 @@ class RecordsTableViewCell: UITableViewCell {
         recordView.backgroundColor = .beigeFFF1E6
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-    }
+//    override func setSelected(_ selected: Bool, animated: Bool) {
+//        super.setSelected(selected, animated: animated)
+//        
+//    }
     
     func layoutCell(chores: [Chore]) {
         
