@@ -43,6 +43,11 @@ class SettingViewController: UIViewController {
         showBlackView()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         let touch: UITouch? = touches.first
@@ -78,7 +83,12 @@ class SettingViewController: UIViewController {
 
     @IBAction func leaveGroup(_ sender: Any) {
         
-        leaveGroup()
+        popView.isHidden = true
+
+        blackView.removeFromSuperview()
+        
+        performSegue(withIdentifier: Segue.leaveGroup, sender: nil)
+//        leaveGroup()
     }
     
     private func showBlackView() {
@@ -112,28 +122,28 @@ class SettingViewController: UIViewController {
         button.layer.cornerRadius = 10
     }
     
-    func leaveGroup() {
-        
-        UserProvider.shared.leaveGroup { [weak self] result in
-            
-            switch result {
-            
-            case .success(let message):
-                
-                print(message)
-                
-                let userDefault = UserDefaults()
-                
-                userDefault.setValue(nil, forKey: "GroupID")
-                
-                self?.performSegue(withIdentifier: Segue.initial, sender: nil)
-
-            case .failure(let error):
-                
-                print(error)
-            }
-        }
-    }
+//    func leaveGroup() {
+//
+//        UserProvider.shared.leaveGroup { [weak self] result in
+//
+//            switch result {
+//
+//            case .success(let message):
+//
+//                print(message)
+//
+//                let userDefault = UserDefaults()
+//
+//                userDefault.setValue(nil, forKey: "GroupID")
+//
+//                self?.performSegue(withIdentifier: Segue.initial, sender: nil)
+//
+//            case .failure(let error):
+//
+//                print(error)
+//            }
+//        }
+//    }
 }
 
 extension SettingViewController: ProfileDelegate {
