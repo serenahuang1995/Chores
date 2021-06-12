@@ -49,6 +49,8 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet var switchButtons: [UIButton]!
     
+    weak var delegate: SettingDelegate?
+    
     var containerViews: [UIView] {
         
         return [recordsContainerView, dataContainerView]
@@ -217,6 +219,16 @@ class ProfileViewController: UIViewController {
 
 extension ProfileViewController: SettingDelegate {
     
+    func userNameChange() {
+        
+        performSegue(withIdentifier: Segue.changeName, sender: nil)
+    }
+    
+    func exitGroup() {
+        
+        performSegue(withIdentifier: Segue.leaveGroup, sender: nil)
+    }
+
     func onImageUploaded(image: UIImage) {
 
         userImage.image = image

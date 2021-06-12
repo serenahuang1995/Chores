@@ -12,11 +12,16 @@ class LeaveGroupViewController: UIViewController {
 
     @IBOutlet weak var popView: CardView!
     
-    weak var delegate: ProfileDelegate?
+//    weak var delegate: ProfileDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func sureToLeave(_ sender: Any) {
@@ -26,10 +31,12 @@ class LeaveGroupViewController: UIViewController {
     
     @IBAction func cancel(_ sender: Any) {
         
-        dismiss(animated: true) {
-            
-            self.delegate?.backToProfile()
-        }
+        dismiss(animated: true, completion: nil)
+        
+//        dismiss(animated: true) {
+//
+//            self.delegate?.backToProfile()
+//        }
     }
     
     func leaveGroup() {

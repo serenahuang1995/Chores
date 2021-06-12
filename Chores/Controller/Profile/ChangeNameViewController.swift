@@ -22,21 +22,28 @@ class ChangeNameViewController: UIViewController {
         
     @IBOutlet weak var popView: CardView!
     
-    weak var delegate: ProfileDelegate?
+//    weak var delegate: ProfileDelegate?
     
-    let textLimitCount = 5
+    let textLimitCount = 7
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func cancel(_ sender: Any) {
         
-        dismiss(animated: true) {
-            
-            self.delegate?.backToProfile()
-        }
+        dismiss(animated: true, completion: nil)
+        
+//        dismiss(animated: true) {
+//
+//            self.delegate?.backToProfile()
+//        }
     }
  
     @IBAction func sureToChangeName(_ sender: Any) {
@@ -68,10 +75,12 @@ class ChangeNameViewController: UIViewController {
                 
                 print(success)
                 
-                self?.dismiss(animated: true) {
-                    
-                    self?.delegate?.backToProfile()
-                }
+                self?.dismiss(animated: true, completion: nil)
+                
+//                self?.dismiss(animated: true) {
+//
+//                    self?.delegate?.backToProfile()
+//                }
                 
                 KRProgressHUD.showSuccess(withMessage: "更改名稱成功！")
                 

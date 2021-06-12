@@ -10,7 +10,11 @@ import Lottie
 
 protocol SettingDelegate: AnyObject {
     
+    func userNameChange()
+    
     func onImageUploaded(image: UIImage)
+    
+    func exitGroup()
 }
 
 class SettingViewController: UIViewController {
@@ -69,27 +73,33 @@ class SettingViewController: UIViewController {
         
         if touch?.view != popView {
             
-            dismiss(animated: true, completion: nil)
-            
             blackView.removeFromSuperview()
+            
+            dismiss(animated: true, completion: nil)
         }
     }
     
     // 或是按下更改暱稱會 delegate 回去 profile page 再去更改暱稱頁面 這樣就可以直接 dismiss 回 profile
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        guard let destination = segue.destination as? ChangeNameViewController else { return }
-        
-        destination.delegate = self
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        
+//        guard let destination = segue.destination as? ChangeNameViewController else { return }
+//        
+//        destination.delegate = self
+//    }
     
     @IBAction func changeName(_ sender: Any) {
         
-        popView.isHidden = true
-
         blackView.removeFromSuperview()
-            
-        performSegue(withIdentifier: Segue.changeName, sender: nil)
+        
+        dismiss(animated: true, completion: nil)
+        
+        self.delegate?.userNameChange()
+        
+//        popView.isHidden = true
+//
+//        blackView.removeFromSuperview()
+//
+//        performSegue(withIdentifier: Segue.changeName, sender: nil)
     }
 
     @IBAction func changePicture(_ sender: Any) {
@@ -99,11 +109,18 @@ class SettingViewController: UIViewController {
 
     @IBAction func leaveGroup(_ sender: Any) {
         
-        popView.isHidden = true
-
         blackView.removeFromSuperview()
         
-        performSegue(withIdentifier: Segue.leaveGroup, sender: nil)
+        dismiss(animated: true, completion: nil)
+        
+        self.delegate?.exitGroup()
+        
+//        self.delegate?.exitGroup()
+        
+//        popView.isHidden = true
+//
+//
+//        performSegue(withIdentifier: Segue.leaveGroup, sender: nil)
     }
     
     private func showBlackView() {
@@ -233,18 +250,18 @@ class SettingViewController: UIViewController {
         }
     }
 }
+//
+//extension SettingViewController: ProfileDelegate {
+//    
+//    func backToProfile() {
+//        
+//        dismiss(animated: true, completion: nil)
+//        
+//        blackView.removeFromSuperview()
+//    }
+//}
 
-extension SettingViewController: ProfileDelegate {
-    
-    func backToProfile() {
-        
-        dismiss(animated: true, completion: nil)
-        
-        blackView.removeFromSuperview()
-    }
-}
-
-extension SettingViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension SettingViewController: UIImagePickerControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
@@ -261,4 +278,8 @@ extension SettingViewController: UIImagePickerControllerDelegate, UINavigationCo
         
         picker.dismiss(animated: true, completion: nil)
     }
+}
+
+extension SettingViewController: UINavigationControllerDelegate {
+    
 }
