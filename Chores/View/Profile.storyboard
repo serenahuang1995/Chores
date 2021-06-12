@@ -26,7 +26,7 @@
                                             <constraint firstAttribute="height" constant="3" id="i22-Fc-bMY"/>
                                         </constraints>
                                     </view>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aC3-gf-Xyn">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="aC3-gf-Xyn">
                                         <rect key="frame" x="30" y="100" width="100" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="FZp-yL-baa"/>
@@ -53,7 +53,7 @@
                                         </constraints>
                                         <state key="normal" image="dollar"/>
                                         <connections>
-                                            <segue destination="W6i-XV-dAR" kind="custom" customClass="MIBlurPopupSegue" customModule="MIBlurPopup" id="nep-sL-nOu"/>
+                                            <segue destination="W6i-XV-dAR" kind="custom" identifier="SegueSpendPoints" customClass="MIBlurPopupSegue" customModule="MIBlurPopup" id="nep-sL-nOu"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yt8-Yu-sP6">
@@ -114,12 +114,20 @@
                                             </button>
                                         </subviews>
                                     </stackView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="YEc-M1-pCW">
+                                        <rect key="frame" x="100" y="175" width="35" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="35" id="fvN-TO-yar"/>
+                                            <constraint firstAttribute="height" constant="35" id="oHt-uI-Ggw"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.078431372550000003" green="0.12941176469999999" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="obb-dL-7h8" firstAttribute="centerY" secondItem="rXi-uL-Cpb" secondAttribute="centerY" id="18w-Zx-Cz5"/>
                                     <constraint firstItem="yt8-Yu-sP6" firstAttribute="top" secondItem="rXi-uL-Cpb" secondAttribute="bottom" constant="10" id="3EN-l9-Isf"/>
                                     <constraint firstItem="PJH-5l-fzR" firstAttribute="leading" secondItem="aC3-gf-Xyn" secondAttribute="trailing" constant="20" id="4a1-L9-HJ1"/>
+                                    <constraint firstItem="YEc-M1-pCW" firstAttribute="leading" secondItem="aC3-gf-Xyn" secondAttribute="leading" constant="70" id="4jb-Qc-U9r"/>
                                     <constraint firstItem="hZJ-85-2uF" firstAttribute="centerX" secondItem="dVa-Kk-6Hv" secondAttribute="centerX" id="4tz-Jr-mZA"/>
                                     <constraint firstItem="rXi-uL-Cpb" firstAttribute="leading" secondItem="PJH-5l-fzR" secondAttribute="leading" id="7hJ-8w-sXI"/>
                                     <constraint firstAttribute="bottom" secondItem="hZJ-85-2uF" secondAttribute="bottom" id="EKZ-ka-99d"/>
@@ -132,6 +140,7 @@
                                     <constraint firstItem="hZJ-85-2uF" firstAttribute="top" secondItem="bcz-8E-O7j" secondAttribute="bottom" id="aQ7-9y-FaB"/>
                                     <constraint firstItem="yt8-Yu-sP6" firstAttribute="leading" secondItem="rXi-uL-Cpb" secondAttribute="leading" id="b1C-QN-Znr"/>
                                     <constraint firstItem="rXi-uL-Cpb" firstAttribute="leading" secondItem="aC3-gf-Xyn" secondAttribute="trailing" constant="20" id="c0Z-EZ-Z8M"/>
+                                    <constraint firstItem="YEc-M1-pCW" firstAttribute="top" secondItem="aC3-gf-Xyn" secondAttribute="top" constant="75" id="fxU-Qj-D1Q"/>
                                     <constraint firstItem="hZJ-85-2uF" firstAttribute="width" secondItem="dVa-Kk-6Hv" secondAttribute="width" multiplier="0.5" id="fzn-qY-g3E"/>
                                     <constraint firstItem="yt8-Yu-sP6" firstAttribute="leading" secondItem="aC3-gf-Xyn" secondAttribute="trailing" constant="20" id="g3y-3r-5eB"/>
                                     <constraint firstItem="aC3-gf-Xyn" firstAttribute="top" secondItem="LxF-QI-LOa" secondAttribute="top" constant="100" id="t8n-4Y-fc3"/>
@@ -187,6 +196,7 @@
                         <outlet property="dataContainerView" destination="zcM-cf-l7v" id="wc4-Hc-rid"/>
                         <outlet property="indicatorView" destination="hZJ-85-2uF" id="kmk-93-ypP"/>
                         <outlet property="lottieView" destination="rt3-Lq-v3W" id="GTy-7y-AH8"/>
+                        <outlet property="medalImage" destination="YEc-M1-pCW" id="UAg-az-aot"/>
                         <outlet property="recordsContainerView" destination="Xb7-Zc-ZNF" id="wEj-5i-CIy"/>
                         <outlet property="totalPointsLabel" destination="rXi-uL-Cpb" id="PFu-M0-PgU"/>
                         <outlet property="userImage" destination="aC3-gf-Xyn" id="a8z-YP-Tbj"/>
@@ -643,6 +653,8 @@
         <image name="edit" width="24" height="24"/>
         <image name="exit" width="24" height="24"/>
         <image name="remove" width="128" height="128"/>
+        <image name="star" width="64" height="64"/>
+        <image name="user" width="512" height="512"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

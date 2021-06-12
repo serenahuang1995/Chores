@@ -9,18 +9,20 @@ import UIKit
 import MIBlurPopup
 import KRProgressHUD
 
+protocol PointsDelegate: AnyObject {
+    
+    func buttonClicked()
+}
+
 class SpendPointsViewController: UIViewController {
     
     @IBOutlet weak var popView: CardView!
     
-    //  let blackView = UIView(frame: UIScreen.main.bounds)
-    
-//    let userId = "XC6b6Ys1VY1qLcBJ5M8z"
+    weak var delegate: PointsDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //    showBlackView()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -31,7 +33,6 @@ class SpendPointsViewController: UIViewController {
     @IBAction func backToProfilePage(_ sender: Any) {
         
         dismiss(animated: true, completion: nil)
-        //    blackView.removeFromSuperview()
     }
     
     @IBAction func sureToSpendPoint(_ sender: Any) {
@@ -51,7 +52,7 @@ class SpendPointsViewController: UIViewController {
             
             user.points -= 300
             
-            KRProgressHUD.showSuccess(withMessage: "成功扣除點數")
+            KRProgressHUD.showSuccess(withMessage: "成功扣除點數！")
             
             updatePoints(user: user)
             
@@ -71,19 +72,14 @@ class SpendPointsViewController: UIViewController {
                 
                 print(success)
                 
+                self.delegate?.buttonClicked()
+                
             case .failure(let error):
                 
                 print(error)
             }
         }
-    }
-    
-    //  private func showBlackView() {
-    //    blackView.backgroundColor = .black
-    //    blackView.alpha = 0.7
-    //    presentingViewController?.view.addSubview(blackView)
-    //  }
-    
+    }    
 }
 
 extension SpendPointsViewController: MIBlurPopupDelegate {
@@ -107,5 +103,4 @@ extension SpendPointsViewController: MIBlurPopupDelegate {
         
         0.2
     }
-    
 }

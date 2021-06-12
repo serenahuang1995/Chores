@@ -30,6 +30,8 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var medalImage: UIImageView!
+    
     @IBOutlet weak var userNameLabel: UILabel!
     
     @IBOutlet weak var totalPointsLabel: UILabel!
@@ -73,6 +75,8 @@ class ProfileViewController: UIViewController {
         confirmWeekday()
         
         lottieView.isHidden = true
+        
+        medalImage.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -107,6 +111,12 @@ class ProfileViewController: UIViewController {
         case Segue.setting:
             
             let destination = segue.destination as? SettingViewController
+            
+            destination?.delegate = self
+            
+        case Segue.points:
+            
+            let destination = segue.destination as? SpendPointsViewController
             
             destination?.delegate = self
             
@@ -237,6 +247,8 @@ class ProfileViewController: UIViewController {
         if weekDay == "Monday" {
             
             resetWeekHours()
+            
+            medalImage.isHidden = true
         }
     }
     
@@ -383,5 +395,13 @@ extension ProfileViewController: SettingDelegate {
     func showPickerView() {
         
         setImagePicker()
+    }
+}
+
+extension ProfileViewController: PointsDelegate {
+    
+    func buttonClicked() {
+        
+        medalImage.isHidden = false
     }
 }
