@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 protocol ProfileDelegate: AnyObject {
     
@@ -47,9 +48,13 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var recordsContainerView: UIView!
     
+    @IBOutlet weak var lottieView: AnimationView!
+    
     @IBOutlet var switchButtons: [UIButton]!
     
     weak var delegate: SettingDelegate?
+    
+    let blackView = UIView(frame: UIScreen.main.bounds)
     
     var containerViews: [UIView] {
         
@@ -66,6 +71,8 @@ class ProfileViewController: UIViewController {
         setUpUserListener()
         
         confirmWeekday()
+        
+        lottieView.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -102,7 +109,7 @@ class ProfileViewController: UIViewController {
             let destination = segue.destination as? SettingViewController
             
             destination?.delegate = self
-        
+            
         default:
             
             return
@@ -147,6 +154,50 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    func showBlackView() {
+        
+        blackView.backgroundColor = .black
+        
+        blackView.alpha = 0.4
+
+        view.insertSubview(blackView, at: 2)
+        
+        setUpVisualEffect()
+    }
+    
+    private func setUpVisualEffect() {
+        
+        let effect = UIBlurEffect(style: .dark)
+        
+        let effectView = UIVisualEffectView(effect: effect)
+        
+        effectView.alpha = 0.6
+        
+        effectView.frame = blackView.frame
+        
+        blackView.addSubview(effectView)
+    }
+    
+    private func setUpButtonStyle(_ button: UIButton) {
+        
+        button.layer.borderColor = UIColor.black252525.cgColor
+        
+        button.layer.borderWidth = 2
+        
+        button.layer.cornerRadius = 10
+    }
+    
+    func setUpLottieView() {
+        
+        let animation = Animation.named("ImageLoading")
+        
+        lottieView.animation = animation
+        
+        lottieView.play()
+        
+        lottieView.loopMode = .loop
+    }
+    
     func setUpUserListener() {
         
         UserProvider.shared.onFetchUserListener { result in
@@ -154,21 +205,16 @@ class ProfileViewController: UIViewController {
             switch result {
             
             case .success(let user):
-                
+
                 if self.imageUpdateCount <= 0 {
-                    
+
                     self.userImage.loadImage(user.picture)
-                    
+
                 } else {
-                    
+
                     self.imageUpdateCount -= 1
                 }
                 
-//                self.userImage.kf.setImage(with: URL(string: user.picture))
-                
-//
-//                self.userImage.loadImage(user.picture, placeHolder: UIImage(named: user.picture))
-
                 self.userNameLabel.text = user.name
                 
                 self.totalPointsLabel.text = "累積點數：\(user.points)"
@@ -181,15 +227,15 @@ class ProfileViewController: UIViewController {
             }
         }
     }
-
+    
     func confirmWeekday() {
         
         let date = Date()
         
         let weekDay = date.currentWeekDay()
-
+        
         if weekDay == "Monday" {
-
+            
             resetWeekHours()
         }
     }
@@ -211,10 +257,115 @@ class ProfileViewController: UIViewController {
         }
     }
     
-//    func changeUserImage(userImage: UIImageView) {
-//        
-//        StorageProvider.shared.downloadImage(userImage: userImage)
-//    }
+    func setImagePicker() {
+        
+        let picker = UIImagePickerController()
+        
+        picker.sourceType = .photoLibrary
+        
+        picker.delegate = self
+        
+        picker.allowsEditing = true
+        
+        present(picker, animated: true)
+    }
+    
+    func uploadUserImage(image: UIImage, imageData: Data) {
+        
+        showBlackView()
+        
+        setUpLottieView()
+        
+        lottieView.isHidden = false
+        
+        StorageProvider.shared.uploadUserImage(imageData: imageData) { [weak self] result in
+            
+            switch result {
+            
+            case .success(let imageName):
+                
+                print("upload image \(imageName)")
+                
+                self?.changeImageToURL(imageName: imageName)
+                
+                self?.onImageUploaded(image: image)
+                
+            case .failure(let error):
+                
+                print(error)
+            }
+        }
+    }
+    
+    func changeImageToURL(imageName: String) {
+        
+        StorageProvider.shared.changeImageToURL(imageName: imageName) { [weak self] result in
+            
+            switch result {
+            
+            case .success(let url):
+                
+                print("change image to string \(url)")
+                
+                self?.updateUserImage(imageName: url)
+                
+            case .failure(let error):
+                
+                print(error)
+            }
+        }
+    }
+    
+    func updateUserImage(imageName: String) {
+        
+        UserProvider.shared.changeUserImage(imageName: imageName) { [weak self] result in
+            
+            switch result {
+            
+            case .success(let success):
+                
+                print("update user image \(success)")
+                
+                self?.blackView.removeFromSuperview()
+                
+                self?.lottieView.isHidden = true
+
+            case .failure(let error):
+                
+                print(error)
+            }
+        }
+    }
+    
+    func onImageUploaded(image: UIImage) {
+
+        userImage.image = image
+
+        imageUpdateCount += 1
+    }
+}
+
+extension ProfileViewController: UIImagePickerControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        picker.dismiss(animated: true, completion: nil)
+        
+        guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else { return  }
+        
+        guard let imageData = image.pngData() else { return }
+        
+        uploadUserImage(image: image, imageData: imageData)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        
+        picker.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension ProfileViewController: UINavigationControllerDelegate {
+    
 }
 
 extension ProfileViewController: SettingDelegate {
@@ -228,11 +379,9 @@ extension ProfileViewController: SettingDelegate {
         
         performSegue(withIdentifier: Segue.leaveGroup, sender: nil)
     }
-
-    func onImageUploaded(image: UIImage) {
-
-        userImage.image = image
+    
+    func showPickerView() {
         
-        imageUpdateCount += 1
+        setImagePicker()
     }
 }

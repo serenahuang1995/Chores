@@ -32,8 +32,8 @@ class ChangeNameViewController: UIViewController {
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        
-        dismiss(animated: true, completion: nil)
+
+        dismiss(animated: false, completion: nil)
     }
     
     @IBAction func cancel(_ sender: Any) {

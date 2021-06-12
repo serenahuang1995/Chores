@@ -21,14 +21,29 @@
                                     <constraint firstAttribute="height" constant="400" id="jcX-hQ-vT2"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQf-3M-Dea">
+                                <rect key="frame" x="156" y="453.5" width="148" height="65"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Chores">
+                                        <attributes>
+                                            <color key="NSColor" red="0.078431372550000003" green="0.12941176469999999" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="50" name="MarkerFelt-Wide"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.078431372550000003" green="0.12941176469999999" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.078431372549019607" green="0.12941176470588234" blue="0.23921568627450979" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="rQf-3M-Dea" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="38" id="7MX-Bf-Onb"/>
+                            <constraint firstItem="rQf-3M-Dea" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" constant="23" id="8pT-K1-pGa"/>
                             <constraint firstItem="idx-4z-K9Z" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="H9R-q5-UKL"/>
                             <constraint firstItem="idx-4z-K9Z" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="NVa-GW-ZPS"/>
-                            <constraint firstItem="idx-4z-K9Z" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="OmK-P0-XbZ"/>
-                            <constraint firstAttribute="trailing" secondItem="idx-4z-K9Z" secondAttribute="trailing" id="tCX-PR-TTx"/>
+                            <constraint firstItem="idx-4z-K9Z" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="VZK-Ly-g3q"/>
+                            <constraint firstAttribute="trailing" secondItem="idx-4z-K9Z" secondAttribute="trailing" id="dnO-O1-ezo"/>
                         </constraints>
                     </view>
                 </viewController>

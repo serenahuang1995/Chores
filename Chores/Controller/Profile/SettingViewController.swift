@@ -12,9 +12,9 @@ protocol SettingDelegate: AnyObject {
     
     func userNameChange()
     
-    func onImageUploaded(image: UIImage)
-    
     func exitGroup()
+    
+    func showPickerView()
 }
 
 class SettingViewController: UIViewController {
@@ -22,7 +22,7 @@ class SettingViewController: UIViewController {
     @IBOutlet weak var popView: CardView!
     
    
-    @IBOutlet weak var lottieView: AnimationView!
+//    @IBOutlet weak var lottieView: AnimationView!
     
     @IBOutlet weak var changeNameButton: UIButton! {
         
@@ -55,15 +55,17 @@ class SettingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setUpLottieView()
+//        setUpLottieView()
         
-        lottieView.isHidden = true
+//        lottieView.isHidden = true
         
         showBlackView()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         
+        blackView.removeFromSuperview()
+
         dismiss(animated: true, completion: nil)
     }
     
@@ -101,12 +103,18 @@ class SettingViewController: UIViewController {
 //
 //        performSegue(withIdentifier: Segue.changeName, sender: nil)
     }
-
+    
     @IBAction func changePicture(_ sender: Any) {
         
-         setImagePicker()
+        blackView.removeFromSuperview()
+        
+        dismiss(animated: true, completion: nil)
+        
+        self.delegate?.showPickerView()
+        
+        //         setImagePicker()
     }
-
+    
     @IBAction func leaveGroup(_ sender: Any) {
         
         blackView.removeFromSuperview()
@@ -154,101 +162,101 @@ class SettingViewController: UIViewController {
         button.layer.cornerRadius = 10
     }
     
-    func setUpLottieView() {
-        
-        let animation = Animation.named("ImageLoading")
-        
-        lottieView.animation = animation
-        
-        lottieView.play()
-        
-        lottieView.loopMode = .loop
-    }
+//    func setUpLottieView() {
+//        
+//        let animation = Animation.named("ImageLoading")
+//        
+//        lottieView.animation = animation
+//        
+//        lottieView.play()
+//        
+//        lottieView.loopMode = .loop
+//    }
+//    
+//    func setImagePicker() {
+//        
+//        let picker = UIImagePickerController()
+//        
+//        picker.sourceType = .photoLibrary
+//        
+//        picker.delegate = self
+//        
+//        picker.allowsEditing = true
+//
+//        present(picker, animated: true) { [weak self] in
+//
+//            self?.popView.removeFromSuperview()
+//            
+//            self?.blackView.removeFromSuperview()
+//        }
+//    }
     
-    func setImagePicker() {
-        
-        let picker = UIImagePickerController()
-        
-        picker.sourceType = .photoLibrary
-        
-        picker.delegate = self
-        
-        picker.allowsEditing = true
-
-        present(picker, animated: true) { [weak self] in
-
-            self?.popView.removeFromSuperview()
-            
-            self?.blackView.removeFromSuperview()
-        }
-    }
-    
-    func uploadUserImage(image: UIImage, imageData: Data) {
-        
-        lottieView.isHidden = false
-        
-        showBlackView()
-        
-        StorageProvider.shared.uploadUserImage(imageData: imageData) { [weak self] result in
-            
-            switch result {
-            
-            case .success(let imageName):
-                
-                print("upload image \(imageName)")
-
-                self?.changeImageToURL(imageName: imageName)
-                
-                self?.delegate?.onImageUploaded(image: image)
-                
-            case .failure(let error):
-                
-                print(error)
-            }
-        }
-    }
-    
-    func changeImageToURL(imageName: String) {
-        
-        StorageProvider.shared.changeImageToURL(imageName: imageName) { [weak self] result in
-            
-            switch result {
-            
-            case .success(let url):
-                
-                print("change image to string \(url)")
-                
-                self?.updateUserImage(imageName: url)
-                
-            case .failure(let error):
-                
-                print(error)
-            }
-        }
-    }
-    
-    func updateUserImage(imageName: String) {
-        
-        UserProvider.shared.changeUserImage(imageName: imageName) { [weak self] result in
-            
-            switch result {
-            
-            case .success(let success):
-                
-                print("update user image \(success)")
-                        
-                self?.blackView.removeFromSuperview()
-                
-                self?.lottieView.isHidden = true
-                
-                self?.dismiss(animated: true, completion: nil)
-            
-            case .failure(let error):
-                
-                print(error)
-            }
-        }
-    }
+//    func uploadUserImage(image: UIImage, imageData: Data) {
+//
+//        lottieView.isHidden = false
+//
+//        showBlackView()
+//
+//        StorageProvider.shared.uploadUserImage(imageData: imageData) { [weak self] result in
+//
+//            switch result {
+//
+//            case .success(let imageName):
+//
+//                print("upload image \(imageName)")
+//
+//                self?.changeImageToURL(imageName: imageName)
+//
+//                self?.delegate?.onImageUploaded(image: image)
+//
+//            case .failure(let error):
+//
+//                print(error)
+//            }
+//        }
+//    }
+//
+//    func changeImageToURL(imageName: String) {
+//
+//        StorageProvider.shared.changeImageToURL(imageName: imageName) { [weak self] result in
+//
+//            switch result {
+//
+//            case .success(let url):
+//
+//                print("change image to string \(url)")
+//
+//                self?.updateUserImage(imageName: url)
+//
+//            case .failure(let error):
+//
+//                print(error)
+//            }
+//        }
+//    }
+//
+//    func updateUserImage(imageName: String) {
+//
+//        UserProvider.shared.changeUserImage(imageName: imageName) { [weak self] result in
+//
+//            switch result {
+//
+//            case .success(let success):
+//
+//                print("update user image \(success)")
+//
+//                self?.blackView.removeFromSuperview()
+//
+//                self?.lottieView.isHidden = true
+//
+//                self?.dismiss(animated: true, completion: nil)
+//
+//            case .failure(let error):
+//
+//                print(error)
+//            }
+//        }
+//    }
 }
 //
 //extension SettingViewController: ProfileDelegate {
@@ -261,25 +269,25 @@ class SettingViewController: UIViewController {
 //    }
 //}
 
-extension SettingViewController: UIImagePickerControllerDelegate {
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
-        picker.dismiss(animated: true, completion: nil)
-        
-        guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else { return  }
-        
-        guard let imageData = image.pngData() else { return }
-        
-        uploadUserImage(image: image, imageData: imageData)
-    }
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        
-        picker.dismiss(animated: true, completion: nil)
-    }
-}
-
-extension SettingViewController: UINavigationControllerDelegate {
-    
-}
+//extension SettingViewController: UIImagePickerControllerDelegate {
+//    
+//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+//        
+//        picker.dismiss(animated: true, completion: nil)
+//        
+//        guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else { return  }
+//        
+//        guard let imageData = image.pngData() else { return }
+//        
+//        uploadUserImage(image: image, imageData: imageData)
+//    }
+//    
+//    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+//        
+//        picker.dismiss(animated: true, completion: nil)
+//    }
+//}
+//
+//extension SettingViewController: UINavigationControllerDelegate {
+//    
+//}

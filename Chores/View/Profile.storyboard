@@ -34,19 +34,19 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJH-5l-fzR">
-                                        <rect key="frame" x="150" y="100" width="210" height="28.666666666666657"/>
+                                        <rect key="frame" x="150" y="102" width="210" height="28.666666666666657"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rXi-uL-Cpb">
-                                        <rect key="frame" x="150" y="148.66666666666666" width="37.333333333333343" height="18"/>
+                                        <rect key="frame" x="150" y="150.66666666666666" width="37.333333333333343" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obb-dL-7h8">
-                                        <rect key="frame" x="195.33333333333334" y="147.66666666666666" width="20" height="20"/>
+                                        <rect key="frame" x="195.33333333333334" y="149.66666666666666" width="20" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="GjM-aJ-93F"/>
                                             <constraint firstAttribute="width" constant="20" id="eTQ-qI-F3d"/>
@@ -57,7 +57,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yt8-Yu-sP6">
-                                        <rect key="frame" x="150" y="176.66666666666666" width="37.333333333333343" height="18"/>
+                                        <rect key="frame" x="150" y="178.66666666666666" width="37.333333333333343" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -123,7 +123,7 @@
                                     <constraint firstItem="hZJ-85-2uF" firstAttribute="centerX" secondItem="dVa-Kk-6Hv" secondAttribute="centerX" id="4tz-Jr-mZA"/>
                                     <constraint firstItem="rXi-uL-Cpb" firstAttribute="leading" secondItem="PJH-5l-fzR" secondAttribute="leading" id="7hJ-8w-sXI"/>
                                     <constraint firstAttribute="bottom" secondItem="hZJ-85-2uF" secondAttribute="bottom" id="EKZ-ka-99d"/>
-                                    <constraint firstItem="PJH-5l-fzR" firstAttribute="top" secondItem="LxF-QI-LOa" secondAttribute="top" constant="100" id="G3z-zc-wDa"/>
+                                    <constraint firstItem="PJH-5l-fzR" firstAttribute="top" secondItem="LxF-QI-LOa" secondAttribute="top" constant="102" id="G3z-zc-wDa"/>
                                     <constraint firstItem="bcz-8E-O7j" firstAttribute="leading" secondItem="LxF-QI-LOa" secondAttribute="leading" id="M5f-Rk-h57"/>
                                     <constraint firstItem="rXi-uL-Cpb" firstAttribute="top" secondItem="PJH-5l-fzR" secondAttribute="bottom" constant="20" id="Rju-U5-bWX"/>
                                     <constraint firstItem="aC3-gf-Xyn" firstAttribute="leading" secondItem="LxF-QI-LOa" secondAttribute="leading" constant="30" id="VGG-zr-vQn"/>
@@ -153,6 +153,13 @@
                                     <segue destination="D9Z-g6-OlF" kind="embed" identifier="SegueData" id="jIO-Ze-mL2"/>
                                 </connections>
                             </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rt3-Lq-v3W" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="0.0" y="227" width="390" height="390"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="rt3-Lq-v3W" secondAttribute="height" multiplier="1:1" id="fti-xO-SUF"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8Un-km-bzM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -160,14 +167,18 @@
                             <constraint firstItem="zcM-cf-l7v" firstAttribute="leading" secondItem="8Un-km-bzM" secondAttribute="leading" id="6hQ-ZR-k90"/>
                             <constraint firstItem="Xb7-Zc-ZNF" firstAttribute="top" secondItem="LxF-QI-LOa" secondAttribute="bottom" id="7qR-8o-0Ce"/>
                             <constraint firstItem="8Un-km-bzM" firstAttribute="bottom" secondItem="Xb7-Zc-ZNF" secondAttribute="bottom" id="9Uk-ox-fcS"/>
+                            <constraint firstItem="rt3-Lq-v3W" firstAttribute="centerX" secondItem="fzz-XH-ATw" secondAttribute="centerX" id="DXE-dl-qg3"/>
                             <constraint firstItem="LxF-QI-LOa" firstAttribute="leading" secondItem="8Un-km-bzM" secondAttribute="leading" id="Idh-W4-BTg"/>
                             <constraint firstItem="8Un-km-bzM" firstAttribute="bottom" secondItem="zcM-cf-l7v" secondAttribute="bottom" id="Me1-rg-tiH"/>
+                            <constraint firstAttribute="trailing" secondItem="rt3-Lq-v3W" secondAttribute="trailing" id="Sw8-Cl-31p"/>
                             <constraint firstItem="8Un-km-bzM" firstAttribute="trailing" secondItem="Xb7-Zc-ZNF" secondAttribute="trailing" id="UfV-rb-900"/>
                             <constraint firstItem="8Un-km-bzM" firstAttribute="trailing" secondItem="zcM-cf-l7v" secondAttribute="trailing" id="Ufv-su-wlt"/>
                             <constraint firstItem="LxF-QI-LOa" firstAttribute="top" secondItem="fzz-XH-ATw" secondAttribute="top" id="ZTG-4X-nic"/>
                             <constraint firstItem="8Un-km-bzM" firstAttribute="trailing" secondItem="LxF-QI-LOa" secondAttribute="trailing" id="euy-4t-hTb"/>
                             <constraint firstItem="Xb7-Zc-ZNF" firstAttribute="leading" secondItem="8Un-km-bzM" secondAttribute="leading" id="fHU-7Q-YGD"/>
                             <constraint firstItem="zcM-cf-l7v" firstAttribute="top" secondItem="LxF-QI-LOa" secondAttribute="bottom" id="h5P-dU-hGL"/>
+                            <constraint firstItem="rt3-Lq-v3W" firstAttribute="leading" secondItem="fzz-XH-ATw" secondAttribute="leading" id="qSd-8D-WcG"/>
+                            <constraint firstItem="rt3-Lq-v3W" firstAttribute="centerY" secondItem="fzz-XH-ATw" secondAttribute="centerY" id="y1Y-2Y-TFz"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="0q3-pb-oHB"/>
@@ -175,6 +186,7 @@
                     <connections>
                         <outlet property="dataContainerView" destination="zcM-cf-l7v" id="wc4-Hc-rid"/>
                         <outlet property="indicatorView" destination="hZJ-85-2uF" id="kmk-93-ypP"/>
+                        <outlet property="lottieView" destination="rt3-Lq-v3W" id="GTy-7y-AH8"/>
                         <outlet property="recordsContainerView" destination="Xb7-Zc-ZNF" id="wEj-5i-CIy"/>
                         <outlet property="totalPointsLabel" destination="rXi-uL-Cpb" id="PFu-M0-PgU"/>
                         <outlet property="userImage" destination="aC3-gf-Xyn" id="a8z-YP-Tbj"/>
@@ -259,22 +271,11 @@
                                     <constraint firstItem="U1L-ec-dS3" firstAttribute="leading" secondItem="6YR-GC-uk9" secondAttribute="leading" constant="25" id="wFT-a3-uo7"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gql-5Q-W90" customClass="AnimationView" customModule="Lottie">
-                                <rect key="frame" x="0.0" y="227" width="390" height="390"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="gql-5Q-W90" secondAttribute="height" multiplier="1:1" id="IIL-mc-ZaT"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9e9-fh-mKD"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="gql-5Q-W90" firstAttribute="leading" secondItem="9e9-fh-mKD" secondAttribute="leading" id="NBR-5F-cuk"/>
-                            <constraint firstItem="gql-5Q-W90" firstAttribute="centerX" secondItem="uF8-NM-XzU" secondAttribute="centerX" id="Q39-0U-v1h"/>
                             <constraint firstItem="9e9-fh-mKD" firstAttribute="bottom" secondItem="6YR-GC-uk9" secondAttribute="bottom" constant="50" id="Wki-Hc-fQr"/>
-                            <constraint firstItem="9e9-fh-mKD" firstAttribute="trailing" secondItem="gql-5Q-W90" secondAttribute="trailing" id="gD5-AL-jWb"/>
-                            <constraint firstItem="gql-5Q-W90" firstAttribute="centerY" secondItem="uF8-NM-XzU" secondAttribute="centerY" id="gae-P2-iLZ"/>
                             <constraint firstItem="9e9-fh-mKD" firstAttribute="trailing" secondItem="6YR-GC-uk9" secondAttribute="trailing" constant="16" id="jcS-mT-RIN"/>
                             <constraint firstItem="6YR-GC-uk9" firstAttribute="centerX" secondItem="uF8-NM-XzU" secondAttribute="centerX" id="phP-6t-rIF"/>
                             <constraint firstItem="6YR-GC-uk9" firstAttribute="leading" secondItem="9e9-fh-mKD" secondAttribute="leading" constant="16" id="zKb-wl-Y69"/>
@@ -286,7 +287,6 @@
                         <outlet property="changeNameButton" destination="U1L-ec-dS3" id="cL0-HZ-sIm"/>
                         <outlet property="changePictureButton" destination="4Rc-uh-n7n" id="krz-Mi-O4c"/>
                         <outlet property="leaveGroupButton" destination="Y0r-EK-t1h" id="vq3-kB-T9V"/>
-                        <outlet property="lottieView" destination="gql-5Q-W90" id="Dmg-C1-4UW"/>
                         <outlet property="popView" destination="6YR-GC-uk9" id="Eal-tm-8D1"/>
                     </connections>
                 </viewController>
@@ -633,7 +633,7 @@
         </scene>
     </scenes>
     <designables>
-        <designable name="gql-5Q-W90"/>
+        <designable name="rt3-Lq-v3W"/>
     </designables>
     <resources>
         <image name="Icon32px_Setting" width="32" height="32"/>

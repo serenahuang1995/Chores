@@ -21,7 +21,7 @@ class LeaveGroupViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: false, completion: nil)
     }
     
     @IBAction func sureToLeave(_ sender: Any) {
