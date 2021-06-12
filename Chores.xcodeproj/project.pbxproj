@@ -69,6 +69,8 @@
 		DCB98A12264CF6C100A8C794 /* UnclaimedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC913CF1264CB46E00C18251 /* UnclaimedTableViewCell.xib */; };
 		DCBB101E2653A36600A8C1E4 /* RuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBB101D2653A36600A8C1E4 /* RuleViewController.swift */; };
 		DCBB10212653F9AA00A8C1E4 /* ChoreImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBB10202653F9AA00A8C1E4 /* ChoreImages.swift */; };
+		DCCA1E92267527F4008E7130 /* NotificationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCA1E91267527F4008E7130 /* NotificationDelegate.swift */; };
+		DCCA1E9526752AB3008E7130 /* LottieWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCA1E9426752AB3008E7130 /* LottieWrapper.swift */; };
 		DCCD761B265A8D2C0004E82B /* Charts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCD761A265A8D2C0004E82B /* Charts.swift */; };
 		DCCD761E265A9BFA0004E82B /* CustomChoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCD761D265A9BFA0004E82B /* CustomChoreViewController.swift */; };
 		DCCD7638265BE0C60004E82B /* AddMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCD7637265BE0C50004E82B /* AddMemberViewController.swift */; };
@@ -156,6 +158,8 @@
 		DCB98A0D264CDF7200A8C794 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		DCBB101D2653A36600A8C1E4 /* RuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleViewController.swift; sourceTree = "<group>"; };
 		DCBB10202653F9AA00A8C1E4 /* ChoreImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoreImages.swift; sourceTree = "<group>"; };
+		DCCA1E91267527F4008E7130 /* NotificationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDelegate.swift; sourceTree = "<group>"; };
+		DCCA1E9426752AB3008E7130 /* LottieWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieWrapper.swift; sourceTree = "<group>"; };
 		DCCD761A265A8D2C0004E82B /* Charts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Charts.swift; sourceTree = "<group>"; };
 		DCCD761D265A9BFA0004E82B /* CustomChoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomChoreViewController.swift; sourceTree = "<group>"; };
 		DCCD7637265BE0C50004E82B /* AddMemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemberViewController.swift; sourceTree = "<group>"; };
@@ -307,6 +311,7 @@
 			children = (
 				DC8FE1132662A8BC0016927D /* Chores.entitlements */,
 				DCA433F1264BA2BD00242617 /* AppDelegate.swift */,
+				DCCA1E91267527F4008E7130 /* NotificationDelegate.swift */,
 				DCA433F3264BA2BD00242617 /* SceneDelegate.swift */,
 				DCA433FF264BA2C500242617 /* Info.plist */,
 				DC531C99265523D100F3FD4B /* GoogleService-Info.plist */,
@@ -332,6 +337,7 @@
 			isa = PBXGroup;
 			children = (
 				DCCD761A265A8D2C0004E82B /* Charts.swift */,
+				DCCA1E9426752AB3008E7130 /* LottieWrapper.swift */,
 				DC7D1C1F2673947E00C3898B /* KingFisherWrapper.swift */,
 			);
 			path = "Third Party Wrapper";
@@ -639,6 +645,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCCA1E9526752AB3008E7130 /* LottieWrapper.swift in Sources */,
 				DCBB10212653F9AA00A8C1E4 /* ChoreImages.swift in Sources */,
 				DC9B10AF2659691B00F50430 /* UserProvider.swift in Sources */,
 				DC1DB8DB26552BAB00F89E5A /* ChoresDataModel.swift in Sources */,
@@ -646,6 +653,7 @@
 				DC719592265FF38500DC3706 /* CreateGroupCollectionViewCell.swift in Sources */,
 				DCEEAA6A264BED9F00A64D37 /* GroupViewController.swift in Sources */,
 				DCA589F0265553920033EE63 /* RuleSegue.swift in Sources */,
+				DCCA1E92267527F4008E7130 /* NotificationDelegate.swift in Sources */,
 				DCA433F6264BA2BD00242617 /* MissionViewController.swift in Sources */,
 				DC913CE3264C144400C18251 /* SectionView.swift in Sources */,
 				DCEEAA73264BEDEC00A64D37 /* InitialViewController.swift in Sources */,

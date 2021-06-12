@@ -54,7 +54,7 @@ class SectionView: UITableViewHeaderFooterView {
         
         sectionTitleLabel.text = SectionTitle.unclaimed.rawValue
         
-        cardViewTopConstraint.constant = 160
+        cardViewTopConstraint.constant = 50 //160
         
         //    cardView.translatesAutoresizingMaskIntoConstraints = false
         //
@@ -67,7 +67,7 @@ class SectionView: UITableViewHeaderFooterView {
         
         sectionTitleLabel.text = SectionTitle.ongoing.rawValue
         
-        cardViewTopConstraint.constant = 20
+        cardViewTopConstraint.constant = 10 // 20
         
         //    cardView.translatesAutoresizingMaskIntoConstraints = false
         //

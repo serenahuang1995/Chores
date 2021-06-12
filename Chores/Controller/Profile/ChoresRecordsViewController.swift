@@ -34,7 +34,7 @@ class ChoresRecordsViewController: UIViewController {
         
         tableView.dataSource = self
         
-        tableView.separatorStyle = .none
+//        tableView.separatorStyle = .none
     }
     
     func setUpRecordsListener() {
@@ -65,13 +65,6 @@ extension ChoresRecordsViewController: UITableViewDelegate {
         
         return 80
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
-        tableView.separatorStyle = .none
-        
-        tableView.backgroundColor = .white
-    }
 }
 
 extension ChoresRecordsViewController: UITableViewDataSource {
@@ -93,7 +86,7 @@ extension ChoresRecordsViewController: UITableViewDataSource {
         guard let recordsCell = cell as? RecordsTableViewCell else { return cell }
         
         recordsCell.layoutCell(chores: finishedChoresList[index])
-        
+                
         return recordsCell
     }
 }

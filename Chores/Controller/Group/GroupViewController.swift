@@ -375,6 +375,8 @@ class GroupViewController: UIViewController {
 
         chartView.notifyDataSetChanged()
         
+//        chartView.reloadInputViews()
+        
         chartView.animate(yAxisDuration: 1.5)
     }
 }

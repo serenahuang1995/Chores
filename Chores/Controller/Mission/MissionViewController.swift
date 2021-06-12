@@ -7,6 +7,7 @@
 
 import UIKit
 import Lottie
+import UserNotifications
 
 protocol MissionCellDelegate: AnyObject {
     
@@ -44,8 +45,12 @@ class MissionViewController: UIViewController {
     
     var transferChores: [Chore] = []
     
-    var selectedIndex: Int?
+    var selfChores:[Chore] = []
 
+    var selectedIndex: Int?
+    
+    let identifier = "NotifationIdentifier"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -231,8 +236,7 @@ class MissionViewController: UIViewController {
                 
             case .failure(let error):
                 
-                print(error)
-                
+                print(error)                
             }
         }
     }
@@ -248,6 +252,13 @@ class MissionViewController: UIViewController {
             self.unclaimedChores = self.allChores.filter { $0.owner == nil }
             
             self.ongoingChores = self.allChores.filter { $0.owner != nil }
+            
+            self.selfChores = self.allChores.filter {$0.owner == UserProvider.shared.uid}
+            
+            if selfChores.count > 0 {
+                
+                setNightNotfication()
+            }
             
             self.tableView.reloadData()
             
@@ -270,10 +281,57 @@ class MissionViewController: UIViewController {
         lottieView.loopMode = .loop
     }
     
+    func setMorningNotfication() {
+        
+        let content = UNMutableNotificationContent()
+        content.title = "早安"
+        content.body = "今天也要努力的做家事唷❤️"
+        content.sound = .default
+        
+        let date = Date()
+        let triggerDaily = Calendar.current.dateComponents([.hour, .minute, .second], from: date)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDaily, repeats: true)
+        
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request) { error in
+            
+            if let error = error {
+                
+                print(error)
+            } else {
+                
+                print("Success")
+            }
+            
+        }
+    }
+    
+    func setNightNotfication() {
+        
+        let content = UNMutableNotificationContent()
+        content.title = "晚安"
+        content.body = "還有家事沒有做完耶...記得要完成唷～💪🏻"
+        content.sound = .default
+        
+        let date = Date()
+        let triggerDaily = Calendar.current.dateComponents([.hour, .minute, .second], from: date)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDaily, repeats: true)
+        
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request) { error in
+            
+            if let error = error {
+                
+                print(error)
+            } else {
+                
+                print("Success")
+            }
+        }
+    }
+    
     func onTransferListener() {
-        
-//        let uid = UserProvider.shared.uid
-        
+
         FirebaseProvider.shared.listenTransfer(userId: UserProvider.shared.uid ?? "") { [weak self] result in
             
             switch result {
@@ -298,13 +356,13 @@ class MissionViewController: UIViewController {
     
     func fetchGroupMembers() {
         
-        UserProvider.shared.fetchGroupMember { [weak self] result in
-            
+        UserProvider.shared.fetchGroupMember { result in
+
             switch result {
             
             case .success(let users):
                 
-                print(users)
+                print("group member: \(users)")
            
             case .failure(let error):
                 
@@ -319,9 +377,10 @@ extension MissionViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
         if section == 0 {
-            
-            return 300
+
+            return 210 //300
         }
+        
         return 160
     }
     
@@ -360,6 +419,7 @@ extension MissionViewController: UITableViewDataSource {
             
             sectionView.setExpandButtonVisible(isVisible: ongoingChores.count != 0)
         }
+
         return sectionView
     }
     
@@ -486,7 +546,6 @@ extension MissionViewController: MissionCellDelegate {
             case .failure(let error):
                 
                 print(error)
-                
             }
         }
     }
@@ -498,3 +557,5 @@ extension MissionViewController: MissionCellDelegate {
         performSegue(withIdentifier: Segue.transfer, sender: nil)
     }
 }
+
+
