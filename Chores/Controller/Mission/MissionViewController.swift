@@ -44,12 +44,10 @@ class MissionViewController: UIViewController {
     var ongoingChores: [Chore] = []
     
     var transferChores: [Chore] = []
-    
-    var selfChores:[Chore] = []
 
     var selectedIndex: Int?
     
-    let identifier = "NotifationIdentifier"
+    let identifier = UserProvider.shared.uid
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +55,10 @@ class MissionViewController: UIViewController {
         resetNavigationBarButton()
     
         fetchUser()
+        
+        setMorningNotfication()
+        
+        setNightNotfication()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -253,13 +255,6 @@ class MissionViewController: UIViewController {
             
             self.ongoingChores = self.allChores.filter { $0.owner != nil }
             
-            self.selfChores = self.allChores.filter {$0.owner == UserProvider.shared.uid}
-            
-            if selfChores.count > 0 {
-                
-                setNightNotfication()
-            }
-            
             self.tableView.reloadData()
             
         } else {
@@ -281,48 +276,57 @@ class MissionViewController: UIViewController {
         lottieView.loopMode = .loop
     }
     
+    func getNotificationContent(title: String,
+                                body: String,
+                                sound: UNNotificationSound) -> UNMutableNotificationContent {
+
+        let content = UNMutableNotificationContent()
+        content.title = title
+        content.body = body
+        content.sound = sound
+        
+        return content
+    }
+    
     func setMorningNotfication() {
         
-        let content = UNMutableNotificationContent()
-        content.title = "早安"
-        content.body = "今天也要努力的做家事唷❤️"
-        content.sound = .default
+        let content = getNotificationContent(title: "早安", body: "今天也要努力的做家事唷❤️", sound: .default)
         
-        let date = Date()
-        let triggerDaily = Calendar.current.dateComponents([.hour, .minute, .second], from: date)
-        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDaily, repeats: true)
+        let triggerDaily = DateComponents(calendar: Calendar.current,hour: 9, minute: 13, second: 0)
+
+        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDaily, repeats: false)
         
-        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: "Morning", content: content, trigger: trigger)
+        
         UNUserNotificationCenter.current().add(request) { error in
-            
+
             if let error = error {
-                
+
                 print(error)
-            } else {
                 
+            } else {
+
                 print("Success")
             }
-            
         }
     }
     
     func setNightNotfication() {
         
-        let content = UNMutableNotificationContent()
-        content.title = "晚安"
-        content.body = "還有家事沒有做完耶...記得要完成唷～💪🏻"
-        content.sound = .default
+        let content = getNotificationContent(title: "晚安", body: "辛苦一整天了，家事都做完了嗎💪🏻", sound: .default)
+    
+        let triggerDaily = DateComponents(calendar: Calendar.current,hour: 21, minute: 0, second: 0)
+                        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDaily, repeats: false)
         
-        let date = Date()
-        let triggerDaily = Calendar.current.dateComponents([.hour, .minute, .second], from: date)
-        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDaily, repeats: true)
-        
-        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: "Night", content: content, trigger: trigger)
+
         UNUserNotificationCenter.current().add(request) { error in
             
             if let error = error {
                 
                 print(error)
+                
             } else {
                 
                 print("Success")
