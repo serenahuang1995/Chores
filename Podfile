@@ -18,6 +18,8 @@ target 'Chores' do
   pod 'lottie-ios', '~> 3.2'
   pod 'Firebase/Crashlytics'
   pod 'Kingfisher'
+  pod 'FoldingCell', '~> 5.0'
+  pod 'PreviewTransition', '~> 4.1'
 
 
 end

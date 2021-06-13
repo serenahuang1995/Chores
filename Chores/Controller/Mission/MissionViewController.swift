@@ -276,13 +276,14 @@ class MissionViewController: UIViewController {
         lottieView.loopMode = .loop
     }
     
-    func getNotificationContent(title: String,
-                                body: String,
-                                sound: UNNotificationSound) -> UNMutableNotificationContent {
+    func getNotificationContent(title: String, body: String, sound: UNNotificationSound) -> UNMutableNotificationContent {
 
         let content = UNMutableNotificationContent()
+        
         content.title = title
+        
         content.body = body
+        
         content.sound = sound
         
         return content
