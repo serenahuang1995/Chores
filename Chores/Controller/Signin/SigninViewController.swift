@@ -163,7 +163,8 @@ class SigninViewController: UIViewController {
                         points: 0,
                         weekHours: 0,
                         totalHours: 0,
-                        groupId: nil)
+                        groupId: nil,
+                        isSpend: false)
         
         UserProvider.shared.addNewUser(user: user) { [weak self] result in
             

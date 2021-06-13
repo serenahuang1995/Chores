@@ -17,6 +17,8 @@ class MemberCollectionViewCell: UICollectionViewCell {
         }
     }
 
+    @IBOutlet weak var medalImage: UIImageView!
+    
     @IBOutlet weak var memberNameLabel: UILabel!
     
     override func awakeFromNib() {
@@ -29,6 +31,8 @@ class MemberCollectionViewCell: UICollectionViewCell {
         memberImage.loadImage(user.picture)
         
         memberNameLabel.text = user.name
+
+        medalImage.isHidden = !user.isSpend        
     }
     
 }

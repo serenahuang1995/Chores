@@ -20,7 +20,6 @@ class TagCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-//        editButton.isHidden = true
     }
     
     @IBAction func deleteChoreItem(_ sender: Any) {

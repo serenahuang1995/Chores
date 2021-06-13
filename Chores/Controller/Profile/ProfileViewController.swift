@@ -29,9 +29,7 @@ class ProfileViewController: UIViewController {
             userImage.layer.cornerRadius = userImage.frame.height / 2
         }
     }
-    
-    @IBOutlet weak var medalImage: UIImageView!
-    
+
     @IBOutlet weak var userNameLabel: UILabel!
     
     @IBOutlet weak var totalPointsLabel: UILabel!
@@ -75,8 +73,6 @@ class ProfileViewController: UIViewController {
         confirmWeekday()
         
         lottieView.isHidden = true
-        
-        medalImage.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -116,10 +112,8 @@ class ProfileViewController: UIViewController {
             
         case Segue.points:
             
-            let destination = segue.destination as? SpendPointsViewController
-            
-            destination?.delegate = self
-            
+            _ = segue.destination as? SpendPointsViewController
+
         default:
             
             return
@@ -248,7 +242,7 @@ class ProfileViewController: UIViewController {
             
             resetWeekHours()
             
-            medalImage.isHidden = true
+            resetMedal()
         }
     }
     
@@ -261,6 +255,23 @@ class ProfileViewController: UIViewController {
             case .success(let success):
                 
                 print(success)
+                
+            case .failure(let error):
+                
+                print(error)
+            }
+        }
+    }
+    
+    func resetMedal() {
+        
+        UserProvider.shared.resetMedal { result in
+            
+            switch result {
+            
+            case .success(let success):
+                
+                print("reset \(success)")
                 
             case .failure(let error):
                 
@@ -395,13 +406,5 @@ extension ProfileViewController: SettingDelegate {
     func showPickerView() {
         
         setImagePicker()
-    }
-}
-
-extension ProfileViewController: PointsDelegate {
-    
-    func buttonClicked() {
-        
-        medalImage.isHidden = false
     }
 }

@@ -9,17 +9,10 @@ import UIKit
 import MIBlurPopup
 import KRProgressHUD
 
-protocol PointsDelegate: AnyObject {
-    
-    func buttonClicked()
-}
-
 class SpendPointsViewController: UIViewController {
     
     @IBOutlet weak var popView: CardView!
-    
-    weak var delegate: PointsDelegate?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,6 +49,8 @@ class SpendPointsViewController: UIViewController {
             
             updatePoints(user: user)
             
+            getMedal()
+            
         } else {
             
             KRProgressHUD.showError(withMessage: "點數不足...再多做一點家事吧！")
@@ -71,15 +66,30 @@ class SpendPointsViewController: UIViewController {
             case .success(let success):
                 
                 print(success)
+
+            case .failure(let error):
                 
-                self.delegate?.buttonClicked()
+                print(error)
+            }
+        }
+    }
+    
+    func getMedal() {
+        
+        UserProvider.shared.getMedal { result in
+            
+            switch result {
+            
+            case .success(let success):
+                
+                print("get medal \(success)")
                 
             case .failure(let error):
                 
                 print(error)
             }
         }
-    }    
+    }
 }
 
 extension SpendPointsViewController: MIBlurPopupDelegate {

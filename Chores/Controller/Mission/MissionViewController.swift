@@ -292,7 +292,7 @@ class MissionViewController: UIViewController {
         
         let content = getNotificationContent(title: "早安", body: "今天也要努力的做家事唷❤️", sound: .default)
         
-        let triggerDaily = DateComponents(calendar: Calendar.current,hour: 9, minute: 13, second: 0)
+        let triggerDaily = DateComponents(calendar: Calendar.current,hour: 9, minute: 0, second: 0)
 
         let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDaily, repeats: false)
         

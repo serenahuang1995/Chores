@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="69t-KR-Z0Q">
-    <device id="retina4_0" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="69t-KR-Z0Q">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -15,17 +14,17 @@
             <objects>
                 <viewController id="RvQ-Xh-3Zo" customClass="GroupViewController" customModule="Chores" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OxY-dA-EyE">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小屋成員" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kiZ-Ng-HZT">
-                                <rect key="frame" x="16" y="79" width="69.5" height="20.5"/>
+                                <rect key="frame" x="16" y="122.99999999999999" width="69.333333333333329" height="20.333333333333329"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4xz-AK-oue">
-                                <rect key="frame" x="0.0" y="109.5" width="320" height="100"/>
+                                <rect key="frame" x="0.0" y="153.33333333333334" width="390" height="100"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="N8P-eH-Pv5"/>
@@ -50,20 +49,20 @@
                                 </cells>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wqL-tf-jrS">
-                                <rect key="frame" x="0.0" y="224.5" width="320" height="43"/>
+                                <rect key="frame" x="0.0" y="268.33333333333331" width="390" height="43"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Ya-xV-Avm" userLabel="Indicator View">
-                                        <rect key="frame" x="87" y="40" width="53.5" height="3"/>
+                                        <rect key="frame" x="87" y="40" width="65" height="3"/>
                                         <color key="backgroundColor" red="0.078431372550000003" green="0.12941176469999999" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="3" id="azm-3G-XTk"/>
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="rGD-uS-o6F">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ejt-Lj-Cgs">
-                                                <rect key="frame" x="0.0" y="0.0" width="106.5" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="130" height="40"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="vHL-tG-Jqg"/>
@@ -81,7 +80,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sdK-8L-5oY">
-                                                <rect key="frame" x="106.5" y="0.0" width="107" height="40"/>
+                                                <rect key="frame" x="130" y="0.0" width="130" height="40"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="agA-hf-Kt6"/>
@@ -99,7 +98,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gmj-in-MRO">
-                                                <rect key="frame" x="213.5" y="0.0" width="106.5" height="40"/>
+                                                <rect key="frame" x="260" y="0.0" width="130" height="40"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="ZzC-F1-r4Q"/>
@@ -131,7 +130,7 @@
                                 </constraints>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="j8D-xt-8iy">
-                                <rect key="frame" x="213" y="279.5" width="91" height="32"/>
+                                <rect key="frame" x="283" y="323.33333333333331" width="91" height="32"/>
                                 <color key="backgroundColor" red="1" green="0.94509803921568625" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
                                 <segments>
                                     <segment title="點數"/>
@@ -143,7 +142,7 @@
                                 </connections>
                             </segmentedControl>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OPq-SF-hV9" customClass="HorizontalBarChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="315.5" width="320" height="203.5"/>
+                                <rect key="frame" x="0.0" y="359.33333333333326" width="390" height="401.66666666666674"/>
                             </containerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PIr-8W-8Zv"/>
@@ -188,7 +187,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="69t-KR-Z0Q" customClass="NavigationController" customModule="Chores" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9F4-Wp-ks1">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.078431372550000003" green="0.12941176469999999" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
@@ -209,14 +208,14 @@
             <objects>
                 <viewController id="Hho-Mi-gQl" customClass="AddMemberViewController" customModule="Chores" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="e89-G4-2kD">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y8h-2p-Vy3" customClass="CardView" customModule="Chores" customModuleProvider="target">
-                                <rect key="frame" x="16" y="184" width="288" height="200"/>
+                                <rect key="frame" x="16" y="322" width="358" height="200"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="68" translatesAutoresizingMaskIntoConstraints="NO" id="YLY-PQ-v6J">
-                                        <rect key="frame" x="80" y="150" width="128" height="30"/>
+                                        <rect key="frame" x="115" y="150" width="128" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qg-gx-5dT">
                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -243,13 +242,13 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新增小屋成員" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPB-pe-I6L">
-                                        <rect key="frame" x="10" y="20" width="268" height="20.5"/>
+                                        <rect key="frame" x="10" y="20" width="338" height="20.333333333333329"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="輸入成員 ID 或是掃 QRcode" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LZ1-l9-z4u">
-                                        <rect key="frame" x="30" y="60.5" width="173" height="40"/>
+                                        <rect key="frame" x="30" y="60.333333333333314" width="243" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="jmg-XQ-hao"/>
                                         </constraints>
@@ -257,7 +256,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iz2-s7-s0C" userLabel="Scanner">
-                                        <rect key="frame" x="218" y="60.5" width="40" height="40"/>
+                                        <rect key="frame" x="288" y="60.333333333333314" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="XCO-91-MaE"/>
                                             <constraint firstAttribute="width" constant="40" id="e8m-mZ-gha"/>
@@ -309,7 +308,7 @@
             <objects>
                 <viewController id="tVc-hB-D3Y" customClass="QRCodeScannerViewController" customModule="Chores" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JbP-y6-xgb">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="2Su-L1-4M5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -325,11 +324,11 @@
             <objects>
                 <viewController id="tLE-pj-Han" customClass="MemberDataViewController" customModule="Chores" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fDU-mr-yKn">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hyg-BJ-22s" customClass="HorizontalBarChartView" customModule="Charts">
-                                <rect key="frame" x="16" y="0.0" width="288" height="568"/>
+                                <rect key="frame" x="16" y="44" width="358" height="766"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>

@@ -31,6 +31,8 @@ struct UserType {
     static let name = "name"
     
     static let picture = "picture"
+    
+    static let isSpend = "isSpend"
 }
 
 class UserProvider {
@@ -53,7 +55,8 @@ class UserProvider {
         points: -1,
         weekHours: -1,
         totalHours: -1,
-        groupId: ""
+        groupId: "",
+        isSpend: false
         
     )
     
@@ -414,17 +417,12 @@ class UserProvider {
         }
         
 //        var foundUser: User?
-//
 //        for user in groupMembers {
-//
 //            if id == user.id {
-//
 //                foundUser = user
-//
 //                break
 //            }
 //        }
-//
 //        return foundUser?.name
     }
     
@@ -446,13 +444,46 @@ class UserProvider {
         }
     }
     
-    func changeUserImage(imageName: String, completion: @escaping (Result<String, Error>) -> Void) {
-        
-//        let name = UserDefaults.standard.string(forKey: "URL")
-        
+    func changeUserImage(imageName: String,
+                         completion: @escaping (Result<String, Error>) -> Void) {
+
         let docReference = database.collection(users).document(uid ?? "")
         
         docReference.updateData([UserType.picture: imageName]) { error in
+            
+            if let error = error {
+                
+                completion(.failure(error))
+                
+            } else {
+                
+                completion(.success(FirebaseProvider.shared.success))
+            }
+        }
+    }
+    
+    func getMedal(completion: @escaping (Result<String, Error>) -> Void) {
+
+        let docReference = database.collection(users).document(uid ?? "")
+        
+        docReference.updateData([UserType.isSpend: true]) { error in
+            
+            if let error = error {
+                
+                completion(.failure(error))
+                
+            } else {
+                
+                completion(.success(FirebaseProvider.shared.success))
+            }
+        }
+    }
+    
+    func resetMedal(completion: @escaping (Result<String, Error>) -> Void) {
+
+        let docReference = database.collection(users).document(uid ?? "")
+        
+        docReference.updateData([UserType.isSpend: false]) { error in
             
             if let error = error {
                 

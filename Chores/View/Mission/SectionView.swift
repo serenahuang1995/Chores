@@ -56,11 +56,11 @@ class SectionView: UITableViewHeaderFooterView {
         
         cardViewTopConstraint.constant = 50 //160
         
-        //    cardView.translatesAutoresizingMaskIntoConstraints = false
-        //
-        //    NSLayoutConstraint.activate([
-        //      cardView.topAnchor.constraint(equalTo: self.topAnchor, constant: 150)
-        //    ])
+        if isExpanded {
+            
+            // 按鈕鏡像翻轉
+            showMoreItemButton.transform = CGAffineTransform(scaleX: 1, y: -1)
+        }
     }
     
     func layoutOngoingSection() {
@@ -69,16 +69,14 @@ class SectionView: UITableViewHeaderFooterView {
         
         cardViewTopConstraint.constant = 10 // 20
         
-        //    cardView.translatesAutoresizingMaskIntoConstraints = false
-        //
-        //    NSLayoutConstraint.activate([
-        //      cardView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10)
-        //    ])
+        if isExpanded {
+            
+            showMoreItemButton.transform = CGAffineTransform(scaleX: 1, y: -1)
+        }
     }
     
     func setExpandButtonVisible(isVisible: Bool) {
         
         showMoreItemButton.isHidden = !isVisible        
     }
-    
 }
