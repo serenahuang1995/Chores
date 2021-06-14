@@ -101,7 +101,8 @@ extension ChoresRecordsViewController: UITableViewDataSource {
         
         recordsCell.layoutCell(chores: finishedChoresList[index])
         
-        recordsCell.selectedBackgroundView = .none
+        recordsCell.selectionStyle = .none
+
                 
         return recordsCell
     }

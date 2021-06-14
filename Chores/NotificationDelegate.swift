@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import UserNotifications
 
+@available(iOS 14.0, *)
 class NotificationDelegate: NSObject, UNUserNotificationCenterDelegate {
     
     func userNotificationCenter(_ center: UNUserNotificationCenter,

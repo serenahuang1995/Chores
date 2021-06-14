@@ -32,11 +32,6 @@ class LeaveGroupViewController: UIViewController {
     @IBAction func cancel(_ sender: Any) {
         
         dismiss(animated: true, completion: nil)
-        
-//        dismiss(animated: true) {
-//
-//            self.delegate?.backToProfile()
-//        }
     }
     
     func leaveGroup() {

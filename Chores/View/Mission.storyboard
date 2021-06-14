@@ -62,7 +62,7 @@
                             <constraint firstItem="tOG-WX-BYx" firstAttribute="trailing" secondItem="Oth-9K-sbN" secondAttribute="trailing" id="qxQ-M4-Csy"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="任務大廳" id="f7k-dl-CeM">
+                    <navigationItem key="navigationItem" title="任務大廳" largeTitleDisplayMode="never" id="f7k-dl-CeM">
                         <barButtonItem key="rightBarButtonItem" title="Item" id="ISm-Kd-4hq"/>
                     </navigationItem>
                     <connections>

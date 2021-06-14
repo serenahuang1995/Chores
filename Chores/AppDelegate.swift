@@ -10,6 +10,7 @@ import Firebase
 import IQKeyboardManagerSwift
 import UserNotifications
 
+@available(iOS 14.0, *)
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     

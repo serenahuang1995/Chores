@@ -63,7 +63,8 @@ class UserProvider {
     var groupMembers: [User] = []
     
     // FirebaseUid
-    var uid: String? =
+    var uid =
+//        UserDefaults.standard.string(forKey: "FirebaseUid")
 //        "ARNaS8WOtYviuzarS5nb" // Ainee被邀請
 //        "XC6b6Ys1VY1qLcBJ5M8z"  // Serena mock data
 //    "N8VeGRV8Ev9CHvGPp7Bd" // Max
@@ -73,9 +74,9 @@ class UserProvider {
 //    "QlO66m51RGdoSMJv95FT" // Wayne
 //    "UedNXmGiiB2vhf2Njm8g" // Surbine
 //    "dacURDVFPNY4SIdW4w3S" // Hannah
-//    "dc7CXgn8G5kCX7h6rEPR" // Ben
+    "dc7CXgn8G5kCX7h6rEPR" // Ben
 //    "vTphjWhWRffOaEXgqOrQ" //Wen
-        UserDefaults.standard.string(forKey: "FirebaseUid")
+
 
     func addNewUser(user: User, completion: @escaping (Result<String, Error>) -> Void) {
         
@@ -391,7 +392,19 @@ class UserProvider {
 
                 let groupUsers = users.compactMap({ queryDocument -> User? in
                                         
-                    return try? queryDocument.data(as: User.self)
+                    do {
+                        
+                        let user = try queryDocument.data(as: User.self)
+                        
+                        return user
+                        
+                    } catch {
+                        
+                        print(error)
+                    }
+                    
+                    return nil
+//                    return try? queryDocument.data(as: User.self)
                 })
                 
                 self.groupMembers = groupUsers

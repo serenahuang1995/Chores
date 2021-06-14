@@ -64,7 +64,7 @@ struct User: Codable {
     
     var groupId: String?
     
-    var isSpend: Bool
+    var isSpend: Bool? = false
     
     //  var dictTransfor: [String: Any] {
     //    return [

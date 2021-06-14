@@ -31,6 +31,13 @@ class DetailRecordsViewController: UIViewController {
         showBlackView()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        
+        blackView.removeFromSuperview()
+
+        dismiss(animated: false, completion: nil)
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         let touch: UITouch? = touches.first
@@ -83,7 +90,7 @@ extension DetailRecordsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return 80
+        return 85
     }
 }
 
@@ -104,7 +111,7 @@ extension DetailRecordsViewController: UITableViewDataSource {
         
         guard let detailCell = cell as? DetailTableViewCell else { return cell }
         
-        detailCell.selectedBackgroundView = .none
+        detailCell.selectionStyle = .none
         
         detailCell.layoutCell(chore: chores[index])
         

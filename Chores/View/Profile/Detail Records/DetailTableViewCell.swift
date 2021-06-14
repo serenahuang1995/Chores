@@ -41,9 +41,16 @@ class DetailTableViewCell: UITableViewCell {
             choreImage.image = UIImage.asset(.CustomChore)
         }
         
-        completedTime.text = "完成時間：\(chore.completedDate)"
+//        guard let date = chore.completedDate as? Date else { return }
         
-        print("TimeStamp: \(chore.completedDate)")
+        guard let date = chore.completedDate?.dateValue() else { return }
+        
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateFormat = "yyyy / MM / dd"
+        
+        let completedDate = dateFormatter.string(from: date)
+        
+        completedTime.text = "完成時間：\(completedDate)"
     }
-    
 }

@@ -55,10 +55,6 @@ class SettingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        setUpLottieView()
-        
-//        lottieView.isHidden = true
-        
         showBlackView()
     }
     
@@ -66,7 +62,7 @@ class SettingViewController: UIViewController {
         
         blackView.removeFromSuperview()
 
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: false, completion: nil)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

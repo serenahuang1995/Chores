@@ -26,7 +26,7 @@ class TransferChoreCollectionViewCell: UICollectionViewCell {
     
     func layoutCell(user: User) {
         
-        memberImage.loadImage(user.picture)
+        memberImage.loadImage(user.picture, placeHolder: .asset(.user))
         
         memberNameLabel.text = user.name
     }

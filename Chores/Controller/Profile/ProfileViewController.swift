@@ -164,7 +164,7 @@ class ProfileViewController: UIViewController {
         
         blackView.alpha = 0.4
 
-        view.insertSubview(blackView, at: 2)
+        view.insertSubview(blackView, at: 3)
         
         setUpVisualEffect()
     }
@@ -212,7 +212,7 @@ class ProfileViewController: UIViewController {
 
                 if self.imageUpdateCount <= 0 {
 
-                    self.userImage.loadImage(user.picture)
+                    self.userImage.loadImage(user.picture, placeHolder: .asset(.user))
 
                 } else {
 

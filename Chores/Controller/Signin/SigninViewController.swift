@@ -104,12 +104,6 @@ class SigninViewController: UIViewController {
         
         signinView.animation = animation
         
-        let keypath = AnimationKeypath(keys: ["**", "Fill", "**", "Color"])
-        
-        let colorProvider = ColorValueProvider(UIColor.beigeFFF1E6.lottieColorValue)
-        
-        signinView.setValueProvider(colorProvider, keypath: keypath)
-        
         signinView.play()
         
         signinView.loopMode = .loop
@@ -296,14 +290,18 @@ extension SigninViewController: ASAuthorizationControllerDelegate {
                     // Firebase uid
                     guard let uid = Auth.auth().currentUser?.uid else { return }
                     
-//                    self.uid = uid
-                    
-                    self.uid = "test"
+                    self.uid = uid
+//                    self.uid = "test4"
+//                    self.uid = "test333"
+//                    self.uid = "test222"
+//                    self.uid = "test"
 //                    self.uid = "XC6b6Ys1VY1qLcBJ5M8z"
 
-                    let userDefault = UserDefaults()
+                    let userDefaults = UserDefaults()
                         
-                    userDefault.setValue(self.uid, forKey: "FirebaseUid")
+                    userDefaults.setValue(self.uid, forKey: "FirebaseUid")
+                    
+                    UserProvider.shared.uid = self.uid ?? ""
                     
                     fetchUser()
                 }
