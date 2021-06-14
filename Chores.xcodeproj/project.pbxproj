@@ -35,6 +35,9 @@
 		DC8136492650090E003CC6ED /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8136482650090E003CC6ED /* UICollectionView+Extension.swift */; };
 		DC81364D2650095C003CC6ED /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81364B2650095C003CC6ED /* TagCollectionViewCell.swift */; };
 		DC81364E2650095C003CC6ED /* TagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC81364C2650095C003CC6ED /* TagCollectionViewCell.xib */; };
+		DC8352382676796F003A1F7B /* DetailRecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8352372676796F003A1F7B /* DetailRecordsViewController.swift */; };
+		DC83523B2676836A003A1F7B /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8352392676836A003A1F7B /* DetailTableViewCell.swift */; };
+		DC83523C2676836A003A1F7B /* DetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC83523A2676836A003A1F7B /* DetailTableViewCell.xib */; };
 		DC856DB1266CC0D9005DDED1 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC856DB0266CC0D9005DDED1 /* Data+Extension.swift */; };
 		DC856DD2266D2346005DDED1 /* ChangeNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC856DD1266D2345005DDED1 /* ChangeNameViewController.swift */; };
 		DC8FE0E5266299D20016927D /* Signin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC8FE0E4266299D10016927D /* Signin.storyboard */; };
@@ -121,6 +124,9 @@
 		DC8136482650090E003CC6ED /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		DC81364B2650095C003CC6ED /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
 		DC81364C2650095C003CC6ED /* TagCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagCollectionViewCell.xib; sourceTree = "<group>"; };
+		DC8352372676796F003A1F7B /* DetailRecordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRecordsViewController.swift; sourceTree = "<group>"; };
+		DC8352392676836A003A1F7B /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
+		DC83523A2676836A003A1F7B /* DetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailTableViewCell.xib; sourceTree = "<group>"; };
 		DC856DB0266CC0D9005DDED1 /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
 		DC856DD1266D2345005DDED1 /* ChangeNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeNameViewController.swift; sourceTree = "<group>"; };
 		DC8FE0E4266299D10016927D /* Signin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Signin.storyboard; sourceTree = "<group>"; };
@@ -233,6 +239,15 @@
 				DC81364C2650095C003CC6ED /* TagCollectionViewCell.xib */,
 			);
 			path = Add;
+			sourceTree = "<group>";
+		};
+		DC83523D26768370003A1F7B /* Detail Records */ = {
+			isa = PBXGroup;
+			children = (
+				DC8352392676836A003A1F7B /* DetailTableViewCell.swift */,
+				DC83523A2676836A003A1F7B /* DetailTableViewCell.xib */,
+			);
+			path = "Detail Records";
 			sourceTree = "<group>";
 		};
 		DC8FE0E02661315D0016927D /* Initial */ = {
@@ -348,6 +363,7 @@
 			children = (
 				DCD737A526520E7200F1DEF8 /* RecordsTableViewCell.swift */,
 				DCD737A626520E7200F1DEF8 /* RecordsTableViewCell.xib */,
+				DC83523D26768370003A1F7B /* Detail Records */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -459,6 +475,7 @@
 			children = (
 				DCEEAA6E264BEDC000A64D37 /* ProfileViewController.swift */,
 				DCD7379E26520B9A00F1DEF8 /* ChoresRecordsViewController.swift */,
+				DC8352372676796F003A1F7B /* DetailRecordsViewController.swift */,
 				DCD737A126520BB300F1DEF8 /* ChoresDataViewController.swift */,
 				DC502A5C26535D6200BEC0C3 /* SpendPointsViewController.swift */,
 				DC71957D265E330E00DC3706 /* SettingViewController.swift */,
@@ -560,6 +577,7 @@
 				DCEEAA54264BDD9400A64D37 /* Mission.storyboard in Resources */,
 				DCA433FE264BA2C500242617 /* LaunchScreen.storyboard in Resources */,
 				DC70F636266F737E0053AEFF /* Coin.json in Resources */,
+				DC83523C2676836A003A1F7B /* DetailTableViewCell.xib in Resources */,
 				DC81364E2650095C003CC6ED /* TagCollectionViewCell.xib in Resources */,
 				DCB98A12264CF6C100A8C794 /* UnclaimedTableViewCell.xib in Resources */,
 				DC5AC61826528BBB00F99E74 /* MemberCollectionViewCell.xib in Resources */,
@@ -688,6 +706,7 @@
 				DC856DB1266CC0D9005DDED1 /* Data+Extension.swift in Sources */,
 				DC71959C265FF9C000DC3706 /* FlatCardCollectionViewLayout.swift in Sources */,
 				DC913CE7264C1A2B00C18251 /* CardView.swift in Sources */,
+				DC83523B2676836A003A1F7B /* DetailTableViewCell.swift in Sources */,
 				DC8136492650090E003CC6ED /* UICollectionView+Extension.swift in Sources */,
 				DC92B84C2652D13D00041D01 /* AddMemberCell.swift in Sources */,
 				DCD7379F26520B9A00F1DEF8 /* ChoresRecordsViewController.swift in Sources */,
@@ -695,6 +714,7 @@
 				DC81364D2650095C003CC6ED /* TagCollectionViewCell.swift in Sources */,
 				DCA433F4264BA2BD00242617 /* SceneDelegate.swift in Sources */,
 				DCA589F326555AD10033EE63 /* FirebaseProvider.swift in Sources */,
+				DC8352382676796F003A1F7B /* DetailRecordsViewController.swift in Sources */,
 				DC719589265FCF6400DC3706 /* ChoresInfo.swift in Sources */,
 				DCB98A0E264CDF7200A8C794 /* UITableView+Extension.swift in Sources */,
 				DC502A5D26535D6200BEC0C3 /* SpendPointsViewController.swift in Sources */,

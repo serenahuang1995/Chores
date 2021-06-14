@@ -19,10 +19,19 @@ class ChoresRecordsViewController: UIViewController {
     
     var finishedChoresList: [[Chore]] = []
     
+    var selectedIndex: Int = -1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpRecordsListener()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let destination = segue.destination as? DetailRecordsViewController
+        
+        destination?.chores = finishedChoresList[selectedIndex]
     }
     
     private func setUpTableView() {
@@ -33,8 +42,6 @@ class ChoresRecordsViewController: UIViewController {
         tableView.delegate = self
         
         tableView.dataSource = self
-        
-//        tableView.separatorStyle = .none
     }
     
     func setUpRecordsListener() {
@@ -65,6 +72,13 @@ extension ChoresRecordsViewController: UITableViewDelegate {
         
         return 80
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        selectedIndex = indexPath.row
+        
+        performSegue(withIdentifier: Segue.detail, sender: nil)
+    }
 }
 
 extension ChoresRecordsViewController: UITableViewDataSource {
@@ -86,6 +100,8 @@ extension ChoresRecordsViewController: UITableViewDataSource {
         guard let recordsCell = cell as? RecordsTableViewCell else { return cell }
         
         recordsCell.layoutCell(chores: finishedChoresList[index])
+        
+        recordsCell.selectedBackgroundView = .none
                 
         return recordsCell
     }

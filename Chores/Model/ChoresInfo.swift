@@ -44,4 +44,6 @@ struct Segue {
     static let leaveGroup = "SegueLeaveGroup"
     
     static let points = "SegueSpendPoints"
+    
+    static let detail = "SegueDetail"
 }

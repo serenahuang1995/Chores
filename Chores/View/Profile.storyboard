@@ -561,27 +561,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="550"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="I1b-z6-xpg">
-                                <rect key="frame" x="0.0" y="10" width="390" height="540"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="I1b-z6-xpg">
+                                <rect key="frame" x="0.0" y="44" width="390" height="506"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aXF-Lp-CQg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="I1b-z6-xpg" firstAttribute="leading" secondItem="5wV-TV-sge" secondAttribute="leading" id="308-sF-yPA"/>
-                            <constraint firstItem="I1b-z6-xpg" firstAttribute="top" secondItem="5wV-TV-sge" secondAttribute="top" constant="10" id="Z75-7x-69K"/>
+                            <constraint firstItem="I1b-z6-xpg" firstAttribute="top" secondItem="5wV-TV-sge" secondAttribute="topMargin" id="Ob9-CJ-fPX"/>
                             <constraint firstAttribute="bottomMargin" secondItem="I1b-z6-xpg" secondAttribute="bottom" id="kum-Kx-qio"/>
                             <constraint firstAttribute="trailing" secondItem="I1b-z6-xpg" secondAttribute="trailing" id="kzy-CA-dm0"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="I1b-z6-xpg" id="L7B-Qj-i6W"/>
+                        <segue destination="UD1-eK-PPi" kind="presentation" identifier="SegueDetail" id="hXD-Nu-6oG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dz3-n1-F0g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1418" y="231"/>
+            <point key="canvasLocation" x="994" y="218"/>
         </scene>
         <!--Chores Data View Controller-->
         <scene sceneID="Ug4-gB-xXx">
@@ -611,7 +611,56 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sw2-YQ-EOY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1417" y="-304"/>
+            <point key="canvasLocation" x="994" y="-299"/>
+        </scene>
+        <!--Detail Records View Controller-->
+        <scene sceneID="pGc-4j-FtK">
+            <objects>
+                <viewController modalPresentationStyle="overCurrentContext" id="UD1-eK-PPi" customClass="DetailRecordsViewController" customModule="Chores" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gUf-XY-EK0">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="550"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nTU-EC-yxt" customClass="CardView" customModule="Chores" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="70" width="390" height="480"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="icR-dT-ZJ2">
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="480"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="objectCornerRadius">
+                                                <real key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="icR-dT-ZJ2" secondAttribute="trailing" id="1eq-Sb-cp9"/>
+                                    <constraint firstItem="icR-dT-ZJ2" firstAttribute="leading" secondItem="nTU-EC-yxt" secondAttribute="leading" id="6oy-I6-ene"/>
+                                    <constraint firstAttribute="bottom" secondItem="icR-dT-ZJ2" secondAttribute="bottom" id="LFt-Bt-UsC"/>
+                                    <constraint firstItem="icR-dT-ZJ2" firstAttribute="top" secondItem="nTU-EC-yxt" secondAttribute="top" id="QYh-kH-MCO"/>
+                                    <constraint firstAttribute="height" constant="480" id="dCL-ms-lss"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="us5-yK-WlM"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="nTU-EC-yxt" secondAttribute="trailing" id="cJO-iZ-OiI"/>
+                            <constraint firstItem="nTU-EC-yxt" firstAttribute="leading" secondItem="gUf-XY-EK0" secondAttribute="leading" id="wZ9-vO-xv1"/>
+                            <constraint firstItem="us5-yK-WlM" firstAttribute="bottom" secondItem="nTU-EC-yxt" secondAttribute="bottom" id="z9H-C6-kzD"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="xFc-yY-Bgb"/>
+                    <connections>
+                        <outlet property="detailView" destination="nTU-EC-yxt" id="FSv-tt-l6W"/>
+                        <outlet property="tableView" destination="icR-dT-ZJ2" id="Huf-dI-ONL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gUv-r0-RV3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1838" y="218"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KAd-yc-cE9">
