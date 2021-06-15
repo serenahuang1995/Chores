@@ -32,17 +32,7 @@ class SigninViewController: UIViewController {
         setUpSigninButton()
         
         setUpLottie()
-        
-//        let button = UIButton(type: .roundedRect)
-//        button.frame = CGRect(x: 20, y: 50, width: 100, height: 30)
-//        button.setTitle("Crash", for: [])
-//        button.addTarget(self, action: #selector(self.crashButtonTapped(_:)), for: .touchUpInside)
-//        view.addSubview(button)
     }
-
-//    @IBAction func crashButtonTapped(_ sender: AnyObject) {
-//        fatalError()
-//    }
 
     @IBAction func skip(_ sender: Any) {
         
@@ -291,10 +281,6 @@ extension SigninViewController: ASAuthorizationControllerDelegate {
                     guard let uid = Auth.auth().currentUser?.uid else { return }
                     
                     self.uid = uid
-//                    self.uid = "test4"
-//                    self.uid = "test333"
-//                    self.uid = "test222"
-//                    self.uid = "test"
 //                    self.uid = "XC6b6Ys1VY1qLcBJ5M8z"
 
                     let userDefaults = UserDefaults()

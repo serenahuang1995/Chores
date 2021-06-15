@@ -63,7 +63,7 @@ class UserProvider {
     var groupMembers: [User] = []
     
     // FirebaseUid
-    var uid =
+    var uid: String? =
 //        UserDefaults.standard.string(forKey: "FirebaseUid")
 //        "ARNaS8WOtYviuzarS5nb" // Ainee被邀請
         "XC6b6Ys1VY1qLcBJ5M8z"  // Serena mock data
