@@ -90,7 +90,7 @@ class SigninViewController: UIViewController {
     
     func setUpLottie() {
         
-        let animation = Animation.named("Chores")
+        let animation = Animation.named("Signin")
         
         signinView.animation = animation
         

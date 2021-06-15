@@ -51,7 +51,7 @@ class MissionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         resetNavigationBarButton()
     
         fetchUser()
@@ -266,13 +266,13 @@ class MissionViewController: UIViewController {
     }
     
     func setUpLottie() {
-        
+
         let anination = Animation.named("WashingMachine")
-        
+
         lottieView.animation = anination
-        
+
         lottieView.play()
-        
+
         lottieView.loopMode = .loop
     }
     
@@ -288,6 +288,15 @@ class MissionViewController: UIViewController {
         
         return content
     }
+    
+//    func getTriggerDaily(hour: Int, minute: Int, second: Int) -> UNCalendarNotificationTrigger{
+//        
+//        let triggerDaily = DateComponents(calendar: Calendar.current,hour: hour, minute: minute, second: second)
+//        
+//        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDaily, repeats: false)
+//        
+//        return trigger
+//    }
     
     func setMorningNotfication() {
         

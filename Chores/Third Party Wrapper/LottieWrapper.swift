@@ -10,7 +10,15 @@ import Lottie
 
 extension AnimationView {
     
-    func showLottieView(view: AnimationView, name: String) {
+    func configureLottieView(name: String) {
         
+        let animation = Animation.named(name)
+        
+        self.animation = animation
+        
+        self.play()
+        
+        self.loopMode = .loop
     }
 }
+

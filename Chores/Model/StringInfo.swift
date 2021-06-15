@@ -1,5 +1,5 @@
 //
-//  ChoresInfo.swift
+//  StringInfo.swift
 //  Chores
 //
 //  Created by 黃瀞萱 on 2021/5/27.
@@ -46,4 +46,15 @@ struct Segue {
     static let points = "SegueSpendPoints"
     
     static let detail = "SegueDetail"
+}
+
+struct Lottie {
+    
+    static let signin = "Signin"
+    
+    static let loading = "Loading"
+    
+    static let washing = "WashingMachine"
+    
+    static let house = "House"
 }

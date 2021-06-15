@@ -12,18 +12,17 @@
 		DC203D00264E6099002FADDA /* OngoingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC203CFE264E6098002FADDA /* OngoingTableViewCell.swift */; };
 		DC203D01264E6099002FADDA /* OngoingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC203CFF264E6098002FADDA /* OngoingTableViewCell.xib */; };
 		DC203D07264E823C002FADDA /* AddChoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC203D06264E823C002FADDA /* AddChoresViewController.swift */; };
-		DC299D7F266F7C7500AC86A3 /* WashingMachine.json in Resources */ = {isa = PBXBuildFile; fileRef = DC299D7E266F7C7500AC86A3 /* WashingMachine.json */; };
-		DC299D8F266F914500AC86A3 /* Chores.json in Resources */ = {isa = PBXBuildFile; fileRef = DC299D8E266F914500AC86A3 /* Chores.json */; };
-		DC383D122673EF4C00DC768E /* ImageLoading.json in Resources */ = {isa = PBXBuildFile; fileRef = DC383D112673EF4C00DC768E /* ImageLoading.json */; };
+		DC299D7F266F7C7500AC86A3 /* Washing.json in Resources */ = {isa = PBXBuildFile; fileRef = DC299D7E266F7C7500AC86A3 /* Washing.json */; };
+		DC299D8F266F914500AC86A3 /* Signin.json in Resources */ = {isa = PBXBuildFile; fileRef = DC299D8E266F914500AC86A3 /* Signin.json */; };
+		DC383D122673EF4C00DC768E /* Loading.json in Resources */ = {isa = PBXBuildFile; fileRef = DC383D112673EF4C00DC768E /* Loading.json */; };
 		DC502A5D26535D6200BEC0C3 /* SpendPointsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC502A5C26535D6200BEC0C3 /* SpendPointsViewController.swift */; };
 		DC531C9A265523D100F3FD4B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC531C99265523D100F3FD4B /* GoogleService-Info.plist */; };
 		DC5AC61726528BBB00F99E74 /* MemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5AC61526528BBB00F99E74 /* MemberCollectionViewCell.swift */; };
 		DC5AC61826528BBB00F99E74 /* MemberCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC5AC61626528BBB00F99E74 /* MemberCollectionViewCell.xib */; };
-		DC70F631266F5F540053AEFF /* Cook.json in Resources */ = {isa = PBXBuildFile; fileRef = DC70F630266F5F530053AEFF /* Cook.json */; };
 		DC70F636266F737E0053AEFF /* Coin.json in Resources */ = {isa = PBXBuildFile; fileRef = DC70F634266F737C0053AEFF /* Coin.json */; };
 		DC70F637266F737E0053AEFF /* Home.json in Resources */ = {isa = PBXBuildFile; fileRef = DC70F635266F737D0053AEFF /* Home.json */; };
 		DC71957E265E330F00DC3706 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC71957D265E330E00DC3706 /* SettingViewController.swift */; };
-		DC719589265FCF6400DC3706 /* ChoresInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC719588265FCF6200DC3706 /* ChoresInfo.swift */; };
+		DC719589265FCF6400DC3706 /* StringInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC719588265FCF6200DC3706 /* StringInfo.swift */; };
 		DC719592265FF38500DC3706 /* CreateGroupCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC719590265FF38500DC3706 /* CreateGroupCollectionViewCell.swift */; };
 		DC719593265FF38500DC3706 /* CreateGroupCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC719591265FF38500DC3706 /* CreateGroupCollectionViewCell.xib */; };
 		DC719598265FF47A00DC3706 /* InvitedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC719596265FF47A00DC3706 /* InvitedCollectionViewCell.swift */; };
@@ -101,18 +100,17 @@
 		DC203CFE264E6098002FADDA /* OngoingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingTableViewCell.swift; sourceTree = "<group>"; };
 		DC203CFF264E6098002FADDA /* OngoingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OngoingTableViewCell.xib; sourceTree = "<group>"; };
 		DC203D06264E823C002FADDA /* AddChoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChoresViewController.swift; sourceTree = "<group>"; };
-		DC299D7E266F7C7500AC86A3 /* WashingMachine.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = WashingMachine.json; sourceTree = "<group>"; };
-		DC299D8E266F914500AC86A3 /* Chores.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Chores.json; sourceTree = "<group>"; };
-		DC383D112673EF4C00DC768E /* ImageLoading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ImageLoading.json; sourceTree = "<group>"; };
+		DC299D7E266F7C7500AC86A3 /* Washing.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Washing.json; sourceTree = "<group>"; };
+		DC299D8E266F914500AC86A3 /* Signin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Signin.json; sourceTree = "<group>"; };
+		DC383D112673EF4C00DC768E /* Loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Loading.json; sourceTree = "<group>"; };
 		DC502A5C26535D6200BEC0C3 /* SpendPointsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendPointsViewController.swift; sourceTree = "<group>"; };
 		DC531C99265523D100F3FD4B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DC5AC61526528BBB00F99E74 /* MemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberCollectionViewCell.swift; sourceTree = "<group>"; };
 		DC5AC61626528BBB00F99E74 /* MemberCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberCollectionViewCell.xib; sourceTree = "<group>"; };
-		DC70F630266F5F530053AEFF /* Cook.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Cook.json; sourceTree = "<group>"; };
 		DC70F634266F737C0053AEFF /* Coin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Coin.json; sourceTree = "<group>"; };
 		DC70F635266F737D0053AEFF /* Home.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Home.json; sourceTree = "<group>"; };
 		DC71957D265E330E00DC3706 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
-		DC719588265FCF6200DC3706 /* ChoresInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoresInfo.swift; sourceTree = "<group>"; };
+		DC719588265FCF6200DC3706 /* StringInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringInfo.swift; sourceTree = "<group>"; };
 		DC719590265FF38500DC3706 /* CreateGroupCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateGroupCollectionViewCell.swift; path = Chores/View/Initial/CreateGroupCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		DC719591265FF38500DC3706 /* CreateGroupCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CreateGroupCollectionViewCell.xib; path = Chores/View/Initial/CreateGroupCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
 		DC719596265FF47A00DC3706 /* InvitedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitedCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -281,13 +279,12 @@
 			isa = PBXGroup;
 			children = (
 				DC70F634266F737C0053AEFF /* Coin.json */,
-				DC299D7E266F7C7500AC86A3 /* WashingMachine.json */,
-				DC383D112673EF4C00DC768E /* ImageLoading.json */,
+				DC299D7E266F7C7500AC86A3 /* Washing.json */,
+				DC383D112673EF4C00DC768E /* Loading.json */,
 				DCAFE9AB266F78D6003EC39E /* HomeGreate.json */,
 				DCAFE9AA266F78D5003EC39E /* House.json */,
-				DC299D8E266F914500AC86A3 /* Chores.json */,
+				DC299D8E266F914500AC86A3 /* Signin.json */,
 				DC70F635266F737D0053AEFF /* Home.json */,
-				DC70F630266F5F530053AEFF /* Cook.json */,
 				DCA6842B2663F22000797EAB /* CreateGroup.json */,
 			);
 			path = Animation;
@@ -376,7 +373,7 @@
 				DCA589F226555AD10033EE63 /* FirebaseProvider.swift */,
 				DC1DB8DA26552BAB00F89E5A /* ChoresDataModel.swift */,
 				DCBB10202653F9AA00A8C1E4 /* ChoreImages.swift */,
-				DC719588265FCF6200DC3706 /* ChoresInfo.swift */,
+				DC719588265FCF6200DC3706 /* StringInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -568,7 +565,7 @@
 				DCD737A826520E7200F1DEF8 /* RecordsTableViewCell.xib in Resources */,
 				DC92B84D2652D13D00041D01 /* AddMemberCell.xib in Resources */,
 				DC531C9A265523D100F3FD4B /* GoogleService-Info.plist in Resources */,
-				DC299D8F266F914500AC86A3 /* Chores.json in Resources */,
+				DC299D8F266F914500AC86A3 /* Signin.json in Resources */,
 				DC913CE4264C144400C18251 /* SectionView.xib in Resources */,
 				DC203D01264E6099002FADDA /* OngoingTableViewCell.xib in Resources */,
 				DC70F637266F737E0053AEFF /* Home.json in Resources */,
@@ -583,10 +580,9 @@
 				DC5AC61826528BBB00F99E74 /* MemberCollectionViewCell.xib in Resources */,
 				DCA433FB264BA2C500242617 /* Assets.xcassets in Resources */,
 				DC719599265FF47A00DC3706 /* InvitedCollectionViewCell.xib in Resources */,
-				DC299D7F266F7C7500AC86A3 /* WashingMachine.json in Resources */,
+				DC299D7F266F7C7500AC86A3 /* Washing.json in Resources */,
 				DCAFE9AD266F78D6003EC39E /* HomeGreate.json in Resources */,
-				DC70F631266F5F540053AEFF /* Cook.json in Resources */,
-				DC383D122673EF4C00DC768E /* ImageLoading.json in Resources */,
+				DC383D122673EF4C00DC768E /* Loading.json in Resources */,
 				DCA433F9264BA2BD00242617 /* Main.storyboard in Resources */,
 				DCEEAA60264BEC8B00A64D37 /* Group.storyboard in Resources */,
 				DC719593265FF38500DC3706 /* CreateGroupCollectionViewCell.xib in Resources */,
@@ -715,7 +711,7 @@
 				DCA433F4264BA2BD00242617 /* SceneDelegate.swift in Sources */,
 				DCA589F326555AD10033EE63 /* FirebaseProvider.swift in Sources */,
 				DC8352382676796F003A1F7B /* DetailRecordsViewController.swift in Sources */,
-				DC719589265FCF6400DC3706 /* ChoresInfo.swift in Sources */,
+				DC719589265FCF6400DC3706 /* StringInfo.swift in Sources */,
 				DCB98A0E264CDF7200A8C794 /* UITableView+Extension.swift in Sources */,
 				DC502A5D26535D6200BEC0C3 /* SpendPointsViewController.swift in Sources */,
 			);
