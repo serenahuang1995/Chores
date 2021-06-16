@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -70,10 +68,10 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="cardView" destination="css-0L-DwP" id="Odg-Sc-Lq0"/>
                 <outlet property="choreImage" destination="fhR-ER-jV1" id="ViI-DI-YxS"/>
-                <outlet property="choreItem" destination="XgK-gA-xPb" id="Z9h-eH-Dow"/>
-                <outlet property="completedTime" destination="4om-r5-0TS" id="xxY-1Q-SzL"/>
-                <outlet property="detailView" destination="css-0L-DwP" id="Odg-Sc-Lq0"/>
+                <outlet property="choreItemLabel" destination="XgK-gA-xPb" id="Z9h-eH-Dow"/>
+                <outlet property="completedTimeLabel" destination="4om-r5-0TS" id="xxY-1Q-SzL"/>
             </connections>
             <point key="canvasLocation" x="97" y="66"/>
         </tableViewCell>

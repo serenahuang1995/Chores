@@ -35,7 +35,8 @@ class StorageProvider {
         }
     }
     
-    func changeImageToURL(imageName: String ,completion: @escaping (Result<String, Error>) -> Void) {
+    func changeImageToURL(imageName: String,
+                          completion: @escaping (Result<String, Error>) -> Void) {
                 
         let reference = storage.child(imageName)
 
@@ -51,29 +52,10 @@ class StorageProvider {
                 
                 let urlString = url.absoluteString
                 
-                print("DownloadImage: \(urlString)")
+                print("URL: \(urlString)")
                 
                 completion(.success(urlString))
             }
         }
     }
-    
-//    func downloadImage(userImage: UIImage) {
-//
-//        guard let urlString = UserDefaults.standard.string(forKey: "URL"),
-//              let url = URL(string: urlString) else { return }
-//
-//        let task = URLSession.shared.dataTask(with: url) { data, _, error in
-//
-//            guard let data = data, error == nil else { return }
-//
-//            DispatchQueue.main.async {
-//
-//                let image = UIImage(data: data)
-//                    userImage = image
-//            }
-//        }
-//
-//        task.resume()
-//    }
 }

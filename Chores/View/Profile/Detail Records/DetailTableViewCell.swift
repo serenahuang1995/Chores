@@ -9,18 +9,23 @@ import UIKit
 
 class DetailTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var detailView: CardView!
+    @IBOutlet weak var cardView: CardView! {
+        
+        didSet {
+            
+            cardView.backgroundColor = .beigeFFF1E6
+        }
+    }
     
     @IBOutlet weak var choreImage: UIImageView!
     
-    @IBOutlet weak var choreItem: UILabel!
+    @IBOutlet weak var choreItemLabel: UILabel!
     
-    @IBOutlet weak var completedTime: UILabel!
+    @IBOutlet weak var completedTimeLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        detailView.backgroundColor = .beigeFFF1E6
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -30,7 +35,7 @@ class DetailTableViewCell: UITableViewCell {
     
     func layoutCell(chore: Chore) {
         
-        choreItem.text = chore.item
+        choreItemLabel.text = chore.item
         
         if let imageName = ChoreImages.imageNames[chore.item] {
             
@@ -40,9 +45,7 @@ class DetailTableViewCell: UITableViewCell {
             
             choreImage.image = UIImage.asset(.CustomChore)
         }
-        
-//        guard let date = chore.completedDate as? Date else { return }
-        
+
         guard let date = chore.completedDate?.dateValue() else { return }
         
         let dateFormatter = DateFormatter()
@@ -51,6 +54,6 @@ class DetailTableViewCell: UITableViewCell {
         
         let completedDate = dateFormatter.string(from: date)
         
-        completedTime.text = "完成時間：\(completedDate)"
+        completedTimeLabel.text = "完成時間：\(completedDate)"
     }
 }
