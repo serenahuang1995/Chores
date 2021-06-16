@@ -61,37 +61,14 @@ class TagCollectionViewCell: UICollectionViewCell {
             cardView.backgroundColor = .beigeFFEDD9
             
             cardView.layer.borderWidth = 2
-            
-//            cardView.layer.cornerRadius = 10
-            
+
         } else {
             
             cardView.backgroundColor = .grayF2F2F2
             
             cardView.layer.borderWidth = 0
-        }
-        
+        }        
     }
-    
-//    func initialCell() {
-//
-//        contentView.backgroundColor = .grayF2F2F2
-//
-//        contentView.layer.borderWidth = 0
-//
-//        contentView.layer.cornerRadius = 10
-//    }
-//
-//    func selectedCell() {
-//
-//        contentView.layer.borderColor = UIColor.black252525.cgColor
-//
-//        contentView.backgroundColor = .beigeFFEDD9
-//
-//        contentView.layer.borderWidth = 2
-//
-//        contentView.layer.cornerRadius = 10
-//    }
     
     func deleteChoreType(choreType: String) {
         

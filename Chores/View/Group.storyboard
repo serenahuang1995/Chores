@@ -320,36 +320,6 @@
             </objects>
             <point key="canvasLocation" x="2161" y="131"/>
         </scene>
-        <!--Member Data View Controller-->
-        <scene sceneID="A3a-SN-hh5">
-            <objects>
-                <viewController id="tLE-pj-Han" customClass="MemberDataViewController" customModule="Chores" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="fDU-mr-yKn">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hyg-BJ-22s" customClass="HorizontalBarChartView" customModule="Charts">
-                                <rect key="frame" x="16" y="44" width="358" height="766"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="HWt-rV-Y4V"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="bottomMargin" secondItem="hyg-BJ-22s" secondAttribute="bottom" id="4pa-D2-uVD"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="hyg-BJ-22s" secondAttribute="trailing" id="C5O-yh-O4z"/>
-                            <constraint firstItem="hyg-BJ-22s" firstAttribute="leading" secondItem="fDU-mr-yKn" secondAttribute="leadingMargin" id="HZl-Bi-iOb"/>
-                            <constraint firstItem="hyg-BJ-22s" firstAttribute="top" secondItem="fDU-mr-yKn" secondAttribute="topMargin" id="cgE-mk-DqH"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="barChartView" destination="hyg-BJ-22s" id="Uhr-6B-CGK"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CXQ-Wu-DDu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="551" y="841"/>
-        </scene>
     </scenes>
     <resources>
         <image name="Icon32px_Plus" width="32" height="32"/>

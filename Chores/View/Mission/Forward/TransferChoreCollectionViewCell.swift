@@ -46,19 +46,4 @@ class TransferChoreCollectionViewCell: UICollectionViewCell {
             memberImage.layer.borderColor = UIColor.clear.cgColor
         }
     }
-    
-//    func selectedCell() {
-//
-//        memberImage.layer.borderWidth = 2
-//
-//        memberImage.layer.borderColor = UIColor.black252525.cgColor
-
-//    }
-    
-//    func initialCell() {
-//        
-//        memberImage.layer.borderWidth = 0
-//
-//        memberImage.layer.borderColor = UIColor.clear.cgColor
-//    }
 }

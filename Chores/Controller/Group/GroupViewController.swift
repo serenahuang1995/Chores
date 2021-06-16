@@ -249,7 +249,7 @@ class GroupViewController: UIViewController {
                                 
                 self?.updateContainerView(type: self?.currentPageType ?? .week)
                 
-//                self?.chartView.reloadInputViews()
+                self?.chartView.reloadInputViews()
                 
             case .failure(let error):
                 
@@ -293,7 +293,7 @@ class GroupViewController: UIViewController {
                     self?.userMonthPoints.append(pointsSum)
                 }
                 
-//                self?.chartView.reloadInputViews()
+                self?.chartView.reloadInputViews()
 
             case .failure(let error):
                 
@@ -312,6 +312,8 @@ class GroupViewController: UIViewController {
             
             chartData.append(value)
         }
+        
+        setUpChartView(names: names, chartData: chartData)
     }
     
     func setUpChartView(names: [String], chartData: [BarChartDataEntry]) {
