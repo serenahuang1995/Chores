@@ -210,12 +210,13 @@ extension AddChoresViewController: UICollectionViewDataSource {
         // 真正儲存你點到的cell 然後去對他做事
         if index == selectedIndex {
             
-            tagCell.selectedCell()
+            tagCell.setUpCellStyle(backgroundColor: .beigeFFEDD9, borderWidth: 2.0, borderColor: UIColor.black252525.cgColor)
             
         } else {
             
-            tagCell.initialCell()
+            tagCell.setUpCellStyle(backgroundColor: .grayF2F2F2, borderWidth: 0.0, borderColor: UIColor.clear.cgColor)
         }
+
         return tagCell
     }
 }
@@ -232,15 +233,8 @@ extension AddChoresViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-//        let fullSize = UIScreen.main.bounds
-        
+
        return CGSize(width: 80, height: 90)
-        
-//        print("大小\(CGSize(width: fullSize.width * 0.19, height: fullSize.height * 0.1))")
-//
-//        return CGSize(width: fullSize.width * 0.21,
-//                      height: fullSize.height * 0.13)
     }
 }
 

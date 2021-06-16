@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,6 +18,15 @@
                 <rect key="frame" x="0.0" y="0.0" width="80" height="85"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UUy-ZP-cYw" customClass="CardView" customModule="Chores" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="80" height="85"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dish-soap" translatesAutoresizingMaskIntoConstraints="NO" id="D67-it-cWL">
                         <rect key="frame" x="22" y="16" width="36" height="36"/>
                         <constraints>
@@ -47,14 +58,24 @@
                 <constraint firstItem="3Uo-xA-87E" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="5q3-hA-1AD"/>
                 <constraint firstAttribute="trailing" secondItem="78s-pJ-FsO" secondAttribute="trailing" constant="3" id="KMQ-d4-hIA"/>
                 <constraint firstItem="D67-it-cWL" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="KTH-yM-1UO"/>
+                <constraint firstItem="UUy-ZP-cYw" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="SpJ-Pi-BCH"/>
+                <constraint firstAttribute="trailing" secondItem="UUy-ZP-cYw" secondAttribute="trailing" id="Tik-6r-kQT"/>
                 <constraint firstItem="78s-pJ-FsO" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="XvM-5E-pvV"/>
+                <constraint firstAttribute="bottom" secondItem="UUy-ZP-cYw" secondAttribute="bottom" id="aMx-4D-QOL"/>
                 <constraint firstAttribute="bottom" secondItem="3Uo-xA-87E" secondAttribute="bottom" id="nNL-JM-SPB"/>
                 <constraint firstItem="D67-it-cWL" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="ody-7j-Et0"/>
                 <constraint firstAttribute="trailing" secondItem="3Uo-xA-87E" secondAttribute="trailing" id="syL-U6-Xb1"/>
                 <constraint firstItem="3Uo-xA-87E" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="u9P-eU-Kbb"/>
+                <constraint firstItem="UUy-ZP-cYw" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="w3j-gU-oO9"/>
                 <constraint firstItem="3Uo-xA-87E" firstAttribute="top" secondItem="D67-it-cWL" secondAttribute="bottom" constant="8" id="z4q-fh-rGL"/>
             </constraints>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="objectCornerRadius">
+                    <real key="value" value="10"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
             <connections>
+                <outlet property="cardView" destination="UUy-ZP-cYw" id="wAU-SM-dvj"/>
                 <outlet property="choreImage" destination="D67-it-cWL" id="1Sr-cc-Vgu"/>
                 <outlet property="choreTagLabel" destination="3Uo-xA-87E" id="9BC-W5-RHB"/>
                 <outlet property="editButton" destination="78s-pJ-FsO" id="eBq-d4-4NH"/>
@@ -65,5 +86,8 @@
     <resources>
         <image name="crossed" width="32" height="32"/>
         <image name="dish-soap" width="512" height="512"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

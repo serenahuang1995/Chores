@@ -9,6 +9,9 @@ import UIKit
 
 class TagCollectionViewCell: UICollectionViewCell {
     
+    
+    @IBOutlet weak var cardView: CardView!
+    
     @IBOutlet weak var choreImage: UIImageView!
     
     @IBOutlet weak var choreTagLabel: UILabel!
@@ -49,25 +52,36 @@ class TagCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func initialCell() {
+    func setUpCellStyle(backgroundColor: UIColor,
+                        borderWidth: CGFloat,
+                        borderColor: CGColor) {
         
-        contentView.backgroundColor = .grayF2F2F2
+        cardView.backgroundColor = backgroundColor
         
-        contentView.layer.borderWidth = 0
+        cardView.layer.borderColor = borderColor
         
-        contentView.layer.cornerRadius = 10
+        cardView.layer.borderWidth = borderWidth
     }
     
-    func selectedCell() {
-        
-        contentView.layer.borderColor = UIColor.black252525.cgColor
-        
-        contentView.backgroundColor = .beigeFFEDD9
-        
-        contentView.layer.borderWidth = 2
-        
-        contentView.layer.cornerRadius = 10
-    }
+//    func initialCell() {
+//
+//        contentView.backgroundColor = .grayF2F2F2
+//
+//        contentView.layer.borderWidth = 0
+//
+//        contentView.layer.cornerRadius = 10
+//    }
+//
+//    func selectedCell() {
+//
+//        contentView.layer.borderColor = UIColor.black252525.cgColor
+//
+//        contentView.backgroundColor = .beigeFFEDD9
+//
+//        contentView.layer.borderWidth = 2
+//
+//        contentView.layer.cornerRadius = 10
+//    }
     
     func deleteChoreType(choreType: String) {
         
