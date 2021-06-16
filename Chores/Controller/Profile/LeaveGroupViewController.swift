@@ -36,7 +36,7 @@ class LeaveGroupViewController: UIViewController {
     
     func leaveGroup() {
         
-        UserProvider.shared.leaveGroup { [weak self] result in
+        UserProvider.shared.exitGroup { [weak self] result in
             
             switch result {
             

@@ -16,36 +16,17 @@ enum UserFetchError: Error {
     case firebaseError(error: Error)
 }
 
-struct UserType {
-    
-    static let id = "id"
-    
-    static let weekHours = "weekHours"
-    
-    static let totalHours = "totalHours"
-    
-    static let points = "points"
-    
-    static let groupId = "groupId"
-    
-    static let name = "name"
-    
-    static let picture = "picture"
-    
-    static let isSpend = "isSpend"
-}
-
 class UserProvider {
     
     static let shared = UserProvider()
     
     lazy var database = Firestore.firestore()
     
-    let users = "users"
-    
-    let groups = "groups"
-    
-    let invitations = "invitations"
+//    let users = "users"
+//
+//    let groups = "groups"
+//
+//    let invitations = "invitations"
     
     var user: User = User(
         
@@ -56,8 +37,7 @@ class UserProvider {
         weekHours: -1,
         totalHours: -1,
         groupId: "",
-        isSpend: false
-        
+        isSpent: false
     )
     
     var groupMembers: [User] = []
@@ -77,10 +57,9 @@ class UserProvider {
 //    "dc7CXgn8G5kCX7h6rEPR" // Ben
 //    "vTphjWhWRffOaEXgqOrQ" //Wen
 
-
     func addNewUser(user: User, completion: @escaping (Result<String, Error>) -> Void) {
         
-        let docReference = database.collection(users).document(user.id)
+        let docReference = database.collection(Collection.users).document(user.id)
         
         do {
             
@@ -92,7 +71,7 @@ class UserProvider {
                     
                 } else {
                     
-                    completion(.success(FirebaseProvider.shared.success))
+                    completion(.success("add new user success"))
                 }
             }
 
@@ -103,9 +82,10 @@ class UserProvider {
     }
     
     // 一次性的fetch user
-    func fetchOwner(userId: String, completion: @escaping (Result<User, UserFetchError>) -> Void) {
+    func fetchOwner(userId: String,
+                    completion: @escaping (Result<User, UserFetchError>) -> Void) {
         
-        let docReference = database.collection(users).document(userId)
+        let docReference = database.collection(Collection.users).document(userId)
         
         docReference.getDocument { querySnapshot, error in
             
@@ -141,9 +121,10 @@ class UserProvider {
         }
     }
     
+    // Signin會用到 去判斷他是不是新使用者
     func fetchUser(completion: @escaping (Result<User?, Error>) -> Void) {
         
-        let docReference = database.collection(users).document(uid ?? "")
+        let docReference = database.collection(Collection.users).document(uid ?? "")
         
         docReference.getDocument { querySnapshot, error in
             
@@ -172,11 +153,10 @@ class UserProvider {
         }
     }
     
-    // Profile在用的
-    func onFetchUserListener(completion: @escaping (Result<User, Error>) -> Void) {
+    // Profile監聽user任何變化
+    func fetchUserListener(completion: @escaping (Result<User, Error>) -> Void) {
         
-        let docReference = database.collection(users).document(uid ?? "")
-        //      .whereField("id", isEqualTo: appleUid)
+        let docReference = database.collection(Collection.users).document(uid ?? "")
         
         docReference.addSnapshotListener {  querySnapshot, error in
             
@@ -198,7 +178,7 @@ class UserProvider {
         }
     }
     
-    // 建立群組後 會給該群組一個 ID
+    // 建立群組後會給該群組一個ID 並且把預設的家事種類加進去
     func createGroup(completion: @escaping (Result<Group, Error>) -> Void) {
         
         let defaultTypes = [
@@ -206,7 +186,7 @@ class UserProvider {
             "吸地", "倒垃圾", "刷廁所", "擦窗戶", "修繕", "澆花", "遛狗", "收納", "接送", "帶小孩"
         ]
         
-        let docReference = database.collection(groups).document()
+        let docReference = database.collection(Collection.groups).document()
         
         let group = Group(id: docReference.documentID, choreTypes: defaultTypes)
         
@@ -230,10 +210,11 @@ class UserProvider {
         }
     }
     
+    // 成功建立群組會把user的group id更新成自己創建的群組id
     func updateGroupId(groupId: String,
                        completion: @escaping (Result<String, Error>) -> Void) {
         
-        let docReference = database.collection(users).document(uid ?? "")
+        let docReference = database.collection(Collection.users).document(uid ?? "")
         
         docReference.updateData([UserType.groupId: groupId]) { [weak self] error in
             
@@ -245,16 +226,16 @@ class UserProvider {
                 
                 self?.user.groupId = groupId
                 
-                completion(.success("Success"))
+                completion(.success("update group id success"))
             }
         }
     }
     
-    // 用戶進入群組後 會 assign 該群組的 ID 給使用者
+    // 被邀請的用戶進入群組後會assign該群組的id給使用者
     func updateGroupId(invitation: Invitation,
                        completion: @escaping (Result<String, Error>) -> Void) {
         
-        let docReference = database.collection(users).document(uid ?? "")
+        let docReference = database.collection(Collection.users).document(uid ?? "")
         
         docReference.updateData([UserType.groupId: invitation.group]) { [weak self] error in
             
@@ -266,15 +247,15 @@ class UserProvider {
                 
                 self?.user.groupId = invitation.group
                 
-                completion(.success("Success"))
+                completion(.success("update success"))
             }
         }
     }
     
-    // 離開群組之後會移除用戶的 group id
-    func leaveGroup(completion: @escaping (Result<String, Error>) -> Void) {
+    // 離開群組之後會移除用戶的group id
+    func exitGroup(completion: @escaping (Result<String, Error>) -> Void) {
         
-        let docReference = database.collection(users).document(user.id)
+        let docReference = database.collection(Collection.users).document(user.id)
         
         docReference.updateData([UserType.groupId: nil ?? "",
                                  UserType.points: 0,
@@ -296,12 +277,11 @@ class UserProvider {
                        userId: String,
                        completion: @escaping (Result<String, Error>) -> Void) {
         
-        let docReference = database.collection(users)
-            .document(userId)
-            .collection(invitations)
-            .document()
+        let docReference = database
+            .collection(Collection.users).document(userId)
+            .collection(Collection.invitations).document()
         
-        // 用 documentId 當作 invitation id
+        // 用documentId當作invitation id
         let documentId = docReference.documentID
         
         var newInvitation = invitation
@@ -318,7 +298,7 @@ class UserProvider {
                     
                 } else {
                     
-                    completion(.success(FirebaseProvider.shared.success))
+                    completion(.success("send invitation success"))
                 }
             }
 
@@ -328,11 +308,12 @@ class UserProvider {
         }
     }
     
-    func listenInvitation(completion: @escaping (Result<[Invitation], Error>) -> Void) {
+    // 監聽有沒有收到邀請
+    func getInvitationListener(completion: @escaping (Result<[Invitation], Error>) -> Void) {
         
-        let docReference = database.collection(users)
-            .document(uid ?? "")
-            .collection(invitations)
+        let docReference = database
+            .collection(Collection.users).document(uid ?? "")
+            .collection(Collection.invitations)
         
         docReference.addSnapshotListener { querySnapshot, error in
             
@@ -342,24 +323,25 @@ class UserProvider {
                 
             } else {
                 
-                guard let invitations = querySnapshot?.documents else { return }
+                guard let documents = querySnapshot?.documents else { return }
                 
-                let invitation = invitations.compactMap({ queryDocument -> Invitation? in
+                let invitations = documents.compactMap({ queryDocument -> Invitation? in
                     
                     return try? queryDocument.data(as: Invitation.self)
                 })
                 
-                completion(.success(invitation))
+                completion(.success(invitations))
             }
         }
     }
     
+    // 接受邀請或拒絕邀請之後要把邀請列表清空
     func deleteInvitation(invitation: Invitation,
                           completion: @escaping (Result<String, Error>) -> Void) {
         
         let docRerence = database
-            .collection(users).document(uid ?? "")
-            .collection(invitations).document(invitation.id)
+            .collection(Collection.users).document(uid ?? "")
+            .collection(Collection.invitations).document(invitation.id)
         
         docRerence.delete() { error in
             
@@ -369,7 +351,7 @@ class UserProvider {
                 
             } else {
                 
-                completion(.success("Success"))
+                completion(.success("delete invitation success"))
             }
         }
     }
@@ -377,7 +359,7 @@ class UserProvider {
     func fetchGroupMember(completion: @escaping (Result<[User], Error>) -> Void) {
         
         let docRerence = database
-            .collection(users)
+            .collection(Collection.users)
             .whereField(UserType.groupId, isEqualTo: user.groupId ?? "")
         
         docRerence.addSnapshotListener { querySnapshot, error in
@@ -388,9 +370,9 @@ class UserProvider {
                 
             } else {
                 
-                guard let users = querySnapshot?.documents else { return }
+                guard let documents = querySnapshot?.documents else { return }
 
-                let groupUsers = users.compactMap({ queryDocument -> User? in
+                let users = documents.compactMap({ queryDocument -> User? in
                                         
                     do {
                         
@@ -404,17 +386,16 @@ class UserProvider {
                     }
                     
                     return nil
-//                    return try? queryDocument.data(as: User.self)
                 })
                 
-                self.groupMembers = groupUsers
+                self.groupMembers = users
                 
-                completion(.success(groupUsers))
+                completion(.success(users))
             }
         }
     }
     
-    // 判斷我帶進來的任一 id 有沒有符合 group members 內的 user id，找到那個user並回傳他 user 的 name
+    // 判斷我帶進來的任一id有沒有符合group members內的user id，找到那個user並回傳他user的name
     func getUserNameById(id: String) -> String? {
         
         // 利用 firstIndex 去找 groupMembers 這個 array 中第幾個 index 是符合條件的
@@ -428,7 +409,6 @@ class UserProvider {
 
             return nil
         }
-        
 //        var foundUser: User?
 //        for user in groupMembers {
 //            if id == user.id {
@@ -442,7 +422,7 @@ class UserProvider {
     func changeUserName(name: String,
                         completion: @escaping (Result<String, Error>) -> Void) {
         
-        let docReference = database.collection(users).document(uid ?? "")
+        let docReference = database.collection(Collection.users).document(uid ?? "")
         
         docReference.updateData([UserType.name: name]) { error in
             
@@ -452,7 +432,7 @@ class UserProvider {
                 
             } else {
                 
-                completion(.success(FirebaseProvider.shared.success))
+                completion(.success("rename success"))
             }
         }
     }
@@ -460,7 +440,7 @@ class UserProvider {
     func changeUserImage(imageName: String,
                          completion: @escaping (Result<String, Error>) -> Void) {
 
-        let docReference = database.collection(users).document(uid ?? "")
+        let docReference = database.collection(Collection.users).document(uid ?? "")
         
         docReference.updateData([UserType.picture: imageName]) { error in
             
@@ -470,16 +450,16 @@ class UserProvider {
                 
             } else {
                 
-                completion(.success(FirebaseProvider.shared.success))
+                completion(.success("change image success"))
             }
         }
     }
     
     func getMedal(completion: @escaping (Result<String, Error>) -> Void) {
 
-        let docReference = database.collection(users).document(uid ?? "")
+        let docReference = database.collection(Collection.users).document(uid ?? "")
         
-        docReference.updateData([UserType.isSpend: true]) { error in
+        docReference.updateData([UserType.isSpent: true]) { error in
             
             if let error = error {
                 
@@ -487,16 +467,16 @@ class UserProvider {
                 
             } else {
                 
-                completion(.success(FirebaseProvider.shared.success))
+                completion(.success("get medal success"))
             }
         }
     }
     
     func resetMedal(completion: @escaping (Result<String, Error>) -> Void) {
 
-        let docReference = database.collection(users).document(uid ?? "")
+        let docReference = database.collection(Collection.users).document(uid ?? "")
         
-        docReference.updateData([UserType.isSpend: false]) { error in
+        docReference.updateData([UserType.isSpent: false]) { error in
             
             if let error = error {
                 
@@ -504,7 +484,7 @@ class UserProvider {
                 
             } else {
                 
-                completion(.success(FirebaseProvider.shared.success))
+                completion(.success("reset success"))
             }
         }
     }

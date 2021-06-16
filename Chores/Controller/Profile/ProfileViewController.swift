@@ -193,7 +193,7 @@ class ProfileViewController: UIViewController {
     
     func setUpUserListener() {
         
-        UserProvider.shared.onFetchUserListener { result in
+        UserProvider.shared.fetchUserListener { result in
             
             switch result {
             

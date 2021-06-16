@@ -9,30 +9,6 @@ import Foundation
 import Firebase
 import FirebaseFirestoreSwift
 
-struct ChoreType {
-    
-    static var id = "id"
-    
-    static var status = "status"
-    
-    static var points = "points"
-    
-    static var hours = "hours"
-    
-    static var owner = "owner"
-    
-    static var transfer = "transfer"
-    
-    static var completedDate = "completedDate"
-}
-
-struct GroupType {
-    
-    static var id = "id"
-    
-    static var choreTypes = "choreTypes"
-}
-
 class FirebaseProvider {
     
     static var shared = FirebaseProvider()
@@ -44,8 +20,6 @@ class FirebaseProvider {
     let users = "users"
     
     let chores = "chores"
-    
-    let success = "Success"
     
     // struct has no reference，為了要修改原本 struct 的值 必須加inout
     // 這時 func 丟進來的 Chores 跟與本的 Chores 是不同 reference
@@ -70,7 +44,7 @@ class FirebaseProvider {
                     
                 } else {
                     
-                    completion(.success(self.success))
+                    completion(.success("Success"))
                 }
             }
 
@@ -95,7 +69,7 @@ class FirebaseProvider {
                 
             } else {
                 
-                completion(.success(self.success))
+                completion(.success("Success"))
             }
         }
     }
@@ -110,7 +84,7 @@ class FirebaseProvider {
         
         docReference.updateData([ChoreType.owner: UserProvider.shared.user.id])
         
-        completion(.success(success))
+        completion(.success("Success"))
     }
     
     // 用戶完成家事後，點選完成會改變家事的狀態
@@ -355,12 +329,12 @@ class FirebaseProvider {
                 
             } else {
                 
-                completion(.success(self.success))
+                completion(.success("update transfer user Success"))
             }
         }
     }
     
-    // query transfer 欄位是自己 id 的家事 這樣可以知道有誰傳送轉交家事給你
+    // 篩選transfer欄位是自己id的家事 這樣可以知道有誰傳送轉交家事給你
     func listenTransfer(userId: String,
                         completion: @escaping (Result<[Chore], Error>) -> Void) {
         
@@ -388,7 +362,7 @@ class FirebaseProvider {
         }
     }
     
-    // 對方接受之後會把 transfer 清空 owner 改寫成自己
+    // 對方接受之後會把transfer清空 owner改寫成對方
     func assignNewChoreOwner(selectedChore: Chore,
                              completion: @escaping (Result<String, Error>) -> Void) {
         
@@ -405,7 +379,7 @@ class FirebaseProvider {
                 
             } else {
                 
-                completion(.success(self.success))
+                completion(.success("assign chore success"))
             }
         }
     }
@@ -426,7 +400,7 @@ class FirebaseProvider {
                 
             } else {
                 
-                completion(.success(self.success))
+                completion(.success("reset transfer success"))
             }
         }
     }

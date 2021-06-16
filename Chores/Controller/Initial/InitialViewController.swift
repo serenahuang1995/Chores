@@ -77,7 +77,7 @@ class InitialViewController: UIViewController {
     
     func onInviteListener() {
         
-        UserProvider.shared.listenInvitation { [weak self] result in
+        UserProvider.shared.getInvitationListener { [weak self] result in
             
             switch result {
             

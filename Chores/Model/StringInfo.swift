@@ -58,3 +58,58 @@ struct Lottie {
     
     static let house = "House"
 }
+
+// About FirebaseManager and UserManager
+struct Collection {
+    
+    static let groups = "groups"
+    
+    static let users = "users"
+    
+    static let chores = "chores"
+    
+    static let invitations = "invitations"
+}
+
+struct GroupType {
+    
+    static let id = "id"
+    
+    static let choreTypes = "choreTypes"
+}
+
+struct ChoreType {
+    
+    static let id = "id"
+    
+    static let status = "status"
+    
+    static let points = "points"
+    
+    static let hours = "hours"
+    
+    static let owner = "owner"
+    
+    static let transfer = "transfer"
+    
+    static let completedDate = "completedDate"
+}
+
+struct UserType {
+    
+    static let id = "id"
+    
+    static let weekHours = "weekHours"
+    
+    static let totalHours = "totalHours"
+    
+    static let points = "points"
+    
+    static let groupId = "groupId"
+    
+    static let name = "name"
+    
+    static let picture = "picture"
+    
+    static let isSpent = "isSpend"
+}
