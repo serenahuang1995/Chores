@@ -32,7 +32,7 @@ class OngoingTableViewCell: UITableViewCell {
         
         transferLabel.isHidden = true
         
-        setUpCellStyle()        
+        configureCellStyle()        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -63,7 +63,7 @@ class OngoingTableViewCell: UITableViewCell {
         }
     }
     
-    func setUpCellStyle() {
+    func configureCellStyle() {
         
         selectionStyle = .none
         

@@ -210,11 +210,11 @@ extension AddChoresViewController: UICollectionViewDataSource {
         // 真正儲存你點到的cell 然後去對他做事
         if index == selectedIndex {
             
-            tagCell.setUpCellStyle(backgroundColor: .beigeFFEDD9, borderWidth: 2.0, borderColor: UIColor.black252525.cgColor)
+            tagCell.configureCellStyle(backgroundColor: .beigeFFEDD9, borderWidth: 2.0, borderColor: UIColor.black252525.cgColor)
             
         } else {
             
-            tagCell.setUpCellStyle(backgroundColor: .grayF2F2F2, borderWidth: 0.0, borderColor: UIColor.clear.cgColor)
+            tagCell.configureCellStyle(backgroundColor: .grayF2F2F2, borderWidth: 0.0, borderColor: UIColor.clear.cgColor)
         }
 
         return tagCell

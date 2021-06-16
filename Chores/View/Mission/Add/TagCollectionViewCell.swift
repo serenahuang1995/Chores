@@ -52,7 +52,7 @@ class TagCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func setUpCellStyle(backgroundColor: UIColor,
+    func configureCellStyle(backgroundColor: UIColor,
                         borderWidth: CGFloat,
                         borderColor: CGColor) {
         

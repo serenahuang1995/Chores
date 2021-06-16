@@ -31,11 +31,18 @@ class TransferChoreCollectionViewCell: UICollectionViewCell {
         memberNameLabel.text = user.name
     }
     
-    func selectedCell() {
+    func configureCellStyle(borderWidth: CGFloat, borderColor: CGColor) {
         
-        memberImage.layer.borderWidth = 2
+        memberImage.layer.borderWidth = borderWidth
         
-        memberImage.layer.borderColor = UIColor.black252525.cgColor
+        memberImage.layer.borderColor = borderColor
+    }
+    
+//    func selectedCell() {
+//
+//        memberImage.layer.borderWidth = 2
+//
+//        memberImage.layer.borderColor = UIColor.black252525.cgColor
         
 //        memberImage.frame = memberImage.frame.insetBy(dx: -2, dy: -2)
         
@@ -43,12 +50,12 @@ class TransferChoreCollectionViewCell: UICollectionViewCell {
 //                                                green: 125 / 255,
 //                                                blue: 161 / 255,
 //                                                alpha: 1.0).cgColor
-    }
+//    }
     
-    func initialCell() {
-        
-        memberImage.layer.borderWidth = 0
-
-        memberImage.layer.borderColor = UIColor.clear.cgColor
-    }
+//    func initialCell() {
+//        
+//        memberImage.layer.borderWidth = 0
+//
+//        memberImage.layer.borderColor = UIColor.clear.cgColor
+//    }
 }

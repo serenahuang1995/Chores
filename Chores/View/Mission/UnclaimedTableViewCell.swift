@@ -26,7 +26,7 @@ class UnclaimedTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        setUpCellStyle()        
+        configureCellStyle()        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -51,7 +51,7 @@ class UnclaimedTableViewCell: UITableViewCell {
         }
     }
     
-    func setUpCellStyle() {
+    func configureCellStyle() {
         
         selectionStyle = .none
         

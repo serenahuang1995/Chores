@@ -154,11 +154,11 @@ extension TransferChoreViewController: UICollectionViewDataSource {
         
         if index == selectedIndex {
             
-            forwardCell.selectedCell()
+            forwardCell.configureCellStyle(borderWidth: 2.0, borderColor: UIColor.black252525.cgColor)
             
         } else {
             
-            forwardCell.initialCell()
+            forwardCell.configureCellStyle(borderWidth: 0.0, borderColor: UIColor.clear.cgColor)
         }
         
         return forwardCell
