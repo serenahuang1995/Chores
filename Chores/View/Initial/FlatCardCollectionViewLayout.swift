@@ -65,6 +65,5 @@ class FlatCardCollectionViewLayout: UICollectionViewFlowLayout {
     override open func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
         
         return true
-    }
-    
+    }   
 }

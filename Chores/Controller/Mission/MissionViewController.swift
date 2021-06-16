@@ -414,22 +414,21 @@ extension MissionViewController: UITableViewDataSource {
         
         guard let sectionView = header as? SectionView else { return header }
         
-        sectionView.isExpanded = self.isExpandedList[section]
+        sectionView.isExpand = self.isExpandedList[section]
         
         sectionView.buttonTag = section
         
         sectionView.delegate = self
         
-        // 調整section 0 的top constraint 跟 height
         if section == 0 {
             
-            sectionView.layoutUnclaimedSection()
+            sectionView.layoutSection(title: "任務認領區", topConstraint: 50.0)
             
             sectionView.setExpandButtonVisible(isVisible: unclaimedChores.count != 0)
         
         } else {
             
-            sectionView.layoutOngoingSection()
+            sectionView.layoutSection(title: "任務進行中", topConstraint: 10.0)
             
             sectionView.setExpandButtonVisible(isVisible: ongoingChores.count != 0)
         }

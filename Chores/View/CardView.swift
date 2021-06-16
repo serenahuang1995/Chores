@@ -23,7 +23,7 @@ class CardView: UIView {
     @IBInspectable var borderWidth: CGFloat = 1
     
     @IBInspectable var borderColor: UIColor = UIColor.clear
-    
+
     override func layoutSubviews() {
         
         // Corner..............

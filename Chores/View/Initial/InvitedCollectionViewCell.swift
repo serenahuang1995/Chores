@@ -22,7 +22,7 @@ class InvitedCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
     }
     
     func getUserQRCode(from string: String) -> UIImage? {
@@ -50,5 +50,4 @@ class InvitedCollectionViewCell: UICollectionViewCell {
         
         qrcodeImage.image = getUserQRCode(from: UserProvider.shared.uid ?? "")
     }
-    
 }

@@ -9,74 +9,58 @@ import UIKit
 
 protocol SectionViewDelegate: AnyObject {
     
-    func showMoreItem(_ section: SectionView, _ didPressTag: Int, _ isExpanded: Bool)
+    func showMoreItem(_ section: SectionView, _ didPressTag: Int, _ isExpand: Bool)
 }
 
-private enum SectionTitle: String {
-    
-    case unclaimed = "任務認領區"
-    
-    case ongoing = "任務進行中"    
-}
+//private enum SectionTitle: String {
+//    
+//    case unclaimed = "任務認領區"
+//    
+//    case ongoing = "任務進行中"    
+//}
 
 class SectionView: UITableViewHeaderFooterView {
     
     var buttonTag: Int = -1 // 存放 Section 索引的 buttonTag
     
-    var isExpanded: Bool = false
+    var isExpand: Bool = false
     
     weak var delegate: SectionViewDelegate?
     
-    @IBOutlet weak var sectionTitleLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     
-    @IBOutlet weak var showMoreItemButton: UIButton!
+    @IBOutlet weak var expandButton: UIButton!
     
     @IBOutlet weak var cardView: CardView! {
         
         didSet {
             
             self.cardView.backgroundColor = .orangeFFDEB1
-            
-            self.cardView.layer.borderWidth = 2
-            
-            self.cardView.layer.borderColor = UIColor.black252525.cgColor
         }
     }
     
     @IBOutlet weak var cardViewTopConstraint: NSLayoutConstraint!
     
-    @IBAction func pressToExpand(_ sender: Any) {
+    @IBAction func expand(_ sender: Any) {
         
-        self.delegate?.showMoreItem(self, buttonTag, self.isExpanded)
+        self.delegate?.showMoreItem(self, buttonTag, self.isExpand)
     }
     
-    func layoutUnclaimedSection() {
+    func layoutSection(title: String, topConstraint: CGFloat) {
         
-        sectionTitleLabel.text = SectionTitle.unclaimed.rawValue
+        titleLabel.text = title
         
-        cardViewTopConstraint.constant = 50 //160
+        cardViewTopConstraint.constant = topConstraint
         
-        if isExpanded {
+        if isExpand {
             
             // 按鈕鏡像翻轉
-            showMoreItemButton.transform = CGAffineTransform(scaleX: 1, y: -1)
-        }
-    }
-    
-    func layoutOngoingSection() {
-        
-        sectionTitleLabel.text = SectionTitle.ongoing.rawValue
-        
-        cardViewTopConstraint.constant = 10 // 20
-        
-        if isExpanded {
-            
-            showMoreItemButton.transform = CGAffineTransform(scaleX: 1, y: -1)
+            expandButton.transform = CGAffineTransform(scaleX: 1, y: -1)
         }
     }
     
     func setExpandButtonVisible(isVisible: Bool) {
         
-        showMoreItemButton.isHidden = !isVisible        
+        expandButton.isHidden = !isVisible        
     }
 }
