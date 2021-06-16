@@ -15,12 +15,6 @@ class FirebaseProvider {
     
     lazy var database = Firestore.firestore()
     
-//    let groups = "groups"
-//
-//    let users = "users"
-//
-//    let chores = "chores"
-    
     // struct has no reference，為了要修改原本struct的值 必須加inout
     // 這時function丟進來的Chore與原本的Chore是不同reference
     // 用戶新增家事

@@ -33,19 +33,6 @@ struct Chore: Codable {
     var completedDate: Timestamp?
     
     var transfer: String?
-    
-    //  var dictTransfor: [String: Any] {
-    //    
-    //    return [
-    //      "id": id as Any,
-    //      "item": item as Any,
-    //      "points": points as Any,
-    //      "hours": hours as Any,
-    //      "owner": owner?.dictTransfor,
-    //      "status": status as Any
-    //    ]
-    //  }
-    
 }
 
 struct User: Codable {
