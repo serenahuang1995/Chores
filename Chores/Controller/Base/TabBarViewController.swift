@@ -67,63 +67,12 @@ private enum Tab {
 class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
     
     private let tabs: [Tab] = [.mission, .group, .profile]
-    //    var trolleyTabBarItem: UITabBarItem!
-    //    var orderObserver: NSKeyValueObservation!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         viewControllers = tabs.map({ $0.controller() })
         
-        //        trolleyTabBarItem = viewControllers?[2].tabBarItem
-        //
-        //        trolleyTabBarItem.badgeColor = .brown
-        //
-        //        orderObserver = StorageManager.shared.observe(
-        //            \StorageManager.orders,
-        //            options: .new,
-        //            changeHandler: { [weak self] _, change in
-        //
-        //                guard let newValue = change.newValue else { return }
-        //
-        //                if newValue.count > 0 {
-        //
-        //                    self?.trolleyTabBarItem.badgeValue = String(newValue.count)
-        //
-        //                } else {
-        //
-        //                    self?.trolleyTabBarItem.badgeValue = nil
-        //                }
-        //            }
-        //        )
-        //
-        //        StorageManager.shared.fetchOrders()
         delegate = self
     }
-    
-    // MARK: - UITabBarControllerDelegate
-    
-    //    func tabBarController(
-    //        _ tabBarController: UITabBarController,
-    //        shouldSelect viewController: UIViewController
-    //    ) -> Bool {
-    //
-    //        guard let navVC = viewController as? UINavigationController,
-    //              navVC.viewControllers.first is ProfileViewController
-    //        else { return true }
-    //
-    //        guard KeyChainManager.shared.token != nil else {
-    //
-    //            if let authVC = UIStoryboard.auth.instantiateInitialViewController() {
-    //
-    //                authVC.modalPresentationStyle = .overCurrentContext
-    //
-    //                present(authVC, animated: false, completion: nil)
-    //            }
-    //
-    //            return false
-    //        }
-    //
-    //        return true
-    //    }
 }

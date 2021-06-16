@@ -59,7 +59,6 @@
 		DCA433F9264BA2BD00242617 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCA433F7264BA2BD00242617 /* Main.storyboard */; };
 		DCA433FB264BA2C500242617 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCA433FA264BA2C500242617 /* Assets.xcassets */; };
 		DCA433FE264BA2C500242617 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCA433FC264BA2C500242617 /* LaunchScreen.storyboard */; };
-		DCA589F0265553920033EE63 /* RuleSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA589EF265553920033EE63 /* RuleSegue.swift */; };
 		DCA589F326555AD10033EE63 /* FirebaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA589F226555AD10033EE63 /* FirebaseProvider.swift */; };
 		DCA6842C2663F22000797EAB /* CreateGroup.json in Resources */ = {isa = PBXBuildFile; fileRef = DCA6842B2663F22000797EAB /* CreateGroup.json */; };
 		DCAFE9AC266F78D6003EC39E /* House.json in Resources */ = {isa = PBXBuildFile; fileRef = DCAFE9AA266F78D5003EC39E /* House.json */; };
@@ -153,7 +152,6 @@
 		DCA433FA264BA2C500242617 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DCA433FD264BA2C500242617 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DCA433FF264BA2C500242617 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DCA589EF265553920033EE63 /* RuleSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleSegue.swift; sourceTree = "<group>"; };
 		DCA589F226555AD10033EE63 /* FirebaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseProvider.swift; sourceTree = "<group>"; };
 		DCA6842B2663F22000797EAB /* CreateGroup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CreateGroup.json; sourceTree = "<group>"; };
 		DCAFE9AA266F78D5003EC39E /* House.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = House.json; sourceTree = "<group>"; };
@@ -450,7 +448,6 @@
 				DCBB101D2653A36600A8C1E4 /* RuleViewController.swift */,
 				DCB512912667E53F00B4B8A5 /* TransferChoreViewController.swift */,
 				DCA1E1652669453500FDE9B6 /* TransferDialogViewController.swift */,
-				DCA589EF265553920033EE63 /* RuleSegue.swift */,
 			);
 			path = Mission;
 			sourceTree = "<group>";
@@ -666,7 +663,6 @@
 				DC5AC61726528BBB00F99E74 /* MemberCollectionViewCell.swift in Sources */,
 				DC719592265FF38500DC3706 /* CreateGroupCollectionViewCell.swift in Sources */,
 				DCEEAA6A264BED9F00A64D37 /* GroupViewController.swift in Sources */,
-				DCA589F0265553920033EE63 /* RuleSegue.swift in Sources */,
 				DCCA1E92267527F4008E7130 /* NotificationDelegate.swift in Sources */,
 				DCA433F6264BA2BD00242617 /* MissionViewController.swift in Sources */,
 				DC913CE3264C144400C18251 /* SectionView.swift in Sources */,
