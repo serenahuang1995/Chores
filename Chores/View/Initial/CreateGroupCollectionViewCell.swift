@@ -10,32 +10,21 @@ import Lottie
 
 class CreateGroupCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var groupView: AnimationView!
+    @IBOutlet weak var animationView: AnimationView!
     
-    weak var delegate: CreateGroupCellDelegate?
+    weak var delegate: CreateGroupDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        setUpLottie()
+        animationView.configureLottieView(name: Lottie.signin)
     }
 
     @IBAction func create(_ sender: Any) {
         
-//        self.delegate?.goToMainPage()
+//        self.delegate?.navigateMainPage()
         
         createNewGroup()
-    }
-    
-    func setUpLottie() {
-        
-        let animation = Animation.named("House")
-        
-        groupView.animation = animation
-        
-        groupView.play()
-        
-        groupView.loopMode = .loop
     }
     
     func createNewGroup() {
@@ -71,7 +60,7 @@ class CreateGroupCollectionViewCell: UICollectionViewCell {
                 
                 userDefault.setValue(groupId, forKey: "GroupID")
                 
-                self?.delegate?.goToMainPage()
+                self?.delegate?.navigateMainPage()
                 
             case .failure(let error):
                 

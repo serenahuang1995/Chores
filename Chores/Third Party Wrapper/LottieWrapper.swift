@@ -8,17 +8,17 @@
 import Foundation
 import Lottie
 
-//extension AnimationView {
-//    
-//    func configureLottieView(name: String) {
-//        
-//        let animation = Animation.named(name)
-//        
-//        self.animation = animation
-//        
-//        self.play()
-//        
-//        self.loopMode = .loop
-//    }
-//}
+extension AnimationView {
+    
+    func configureLottieView(name: String) {
+        
+        let animation = Animation.named(name)
+        
+        self.animation = animation
+        
+        self.play()
+        
+        self.loopMode = .loop
+    }
+}
 

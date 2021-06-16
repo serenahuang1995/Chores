@@ -264,13 +264,6 @@
 			path = Initial;
 			sourceTree = "<group>";
 		};
-		DC8FE0E22662999F0016927D /* Signin */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Signin;
-			sourceTree = "<group>";
-		};
 		DC8FE0E3266299B60016927D /* Signin */ = {
 			isa = PBXGroup;
 			children = (
@@ -409,7 +402,6 @@
 				DC8FE0E4266299D10016927D /* Signin.storyboard */,
 				DC913CE6264C1A2B00C18251 /* CardView.swift */,
 				DC8FE14E2663D1190016927D /* Animation */,
-				DC8FE0E22662999F0016927D /* Signin */,
 				DC8FE0E02661315D0016927D /* Initial */,
 				DC203D03264E60AE002FADDA /* Mission */,
 				DC5AC61126528B1700F99E74 /* Group */,

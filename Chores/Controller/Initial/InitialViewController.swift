@@ -7,9 +7,9 @@
 
 import UIKit
 
-protocol CreateGroupCellDelegate: AnyObject {
+protocol CreateGroupDelegate: AnyObject {
     
-    func goToMainPage()
+    func navigateMainPage()
 }
 
 class InitialViewController: UIViewController {
@@ -169,9 +169,9 @@ extension InitialViewController: UICollectionViewDataSource {
     }
 }
 
-extension InitialViewController: CreateGroupCellDelegate {
+extension InitialViewController: CreateGroupDelegate {
     
-    func goToMainPage() {
+    func navigateMainPage() {
         
         performSegue(withIdentifier: Segue.main, sender: nil)
     }

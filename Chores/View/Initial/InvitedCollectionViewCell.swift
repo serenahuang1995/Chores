@@ -22,7 +22,7 @@ class InvitedCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
     
     func getUserQRCode(from string: String) -> UIImage? {
@@ -32,9 +32,6 @@ class InvitedCollectionViewCell: UICollectionViewCell {
         if let filter = CIFilter(name: QRCode.qrcodeCIFilter.rawValue) {
             
             filter.setValue(data, forKey: QRCode.qrcodeValue.rawValue)
-            
-//            let scaleX = contentView.frame.size.width / qrcodeImage.size.width
-//            let scaleY = contentView.frame.size.height / qrcodeImage.extent.size.height
             
             let transform = CGAffineTransform(scaleX: 8, y: 8)
             
