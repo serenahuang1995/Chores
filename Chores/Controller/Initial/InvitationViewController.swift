@@ -10,7 +10,7 @@ import MIBlurPopup
 
 class InvitationViewController: UIViewController {
 
-    @IBOutlet weak var invitationView: CardView!
+    @IBOutlet weak var cardView: CardView!
     
     @IBOutlet weak var invitationLabel: UILabel!
     
@@ -32,11 +32,11 @@ class InvitationViewController: UIViewController {
 
     @IBAction func rejectInvitation(_ sender: Any) {
         
-        deleteInvitation(isAccept: false)
+        deleteInvitation(isAccepted: false)
     }
     
     // 接受完邀請要delete invitation 拒絕邀請也要delete
-    func deleteInvitation(isAccept: Bool) {
+    func deleteInvitation(isAccepted: Bool) {
         
         if let invitation = invitation {
             
@@ -49,7 +49,7 @@ class InvitationViewController: UIViewController {
                     print(message)
                     
                     // 如果是按接受就 performSegue
-                    if isAccept {
+                    if isAccepted {
                         
                         self?.performSegue(withIdentifier: Segue.main, sender: nil)
                         
@@ -74,15 +74,15 @@ class InvitationViewController: UIViewController {
                 
                 switch result {
                  
-                case .success(let message):
+                case .success(let success):
                     
-                    print(message)
+                    print("accpet invitation \(success)")
                     
                     let userDefault = UserDefaults()
                     
                     userDefault.setValue(invitation.group, forKey: "GroupID")
                     
-                    self?.deleteInvitation(isAccept: true)
+                    self?.deleteInvitation(isAccepted: true)
                     
                 case .failure(let error):
                     
@@ -90,15 +90,14 @@ class InvitationViewController: UIViewController {
                 }
             }
         }
-    }
-    
+    }    
 }
 
 extension InvitationViewController: MIBlurPopupDelegate {
     
     var popupView: UIView {
         
-        invitationView
+        cardView
     }
     
     var blurEffectStyle: UIBlurEffect.Style? {
