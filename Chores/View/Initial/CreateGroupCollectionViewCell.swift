@@ -17,7 +17,7 @@ class CreateGroupCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        animationView.configureLottieView(name: Lottie.signin)
+        animationView.configureLottieView(name: Lottie.house)
     }
 
     @IBAction func create(_ sender: Any) {

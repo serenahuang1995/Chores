@@ -16,7 +16,7 @@ class SigninViewController: UIViewController {
 
     @IBOutlet weak var privacyButton: UIButton!
     
-    @IBOutlet weak var signinView: AnimationView!
+    @IBOutlet weak var animationView: AnimationView!
     
     fileprivate var currentNonce: String?
     
@@ -31,7 +31,7 @@ class SigninViewController: UIViewController {
         
         setUpSigninButton()
         
-        setUpLottie()
+        animationView.configureLottieView(name: Lottie.signin)
     }
 
     @IBAction func skip(_ sender: Any) {
@@ -86,17 +86,6 @@ class SigninViewController: UIViewController {
         controller.presentationContextProvider = self
         
         controller.performRequests()
-    }
-    
-    func setUpLottie() {
-        
-        let animation = Animation.named("Signin")
-        
-        signinView.animation = animation
-        
-        signinView.play()
-        
-        signinView.loopMode = .loop
     }
     
     func fetchUser() {

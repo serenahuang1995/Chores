@@ -48,11 +48,9 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var recordsContainerView: UIView!
     
-    @IBOutlet weak var lottieView: AnimationView!
+    @IBOutlet weak var animationView: AnimationView!
     
     @IBOutlet var switchButtons: [UIButton]!
-    
-    weak var delegate: SettingDelegate?
     
     let blackView = UIView(frame: UIScreen.main.bounds)
     
@@ -63,6 +61,8 @@ class ProfileViewController: UIViewController {
     
     var imageUpdateCount = 0
     
+    weak var delegate: SettingDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -72,7 +72,7 @@ class ProfileViewController: UIViewController {
         
         confirmWeekday()
         
-        lottieView.isHidden = true
+        animationView.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -191,17 +191,6 @@ class ProfileViewController: UIViewController {
         button.layer.cornerRadius = 10
     }
     
-    func setUpLottieView() {
-        
-        let animation = Animation.named("ImageLoading")
-        
-        lottieView.animation = animation
-        
-        lottieView.play()
-        
-        lottieView.loopMode = .loop
-    }
-    
     func setUpUserListener() {
         
         UserProvider.shared.onFetchUserListener { result in
@@ -297,9 +286,9 @@ class ProfileViewController: UIViewController {
         
         showBlackView()
         
-        setUpLottieView()
+        animationView.configureLottieView(name: Lottie.loading)
         
-        lottieView.isHidden = false
+        animationView.isHidden = false
         
         StorageProvider.shared.uploadUserImage(imageData: imageData) { [weak self] result in
             
@@ -351,7 +340,7 @@ class ProfileViewController: UIViewController {
                 
                 self?.blackView.removeFromSuperview()
                 
-                self?.lottieView.isHidden = true
+                self?.animationView.isHidden = true
 
             case .failure(let error):
                 

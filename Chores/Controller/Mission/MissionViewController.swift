@@ -32,7 +32,7 @@ class MissionViewController: UIViewController {
 
     @IBOutlet weak var lobbyView: UIView!
     
-    @IBOutlet weak var lottieView: AnimationView!
+    @IBOutlet weak var animationView: AnimationView!
     
     // 記錄每個 Section 的狀態，預設false
     var isExpandedList: [Bool] = [false, false]
@@ -65,9 +65,9 @@ class MissionViewController: UIViewController {
         
         if !lobbyView.isHidden {
             
-            lottieView.play()
+            animationView.play()
             
-            lottieView.loopMode = .loop
+            animationView.loopMode = .loop
         }
     }
     
@@ -261,19 +261,8 @@ class MissionViewController: UIViewController {
             
             lobbyView.isHidden = false
             
-            setUpLottie()
+            animationView.configureLottieView(name: Lottie.washing)
         }
-    }
-    
-    func setUpLottie() {
-
-        let anination = Animation.named("Washing")
-
-        lottieView.animation = anination
-
-        lottieView.play()
-
-        lottieView.loopMode = .loop
     }
     
     func getNotificationContent(title: String, body: String, sound: UNNotificationSound) -> UNMutableNotificationContent {

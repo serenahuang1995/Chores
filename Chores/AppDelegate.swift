@@ -14,12 +14,12 @@ import UserNotifications
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    let center = UNUserNotificationCenter.current()
-    
-    let notificationDelegate = NotificationDelegate()
-    
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        let center = UNUserNotificationCenter.current()
+        
+        let notificationDelegate = NotificationDelegate()
         
         FirebaseApp.configure()
         

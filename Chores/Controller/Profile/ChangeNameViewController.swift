@@ -117,23 +117,11 @@ extension ChangeNameViewController: UITextFieldDelegate {
 
 extension ChangeNameViewController: MIBlurPopupDelegate {
     
-    var popupView: UIView {
-        
-        popView
-    }
+    var popupView: UIView { popView }
     
-    var blurEffectStyle: UIBlurEffect.Style? {
-        
-        .dark
-    }
+    var blurEffectStyle: UIBlurEffect.Style? { .dark }
     
-    var initialScaleAmmount: CGFloat {
-        
-        0.0
-    }
+    var initialScaleAmmount: CGFloat { 0.0 }
     
-    var animationDuration: TimeInterval {
-        
-        0.2
-    }
+    var animationDuration: TimeInterval { 0.2 }
 }

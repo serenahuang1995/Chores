@@ -30,7 +30,7 @@
 		DC71959C265FF9C000DC3706 /* FlatCardCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC71959B265FF9BF00DC3706 /* FlatCardCollectionViewLayout.swift */; };
 		DC7D1BFB26730BA800C3898B /* LeaveGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7D1BFA26730BA700C3898B /* LeaveGroupViewController.swift */; };
 		DC7D1BFE2673725500C3898B /* StorageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7D1BFD2673725500C3898B /* StorageProvider.swift */; };
-		DC7D1C202673947E00C3898B /* KingFisherWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7D1C1F2673947E00C3898B /* KingFisherWrapper.swift */; };
+		DC7D1C202673947E00C3898B /* KingFisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7D1C1F2673947E00C3898B /* KingFisher.swift */; };
 		DC7EEEBA2679AA9300520EA5 /* PieChart.json in Resources */ = {isa = PBXBuildFile; fileRef = DC7EEEB82679AA9300520EA5 /* PieChart.json */; };
 		DC7EEEBB2679AA9300520EA5 /* BarChart.json in Resources */ = {isa = PBXBuildFile; fileRef = DC7EEEB92679AA9300520EA5 /* BarChart.json */; };
 		DC8136492650090E003CC6ED /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8136482650090E003CC6ED /* UICollectionView+Extension.swift */; };
@@ -74,7 +74,7 @@
 		DCBB101E2653A36600A8C1E4 /* RuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBB101D2653A36600A8C1E4 /* RuleViewController.swift */; };
 		DCBB10212653F9AA00A8C1E4 /* ChoreImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBB10202653F9AA00A8C1E4 /* ChoreImages.swift */; };
 		DCCA1E92267527F4008E7130 /* NotificationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCA1E91267527F4008E7130 /* NotificationDelegate.swift */; };
-		DCCA1E9526752AB3008E7130 /* LottieWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCA1E9426752AB3008E7130 /* LottieWrapper.swift */; };
+		DCCA1E9526752AB3008E7130 /* Lottie.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCA1E9426752AB3008E7130 /* Lottie.swift */; };
 		DCCD761B265A8D2C0004E82B /* Charts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCD761A265A8D2C0004E82B /* Charts.swift */; };
 		DCCD761E265A9BFA0004E82B /* CustomChoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCD761D265A9BFA0004E82B /* CustomChoreViewController.swift */; };
 		DCCD7638265BE0C60004E82B /* AddMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCD7637265BE0C50004E82B /* AddMemberViewController.swift */; };
@@ -120,7 +120,7 @@
 		DC71959B265FF9BF00DC3706 /* FlatCardCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatCardCollectionViewLayout.swift; sourceTree = "<group>"; };
 		DC7D1BFA26730BA700C3898B /* LeaveGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveGroupViewController.swift; sourceTree = "<group>"; };
 		DC7D1BFD2673725500C3898B /* StorageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageProvider.swift; sourceTree = "<group>"; };
-		DC7D1C1F2673947E00C3898B /* KingFisherWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KingFisherWrapper.swift; sourceTree = "<group>"; };
+		DC7D1C1F2673947E00C3898B /* KingFisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KingFisher.swift; sourceTree = "<group>"; };
 		DC7EEEB82679AA9300520EA5 /* PieChart.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PieChart.json; sourceTree = "<group>"; };
 		DC7EEEB92679AA9300520EA5 /* BarChart.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BarChart.json; sourceTree = "<group>"; };
 		DC8136482650090E003CC6ED /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
@@ -167,7 +167,7 @@
 		DCBB101D2653A36600A8C1E4 /* RuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleViewController.swift; sourceTree = "<group>"; };
 		DCBB10202653F9AA00A8C1E4 /* ChoreImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoreImages.swift; sourceTree = "<group>"; };
 		DCCA1E91267527F4008E7130 /* NotificationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDelegate.swift; sourceTree = "<group>"; };
-		DCCA1E9426752AB3008E7130 /* LottieWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieWrapper.swift; sourceTree = "<group>"; };
+		DCCA1E9426752AB3008E7130 /* Lottie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lottie.swift; sourceTree = "<group>"; };
 		DCCD761A265A8D2C0004E82B /* Charts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Charts.swift; sourceTree = "<group>"; };
 		DCCD761D265A9BFA0004E82B /* CustomChoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomChoreViewController.swift; sourceTree = "<group>"; };
 		DCCD7637265BE0C50004E82B /* AddMemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemberViewController.swift; sourceTree = "<group>"; };
@@ -326,7 +326,7 @@
 				DCA433F3264BA2BD00242617 /* SceneDelegate.swift */,
 				DCA433FF264BA2C500242617 /* Info.plist */,
 				DC531C99265523D100F3FD4B /* GoogleService-Info.plist */,
-				DCCD7611265A790A0004E82B /* Third Party Wrapper */,
+				DCCD7611265A790A0004E82B /* Third Party */,
 				DCEEAA36264BCD0600A64D37 /* Extension */,
 				DCEEAA33264BCCA200A64D37 /* Model */,
 				DCEEAA35264BCCD600A64D37 /* View */,
@@ -344,14 +344,14 @@
 			path = Forward;
 			sourceTree = "<group>";
 		};
-		DCCD7611265A790A0004E82B /* Third Party Wrapper */ = {
+		DCCD7611265A790A0004E82B /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
 				DCCD761A265A8D2C0004E82B /* Charts.swift */,
-				DCCA1E9426752AB3008E7130 /* LottieWrapper.swift */,
-				DC7D1C1F2673947E00C3898B /* KingFisherWrapper.swift */,
+				DCCA1E9426752AB3008E7130 /* Lottie.swift */,
+				DC7D1C1F2673947E00C3898B /* KingFisher.swift */,
 			);
-			path = "Third Party Wrapper";
+			path = "Third Party";
 			sourceTree = "<group>";
 		};
 		DCD737AA26520E7D00F1DEF8 /* Profile */ = {
@@ -659,7 +659,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCCA1E9526752AB3008E7130 /* LottieWrapper.swift in Sources */,
+				DCCA1E9526752AB3008E7130 /* Lottie.swift in Sources */,
 				DCBB10212653F9AA00A8C1E4 /* ChoreImages.swift in Sources */,
 				DC9B10AF2659691B00F50430 /* UserProvider.swift in Sources */,
 				DC1DB8DB26552BAB00F89E5A /* ChoresDataModel.swift in Sources */,
@@ -673,7 +673,7 @@
 				DCEEAA73264BEDEC00A64D37 /* InitialViewController.swift in Sources */,
 				DCB512972668D7BF00B4B8A5 /* TransferChoreCollectionViewCell.swift in Sources */,
 				DC8FE0E826629A1B0016927D /* SigninViewController.swift in Sources */,
-				DC7D1C202673947E00C3898B /* KingFisherWrapper.swift in Sources */,
+				DC7D1C202673947E00C3898B /* KingFisher.swift in Sources */,
 				DCCD761E265A9BFA0004E82B /* CustomChoreViewController.swift in Sources */,
 				DC203D07264E823C002FADDA /* AddChoresViewController.swift in Sources */,
 				DCA433F2264BA2BD00242617 /* AppDelegate.swift in Sources */,

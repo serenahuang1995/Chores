@@ -77,8 +77,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="animationView" destination="Q6s-MM-duU" id="ajr-uo-4cp"/>
                         <outlet property="privacyButton" destination="xda-Ed-eBB" id="8wM-zv-2hk"/>
-                        <outlet property="signinView" destination="Q6s-MM-duU" id="Of3-tG-QaM"/>
                         <segue destination="1YN-tM-qF6" kind="show" identifier="SegueInitialPage" animates="NO" id="XFb-t0-aDq"/>
                         <segue destination="EEY-G7-2GW" kind="show" identifier="SegueMainPage" animates="NO" id="2Ys-JV-OGB"/>
                     </connections>

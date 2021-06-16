@@ -130,7 +130,7 @@
                                     <constraint firstItem="rGD-uS-o6F" firstAttribute="top" secondItem="wqL-tf-jrS" secondAttribute="top" id="qWH-Un-FUC"/>
                                 </constraints>
                             </view>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="j8D-xt-8iy">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="j8D-xt-8iy">
                                 <rect key="frame" x="283" y="323.33333333333331" width="91" height="32"/>
                                 <color key="backgroundColor" red="1" green="0.94509803921568625" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
                                 <segments>
@@ -142,19 +142,13 @@
                                     <action selector="clickSegmentedControl:" destination="RvQ-Xh-3Zo" eventType="valueChanged" id="MwZ-ys-0Kf"/>
                                 </connections>
                             </segmentedControl>
-                            <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OPq-SF-hV9" customClass="HorizontalBarChartView" customModule="Charts">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OPq-SF-hV9" customClass="HorizontalBarChartView" customModule="Charts">
                                 <rect key="frame" x="0.0" y="359.33333333333326" width="390" height="401.66666666666674"/>
                             </containerView>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bxy-eC-ROy" customClass="AnimationView" customModule="Lottie">
-                                <rect key="frame" x="0.0" y="354.33333333333326" width="390" height="406.66666666666674"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PIr-8W-8Zv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="PIr-8W-8Zv" firstAttribute="trailing" secondItem="Bxy-eC-ROy" secondAttribute="trailing" id="4xH-Jz-AXC"/>
-                            <constraint firstItem="Bxy-eC-ROy" firstAttribute="leading" secondItem="PIr-8W-8Zv" secondAttribute="leading" id="90r-KX-U3K"/>
                             <constraint firstItem="PIr-8W-8Zv" firstAttribute="bottom" secondItem="OPq-SF-hV9" secondAttribute="bottom" id="9Hq-W6-Iwe"/>
                             <constraint firstItem="OPq-SF-hV9" firstAttribute="top" secondItem="j8D-xt-8iy" secondAttribute="bottom" constant="5" id="Ckv-Pp-LfL"/>
                             <constraint firstItem="kiZ-Ng-HZT" firstAttribute="leading" secondItem="PIr-8W-8Zv" secondAttribute="leading" constant="16" id="Jnp-MQ-PI2"/>
@@ -165,8 +159,6 @@
                             <constraint firstItem="4xz-AK-oue" firstAttribute="leading" secondItem="PIr-8W-8Zv" secondAttribute="leading" id="O1d-1s-P2F"/>
                             <constraint firstItem="PIr-8W-8Zv" firstAttribute="trailing" secondItem="wqL-tf-jrS" secondAttribute="trailing" id="QBw-il-N7b"/>
                             <constraint firstItem="wqL-tf-jrS" firstAttribute="top" secondItem="4xz-AK-oue" secondAttribute="bottom" constant="15" id="Rbv-G1-Xf8"/>
-                            <constraint firstItem="Bxy-eC-ROy" firstAttribute="top" secondItem="j8D-xt-8iy" secondAttribute="bottom" id="U17-mp-OmO"/>
-                            <constraint firstItem="PIr-8W-8Zv" firstAttribute="bottom" secondItem="Bxy-eC-ROy" secondAttribute="bottom" id="Uix-1D-EYJ"/>
                             <constraint firstItem="4xz-AK-oue" firstAttribute="top" secondItem="kiZ-Ng-HZT" secondAttribute="bottom" constant="10" id="dNR-hd-jiv"/>
                             <constraint firstItem="wqL-tf-jrS" firstAttribute="leading" secondItem="PIr-8W-8Zv" secondAttribute="leading" id="dvD-jk-toC"/>
                             <constraint firstItem="OPq-SF-hV9" firstAttribute="leading" secondItem="PIr-8W-8Zv" secondAttribute="leading" id="j6M-c2-BD8"/>
@@ -179,7 +171,6 @@
                         <outlet property="chartView" destination="OPq-SF-hV9" id="ogI-uo-Yvg"/>
                         <outlet property="collectionView" destination="4xz-AK-oue" id="N88-wS-k5l"/>
                         <outlet property="indicatorView" destination="0Ya-xV-Avm" id="0ec-bJ-BDU"/>
-                        <outlet property="lottieView" destination="Bxy-eC-ROy" id="b6C-eR-hwQ"/>
                         <outlet property="segmentedControl" destination="j8D-xt-8iy" id="rgY-yC-Lvh"/>
                         <outletCollection property="switchButtons" destination="ejt-Lj-Cgs" collectionClass="NSMutableArray" id="esK-Kd-eYA"/>
                         <outletCollection property="switchButtons" destination="sdK-8L-5oY" collectionClass="NSMutableArray" id="nI5-ha-TFp"/>
@@ -360,9 +351,6 @@
             <point key="canvasLocation" x="551" y="841"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="Bxy-eC-ROy"/>
-    </designables>
     <resources>
         <image name="Icon32px_Plus" width="32" height="32"/>
         <image name="qr-code" width="64" height="64"/>
