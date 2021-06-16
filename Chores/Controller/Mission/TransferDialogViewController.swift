@@ -94,7 +94,7 @@ class TransferDialogViewController: UIViewController {
     // update 對方的 points
     func updatePoints(user: User) {
         
-        FirebaseProvider.shared.updateUserPoints(user: user) { [weak self] result in
+        UserProvider.shared.updateUserPoints(user: user) { [weak self] result in
             
             switch result {
             
@@ -117,7 +117,7 @@ class TransferDialogViewController: UIViewController {
     
     func updateSelfPoints() {
         
-        FirebaseProvider.shared.updateUserPoints(user: UserProvider.shared.user) { [weak self] result in
+        UserProvider.shared.updateUserPoints(user: UserProvider.shared.user) { [weak self] result in
             
             switch result {
             

@@ -22,12 +22,6 @@ class UserProvider {
     
     lazy var database = Firestore.firestore()
     
-//    let users = "users"
-//
-//    let groups = "groups"
-//
-//    let invitations = "invitations"
-    
     var user: User = User(
         
         id: "",
@@ -178,36 +172,34 @@ class UserProvider {
         }
     }
     
-    // 建立群組後會給該群組一個ID 並且把預設的家事種類加進去
-    func createGroup(completion: @escaping (Result<Group, Error>) -> Void) {
+    // 更新用戶的點數與時數，因為有可能會是別人幫你按完成，但點數要更新在自己身上，所以parameter會帶一個 user
+    func updateUserPoints(user: User, completion: @escaping (Result<String, Error>) -> Void) {
         
-        let defaultTypes = [
-            "洗碗", "洗衣服", "晾衣服", "摺衣服", "燙衣服", "煮飯", "買菜", "掃地", "拖地",
-            "吸地", "倒垃圾", "刷廁所", "擦窗戶", "修繕", "澆花", "遛狗", "收納", "接送", "帶小孩"
-        ]
+        let docReference = database.collection(Collection.users).document(user.id)
         
-        let docReference = database.collection(Collection.groups).document()
-        
-        let group = Group(id: docReference.documentID, choreTypes: defaultTypes)
-        
-        do {
+        docReference.updateData([UserType.points: user.points,
+                                 UserType.totalHours: user.totalHours,
+                                 UserType.weekHours: user.weekHours]) { error in
             
-            try docReference.setData(from: group) { error in
+            if let error = error {
                 
-                if let error = error {
-                    
-                    completion(.failure(error))
-                    
-                } else {
-                    
-                    completion(.success(group))
-                }
+                completion(.failure(error))
+                
+            } else {
+                
+                completion(.success("Update points success"))
             }
-            
-        } catch {
-            
-            completion(.failure(error))
         }
+    }
+    
+    // 目前是自己登入以後會更新自己的每週時數
+    func updateWeekHours(completion: @escaping (Result<String, Error>) -> Void) {
+        
+        let docReference = database.collection(Collection.users).document(UserProvider.shared.uid ?? "")
+        
+        docReference.updateData([UserType.weekHours: 0])
+        
+        completion(.success("update weekHours success"))
     }
     
     // 成功建立群組會把user的group id更新成自己創建的群組id

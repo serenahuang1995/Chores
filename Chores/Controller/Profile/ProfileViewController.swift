@@ -237,7 +237,7 @@ class ProfileViewController: UIViewController {
     
     func resetWeekHours() {
         
-        FirebaseProvider.shared.updateWeekHours { result in
+        UserProvider.shared.updateWeekHours { result in
             
             switch result {
             

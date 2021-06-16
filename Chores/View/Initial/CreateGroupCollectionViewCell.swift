@@ -29,7 +29,7 @@ class CreateGroupCollectionViewCell: UICollectionViewCell {
     
     func createNewGroup() {
         
-        UserProvider.shared.createGroup { [weak self] result in
+        FirebaseProvider.shared.createGroup { [weak self] result in
             
             switch result {
             

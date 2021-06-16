@@ -59,7 +59,7 @@ class SpendPointsViewController: UIViewController {
     
     func updatePoints(user: User) {
         
-        FirebaseProvider.shared.updateUserPoints(user: user) { result in
+        UserProvider.shared.updateUserPoints(user: user) { result in
             
             switch result {
             

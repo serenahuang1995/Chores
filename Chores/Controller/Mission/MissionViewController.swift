@@ -160,7 +160,7 @@ class MissionViewController: UIViewController {
     
     func setChoresListener() {
         
-        FirebaseProvider.shared.listenChores { [weak self] result in
+        FirebaseProvider.shared.fetchChoresListener { [weak self] result in
             
             switch result {
             
@@ -228,7 +228,7 @@ class MissionViewController: UIViewController {
     
     func updatePoints(user: User) {
         
-        FirebaseProvider.shared.updateUserPoints(user: user) { result in
+        UserProvider.shared.updateUserPoints(user: user) { result in
             
             switch result {
             
@@ -335,7 +335,7 @@ class MissionViewController: UIViewController {
     
     func onTransferListener() {
 
-        FirebaseProvider.shared.listenTransfer(userId: UserProvider.shared.uid ?? "") { [weak self] result in
+        FirebaseProvider.shared.onTransferListener(userId: UserProvider.shared.uid ?? "") { [weak self] result in
             
             switch result {
             

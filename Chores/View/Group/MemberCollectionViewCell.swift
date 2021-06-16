@@ -32,6 +32,6 @@ class MemberCollectionViewCell: UICollectionViewCell {
         
         memberNameLabel.text = user.name
 
-        medalImage.isHidden = !(user.isSpend ?? false)
+        medalImage.isHidden = !(user.isSpent ?? false)
     }
 }
