@@ -31,6 +31,8 @@
 		DC7D1BFB26730BA800C3898B /* LeaveGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7D1BFA26730BA700C3898B /* LeaveGroupViewController.swift */; };
 		DC7D1BFE2673725500C3898B /* StorageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7D1BFD2673725500C3898B /* StorageProvider.swift */; };
 		DC7D1C202673947E00C3898B /* KingFisherWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7D1C1F2673947E00C3898B /* KingFisherWrapper.swift */; };
+		DC7EEEBA2679AA9300520EA5 /* PieChart.json in Resources */ = {isa = PBXBuildFile; fileRef = DC7EEEB82679AA9300520EA5 /* PieChart.json */; };
+		DC7EEEBB2679AA9300520EA5 /* BarChart.json in Resources */ = {isa = PBXBuildFile; fileRef = DC7EEEB92679AA9300520EA5 /* BarChart.json */; };
 		DC8136492650090E003CC6ED /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8136482650090E003CC6ED /* UICollectionView+Extension.swift */; };
 		DC81364D2650095C003CC6ED /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81364B2650095C003CC6ED /* TagCollectionViewCell.swift */; };
 		DC81364E2650095C003CC6ED /* TagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC81364C2650095C003CC6ED /* TagCollectionViewCell.xib */; };
@@ -119,6 +121,8 @@
 		DC7D1BFA26730BA700C3898B /* LeaveGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveGroupViewController.swift; sourceTree = "<group>"; };
 		DC7D1BFD2673725500C3898B /* StorageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageProvider.swift; sourceTree = "<group>"; };
 		DC7D1C1F2673947E00C3898B /* KingFisherWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KingFisherWrapper.swift; sourceTree = "<group>"; };
+		DC7EEEB82679AA9300520EA5 /* PieChart.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PieChart.json; sourceTree = "<group>"; };
+		DC7EEEB92679AA9300520EA5 /* BarChart.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BarChart.json; sourceTree = "<group>"; };
 		DC8136482650090E003CC6ED /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		DC81364B2650095C003CC6ED /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
 		DC81364C2650095C003CC6ED /* TagCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -283,6 +287,8 @@
 				DC383D112673EF4C00DC768E /* Loading.json */,
 				DCAFE9AB266F78D6003EC39E /* HomeGreate.json */,
 				DCAFE9AA266F78D5003EC39E /* House.json */,
+				DC7EEEB92679AA9300520EA5 /* BarChart.json */,
+				DC7EEEB82679AA9300520EA5 /* PieChart.json */,
 				DC299D8E266F914500AC86A3 /* Signin.json */,
 				DC70F635266F737D0053AEFF /* Home.json */,
 				DCA6842B2663F22000797EAB /* CreateGroup.json */,
@@ -576,12 +582,14 @@
 				DC70F636266F737E0053AEFF /* Coin.json in Resources */,
 				DC83523C2676836A003A1F7B /* DetailTableViewCell.xib in Resources */,
 				DC81364E2650095C003CC6ED /* TagCollectionViewCell.xib in Resources */,
+				DC7EEEBB2679AA9300520EA5 /* BarChart.json in Resources */,
 				DCB98A12264CF6C100A8C794 /* UnclaimedTableViewCell.xib in Resources */,
 				DC5AC61826528BBB00F99E74 /* MemberCollectionViewCell.xib in Resources */,
 				DCA433FB264BA2C500242617 /* Assets.xcassets in Resources */,
 				DC719599265FF47A00DC3706 /* InvitedCollectionViewCell.xib in Resources */,
 				DC299D7F266F7C7500AC86A3 /* Washing.json in Resources */,
 				DCAFE9AD266F78D6003EC39E /* HomeGreate.json in Resources */,
+				DC7EEEBA2679AA9300520EA5 /* PieChart.json in Resources */,
 				DC383D122673EF4C00DC768E /* Loading.json in Resources */,
 				DCA433F9264BA2BD00242617 /* Main.storyboard in Resources */,
 				DCEEAA60264BEC8B00A64D37 /* Group.storyboard in Resources */,

@@ -22,9 +22,9 @@ class CreateGroupCollectionViewCell: UICollectionViewCell {
 
     @IBAction func create(_ sender: Any) {
         
-        self.delegate?.goToMainPage()
+//        self.delegate?.goToMainPage()
         
-//        createNewGroup()
+        createNewGroup()
     }
     
     func setUpLottie() {

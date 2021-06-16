@@ -7,6 +7,8 @@
 
 import UIKit
 import Charts
+import Lottie
+
 
 protocol AddMemberCellDelegate: AnyObject {
     
@@ -32,6 +34,8 @@ class GroupViewController: UIViewController {
         }
     }
 
+    @IBOutlet weak var lottieView: AnimationView!
+    
     @IBOutlet weak var chartView: HorizontalBarChartView! {
         
         didSet {
@@ -235,7 +239,6 @@ class GroupViewController: UIViewController {
                 
                 for user in self?.groupMembers ?? [] {
                     
-                    // filter
                     let filter = chores.filter { $0.owner == user.id }
                     
                     let sum = filter.reduce(0, { (sum, chore) -> Int in
@@ -311,8 +314,6 @@ class GroupViewController: UIViewController {
             
             chartData.append(value)
         }
-
-        setUpChartView(names: names, chartData: chartData)
     }
     
     func setUpChartView(names: [String], chartData: [BarChartDataEntry]) {
@@ -427,10 +428,6 @@ extension GroupViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-//        let fullSize = UIScreen.main.bounds
-//
-//        return CGSize(width: fullSize.width * 0.16, height: fullSize.height * 0.1)
         
         return CGSize(width: 70, height: 90)
     }

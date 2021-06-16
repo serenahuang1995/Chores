@@ -267,7 +267,7 @@ class MissionViewController: UIViewController {
     
     func setUpLottie() {
 
-        let anination = Animation.named("WashingMachine")
+        let anination = Animation.named("Washing")
 
         lottieView.animation = anination
 
