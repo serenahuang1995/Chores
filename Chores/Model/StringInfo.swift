@@ -54,7 +54,7 @@ struct Lottie {
     
     static let loading = "Loading"
     
-    static let washing = "WashingMachine"
+    static let washing = "Washing"
     
     static let house = "House"
 }

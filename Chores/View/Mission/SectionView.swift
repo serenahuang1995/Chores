@@ -9,21 +9,21 @@ import UIKit
 
 protocol SectionViewDelegate: AnyObject {
     
-    func showMoreItem(_ section: SectionView, _ didPressTag: Int, _ isExpand: Bool)
+    func showMoreItem(_ section: SectionView, _ didPressTag: Int, _ isExpanded: Bool)
 }
 
-//private enum SectionTitle: String {
-//    
-//    case unclaimed = "任務認領區"
-//    
-//    case ongoing = "任務進行中"    
-//}
+enum SectionTitle: String {
+    
+    case unclaimed = "任務認領區"
+    
+    case ongoing = "任務進行中"
+}
 
 class SectionView: UITableViewHeaderFooterView {
     
     var buttonTag: Int = -1 // 存放 Section 索引的 buttonTag
     
-    var isExpand: Bool = false
+    var isExpanded: Bool = false
     
     weak var delegate: SectionViewDelegate?
     
@@ -43,16 +43,25 @@ class SectionView: UITableViewHeaderFooterView {
     
     @IBAction func expand(_ sender: Any) {
         
-        self.delegate?.showMoreItem(self, buttonTag, self.isExpand)
+        self.delegate?.showMoreItem(self, buttonTag, self.isExpanded)
     }
     
-    func layoutSection(title: String, topConstraint: CGFloat) {
+    func layoutSection(section: SectionTitle) {
         
-        titleLabel.text = title
+        switch section {
         
-        cardViewTopConstraint.constant = topConstraint
+        case .unclaimed:
+            
+            cardViewTopConstraint.constant = 50.0
+
+        case .ongoing:
+            
+            cardViewTopConstraint.constant = 10.0
+        }
         
-        if isExpand {
+        titleLabel.text = section.rawValue
+        
+        if isExpanded {
             
             // 按鈕鏡像翻轉
             expandButton.transform = CGAffineTransform(scaleX: 1, y: -1)

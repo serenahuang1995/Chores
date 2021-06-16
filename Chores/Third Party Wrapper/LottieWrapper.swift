@@ -21,4 +21,3 @@ extension AnimationView {
         self.loopMode = .loop
     }
 }
-

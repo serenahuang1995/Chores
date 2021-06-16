@@ -414,7 +414,7 @@ extension MissionViewController: UITableViewDataSource {
         
         guard let sectionView = header as? SectionView else { return header }
         
-        sectionView.isExpand = self.isExpandedList[section]
+        sectionView.isExpanded = self.isExpandedList[section]
         
         sectionView.buttonTag = section
         
@@ -422,13 +422,13 @@ extension MissionViewController: UITableViewDataSource {
         
         if section == 0 {
             
-            sectionView.layoutSection(title: "任務認領區", topConstraint: 50.0)
+            sectionView.layoutSection(section: .unclaimed)
             
             sectionView.setExpandButtonVisible(isVisible: unclaimedChores.count != 0)
         
         } else {
             
-            sectionView.layoutSection(title: "任務進行中", topConstraint: 10.0)
+            sectionView.layoutSection(section: .ongoing)
             
             sectionView.setExpandButtonVisible(isVisible: ongoingChores.count != 0)
         }

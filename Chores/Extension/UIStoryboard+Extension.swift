@@ -20,7 +20,6 @@ private struct StoryboardCategory {
     static let initial = "Initial"
     
     static let signin = "Signin"
-    
 }
 
 extension UIStoryboard {
