@@ -95,7 +95,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="acceptButton" destination="V6S-0Q-EQH" id="Y2k-qj-dpo"/>
-                <outlet property="cellView" destination="eQi-UT-o98" id="rfm-Zu-f9o"/>
+                <outlet property="cardView" destination="eQi-UT-o98" id="rfm-Zu-f9o"/>
                 <outlet property="choreImage" destination="ugN-H3-f94" id="cOu-at-yUc"/>
                 <outlet property="choreItemLabel" destination="11I-bQ-nEk" id="Gc5-8e-kSG"/>
                 <outlet property="deleteButton" destination="ieg-ni-d9S" id="e0X-Ok-Hii"/>

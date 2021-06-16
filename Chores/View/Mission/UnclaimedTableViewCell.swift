@@ -9,7 +9,7 @@ import UIKit
 
 class UnclaimedTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var cellView: CardView!
+    @IBOutlet weak var cardView: CardView!
     
     @IBOutlet weak var choreImage: UIImageView!
     
@@ -55,7 +55,7 @@ class UnclaimedTableViewCell: UITableViewCell {
         
         selectionStyle = .none
         
-        cellView.backgroundColor = .beigeFFF1E6
+        cardView.backgroundColor = .beigeFFF1E6
     }
     
     func layoutCell(chore: Chore) {

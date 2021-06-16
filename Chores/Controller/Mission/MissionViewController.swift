@@ -15,9 +15,9 @@ protocol MissionCellDelegate: AnyObject {
     
     func onButtonDelete(at index: Int)
 
-    func clickButtonToFinish(at index: Int)
+    func onButtonFinish(at index: Int)
     
-    func clickButtonToForward(at index: Int)
+    func onButtonTransfer(at index: Int)
 }
 
 class MissionViewController: UIViewController {
@@ -546,7 +546,7 @@ extension MissionViewController: MissionCellDelegate {
         }
     }
     
-    func clickButtonToFinish(at index: Int) {
+    func onButtonFinish(at index: Int) {
         
         FirebaseProvider.shared.updateStatus(selectedChore: ongoingChores[index]) { [weak self] result in
             
@@ -563,7 +563,7 @@ extension MissionViewController: MissionCellDelegate {
         }
     }
     
-    func clickButtonToForward(at index: Int) {
+    func onButtonTransfer(at index: Int) {
         
         selectedIndex = index
         

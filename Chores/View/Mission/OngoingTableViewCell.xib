@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -46,7 +45,7 @@
                                 </constraints>
                                 <state key="normal" image="arrows"/>
                                 <connections>
-                                    <action selector="clickToTransferChore:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="hFZ-Ta-NNb"/>
+                                    <action selector="transferChore:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="hFZ-Ta-NNb"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lBO-Uh-W6G">
@@ -57,7 +56,7 @@
                                 </constraints>
                                 <state key="normal" image="clipboard"/>
                                 <connections>
-                                    <action selector="clickToFinishChore:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="bh0-UZ-AI2"/>
+                                    <action selector="finishChore:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="bh0-UZ-AI2"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="待轉交給：Max" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6fA-3r-eRe">
@@ -104,12 +103,12 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
-                <outlet property="cellView" destination="bV5-4D-r0J" id="hut-5S-CbF"/>
-                <outlet property="changeOwnerButton" destination="vrm-n7-eCc" id="3HA-AL-6rv"/>
+                <outlet property="cardView" destination="bV5-4D-r0J" id="hut-5S-CbF"/>
                 <outlet property="choreImage" destination="KuO-Zr-V9D" id="gOY-IJ-KF1"/>
                 <outlet property="choreItemLabel" destination="MPK-ck-rwB" id="sfL-IY-vyD"/>
-                <outlet property="finishTaskButton" destination="lBO-Uh-W6G" id="DR1-xW-XuD"/>
+                <outlet property="finishButton" destination="lBO-Uh-W6G" id="DR1-xW-XuD"/>
                 <outlet property="ownerLabel" destination="5A7-IO-gln" id="kQ8-Oq-VJy"/>
+                <outlet property="transferButton" destination="vrm-n7-eCc" id="3HA-AL-6rv"/>
                 <outlet property="transferLabel" destination="6fA-3r-eRe" id="RRu-D1-Vv0"/>
             </connections>
             <point key="canvasLocation" x="8.6956521739130448" y="113.83928571428571"/>

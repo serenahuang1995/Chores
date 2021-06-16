@@ -9,7 +9,7 @@ import UIKit
 
 class OngoingTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var cellView: CardView!
+    @IBOutlet weak var cardView: CardView!
     
     @IBOutlet weak var choreImage: UIImageView!
     
@@ -19,18 +19,16 @@ class OngoingTableViewCell: UITableViewCell {
     
     @IBOutlet weak var transferLabel: UILabel!
     
-    @IBOutlet weak var finishTaskButton: UIButton!
+    @IBOutlet weak var finishButton: UIButton!
     
-    @IBOutlet weak var changeOwnerButton: UIButton!
+    @IBOutlet weak var transferButton: UIButton!
     
     weak var delegate: MissionCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        cellView.backgroundColor = .beigeFFF1E6
-        
-        changeOwnerButton.isHidden = true
+
+        transferButton.isHidden = true
         
         transferLabel.isHidden = true
         
@@ -46,22 +44,22 @@ class OngoingTableViewCell: UITableViewCell {
         
         transferLabel.isHidden = true
         
-        changeOwnerButton.isHidden = true
+        transferButton.isHidden = true
     }
     
-    @IBAction func clickToFinishChore(_ sender: Any) {
+    @IBAction func finishChore(_ sender: Any) {
         
         if let index = getIndexPath()?.row {
             
-            self.delegate?.clickButtonToFinish(at: index)
+            self.delegate?.onButtonFinish(at: index)
         }
     }
 
-    @IBAction func clickToTransferChore(_ sender: Any) {
+    @IBAction func transferChore(_ sender: Any) {
         
         if let index = getIndexPath()?.row {
             
-            self.delegate?.clickButtonToForward(at: index)
+            self.delegate?.onButtonTransfer(at: index)
         }
     }
     
@@ -69,11 +67,7 @@ class OngoingTableViewCell: UITableViewCell {
         
         selectionStyle = .none
         
-        cellView.backgroundColor = .beigeFFF1E6
-        
-        cellView.layer.borderWidth = 2
-        
-        cellView.layer.borderColor = UIColor.black252525.cgColor
+        cardView.backgroundColor = .beigeFFF1E6
     }
     
     func layoutCell(chore: Chore) {
@@ -83,7 +77,7 @@ class OngoingTableViewCell: UITableViewCell {
         // 如果 owner 是自己 才會出現轉交家事的按鈕
         if chore.owner == UserProvider.shared.uid {
             
-            changeOwnerButton.isHidden = false
+            transferButton.isHidden = false
         }
         
         // 如果 transfer 欄位不是 nil 也不是空字串
