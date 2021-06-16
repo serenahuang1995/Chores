@@ -152,14 +152,7 @@ extension TransferChoreViewController: UICollectionViewDataSource {
         
         forwardCell.layoutCell(user: users[index])
         
-        if index == selectedIndex {
-            
-            forwardCell.configureCellStyle(borderWidth: 2.0, borderColor: UIColor.black252525.cgColor)
-            
-        } else {
-            
-            forwardCell.configureCellStyle(borderWidth: 0.0, borderColor: UIColor.clear.cgColor)
-        }
+        forwardCell.configureCellStyle(isSelected: index == selectedIndex)
         
         return forwardCell
     }
@@ -170,10 +163,6 @@ extension TransferChoreViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-//        let fullSize = UIScreen.main.bounds
-//        
-//        return CGSize(width: fullSize.width * 0.16, height: fullSize.height * 0.1)
 
         return CGSize(width: 70.0, height: 90.0)
     }
