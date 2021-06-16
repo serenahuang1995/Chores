@@ -15,12 +15,11 @@ class UnclaimedTableViewCell: UITableViewCell {
     
     @IBOutlet weak var choreItemLabel: UILabel!
     
-    @IBOutlet weak var expectedPointsLabel: UILabel!
+    @IBOutlet weak var pointsLabel: UILabel!
     
-    @IBOutlet weak var acceptTaskButton: UIButton!
+    @IBOutlet weak var acceptButton: UIButton!
     
-    
-    @IBOutlet weak var deleteTaskButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
     
     weak var delegate: MissionCellDelegate?
     
@@ -35,20 +34,20 @@ class UnclaimedTableViewCell: UITableViewCell {
         
     }
     
-    @IBAction func clickToAcceptTask(_ sender: Any) {
+    @IBAction func acceptChore(_ sender: Any) {
         
         if let index = getIndexPath()?.row {
             
-            self.delegate?.clickButtonToAccept(at: index)
+            self.delegate?.onButtonAccept(at: index)
         }
     }
     
     
-    @IBAction func clickToDeleteTask(_ sender: Any) {
+    @IBAction func deleteChore(_ sender: Any) {
         
         if let index = getIndexPath()?.row {
             
-            self.delegate?.clickButtonToDelete(at: index)
+            self.delegate?.onButtonDelete(at: index)
         }
     }
     
@@ -57,17 +56,13 @@ class UnclaimedTableViewCell: UITableViewCell {
         selectionStyle = .none
         
         cellView.backgroundColor = .beigeFFF1E6
-        
-        cellView.layer.borderWidth = 2
-        
-        cellView.layer.borderColor = UIColor.black252525.cgColor
     }
     
     func layoutCell(chore: Chore) {
         
         choreItemLabel.text = chore.item
         
-        expectedPointsLabel.text = "可獲得 \(chore.points) 點"
+        pointsLabel.text = "可獲得 \(chore.points) 點"
         
         if let imageName = ChoreImages.imageNames[chore.item] {
             

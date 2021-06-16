@@ -11,9 +11,9 @@ import UserNotifications
 
 protocol MissionCellDelegate: AnyObject {
     
-    func clickButtonToAccept(at index: Int)
+    func onButtonAccept(at index: Int)
     
-    func clickButtonToDelete(at index: Int)
+    func onButtonDelete(at index: Int)
 
     func clickButtonToFinish(at index: Int)
     
@@ -512,7 +512,7 @@ extension MissionViewController: SectionViewDelegate {
 
 extension MissionViewController: MissionCellDelegate {
             
-    func clickButtonToAccept(at index: Int) {
+    func onButtonAccept(at index: Int) {
         
         FirebaseProvider.shared.updateOwner(selectedChore: unclaimedChores[index]) { result in
             
@@ -529,7 +529,7 @@ extension MissionViewController: MissionCellDelegate {
         }
     }
     
-    func clickButtonToDelete(at index: Int) {
+    func onButtonDelete(at index: Int) {
         
         FirebaseProvider.shared.deleteUnclaimedChore(selectedChore: unclaimedChores[index]) { result in
             
