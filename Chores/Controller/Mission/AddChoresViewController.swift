@@ -208,15 +208,17 @@ extension AddChoresViewController: UICollectionViewDataSource {
         tagCell.layoutCell(tagItem: choreTypes[index])
         
         // 真正儲存你點到的cell 然後去對他做事
-        if index == selectedIndex {
-            
-            tagCell.configureCellStyle(backgroundColor: .beigeFFEDD9, borderWidth: 2.0, borderColor: UIColor.black252525.cgColor)
-            
-        } else {
-            
-            tagCell.configureCellStyle(backgroundColor: .grayF2F2F2, borderWidth: 0.0, borderColor: UIColor.clear.cgColor)
-        }
+//        if index == selectedIndex {
+//
+//            tagCell.configureCellStyle(backgroundColor: .beigeFFEDD9, borderWidth: 2.0, borderColor: UIColor.black252525.cgColor)
+//
+//        } else {
+//
+//            tagCell.configureCellStyle(backgroundColor: .grayF2F2F2, borderWidth: 0.0, borderColor: UIColor.clear.cgColor)
+//        }
 
+        tagCell.configureCellStyle(isSelected: index == selectedIndex)
+        
         return tagCell
     }
 }

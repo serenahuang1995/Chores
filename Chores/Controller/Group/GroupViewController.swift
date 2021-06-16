@@ -34,8 +34,6 @@ class GroupViewController: UIViewController {
         }
     }
 
-    @IBOutlet weak var lottieView: AnimationView!
-    
     @IBOutlet weak var chartView: HorizontalBarChartView! {
         
         didSet {
@@ -251,7 +249,7 @@ class GroupViewController: UIViewController {
                                 
                 self?.updateContainerView(type: self?.currentPageType ?? .week)
                 
-                self?.chartView.reloadInputViews()
+//                self?.chartView.reloadInputViews()
                 
             case .failure(let error):
                 
@@ -295,7 +293,7 @@ class GroupViewController: UIViewController {
                     self?.userMonthPoints.append(pointsSum)
                 }
                 
-                self?.chartView.reloadInputViews()
+//                self?.chartView.reloadInputViews()
 
             case .failure(let error):
                 

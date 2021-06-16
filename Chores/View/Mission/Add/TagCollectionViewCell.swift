@@ -52,15 +52,25 @@ class TagCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func configureCellStyle(backgroundColor: UIColor,
-                        borderWidth: CGFloat,
-                        borderColor: CGColor) {
+    func configureCellStyle(isSelected: Bool) {
         
-        cardView.backgroundColor = backgroundColor
+        if isSelected {
+            
+            cardView.layer.borderColor = UIColor.black252525.cgColor
+            
+            cardView.backgroundColor = .beigeFFEDD9
+            
+            cardView.layer.borderWidth = 2
+            
+//            cardView.layer.cornerRadius = 10
+            
+        } else {
+            
+            cardView.backgroundColor = .grayF2F2F2
+            
+            cardView.layer.borderWidth = 0
+        }
         
-        cardView.layer.borderColor = borderColor
-        
-        cardView.layer.borderWidth = borderWidth
     }
     
 //    func initialCell() {
