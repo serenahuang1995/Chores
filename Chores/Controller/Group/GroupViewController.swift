@@ -10,9 +10,9 @@ import Charts
 import Lottie
 
 
-protocol AddMemberCellDelegate: AnyObject {
+protocol AddMemberDelegate: AnyObject {
     
-    func showMemberView()
+    func onMemberAdd()
 }
 
 class GroupViewController: UIViewController {
@@ -440,9 +440,9 @@ extension GroupViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension GroupViewController: AddMemberCellDelegate {
+extension GroupViewController: AddMemberDelegate {
     
-    func showMemberView() {
+    func onMemberAdd() {
         
         performSegue(withIdentifier: Segue.addMember, sender: nil)
     }
