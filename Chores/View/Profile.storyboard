@@ -92,7 +92,7 @@
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="clickSwitchButton:" destination="mpx-cI-ToZ" eventType="touchUpInside" id="Ao9-5k-Moj"/>
+                                                    <action selector="onButtonSwitch:" destination="mpx-cI-ToZ" eventType="touchUpInside" id="Ao9-5k-Moj"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PYN-2l-LXC">
@@ -110,7 +110,7 @@
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="clickSwitchButton:" destination="mpx-cI-ToZ" eventType="touchUpInside" id="jVr-LC-RW8"/>
+                                                    <action selector="onButtonSwitch:" destination="mpx-cI-ToZ" eventType="touchUpInside" id="jVr-LC-RW8"/>
                                                 </connections>
                                             </button>
                                         </subviews>

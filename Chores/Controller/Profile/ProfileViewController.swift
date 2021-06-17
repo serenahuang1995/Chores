@@ -10,7 +10,7 @@ import Lottie
 
 protocol ProfileDelegate: AnyObject {
     
-    func backToProfile()
+    func navigateProfilePage()
 }
 
 class ProfileViewController: UIViewController {
@@ -36,13 +36,7 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var weekHoursLabel: UILabel!
     
-    @IBOutlet weak var indicatorView: UIView! {
-        
-        didSet {
-            
-            indicatorView.backgroundColor = .orangeFCA311
-        }
-    }
+    @IBOutlet weak var indicatorView: UIView!
     
     @IBOutlet weak var dataContainerView: UIView!
     
@@ -68,7 +62,7 @@ class ProfileViewController: UIViewController {
         
         updateContainerView(type: .records)
         
-        setUpUserListener()
+        onFetchUserListener()
         
         confirmWeekday()
         
@@ -120,7 +114,7 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    @IBAction func clickSwitchButton(_ sender: UIButton) {
+    @IBAction func onButtonSwitch(_ sender: UIButton) {
         
         for btn in switchButtons {
             
@@ -151,9 +145,11 @@ class ProfileViewController: UIViewController {
         switch type {
         
         case .records:
+            
             recordsContainerView.isHidden = false
             
         case .data:
+            
             dataContainerView.isHidden = false
         }
     }
@@ -191,7 +187,7 @@ class ProfileViewController: UIViewController {
         button.layer.cornerRadius = 10
     }
     
-    func setUpUserListener() {
+    func onFetchUserListener() {
         
         UserProvider.shared.fetchUserListener { result in
             
@@ -243,7 +239,7 @@ class ProfileViewController: UIViewController {
             
             case .success(let success):
                 
-                print(success)
+                print("update weekHours \(success)")
                 
             case .failure(let error):
                 
