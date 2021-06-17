@@ -245,7 +245,7 @@ class UserProvider {
     }
     
     // 離開群組之後會移除用戶的group id
-    func exitGroup(completion: @escaping (Result<String, Error>) -> Void) {
+    func leaveGroup(completion: @escaping (Result<String, Error>) -> Void) {
         
         let docReference = database.collection(Collection.users).document(user.id)
         

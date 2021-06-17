@@ -10,10 +10,8 @@ import MIBlurPopup
 
 class LeaveGroupViewController: UIViewController {
 
-    @IBOutlet weak var popView: CardView!
-    
-//    weak var delegate: ProfileDelegate?
-    
+    @IBOutlet weak var cardView: CardView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,7 +22,7 @@ class LeaveGroupViewController: UIViewController {
         dismiss(animated: false, completion: nil)
     }
     
-    @IBAction func sureToLeave(_ sender: Any) {
+    @IBAction func leaveGroup(_ sender: Any) {
         
         leaveGroup()
     }
@@ -36,7 +34,7 @@ class LeaveGroupViewController: UIViewController {
     
     func leaveGroup() {
         
-        UserProvider.shared.exitGroup { [weak self] result in
+        UserProvider.shared.leaveGroup { [weak self] result in
             
             switch result {
             
@@ -60,23 +58,11 @@ class LeaveGroupViewController: UIViewController {
 
 extension LeaveGroupViewController: MIBlurPopupDelegate {
     
-    var popupView: UIView {
-        
-        popView
-    }
+    var popupView: UIView { cardView }
     
-    var blurEffectStyle: UIBlurEffect.Style? {
-        
-        .dark
-    }
+    var blurEffectStyle: UIBlurEffect.Style? { .dark }
     
-    var initialScaleAmmount: CGFloat {
-        
-        0.0
-    }
+    var initialScaleAmmount: CGFloat { 0.0 }
     
-    var animationDuration: TimeInterval {
-        
-        0.2
-    }
+    var animationDuration: TimeInterval { 0.2 }
 }

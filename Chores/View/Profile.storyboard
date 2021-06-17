@@ -423,7 +423,7 @@
                                                 </constraints>
                                                 <state key="normal" image="check"/>
                                                 <connections>
-                                                    <action selector="sureToLeave:" destination="Cqb-K4-NbS" eventType="touchUpInside" id="CKZ-tL-pry"/>
+                                                    <action selector="leaveGroup:" destination="Cqb-K4-NbS" eventType="touchUpInside" id="CKZ-tL-pry"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -452,7 +452,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="MZj-7I-FFf"/>
                     <connections>
-                        <outlet property="popView" destination="kw1-El-Uux" id="04J-QC-ZFF"/>
+                        <outlet property="cardView" destination="kw1-El-Uux" id="04J-QC-ZFF"/>
                         <segue destination="JEk-Bx-gUD" kind="show" identifier="SegueInitialPage" animates="NO" id="iId-eu-jzU"/>
                     </connections>
                 </viewController>
@@ -557,11 +557,11 @@
             <objects>
                 <viewController id="Aic-jL-c7K" customClass="ChoresRecordsViewController" customModule="Chores" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5wV-TV-sge">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="550"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="340"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="I1b-z6-xpg">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="550"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="340"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aXF-Lp-CQg"/>
@@ -587,11 +587,11 @@
             <objects>
                 <viewController id="D9Z-g6-OlF" customClass="ChoresDataViewController" customModule="Chores" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bnE-0O-tlN">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="550"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="340"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Yb-xo-o0l" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="550"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="340"/>
                                 <color key="backgroundColor" systemColor="systemGrayColor"/>
                             </view>
                         </subviews>
@@ -617,14 +617,14 @@
             <objects>
                 <viewController modalPresentationStyle="overCurrentContext" id="UD1-eK-PPi" customClass="DetailRecordsViewController" customModule="Chores" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gUf-XY-EK0">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="550"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="340"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nTU-EC-yxt" customClass="CardView" customModule="Chores" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="50" width="390" height="500"/>
+                                <rect key="frame" x="0.0" y="-160" width="600" height="500"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="icR-dT-ZJ2">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="500"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="500"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="objectCornerRadius">
