@@ -29,9 +29,9 @@ class ChoresRecordsViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let destination = segue.destination as? DetailRecordsViewController
+        guard let destination = segue.destination as? DetailRecordsViewController else { return }
         
-        destination?.chores = finishedChoresList[selectedIndex]
+        destination.chores = finishedChoresList[selectedIndex]
     }
     
     private func setUpTableView() {
@@ -42,6 +42,8 @@ class ChoresRecordsViewController: UIViewController {
         tableView.delegate = self
         
         tableView.dataSource = self
+        
+        tableView.separatorStyle = .none
     }
     
     func setUpRecordsListener() {
@@ -53,9 +55,7 @@ class ChoresRecordsViewController: UIViewController {
             case .success(let choresList):
                 
                 self?.finishedChoresList = choresList
-                
-//                choresList.map { print("\($0[0].item): \($0.count)") }
-                
+
                 self?.tableView.reloadData()
             
             case .failure(let error):
@@ -103,7 +103,6 @@ extension ChoresRecordsViewController: UITableViewDataSource {
         
         recordsCell.selectionStyle = .none
 
-                
         return recordsCell
     }
 }
