@@ -525,7 +525,7 @@
                                                 </constraints>
                                                 <state key="normal" image="remove"/>
                                                 <connections>
-                                                    <action selector="repentToAdd:" destination="eSj-at-oYo" eventType="touchUpInside" id="aVJ-Q8-1QH"/>
+                                                    <action selector="cancel:" destination="eSj-at-oYo" eventType="touchUpInside" id="aVJ-Q8-1QH"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wdc-Kq-Sxc">
@@ -536,7 +536,7 @@
                                                 </constraints>
                                                 <state key="normal" image="Icon32px_Plus"/>
                                                 <connections>
-                                                    <action selector="sureToAdd:" destination="eSj-at-oYo" eventType="touchUpInside" id="HRG-Cf-jmx"/>
+                                                    <action selector="addChoreType:" destination="eSj-at-oYo" eventType="touchUpInside" id="HRG-Cf-jmx"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -577,8 +577,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cardView" destination="xMt-NQ-f4Q" id="Qyf-mh-M8B"/>
                         <outlet property="customChoreTextField" destination="nea-Qb-mPe" id="Bey-tv-Y6Z"/>
-                        <outlet property="popView" destination="xMt-NQ-f4Q" id="Qyf-mh-M8B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YmM-wL-l7T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
