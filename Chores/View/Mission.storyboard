@@ -99,7 +99,7 @@
                                                 </constraints>
                                                 <state key="normal" image="remove"/>
                                                 <connections>
-                                                    <action selector="backToMissionPage:" destination="rtu-r2-1KM" eventType="touchUpInside" id="Xkm-WT-rnp"/>
+                                                    <action selector="navigateMissionPage:" destination="rtu-r2-1KM" eventType="touchUpInside" id="Xkm-WT-rnp"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8nn-7Q-trF">
@@ -110,7 +110,7 @@
                                                 </constraints>
                                                 <state key="normal" image="check"/>
                                                 <connections>
-                                                    <action selector="sureToForwardChore:" destination="rtu-r2-1KM" eventType="touchUpInside" id="yQM-le-dHx"/>
+                                                    <action selector="onTransferChore:" destination="rtu-r2-1KM" eventType="touchUpInside" id="yQM-le-dHx"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -175,8 +175,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cardView" destination="ZfP-QP-1Nn" id="EjX-Ek-7UV"/>
                         <outlet property="collectionView" destination="Qo6-hF-SwG" id="dZ8-Un-bB2"/>
-                        <outlet property="popView" destination="ZfP-QP-1Nn" id="EjX-Ek-7UV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HUq-Mw-2Xt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -19,7 +19,7 @@ class TransferChoreViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var popView: CardView!
+    @IBOutlet weak var cardView: CardView!
     
     var selectedIndex: Int?
     
@@ -38,28 +38,27 @@ class TransferChoreViewController: UIViewController {
         dismiss(animated: false, completion: nil)
     }
 
-    @IBAction func sureToForwardChore(_ sender: Any) {
+    @IBAction func onTransferChore(_ sender: Any) {
         
         guard let selectedIndex = selectedIndex,
-              let forwardChore = transferChore else {
+              let transferChore = transferChore else {
             
-//            KRProgressHUD.showError(withMessage: "請選擇你想轉交的對象")
+            KRProgressHUD.showError(withMessage: "請選擇你想轉交的對象")
             
             return
         }
         
         if UserProvider.shared.user.points < 15 {
             
-//            KRProgressHUD.showError(withMessage: "點數不足無法轉交家事")
+            KRProgressHUD.showError(withMessage: "點數不足無法轉交家事")
             
             return
         }
         
-        transferChoreToGroupMember(user: users[selectedIndex], chore: forwardChore)
-        
+        transferChoreToGroupMember(user: users[selectedIndex], chore: transferChore)
     }
     
-    @IBAction func backToMissionPage(_ sender: Any) {
+    @IBAction func navigateMissionPage(_ sender: Any) {
         
         dismiss(animated: true, completion: nil)
     }
@@ -107,11 +106,11 @@ class TransferChoreViewController: UIViewController {
             
             case .success(let success):
                 
-                print(success)
+                print("send transfer \(success)")
                 
                 self?.dismiss(animated: true, completion: nil)
                 
-//                KRProgressHUD.showSuccess(withMessage: "轉讓請求已送出，靜候佳音")
+                KRProgressHUD.showSuccess(withMessage: "轉交請求已送出，靜候佳音")
                 
             case .failure(let error):
                 
@@ -177,23 +176,11 @@ extension TransferChoreViewController: UICollectionViewDelegateFlowLayout {
 
 extension TransferChoreViewController: MIBlurPopupDelegate {
     
-    var popupView: UIView {
-        
-        popView
-    }
+    var popupView: UIView { cardView }
     
-    var blurEffectStyle: UIBlurEffect.Style? {
-        
-        .dark
-    }
+    var blurEffectStyle: UIBlurEffect.Style? { .dark }
     
-    var initialScaleAmmount: CGFloat {
-        
-        0.0
-    }
+    var initialScaleAmmount: CGFloat { 0.0 }
     
-    var animationDuration: TimeInterval {
-        
-        0.2
-    }    
+    var animationDuration: TimeInterval { 0.2 }
 }
