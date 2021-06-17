@@ -48,12 +48,18 @@ class SettingViewController: UIViewController {
     
     weak var delegate: SettingDelegate?
     
-    let blackView = UIView(frame: UIScreen.main.bounds)
+//    let blackView = UIView(frame: UIScreen.main.bounds)
+    
+    let blackView = BlackView(frame: UIScreen.main.bounds)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        showBlackView()
+        blackView.configureBlackView()
+        
+        presentingViewController?.view.addSubview(blackView)
+        
+//        showBlackView()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
