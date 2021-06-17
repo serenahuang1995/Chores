@@ -44,9 +44,9 @@ class InvitationViewController: UIViewController {
                 
                 switch result {
                 
-                case .success(let message):
+                case .success(let success):
                     
-                    print(message)
+                    print("delete invitation \(success)")
                     
                     // 如果是按接受就 performSegue
                     if isAccepted {
@@ -95,22 +95,11 @@ class InvitationViewController: UIViewController {
 
 extension InvitationViewController: MIBlurPopupDelegate {
     
-    var popupView: UIView {
-        
-        cardView
-    }
+    var popupView: UIView { cardView }
     
-    var blurEffectStyle: UIBlurEffect.Style? {
-        
-        .dark
-    }
+    var blurEffectStyle: UIBlurEffect.Style? { .dark }
     
-    var initialScaleAmmount: CGFloat {
-        
-        0.0
-    }
+    var initialScaleAmmount: CGFloat { 0.0 }
     
-    var animationDuration: TimeInterval {
-        0.2
-    }
+    var animationDuration: TimeInterval { 0.2 }
 }
