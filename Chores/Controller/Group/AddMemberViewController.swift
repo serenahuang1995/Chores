@@ -11,8 +11,8 @@ import KRProgressHUD
 import IQKeyboardManagerSwift
 
 class AddMemberViewController: UIViewController {
-    
-    @IBOutlet weak var popView: UIView!
+
+    @IBOutlet weak var cardView: CardView!
     
     @IBOutlet weak var addMemberTextField: UITextField!
 
@@ -45,7 +45,7 @@ class AddMemberViewController: UIViewController {
         fetchUser(userId: userId)
     }
     
-    @IBAction func backToGroupPage(_ sender: Any) {
+    @IBAction func navigateGroupPage(_ sender: Any) {
         
         dismiss(animated: true, completion: nil)
     }
@@ -111,23 +111,11 @@ class AddMemberViewController: UIViewController {
 
 extension AddMemberViewController: MIBlurPopupDelegate {
     
-    var popupView: UIView {
-        
-        popView
-    }
+    var popupView: UIView { cardView }
     
-    var blurEffectStyle: UIBlurEffect.Style? {
-        
-        .dark
-    }
+    var blurEffectStyle: UIBlurEffect.Style? { .dark }
     
-    var initialScaleAmmount: CGFloat {
-        
-        0.0
-    }
+    var initialScaleAmmount: CGFloat { 0.0 }
     
-    var animationDuration: TimeInterval {
-        
-        0.2
-    }
+    var animationDuration: TimeInterval { 0.2 }
 }
