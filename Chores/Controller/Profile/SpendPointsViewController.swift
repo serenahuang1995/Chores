@@ -11,7 +11,7 @@ import KRProgressHUD
 
 class SpendPointsViewController: UIViewController {
     
-    @IBOutlet weak var popView: CardView!
+    @IBOutlet weak var cardView: CardView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,12 +23,12 @@ class SpendPointsViewController: UIViewController {
         dismiss(animated: false, completion: nil)
     }
     
-    @IBAction func backToProfilePage(_ sender: Any) {
+    @IBAction func cancel(_ sender: Any) {
         
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func sureToSpendPoint(_ sender: Any) {
+    @IBAction func onSpendPoints(_ sender: Any) {
         
         spendUserPoints()
         
@@ -45,7 +45,7 @@ class SpendPointsViewController: UIViewController {
             
             user.points -= 300
             
-//            KRProgressHUD.showSuccess(withMessage: "成功扣除點數！")
+            KRProgressHUD.showSuccess(withMessage: "成功扣除點數！")
             
             updatePoints(user: user)
             
@@ -53,7 +53,7 @@ class SpendPointsViewController: UIViewController {
             
         } else {
             
-//            KRProgressHUD.showError(withMessage: "點數不足...再多做一點家事吧！")
+            KRProgressHUD.showError(withMessage: "點數不足...再多做一點家事吧！")
         }
     }
     
@@ -65,7 +65,7 @@ class SpendPointsViewController: UIViewController {
             
             case .success(let success):
                 
-                print(success)
+                print("update points \(success)")
 
             case .failure(let error):
                 
@@ -94,23 +94,11 @@ class SpendPointsViewController: UIViewController {
 
 extension SpendPointsViewController: MIBlurPopupDelegate {
     
-    var popupView: UIView {
-        
-        popView
-    }
+    var popupView: UIView { cardView }
     
-    var blurEffectStyle: UIBlurEffect.Style? {
-        
-        .dark
-    }
+    var blurEffectStyle: UIBlurEffect.Style? { .dark }
     
-    var initialScaleAmmount: CGFloat {
-        
-        0
-    }
+    var initialScaleAmmount: CGFloat { 0.0 }
     
-    var animationDuration: TimeInterval {
-        
-        0.2
-    }
+    var animationDuration: TimeInterval { 0.2 }
 }
