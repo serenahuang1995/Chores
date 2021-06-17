@@ -655,7 +655,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="xFc-yY-Bgb"/>
                     <connections>
-                        <outlet property="detailView" destination="nTU-EC-yxt" id="FSv-tt-l6W"/>
+                        <outlet property="cardView" destination="nTU-EC-yxt" id="FSv-tt-l6W"/>
                         <outlet property="tableView" destination="icR-dT-ZJ2" id="Huf-dI-ONL"/>
                     </connections>
                 </viewController>

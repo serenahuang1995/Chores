@@ -9,9 +9,8 @@ import UIKit
 import MIBlurPopup
 
 class DetailRecordsViewController: UIViewController {
-    
 
-    @IBOutlet weak var detailView: CardView!
+    @IBOutlet weak var cardView: CardView!
     
     @IBOutlet weak var tableView: UITableView! {
         
@@ -46,7 +45,7 @@ class DetailRecordsViewController: UIViewController {
         
         let touch: UITouch? = touches.first
         
-        if touch?.view != detailView {
+        if touch?.view != cardView {
             
             blackView.removeFromSuperview()
             
@@ -62,8 +61,6 @@ class DetailRecordsViewController: UIViewController {
         tableView.delegate = self
         
         tableView.dataSource = self
-        
-        tableView.separatorStyle = .none
     }
     
     private func showBlackView() {
