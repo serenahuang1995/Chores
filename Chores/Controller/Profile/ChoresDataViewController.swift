@@ -12,11 +12,11 @@ class ChoresDataViewController: UIViewController {
     
     @IBOutlet weak var chartView: PieChartView!
     
-    var finishedChoresList: [[Chore]] = [] {
+    var choresList: [[Chore]] = [] {
         
         didSet {
             
-            updateChoreData(choresList: finishedChoresList)
+            updateChoreData(choresList: choresList)
         }
     }
     
@@ -81,7 +81,7 @@ class ChoresDataViewController: UIViewController {
             
             case .success(let choresList):
                 
-                self?.finishedChoresList = choresList
+                self?.choresList = choresList
 
             case .failure(let error):
                 

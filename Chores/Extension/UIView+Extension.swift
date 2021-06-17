@@ -53,5 +53,4 @@ extension UIView {
             layer.cornerRadius = newValue
         }
     }
-    
 }

@@ -380,9 +380,9 @@ extension ProfileViewController: UINavigationControllerDelegate {
     
 }
 
-extension ProfileViewController: SettingDelegate {
+extension ProfileViewController: SettingDelegate {    
     
-    func userNameChange() {
+    func onButtonRename() {
         
         performSegue(withIdentifier: Segue.changeName, sender: nil)
     }
