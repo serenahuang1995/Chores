@@ -22,29 +22,11 @@ class SettingViewController: UIViewController {
     
     @IBOutlet weak var cardView: CardView!
     
-    @IBOutlet weak var renameButton: UIButton! {
-        
-        didSet {
-            
-//            setUpButtonStyle(renameButton)
-        }        
-    }
+    @IBOutlet weak var renameButton: UIButton!
     
-    @IBOutlet weak var changePictureButton: UIButton! {
-        
-        didSet {
-            
-//            setUpButtonStyle(changePictureButton)
-        }
-    }
+    @IBOutlet weak var changePictureButton: UIButton!
     
-    @IBOutlet weak var leaveGroupButton: UIButton! {
-        
-        didSet {
-            
-//            setUpButtonStyle(leaveGroupButton)
-        }
-    }
+    @IBOutlet weak var leaveGroupButton: UIButton!
     
     weak var delegate: SettingDelegate?
     
@@ -128,14 +110,5 @@ class SettingViewController: UIViewController {
         effectView.frame = blackView.frame
         
         blackView.addSubview(effectView)
-    }
-    
-    private func setUpButtonStyle(_ button: UIButton) {
-        
-        button.layer.borderColor = UIColor.black252525.cgColor
-        
-        button.layer.borderWidth = 2
-        
-        button.layer.cornerRadius = 10
     }
 }
