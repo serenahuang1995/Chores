@@ -469,7 +469,7 @@
                                 </constraints>
                                 <state key="normal" image="previous"/>
                                 <connections>
-                                    <action selector="backToListPage:" destination="WHV-rw-kbC" eventType="touchUpInside" id="Fql-O6-xNu"/>
+                                    <action selector="navigateMissionPage:" destination="WHV-rw-kbC" eventType="touchUpInside" id="Fql-O6-xNu"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -492,7 +492,7 @@
                         <outlet property="addChoreButton" destination="rwX-DI-EuJ" id="NKL-7J-Hx5"/>
                         <outlet property="collectionView" destination="SzW-xA-tMj" id="czc-tT-hbz"/>
                         <outlet property="customButton" destination="XPH-ax-6ea" id="1Hu-Vy-BcC"/>
-                        <outlet property="pointResultTextField" destination="2Cb-3I-c1I" id="D0I-9i-ugd"/>
+                        <outlet property="pointsTextField" destination="2Cb-3I-c1I" id="D0I-9i-ugd"/>
                         <outlet property="ruleButton" destination="4Xu-y9-ImH" id="ewj-nV-m0j"/>
                         <outlet property="scrollView" destination="eME-SV-iXd" id="ewD-Af-KAb"/>
                         <outlet property="scrollViewHeightConstraint" destination="6le-Pq-hAO" id="qWX-Td-kN9"/>

@@ -11,7 +11,7 @@ import IQKeyboardManagerSwift
 
 protocol TagCellDelegate: AnyObject {
     
-    func deleteChoreItem(at index: Int)
+    func onDeleteChoreItem(at index: Int)
 }
 
 class AddChoresViewController: UIViewController {
@@ -50,15 +50,15 @@ class AddChoresViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var pointResultTextField: UITextField! {
+    @IBOutlet weak var pointsTextField: UITextField! {
         
         didSet {
             
-            pointResultTextField.delegate = self
+            pointsTextField.delegate = self
         }
     }
     
-    // 到時候每個家庭一進去 發現家事是空的 就會幫它寫進去14個
+    // 到時候每個家庭一進去 發現家事是空的 就會幫它寫進去預設家事
     var choreTypes: [String] = [] {
         
         didSet {
@@ -93,7 +93,7 @@ class AddChoresViewController: UIViewController {
         tabBarController?.tabBar.isHidden = false
     }
     
-    @IBAction func backToListPage(_ sender: Any) {
+    @IBAction func navigateMissionPage(_ sender: Any) {
         
         navigationController?.popViewController(animated: true)
     }
@@ -101,10 +101,10 @@ class AddChoresViewController: UIViewController {
     @IBAction func onAddChore(_ sender: Any) {
         
         guard let time = timeTextField.text,
-              let point = pointResultTextField.text,
+              let point = pointsTextField.text,
               let selectedIndex = selectedIndex else {
             
-//            KRProgressHUD.showError(withMessage: "資料不能是空的喲！")
+            KRProgressHUD.showError(withMessage: "資料不能是空的喲！")
             
             return
         }
@@ -112,12 +112,12 @@ class AddChoresViewController: UIViewController {
         // 預設的 textField 不打字也會有空字串
         if time.isEmpty || point.isEmpty {
             
-//            KRProgressHUD.showError(withMessage: "資料不能是空的喲！")
+            KRProgressHUD.showError(withMessage: "資料不能是空的喲！")
             
             return
         }
         
-        var data = Chore(
+        var chore = Chore(
             id: "",
             item: choreTypes[selectedIndex],
             points: Int(point) ?? 0,
@@ -126,7 +126,7 @@ class AddChoresViewController: UIViewController {
             status: 0,
             transfer: nil)
         
-        FirebaseProvider.shared.addToDoChore(chore: &data) { [weak self] result in
+        FirebaseProvider.shared.addToDoChore(chore: &chore) { [weak self] result in
             
             switch result {
             
@@ -134,7 +134,7 @@ class AddChoresViewController: UIViewController {
                 
                 print(data)
                 
-//                KRProgressHUD.showSuccess(withMessage: "家事新增成功")
+                KRProgressHUD.showSuccess(withMessage: "家事新增成功")
                 
                 self?.navigationController?.popViewController(animated: true)
                 
@@ -158,13 +158,13 @@ class AddChoresViewController: UIViewController {
     
     func setChoreTypesListener() {
         
-        FirebaseProvider.shared.fetchChoreTypes { result in
+        FirebaseProvider.shared.fetchChoreTypes { [weak self] result in
             
             switch result {
             
             case .success(let choreTypes):
                 
-                self.choreTypes = choreTypes
+                self?.choreTypes = choreTypes
                 
             case .failure(let error):
                 
@@ -206,16 +206,6 @@ extension AddChoresViewController: UICollectionViewDataSource {
         guard let tagCell = cell as? TagCollectionViewCell else { return cell }
         
         tagCell.layoutCell(tagItem: choreTypes[index])
-        
-        // 真正儲存你點到的cell 然後去對他做事
-//        if index == selectedIndex {
-//
-//            tagCell.configureCellStyle(backgroundColor: .beigeFFEDD9, borderWidth: 2.0, borderColor: UIColor.black252525.cgColor)
-//
-//        } else {
-//
-//            tagCell.configureCellStyle(backgroundColor: .grayF2F2F2, borderWidth: 0.0, borderColor: UIColor.clear.cgColor)
-//        }
 
         tagCell.configureCellStyle(isSelected: index == selectedIndex)
         
@@ -251,6 +241,6 @@ extension AddChoresViewController: UITextFieldDelegate {
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
         
-        pointResultTextField.text = timeTextField.text
+        pointsTextField.text = timeTextField.text
     }
 }
