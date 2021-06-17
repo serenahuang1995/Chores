@@ -20,7 +20,13 @@ class DetailRecordsViewController: UIViewController {
         }
     }
     
-    var chores: [Chore] = []
+    var chores: [Chore] = [] {
+        
+        didSet {
+            
+            tableView.reloadData()
+        }
+    }
     
     let blackView = BlackView(frame: UIScreen.main.bounds)
 
@@ -61,6 +67,8 @@ class DetailRecordsViewController: UIViewController {
         tableView.delegate = self
         
         tableView.dataSource = self
+        
+        tableView.separatorStyle = .none
     }
     
     private func showBlackView() {
