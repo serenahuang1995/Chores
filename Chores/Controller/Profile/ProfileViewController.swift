@@ -387,7 +387,7 @@ extension ProfileViewController: SettingDelegate {
         performSegue(withIdentifier: Segue.changeName, sender: nil)
     }
     
-    func exitGroup() {
+    func onButtonLeave() {
         
         performSegue(withIdentifier: Segue.leaveGroup, sender: nil)
     }
