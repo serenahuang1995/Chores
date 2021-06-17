@@ -7,8 +7,6 @@
 
 import UIKit
 import Charts
-import Lottie
-
 
 protocol AddMemberDelegate: AnyObject {
     
@@ -26,14 +24,8 @@ class GroupViewController: UIViewController {
         case total = 2
     }
 
-    @IBOutlet weak var indicatorView: UIView! {
-        
-        didSet {
-            
-            indicatorView.backgroundColor = .darkBlue14213D
-        }
-    }
-
+    @IBOutlet weak var indicatorView: UIView!
+    
     @IBOutlet weak var chartView: HorizontalBarChartView! {
         
         didSet {
@@ -84,7 +76,7 @@ class GroupViewController: UIViewController {
         indicatorView.center.x = switchButtons[0].center.x
     }
     
-    @IBAction func clickSwitchButton(_ sender: UIButton) {
+    @IBAction func onSwitchButton(_ sender: UIButton) {
         
         for btn in switchButtons {
             
@@ -102,7 +94,7 @@ class GroupViewController: UIViewController {
         updateContainerView(type: currentPageType)
     }
     
-    @IBAction func clickSegmentedControl(_ sender: Any) {
+    @IBAction func onSegmentedControl(_ sender: Any) {
         
         isDisplayPoints = segmentedControl.selectedSegmentIndex == 0
         
@@ -375,9 +367,7 @@ class GroupViewController: UIViewController {
         chartView.drawBarShadowEnabled = false
 
         chartView.notifyDataSetChanged()
-        
-//        chartView.reloadInputViews()
-        
+
         chartView.animate(yAxisDuration: 1.5)
     }
 }
