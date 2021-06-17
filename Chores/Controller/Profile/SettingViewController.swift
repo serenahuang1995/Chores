@@ -26,7 +26,7 @@ class SettingViewController: UIViewController {
         
         didSet {
             
-            setUpButtonStyle(renameButton)
+//            setUpButtonStyle(renameButton)
         }        
     }
     
@@ -34,7 +34,7 @@ class SettingViewController: UIViewController {
         
         didSet {
             
-            setUpButtonStyle(changePictureButton)
+//            setUpButtonStyle(changePictureButton)
         }
     }
     
@@ -42,7 +42,7 @@ class SettingViewController: UIViewController {
         
         didSet {
             
-            setUpButtonStyle(leaveGroupButton)
+//            setUpButtonStyle(leaveGroupButton)
         }
     }
     
