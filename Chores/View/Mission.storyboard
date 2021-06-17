@@ -694,7 +694,7 @@
                                         </constraints>
                                         <state key="normal" image="remove"/>
                                         <connections>
-                                            <action selector="backToAddChoresPage:" destination="a1b-Uc-CbC" eventType="touchUpInside" id="x8S-yP-LvW"/>
+                                            <action selector="navigateAddChoresPage:" destination="a1b-Uc-CbC" eventType="touchUpInside" id="x8S-yP-LvW"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -755,7 +755,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="popView" destination="jT6-2g-6UV" id="zAR-zo-5dR"/>
+                        <outlet property="cardView" destination="jT6-2g-6UV" id="zAR-zo-5dR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FO5-7f-UVi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
