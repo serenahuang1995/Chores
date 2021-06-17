@@ -18,6 +18,7 @@
 		DC4B37AA267A79B70068E542 /* MIBlurPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B37A9267A79B70068E542 /* MIBlurPopup.swift */; };
 		DC4B37AC267B27980068E542 /* KRProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B37AB267B27970068E542 /* KRProgressHUD.swift */; };
 		DC4B37B0267B7E6D0068E542 /* BlackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B37AF267B7E6D0068E542 /* BlackView.swift */; };
+		DC4B37B2267B9BF90068E542 /* UIButton + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B37B1267B9BF90068E542 /* UIButton + Extension.swift */; };
 		DC502A5D26535D6200BEC0C3 /* SpendPointsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC502A5C26535D6200BEC0C3 /* SpendPointsViewController.swift */; };
 		DC531C9A265523D100F3FD4B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC531C99265523D100F3FD4B /* GoogleService-Info.plist */; };
 		DC5AC61726528BBB00F99E74 /* MemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5AC61526528BBB00F99E74 /* MemberCollectionViewCell.swift */; };
@@ -110,6 +111,7 @@
 		DC4B37A9267A79B70068E542 /* MIBlurPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIBlurPopup.swift; sourceTree = "<group>"; };
 		DC4B37AB267B27970068E542 /* KRProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KRProgressHUD.swift; sourceTree = "<group>"; };
 		DC4B37AF267B7E6D0068E542 /* BlackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackView.swift; sourceTree = "<group>"; };
+		DC4B37B1267B9BF90068E542 /* UIButton + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + Extension.swift"; sourceTree = "<group>"; };
 		DC502A5C26535D6200BEC0C3 /* SpendPointsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendPointsViewController.swift; sourceTree = "<group>"; };
 		DC531C99265523D100F3FD4B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DC5AC61526528BBB00F99E74 /* MemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -424,6 +426,7 @@
 				DCEEAA4C264BD98C00A64D37 /* UIView+Extension.swift */,
 				DC913CEA264C1F9100C18251 /* UIColor+Extension.swift */,
 				DCEEAA4F264BDC8B00A64D37 /* UIImage+Extension.swift */,
+				DC4B37B1267B9BF90068E542 /* UIButton + Extension.swift */,
 				DCB98A0D264CDF7200A8C794 /* UITableView+Extension.swift */,
 				DC8136482650090E003CC6ED /* UICollectionView+Extension.swift */,
 				DC856DB0266CC0D9005DDED1 /* Data+Extension.swift */,
@@ -676,6 +679,7 @@
 				DCA433F6264BA2BD00242617 /* MissionViewController.swift in Sources */,
 				DC913CE3264C144400C18251 /* SectionView.swift in Sources */,
 				DCEEAA73264BEDEC00A64D37 /* InitialViewController.swift in Sources */,
+				DC4B37B2267B9BF90068E542 /* UIButton + Extension.swift in Sources */,
 				DCB512972668D7BF00B4B8A5 /* TransferChoreCollectionViewCell.swift in Sources */,
 				DC8FE0E826629A1B0016927D /* SigninViewController.swift in Sources */,
 				DC7D1C202673947E00C3898B /* KingFisher.swift in Sources */,
