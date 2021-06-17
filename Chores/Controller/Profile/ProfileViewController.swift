@@ -46,7 +46,9 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet var switchButtons: [UIButton]!
     
-    let blackView = UIView(frame: UIScreen.main.bounds)
+//    let blackView = UIView(frame: UIScreen.main.bounds)
+    
+    let blackView = BlackView(frame: UIScreen.main.bounds)
     
     var containerViews: [UIView] {
         
@@ -178,15 +180,6 @@ class ProfileViewController: UIViewController {
         blackView.addSubview(effectView)
     }
     
-    private func setUpButtonStyle(_ button: UIButton) {
-        
-        button.layer.borderColor = UIColor.black252525.cgColor
-        
-        button.layer.borderWidth = 2
-        
-        button.layer.cornerRadius = 10
-    }
-    
     func onFetchUserListener() {
         
         UserProvider.shared.fetchUserListener { result in
@@ -195,6 +188,7 @@ class ProfileViewController: UIViewController {
             
             case .success(let user):
 
+                // 問了維持SnapshotListener的監聽功能 防止用戶同時使用兩台手機登入看到的圖片不一致
                 if self.imageUpdateCount <= 0 {
 
                     self.userImage.loadImage(user.picture, placeHolder: .asset(.user))
@@ -280,7 +274,11 @@ class ProfileViewController: UIViewController {
     
     func uploadUserImage(image: UIImage, imageData: Data) {
         
-        showBlackView()
+        blackView.configureBlackView()
+        
+        view.insertSubview(blackView, at: 3)
+        
+//        showBlackView()
         
         animationView.configureLottieView(name: Lottie.loading)
         
