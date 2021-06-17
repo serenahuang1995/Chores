@@ -43,14 +43,14 @@ class TransferChoreViewController: UIViewController {
         guard let selectedIndex = selectedIndex,
               let forwardChore = transferChore else {
             
-            KRProgressHUD.showError(withMessage: "請選擇你想轉交的對象")
+//            KRProgressHUD.showError(withMessage: "請選擇你想轉交的對象")
             
             return
         }
         
         if UserProvider.shared.user.points < 15 {
             
-            KRProgressHUD.showError(withMessage: "點數不足無法轉交家事")
+//            KRProgressHUD.showError(withMessage: "點數不足無法轉交家事")
             
             return
         }
@@ -111,7 +111,7 @@ class TransferChoreViewController: UIViewController {
                 
                 self?.dismiss(animated: true, completion: nil)
                 
-                KRProgressHUD.showSuccess(withMessage: "轉讓請求已送出，靜候佳音")
+//                KRProgressHUD.showSuccess(withMessage: "轉讓請求已送出，靜候佳音")
                 
             case .failure(let error):
                 

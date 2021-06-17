@@ -16,6 +16,7 @@
 		DC299D8F266F914500AC86A3 /* Signin.json in Resources */ = {isa = PBXBuildFile; fileRef = DC299D8E266F914500AC86A3 /* Signin.json */; };
 		DC383D122673EF4C00DC768E /* Loading.json in Resources */ = {isa = PBXBuildFile; fileRef = DC383D112673EF4C00DC768E /* Loading.json */; };
 		DC4B37AA267A79B70068E542 /* MIBlurPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B37A9267A79B70068E542 /* MIBlurPopup.swift */; };
+		DC4B37AC267B27980068E542 /* KRProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B37AB267B27970068E542 /* KRProgressHUD.swift */; };
 		DC502A5D26535D6200BEC0C3 /* SpendPointsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC502A5C26535D6200BEC0C3 /* SpendPointsViewController.swift */; };
 		DC531C9A265523D100F3FD4B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC531C99265523D100F3FD4B /* GoogleService-Info.plist */; };
 		DC5AC61726528BBB00F99E74 /* MemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5AC61526528BBB00F99E74 /* MemberCollectionViewCell.swift */; };
@@ -106,6 +107,7 @@
 		DC299D8E266F914500AC86A3 /* Signin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Signin.json; sourceTree = "<group>"; };
 		DC383D112673EF4C00DC768E /* Loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Loading.json; sourceTree = "<group>"; };
 		DC4B37A9267A79B70068E542 /* MIBlurPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIBlurPopup.swift; sourceTree = "<group>"; };
+		DC4B37AB267B27970068E542 /* KRProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KRProgressHUD.swift; sourceTree = "<group>"; };
 		DC502A5C26535D6200BEC0C3 /* SpendPointsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendPointsViewController.swift; sourceTree = "<group>"; };
 		DC531C99265523D100F3FD4B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DC5AC61526528BBB00F99E74 /* MemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -351,6 +353,7 @@
 				DCCA1E9426752AB3008E7130 /* Lottie.swift */,
 				DC7D1C1F2673947E00C3898B /* KingFisher.swift */,
 				DC4B37A9267A79B70068E542 /* MIBlurPopup.swift */,
+				DC4B37AB267B27970068E542 /* KRProgressHUD.swift */,
 			);
 			path = "Third Party";
 			sourceTree = "<group>";
@@ -708,6 +711,7 @@
 				DCB512922667E53F00B4B8A5 /* TransferChoreViewController.swift in Sources */,
 				DC81364D2650095C003CC6ED /* TagCollectionViewCell.swift in Sources */,
 				DCA433F4264BA2BD00242617 /* SceneDelegate.swift in Sources */,
+				DC4B37AC267B27980068E542 /* KRProgressHUD.swift in Sources */,
 				DC4B37AA267A79B70068E542 /* MIBlurPopup.swift in Sources */,
 				DCA589F326555AD10033EE63 /* FirebaseProvider.swift in Sources */,
 				DC8352382676796F003A1F7B /* DetailRecordsViewController.swift in Sources */,

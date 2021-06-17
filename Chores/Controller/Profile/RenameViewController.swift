@@ -6,8 +6,8 @@
 //
 
 import UIKit
-import KRProgressHUD
 import MIBlurPopup
+import KRProgressHUD
 import IQKeyboardManagerSwift
 
 class RenameViewController: UIViewController {
@@ -41,7 +41,7 @@ class RenameViewController: UIViewController {
         
         guard let userName = nameTextField.text else {
             
-            KRProgressHUD.showError(withMessage: "欄位不能是空白的唷！")
+            KRProgressHUD.showSuccess(withMessage: "欄位不能是空白的唷！")
             
             return
         }

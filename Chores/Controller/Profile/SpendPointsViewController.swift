@@ -45,7 +45,7 @@ class SpendPointsViewController: UIViewController {
             
             user.points -= 300
             
-            KRProgressHUD.showSuccess(withMessage: "成功扣除點數！")
+//            KRProgressHUD.showSuccess(withMessage: "成功扣除點數！")
             
             updatePoints(user: user)
             
@@ -53,7 +53,7 @@ class SpendPointsViewController: UIViewController {
             
         } else {
             
-            KRProgressHUD.showError(withMessage: "點數不足...再多做一點家事吧！")
+//            KRProgressHUD.showError(withMessage: "點數不足...再多做一點家事吧！")
         }
     }
     

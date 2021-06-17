@@ -104,7 +104,7 @@ class AddChoresViewController: UIViewController {
               let point = pointResultTextField.text,
               let selectedIndex = selectedIndex else {
             
-            KRProgressHUD.showError(withMessage: "資料不能是空的喲！")
+//            KRProgressHUD.showError(withMessage: "資料不能是空的喲！")
             
             return
         }
@@ -112,7 +112,7 @@ class AddChoresViewController: UIViewController {
         // 預設的 textField 不打字也會有空字串
         if time.isEmpty || point.isEmpty {
             
-            KRProgressHUD.showError(withMessage: "資料不能是空的喲！")
+//            KRProgressHUD.showError(withMessage: "資料不能是空的喲！")
             
             return
         }
@@ -134,7 +134,7 @@ class AddChoresViewController: UIViewController {
                 
                 print(data)
                 
-                KRProgressHUD.showSuccess(withMessage: "家事新增成功")
+//                KRProgressHUD.showSuccess(withMessage: "家事新增成功")
                 
                 self?.navigationController?.popViewController(animated: true)
                 
