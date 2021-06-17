@@ -10,40 +10,30 @@ import Charts
 
 class ChoresDataViewController: UIViewController {
     
-    @IBOutlet weak var selfChoreDataView: PieChartView!
+    @IBOutlet weak var chartView: PieChartView!
     
     var finishedChoresList: [[Chore]] = [] {
         
         didSet {
             
-            updateSelfChoreData(choresList: finishedChoresList)
+            updateChoreData(choresList: finishedChoresList)
         }
     }
-    
-//    var nubmerOfPieChartData = [PieChartDataEntry]()
-//
-//    var walkDog = PieChartDataEntry(value: 50)
-////
-//    var washDishes = PieChartDataEntry(value: 50)
-////
-//    var repair = PieChartDataEntry(value: 10)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setUpRecordsListener()
+        onFetchRecordsListener()
     }
     
-    func updateSelfChoreData(choresList: [[Chore]]) {
+    func updateChoreData(choresList: [[Chore]]) {
         
         var pieChartData: [PieChartDataEntry] = []
 
         // reduce 後面接的第一個參數是初始值，表示你希望運算從何而起
         // closure 中第一個變數代表每次運算的結果，第二個是每次所傳進去的陣列，把當前的總和與傳進去的元素相加
         let sum = choresList.reduce(0, { (sum, chores) -> Int in
-            
-//            print("sum = \(sum)", "\(chores[0].item)", "\(chores.count)")
-                      
+
             return sum + chores.count
         })
                 
@@ -80,10 +70,10 @@ class ChoresDataViewController: UIViewController {
         
         chartData.setValueTextColor(.black)
 
-        selfChoreDataView.data = chartData
+        chartView.data = chartData
     }
     
-    func setUpRecordsListener() {
+    func onFetchRecordsListener() {
 
         FirebaseProvider.shared.fetchDifferentChoreType { [weak self] result in
             
@@ -99,5 +89,4 @@ class ChoresDataViewController: UIViewController {
             }
         }
     }
-    
 }

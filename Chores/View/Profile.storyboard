@@ -607,7 +607,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="selfChoreDataView" destination="4Yb-xo-o0l" id="17f-nm-QUt"/>
+                        <outlet property="chartView" destination="4Yb-xo-o0l" id="17f-nm-QUt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sw2-YQ-EOY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
