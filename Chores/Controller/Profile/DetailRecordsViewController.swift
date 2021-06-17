@@ -20,13 +20,7 @@ class DetailRecordsViewController: UIViewController {
         }
     }
     
-    var chores: [Chore] = [] {
-        
-        didSet {
-            
-            tableView.reloadData()
-        }
-    }
+    var chores: [Chore] = []
     
     let blackView = BlackView(frame: UIScreen.main.bounds)
 

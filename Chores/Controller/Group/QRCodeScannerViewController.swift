@@ -57,18 +57,16 @@ class QRCodeScannerViewController: UIViewController {
             view.layer.addSublayer(videoPreviewLayer!)
             
             setUpQRCodeView()
+            
             // Start video capture.
             captureSession.startRunning()
-            
-            // Move the message label and top bar to the front
-//            view.bringSubviewToFront(contentLabel)
-//            view.bringSubviewToFront(topbarView)
 
             captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
             
             captureMetadataOutput.metadataObjectTypes = [AVMetadataObject.ObjectType.qr]
 
         } catch {
+            
             // 假如有錯誤產生、單純輸出其狀況不再繼續執行
             print(error)
             
@@ -105,12 +103,21 @@ class QRCodeScannerViewController: UIViewController {
                 print(user)
                 
                 self?.sendInvitation(user: user)
-                
-//                KRProgressHUD.showSuccess(withMessage: "已成功發送邀請")
-                
+                                
             case .failure(let error):
                 
                 print(error)
+                
+                switch error {
+                
+                case .userNotExist:
+
+                    KRProgressHUD.showError(withMessage: "找不到使用者 ID")
+                    
+                default:
+                    
+                    print(error)
+                }
             }
         }
     }
@@ -128,9 +135,11 @@ class QRCodeScannerViewController: UIViewController {
             
             switch result {
             
-            case .success(let message):
+            case .success(let success):
                 
-                print(message)
+                print("send invitation \(success)")
+                
+                KRProgressHUD.showSuccess(withMessage: "已成功發送邀請")
 
             case .failure(let error):
                 
@@ -149,7 +158,7 @@ extension QRCodeScannerViewController: AVCaptureMetadataOutputObjectsDelegate {
         if metadataObjects.count == 0 {
             
             qrCodeFrameView?.frame = CGRect.zero
-//            messageLabel.text = "No QR code is detected"
+
             return
         }
 

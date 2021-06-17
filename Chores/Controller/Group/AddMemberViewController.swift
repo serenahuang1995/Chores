@@ -37,7 +37,7 @@ class AddMemberViewController: UIViewController {
         
         if userId.isEmpty {
             
-//            KRProgressHUD.showError(withMessage: "ID 不能是空白的哦！")
+            KRProgressHUD.showError(withMessage: "ID 不能是空白的哦！")
             
             return
         }
@@ -70,9 +70,8 @@ class AddMemberViewController: UIViewController {
                 switch error {
                 
                 case .userNotExist:
-                    
-                    return
-//                    KRProgressHUD.showError(withMessage: "找不到使用者 ID")
+
+                    KRProgressHUD.showError(withMessage: "找不到使用者 ID")
                     
                 default:
                     
@@ -94,11 +93,11 @@ class AddMemberViewController: UIViewController {
             
             switch result {
             
-            case .success(let message):
+            case .success(let sucess):
                 
-                print(message)
+                print("send invitation \(sucess)")
                 
-//                KRProgressHUD.showSuccess(withMessage: "已成功發送邀請")
+                KRProgressHUD.showSuccess(withMessage: "已成功發送邀請")
                 
                 self?.dismiss(animated: true, completion: nil)
                 
