@@ -12,7 +12,7 @@
         <scene sceneID="iQg-hv-fCV">
             <objects>
                 <viewController id="vq0-oo-V22" customClass="MissionViewController" customModule="Chores" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="RaZ-rZ-UV5">
+                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="RaZ-rZ-UV5">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -277,7 +277,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="zK6-Xn-FP0"/>
                     <connections>
-                        <outlet property="popView" destination="Ran-TB-4wx" id="WzZ-Z6-jjB"/>
+                        <outlet property="cardView" destination="Ran-TB-4wx" id="WzZ-Z6-jjB"/>
                         <outlet property="transferLabel" destination="Rfm-pM-YRo" id="5vs-q5-XnD"/>
                     </connections>
                 </viewController>
@@ -289,7 +289,7 @@
         <scene sceneID="l4W-2f-akC">
             <objects>
                 <viewController id="WHV-rw-kbC" customClass="AddChoresViewController" customModule="Chores" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="eYJ-ST-ohK">
+                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="eYJ-ST-ohK">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>

@@ -10,7 +10,7 @@ import MIBlurPopup
 
 class TransferDialogViewController: UIViewController {
     
-    @IBOutlet weak var popView: CardView!
+    @IBOutlet weak var cardView: CardView!
     
     @IBOutlet weak var transferLabel: UILabel!
     
@@ -86,7 +86,6 @@ class TransferDialogViewController: UIViewController {
             case .failure(let error):
                 
                 print(error)
-            
             }
         }
     }
@@ -100,7 +99,7 @@ class TransferDialogViewController: UIViewController {
             
             case .success(let success):
                 
-                print(success)
+                print("update user points \(success)")
                 
                 UserProvider.shared.user.points += 15
                 
@@ -123,7 +122,7 @@ class TransferDialogViewController: UIViewController {
             
             case .success(let success):
                 
-                print(success)
+                print("update points \(success)")
                 
                 self?.dismiss(animated: true, completion: nil)
                 
@@ -142,7 +141,7 @@ class TransferDialogViewController: UIViewController {
             
             case .success(let success):
                 
-                print(success)
+                print("reset transfer \(success)")
                 
                 self?.dismiss(animated: true, completion: nil)
                 
@@ -156,23 +155,11 @@ class TransferDialogViewController: UIViewController {
 
 extension TransferDialogViewController: MIBlurPopupDelegate {
     
-    var popupView: UIView {
-        
-        popView
-    }
+    var popupView: UIView { cardView }
     
-    var blurEffectStyle: UIBlurEffect.Style? {
-        
-        .dark
-    }
+    var blurEffectStyle: UIBlurEffect.Style? { .dark }
     
-    var initialScaleAmmount: CGFloat {
-        
-        0.0
-    }
+    var initialScaleAmmount: CGFloat { 0.0 }
     
-    var animationDuration: TimeInterval {
-        
-        0.2
-    }
+    var animationDuration: TimeInterval { 0.2 }
 }
