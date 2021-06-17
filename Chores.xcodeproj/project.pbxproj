@@ -41,7 +41,7 @@
 		DC83523B2676836A003A1F7B /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8352392676836A003A1F7B /* DetailTableViewCell.swift */; };
 		DC83523C2676836A003A1F7B /* DetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC83523A2676836A003A1F7B /* DetailTableViewCell.xib */; };
 		DC856DB1266CC0D9005DDED1 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC856DB0266CC0D9005DDED1 /* Data+Extension.swift */; };
-		DC856DD2266D2346005DDED1 /* ChangeNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC856DD1266D2345005DDED1 /* ChangeNameViewController.swift */; };
+		DC856DD2266D2346005DDED1 /* RenameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC856DD1266D2345005DDED1 /* RenameViewController.swift */; };
 		DC8FE0E5266299D20016927D /* Signin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC8FE0E4266299D10016927D /* Signin.storyboard */; };
 		DC8FE0E826629A1B0016927D /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8FE0E726629A1B0016927D /* SigninViewController.swift */; };
 		DC913CE3264C144400C18251 /* SectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC913CE1264C144400C18251 /* SectionView.swift */; };
@@ -131,7 +131,7 @@
 		DC8352392676836A003A1F7B /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 		DC83523A2676836A003A1F7B /* DetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailTableViewCell.xib; sourceTree = "<group>"; };
 		DC856DB0266CC0D9005DDED1 /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
-		DC856DD1266D2345005DDED1 /* ChangeNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeNameViewController.swift; sourceTree = "<group>"; };
+		DC856DD1266D2345005DDED1 /* RenameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenameViewController.swift; sourceTree = "<group>"; };
 		DC8FE0E4266299D10016927D /* Signin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Signin.storyboard; sourceTree = "<group>"; };
 		DC8FE0E726629A1B0016927D /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
 		DC8FE1132662A8BC0016927D /* Chores.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Chores.entitlements; sourceTree = "<group>"; };
@@ -474,7 +474,7 @@
 				DCD737A126520BB300F1DEF8 /* ChoresDataViewController.swift */,
 				DC502A5C26535D6200BEC0C3 /* SpendPointsViewController.swift */,
 				DC71957D265E330E00DC3706 /* SettingViewController.swift */,
-				DC856DD1266D2345005DDED1 /* ChangeNameViewController.swift */,
+				DC856DD1266D2345005DDED1 /* RenameViewController.swift */,
 				DC7D1BFA26730BA700C3898B /* LeaveGroupViewController.swift */,
 			);
 			path = Profile;
@@ -696,7 +696,7 @@
 				DCA1E1662669453500FDE9B6 /* TransferDialogViewController.swift in Sources */,
 				DCBB101E2653A36600A8C1E4 /* RuleViewController.swift in Sources */,
 				DC7D1BFE2673725500C3898B /* StorageProvider.swift in Sources */,
-				DC856DD2266D2346005DDED1 /* ChangeNameViewController.swift in Sources */,
+				DC856DD2266D2346005DDED1 /* RenameViewController.swift in Sources */,
 				DC913CEB264C1F9100C18251 /* UIColor+Extension.swift in Sources */,
 				DC856DB1266CC0D9005DDED1 /* Data+Extension.swift in Sources */,
 				DC71959C265FF9C000DC3706 /* FlatCardCollectionViewLayout.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  ChangeNameViewController.swift
+//  RenameViewController.swift
 //  Chores
 //
 //  Created by 黃瀞萱 on 2021/6/6.
@@ -10,7 +10,7 @@ import KRProgressHUD
 import MIBlurPopup
 import IQKeyboardManagerSwift
 
-class ChangeNameViewController: UIViewController {
+class RenameViewController: UIViewController {
     
     @IBOutlet weak var nameTextField: UITextField! {
         
@@ -20,11 +20,7 @@ class ChangeNameViewController: UIViewController {
         }
     }
         
-    @IBOutlet weak var popView: CardView!
-    
-//    weak var delegate: ProfileDelegate?
-    
-    let textLimitCount = 7
+    @IBOutlet weak var cardView: CardView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,11 +35,6 @@ class ChangeNameViewController: UIViewController {
     @IBAction func cancel(_ sender: Any) {
         
         dismiss(animated: true, completion: nil)
-        
-//        dismiss(animated: true) {
-//
-//            self.delegate?.backToProfile()
-//        }
     }
  
     @IBAction func sureToChangeName(_ sender: Any) {
@@ -73,14 +64,9 @@ class ChangeNameViewController: UIViewController {
             
             case .success(let success):
                 
-                print(success)
+                print("rename \(success)")
                 
                 self?.dismiss(animated: true, completion: nil)
-                
-//                self?.dismiss(animated: true) {
-//
-//                    self?.delegate?.backToProfile()
-//                }
                 
                 KRProgressHUD.showSuccess(withMessage: "更改名稱成功！")
                 
@@ -92,7 +78,7 @@ class ChangeNameViewController: UIViewController {
     }
 }
 
-extension ChangeNameViewController: UITextFieldDelegate {
+extension RenameViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
@@ -105,19 +91,21 @@ extension ChangeNameViewController: UITextFieldDelegate {
                    shouldChangeCharactersIn range: NSRange,
                    replacementString string: String) -> Bool {
         
+        let textLimitCounts = 7
+
         let currentText = textField.text ?? ""
         
         guard let stringRange = Range(range, in: currentText) else { return false }
         
         let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
         
-        return updatedText.count <= textLimitCount
+        return updatedText.count <= textLimitCounts
     }
 }
 
-extension ChangeNameViewController: MIBlurPopupDelegate {
+extension RenameViewController: MIBlurPopupDelegate {
     
-    var popupView: UIView { popView }
+    var popupView: UIView { cardView }
     
     var blurEffectStyle: UIBlurEffect.Style? { .dark }
     

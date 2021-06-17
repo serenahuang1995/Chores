@@ -293,10 +293,10 @@
             </objects>
             <point key="canvasLocation" x="-1380" y="991"/>
         </scene>
-        <!--Change Name View Controller-->
+        <!--Rename View Controller-->
         <scene sceneID="hRU-AE-imK">
             <objects>
-                <viewController id="8BE-MH-3Tl" customClass="ChangeNameViewController" customModule="Chores" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8BE-MH-3Tl" customClass="RenameViewController" customModule="Chores" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cDI-4w-7JH">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -360,8 +360,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="0vO-9k-CFl"/>
                     <connections>
+                        <outlet property="cardView" destination="HtK-KU-dYs" id="xAm-Ag-yBH"/>
                         <outlet property="nameTextField" destination="2qV-Sb-XNa" id="5DV-TJ-rsH"/>
-                        <outlet property="popView" destination="HtK-KU-dYs" id="xAm-Ag-yBH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jv0-cO-D35" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
