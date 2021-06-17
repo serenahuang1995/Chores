@@ -90,7 +90,7 @@ class InvitationViewController: UIViewController {
                 }
             }
         }
-    }    
+    }
 }
 
 extension InvitationViewController: MIBlurPopupDelegate {

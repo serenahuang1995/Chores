@@ -35,18 +35,13 @@ class InitialViewController: UIViewController {
         
         return layout
     }()
-    
-//    var user: User?
-    
+
     var invitation: Invitation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        fetchUser()
-        
         onInviteListener()
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -98,28 +93,6 @@ class InitialViewController: UIViewController {
             }
         }
     }
-    
-//    func fetchUser() {
-//        
-//        UserProvider.shared.fetchUser { result in
-//            
-//            switch result {
-//            
-//            case .success(let user):
-//                
-//                print(user)
-//                
-//                self.user = user
-//                
-//            case .failure(let error):
-//                
-//                print(error)
-//            }
-//            
-//        }
-//        
-//    }
-    
 }
 
 extension InitialViewController: UICollectionViewDelegate {
