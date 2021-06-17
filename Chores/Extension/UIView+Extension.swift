@@ -11,7 +11,7 @@ import UIKit
 extension UIView {
     
     // Border Color
-    @IBInspectable var objectBorderColor: UIColor? {
+    @IBInspectable var viewBorderColor: UIColor? {
         
         get {
 
@@ -29,7 +29,7 @@ extension UIView {
     }
     
     // Border Width
-    @IBInspectable var objectBorderWidth: CGFloat {
+    @IBInspectable var viewBorderWidth: CGFloat {
         
         get {
             
@@ -42,7 +42,7 @@ extension UIView {
     }
     
     // Corner Radius
-    @IBInspectable var objectCornerRadius: CGFloat {
+    @IBInspectable var viewCornerRadius: CGFloat {
         
         get {
             
