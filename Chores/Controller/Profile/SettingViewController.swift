@@ -29,19 +29,13 @@ class SettingViewController: UIViewController {
     @IBOutlet weak var leaveGroupButton: UIButton!
     
     weak var delegate: SettingDelegate?
-    
-//    let blackView = UIView(frame: UIScreen.main.bounds)
-    
+
     let blackView = BlackView(frame: UIScreen.main.bounds)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        blackView.configureBlackView()
-        
         presentingViewController?.view.addSubview(blackView)
-        
-//        showBlackView()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -88,27 +82,5 @@ class SettingViewController: UIViewController {
         dismiss(animated: true, completion: nil)
         
         self.delegate?.onButtonLeave()
-    }
-    
-    private func showBlackView() {
-        
-        blackView.backgroundColor = .clear
-        
-        presentingViewController?.view.addSubview(blackView)
-        
-        setUpVisualEffect()
-    }
-    
-    private func setUpVisualEffect() {
-        
-        let effect = UIBlurEffect(style: .dark)
-        
-        let effectView = UIVisualEffectView(effect: effect)
-        
-        effectView.alpha = 0.6
-        
-        effectView.frame = blackView.frame
-        
-        blackView.addSubview(effectView)
     }
 }

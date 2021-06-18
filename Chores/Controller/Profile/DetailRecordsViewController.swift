@@ -24,12 +24,8 @@ class DetailRecordsViewController: UIViewController {
     
     let blackView = BlackView(frame: UIScreen.main.bounds)
 
-//    let blackView = UIView(frame: UIScreen.main.bounds)
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        blackView.configureBlackView()
         
         presentingViewController?.view.addSubview(blackView)
     }
@@ -63,28 +59,6 @@ class DetailRecordsViewController: UIViewController {
         tableView.dataSource = self
         
         tableView.separatorStyle = .none
-    }
-    
-    private func showBlackView() {
-
-        blackView.backgroundColor = .clear
-
-        presentingViewController?.view.addSubview(blackView)
-
-        setUpVisualEffect()
-    }
-
-    private func setUpVisualEffect() {
-
-        let effect = UIBlurEffect(style: .dark)
-
-        let effectView = UIVisualEffectView(effect: effect)
-
-        effectView.alpha = 0.6
-
-        effectView.frame = blackView.frame
-
-        blackView.addSubview(effectView)
     }
 }
 
