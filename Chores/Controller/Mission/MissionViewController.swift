@@ -47,8 +47,6 @@ class MissionViewController: UIViewController {
 
     var selectedIndex: Int?
     
-    let identifier = UserProvider.shared.uid
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -56,9 +54,7 @@ class MissionViewController: UIViewController {
     
         fetchUser()
         
-        setMorningNotfication()
-        
-        setNightNotfication()
+        NotificationUtils().setChoresReminder()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -195,20 +191,20 @@ class MissionViewController: UIViewController {
                 switch user.weekHours {
                 
                 case 0...50:
-                    print("積分 1 倍")
-                    multiple = 1
+
+                    multiple = 1 // 積分 1 倍
                     
                 case 51...100:
-                    print("積分 1.2 倍")
-                    multiple = 1.2
+
+                    multiple = 1.2 // 積分 1.2 倍
                     
                 case 101...150:
-                    print("積分 1.5 倍")
-                    multiple = 1.5
+
+                    multiple = 1.5 // 積分 1.5 倍
                     
                 default:
-                    print("積分 2 倍")
-                    multiple = 2
+
+                    multiple = 2 // 積分 2 倍
                 }
                 
                 user.weekHours += chore.hours
@@ -262,74 +258,6 @@ class MissionViewController: UIViewController {
             lobbyView.isHidden = false
             
             animationView.configureLottieView(name: Lottie.washing)
-        }
-    }
-    
-    func getNotificationContent(title: String, body: String, sound: UNNotificationSound) -> UNMutableNotificationContent {
-
-        let content = UNMutableNotificationContent()
-        
-        content.title = title
-        
-        content.body = body
-        
-        content.sound = sound
-        
-        return content
-    }
-    
-//    func getTriggerDaily(hour: Int, minute: Int, second: Int) -> UNCalendarNotificationTrigger{
-//        
-//        let triggerDaily = DateComponents(calendar: Calendar.current,hour: hour, minute: minute, second: second)
-//        
-//        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDaily, repeats: false)
-//        
-//        return trigger
-//    }
-    
-    func setMorningNotfication() {
-        
-        let content = getNotificationContent(title: "早安", body: "今天也要努力的做家事唷❤️", sound: .default)
-        
-        let triggerDaily = DateComponents(calendar: Calendar.current,hour: 9, minute: 0, second: 0)
-
-        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDaily, repeats: false)
-        
-        let request = UNNotificationRequest(identifier: "Morning", content: content, trigger: trigger)
-        
-        UNUserNotificationCenter.current().add(request) { error in
-
-            if let error = error {
-
-                print(error)
-                
-            } else {
-
-                print("Success")
-            }
-        }
-    }
-    
-    func setNightNotfication() {
-        
-        let content = getNotificationContent(title: "晚安", body: "辛苦一整天了，家事都做完了嗎💪🏻", sound: .default)
-    
-        let triggerDaily = DateComponents(calendar: Calendar.current,hour: 21, minute: 0, second: 0)
-                        
-        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDaily, repeats: false)
-        
-        let request = UNNotificationRequest(identifier: "Night", content: content, trigger: trigger)
-
-        UNUserNotificationCenter.current().add(request) { error in
-            
-            if let error = error {
-                
-                print(error)
-                
-            } else {
-                
-                print("Success")
-            }
         }
     }
     
