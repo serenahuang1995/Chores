@@ -45,9 +45,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var animationView: AnimationView!
     
     @IBOutlet var switchButtons: [UIButton]!
-    
-//    let blackView = UIView(frame: UIScreen.main.bounds)
-    
+
     let blackView = BlackView(frame: UIScreen.main.bounds)
     
     var containerViews: [UIView] {
@@ -156,30 +154,6 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    func showBlackView() {
-        
-        blackView.backgroundColor = .black
-        
-        blackView.alpha = 0.4
-
-        view.insertSubview(blackView, at: 3)
-        
-        setUpVisualEffect()
-    }
-    
-    private func setUpVisualEffect() {
-        
-        let effect = UIBlurEffect(style: .dark)
-        
-        let effectView = UIVisualEffectView(effect: effect)
-        
-        effectView.alpha = 0.6
-        
-        effectView.frame = blackView.frame
-        
-        blackView.addSubview(effectView)
-    }
-    
     func onFetchUserListener() {
         
         UserProvider.shared.fetchUserListener { result in
@@ -273,9 +247,7 @@ class ProfileViewController: UIViewController {
     }
     
     func uploadUserImage(image: UIImage, imageData: Data) {
-        
-//        blackView.configureBlackView()
-        
+
         view.insertSubview(blackView, at: 3)
         
         animationView.configureLottieView(name: Lottie.loading)
