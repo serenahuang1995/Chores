@@ -65,7 +65,7 @@
 		DCA433FE264BA2C500242617 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCA433FC264BA2C500242617 /* LaunchScreen.storyboard */; };
 		DCA589F326555AD10033EE63 /* FirebaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA589F226555AD10033EE63 /* FirebaseProvider.swift */; };
 		DCA6842C2663F22000797EAB /* CreateGroup.json in Resources */ = {isa = PBXBuildFile; fileRef = DCA6842B2663F22000797EAB /* CreateGroup.json */; };
-		DCAC162C267C9B9200163F9F /* UserNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAC162B267C9B9200163F9F /* UserNotifications.swift */; };
+		DCAC162C267C9B9200163F9F /* NotificationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAC162B267C9B9200163F9F /* NotificationUtils.swift */; };
 		DCAFE9AC266F78D6003EC39E /* House.json in Resources */ = {isa = PBXBuildFile; fileRef = DCAFE9AA266F78D5003EC39E /* House.json */; };
 		DCAFE9AD266F78D6003EC39E /* HomeGreate.json in Resources */ = {isa = PBXBuildFile; fileRef = DCAFE9AB266F78D6003EC39E /* HomeGreate.json */; };
 		DCB5128A26662F3600B4B8A5 /* QRCodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB5128926662F3600B4B8A5 /* QRCodeScannerViewController.swift */; };
@@ -163,7 +163,7 @@
 		DCA433FF264BA2C500242617 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCA589F226555AD10033EE63 /* FirebaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseProvider.swift; sourceTree = "<group>"; };
 		DCA6842B2663F22000797EAB /* CreateGroup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CreateGroup.json; sourceTree = "<group>"; };
-		DCAC162B267C9B9200163F9F /* UserNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotifications.swift; sourceTree = "<group>"; };
+		DCAC162B267C9B9200163F9F /* NotificationUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationUtils.swift; sourceTree = "<group>"; };
 		DCAFE9AA266F78D5003EC39E /* House.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = House.json; sourceTree = "<group>"; };
 		DCAFE9AB266F78D6003EC39E /* HomeGreate.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HomeGreate.json; sourceTree = "<group>"; };
 		DCB5128926662F3600B4B8A5 /* QRCodeScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScannerViewController.swift; sourceTree = "<group>"; };
@@ -432,7 +432,7 @@
 				DCB98A0D264CDF7200A8C794 /* UITableView+Extension.swift */,
 				DC8136482650090E003CC6ED /* UICollectionView+Extension.swift */,
 				DC856DB0266CC0D9005DDED1 /* Data+Extension.swift */,
-				DCAC162B267C9B9200163F9F /* UserNotifications.swift */,
+				DCAC162B267C9B9200163F9F /* NotificationUtils.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -696,7 +696,7 @@
 				DCD737A726520E7200F1DEF8 /* RecordsTableViewCell.swift in Sources */,
 				DC71957E265E330F00DC3706 /* SettingViewController.swift in Sources */,
 				DC4B37B0267B7E6D0068E542 /* BlackView.swift in Sources */,
-				DCAC162C267C9B9200163F9F /* UserNotifications.swift in Sources */,
+				DCAC162C267C9B9200163F9F /* NotificationUtils.swift in Sources */,
 				DC7D1BFB26730BA800C3898B /* LeaveGroupViewController.swift in Sources */,
 				DCEEAA38264BCDBE00A64D37 /* UIStoryboard+Extension.swift in Sources */,
 				DC719598265FF47A00DC3706 /* InvitedCollectionViewCell.swift in Sources */,
