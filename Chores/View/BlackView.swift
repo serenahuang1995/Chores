@@ -9,10 +9,19 @@ import UIKit
 
 class BlackView: UIView {
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        configureBlackView()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        
+    }
+    
     func configureBlackView() {
-        
-//        let blackView = UIView(frame: UIScreen.main.bounds)
-        
+
         self.backgroundColor = .clear
         
         let effect = UIBlurEffect(style: .dark)

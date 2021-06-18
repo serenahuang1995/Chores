@@ -274,11 +274,9 @@ class ProfileViewController: UIViewController {
     
     func uploadUserImage(image: UIImage, imageData: Data) {
         
-        blackView.configureBlackView()
+//        blackView.configureBlackView()
         
         view.insertSubview(blackView, at: 3)
-        
-//        showBlackView()
         
         animationView.configureLottieView(name: Lottie.loading)
         
