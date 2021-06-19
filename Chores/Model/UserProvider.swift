@@ -177,9 +177,9 @@ class UserProvider {
         
         let docReference = database.collection(Collection.users).document(user.id)
         
-        docReference.updateData([UserType.points: user.points,
-                                 UserType.totalHours: user.totalHours,
-                                 UserType.weekHours: user.weekHours]) { error in
+        docReference.updateData([UserField.points: user.points,
+                                 UserField.totalHours: user.totalHours,
+                                 UserField.weekHours: user.weekHours]) { error in
             
             if let error = error {
                 
@@ -197,7 +197,7 @@ class UserProvider {
         
         let docReference = database.collection(Collection.users).document(UserProvider.shared.uid ?? "")
         
-        docReference.updateData([UserType.weekHours: 0])
+        docReference.updateData([UserField.weekHours: 0])
         
         completion(.success("update weekHours success"))
     }
@@ -208,7 +208,7 @@ class UserProvider {
         
         let docReference = database.collection(Collection.users).document(uid ?? "")
         
-        docReference.updateData([UserType.groupId: groupId]) { [weak self] error in
+        docReference.updateData([UserField.groupId: groupId]) { [weak self] error in
             
             if let error = error {
                 
@@ -229,7 +229,7 @@ class UserProvider {
         
         let docReference = database.collection(Collection.users).document(uid ?? "")
         
-        docReference.updateData([UserType.groupId: invitation.group]) { [weak self] error in
+        docReference.updateData([UserField.groupId: invitation.group]) { [weak self] error in
             
             if let error = error {
                 
@@ -249,10 +249,10 @@ class UserProvider {
         
         let docReference = database.collection(Collection.users).document(user.id)
         
-        docReference.updateData([UserType.groupId: nil ?? "",
-                                 UserType.points: 0,
-                                 UserType.weekHours: 0,
-                                 UserType.totalHours: 0]) { error in
+        docReference.updateData([UserField.groupId: nil ?? "",
+                                 UserField.points: 0,
+                                 UserField.weekHours: 0,
+                                 UserField.totalHours: 0]) { error in
             
             if let error = error {
                 
@@ -352,7 +352,7 @@ class UserProvider {
         
         let docRerence = database
             .collection(Collection.users)
-            .whereField(UserType.groupId, isEqualTo: user.groupId ?? "")
+            .whereField(UserField.groupId, isEqualTo: user.groupId ?? "")
         
         docRerence.addSnapshotListener { querySnapshot, error in
             
@@ -416,7 +416,7 @@ class UserProvider {
         
         let docReference = database.collection(Collection.users).document(uid ?? "")
         
-        docReference.updateData([UserType.name: name]) { error in
+        docReference.updateData([UserField.name: name]) { error in
             
             if let error = error {
                 
@@ -434,7 +434,7 @@ class UserProvider {
 
         let docReference = database.collection(Collection.users).document(uid ?? "")
         
-        docReference.updateData([UserType.picture: imageName]) { error in
+        docReference.updateData([UserField.picture: imageName]) { error in
             
             if let error = error {
                 
@@ -451,7 +451,7 @@ class UserProvider {
 
         let docReference = database.collection(Collection.users).document(uid ?? "")
         
-        docReference.updateData([UserType.isSpent: true]) { error in
+        docReference.updateData([UserField.isSpent: true]) { error in
             
             if let error = error {
                 
@@ -468,7 +468,7 @@ class UserProvider {
 
         let docReference = database.collection(Collection.users).document(uid ?? "")
         
-        docReference.updateData([UserType.isSpent: false]) { error in
+        docReference.updateData([UserField.isSpent: false]) { error in
             
             if let error = error {
                 

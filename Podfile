@@ -19,5 +19,9 @@ target 'Chores' do
   pod 'Firebase/Crashlytics'
   pod 'Kingfisher'
 
+target 'ChoresTests' do
+  inherit! :search_paths
+
+  end
 
 end

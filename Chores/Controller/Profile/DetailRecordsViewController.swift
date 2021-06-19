@@ -59,6 +59,8 @@ class DetailRecordsViewController: UIViewController {
         tableView.dataSource = self
         
         tableView.separatorStyle = .none
+        
+        tableView.layer.cornerRadius = 20
     }
 }
 

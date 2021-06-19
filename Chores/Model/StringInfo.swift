@@ -71,14 +71,14 @@ struct Collection {
     static let invitations = "invitations"
 }
 
-struct GroupType {
+struct GroupField {
     
     static let id = "id"
     
     static let choreTypes = "choreTypes"
 }
 
-struct ChoreType {
+struct ChoreField {
     
     static let id = "id"
     
@@ -95,7 +95,7 @@ struct ChoreType {
     static let completedDate = "completedDate"
 }
 
-struct UserType {
+struct UserField {
     
     static let id = "id"
     

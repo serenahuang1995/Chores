@@ -91,7 +91,7 @@ extension Date {
         
         let firstDate = newDateFormatter.date(from: firstDayValue)
         
-        print("firstDate：\(firstDate)")
+        print("firstDate：\(firstDate ?? Date())")
 
         return firstDate
     }

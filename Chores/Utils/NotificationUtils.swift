@@ -64,7 +64,7 @@ class NotificationUtils {
             
             content = getNotificationContent(title: "晚安", body: "辛苦一整天了，家事都做完了嗎💪🏻")
             
-            trigger = getTriggerDaily(hour: 21, minute: 45, second: 0)
+            trigger = getTriggerDaily(hour: 21, minute: 0, second: 0)
         }
         
         

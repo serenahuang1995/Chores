@@ -75,7 +75,7 @@ class FirebaseProvider {
             .collection(Collection.groups).document(UserProvider.shared.user.groupId ?? "")
             .collection(Collection.chores).document(selectedChore.id)
         
-        docReference.updateData([ChoreType.owner: UserProvider.shared.user.id]) { error in
+        docReference.updateData([ChoreField.owner: UserProvider.shared.user.id]) { error in
             
             if let error = error {
                 
@@ -98,7 +98,7 @@ class FirebaseProvider {
             .collection(Collection.groups).document(UserProvider.shared.user.groupId ?? "")
             .collection(Collection.chores).document(selectedChore.id)
         
-        docRefernce.updateData([ChoreType.status: 1, ChoreType.completedDate: completedDate]) { error in
+        docRefernce.updateData([ChoreField.status: 1, ChoreField.completedDate: completedDate]) { error in
             
             if let error = error {
                 
@@ -120,7 +120,7 @@ class FirebaseProvider {
         
         let docRefernce = database.collection(Collection.groups).document(groupId)
             .collection(Collection.chores)
-            .whereField(ChoreType.status, isEqualTo: 0)
+            .whereField(ChoreField.status, isEqualTo: 0)
         
         docRefernce.addSnapshotListener { querySnapshot, error in
             
@@ -147,8 +147,8 @@ class FirebaseProvider {
         
         let docReference = database.collection(Collection.groups).document(UserProvider.shared.user.groupId ?? "")
             .collection(Collection.chores)
-            .whereField(ChoreType.status, isEqualTo: 1)
-            .whereField(ChoreType.owner, isEqualTo: UserProvider.shared.user.id)
+            .whereField(ChoreField.status, isEqualTo: 1)
+            .whereField(ChoreField.owner, isEqualTo: UserProvider.shared.user.id)
         
         docReference.addSnapshotListener { querySnapshot, error in
             
@@ -199,7 +199,7 @@ class FirebaseProvider {
         
         let docReference = database.collection(Collection.groups).document(UserProvider.shared.user.groupId ?? "")
         
-        docReference.updateData([GroupType.choreTypes: FieldValue.arrayUnion([choreType])]) { error in
+        docReference.updateData([GroupField.choreTypes: FieldValue.arrayUnion([choreType])]) { error in
                 
                 if let error = error {
                     
@@ -219,7 +219,7 @@ class FirebaseProvider {
         let docReference = database.collection(Collection.groups).document(UserProvider.shared.user.groupId ?? "")
         
         docReference
-            .updateData([GroupType.choreTypes: FieldValue.arrayRemove([selectedChoreType])]) { error in
+            .updateData([GroupField.choreTypes: FieldValue.arrayRemove([selectedChoreType])]) { error in
                 
                 if let error = error {
                     
@@ -238,8 +238,8 @@ class FirebaseProvider {
         let docReference = database
             .collection(Collection.groups).document(UserProvider.shared.user.groupId!)
             .collection(Collection.chores)
-            .whereField(ChoreType.owner, isEqualTo: UserProvider.shared.user.id)
-            .whereField(ChoreType.status, isEqualTo: 1)
+            .whereField(ChoreField.owner, isEqualTo: UserProvider.shared.user.id)
+            .whereField(ChoreField.status, isEqualTo: 1)
 
         docReference.addSnapshotListener { querySnapshot, error in
             
@@ -299,7 +299,7 @@ class FirebaseProvider {
             .collection(Collection.groups).document(UserProvider.shared.user.groupId ?? "")
             .collection(Collection.chores).document(selectedChore.id)
         
-        docReference.updateData([ChoreType.transfer: user.id]) { error in
+        docReference.updateData([ChoreField.transfer: user.id]) { error in
             
             if let error = error {
                 
@@ -319,7 +319,7 @@ class FirebaseProvider {
         let docReference = database
             .collection(Collection.groups).document(UserProvider.shared.user.groupId ?? "")
             .collection(Collection.chores)
-            .whereField(ChoreType.transfer, isEqualTo: UserProvider.shared.user.id)
+            .whereField(ChoreField.transfer, isEqualTo: UserProvider.shared.user.id)
         
         docReference.addSnapshotListener { querySnapshot, error in
             
@@ -349,7 +349,7 @@ class FirebaseProvider {
             .collection(Collection.groups).document(UserProvider.shared.user.groupId ?? "")
             .collection(Collection.chores).document(selectedChore.id)
         
-        docReference.updateData([ChoreType.owner: UserProvider.shared.user.id, ChoreType.transfer: nil]) { error in
+        docReference.updateData([ChoreField.owner: UserProvider.shared.user.id, ChoreField.transfer: nil]) { error in
             
             if let error = error {
                 
@@ -370,7 +370,7 @@ class FirebaseProvider {
             .collection(Collection.groups).document(UserProvider.shared.user.groupId ?? "")
             .collection(Collection.chores).document(selectedChore.id)
         
-        docReference.updateData([ChoreType.transfer: nil ?? ""]) { error in
+        docReference.updateData([ChoreField.transfer: nil ?? ""]) { error in
             
             if let error = error {
                 
@@ -394,8 +394,8 @@ class FirebaseProvider {
         let docReference = database
             .collection(Collection.groups).document(UserProvider.shared.user.groupId ?? "")
             .collection(Collection.chores)
-            .whereField(ChoreType.completedDate, isGreaterThanOrEqualTo: firstDate)
-            .whereField(ChoreType.completedDate, isLessThanOrEqualTo: lastDate)
+            .whereField(ChoreField.completedDate, isGreaterThanOrEqualTo: firstDate)
+            .whereField(ChoreField.completedDate, isLessThanOrEqualTo: lastDate)
         
         docReference.addSnapshotListener { querySnapshot, error in
             
@@ -434,8 +434,8 @@ class FirebaseProvider {
         let docReference = database
             .collection(Collection.groups).document(UserProvider.shared.user.groupId ?? "")
             .collection(Collection.chores)
-            .whereField(ChoreType.completedDate, isGreaterThanOrEqualTo: startDate)
-            .whereField(ChoreType.completedDate, isLessThanOrEqualTo: endDate)
+            .whereField(ChoreField.completedDate, isGreaterThanOrEqualTo: startDate)
+            .whereField(ChoreField.completedDate, isLessThanOrEqualTo: endDate)
         
         docReference.addSnapshotListener { querySnapshot, error in
             
