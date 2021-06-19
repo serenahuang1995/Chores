@@ -9,7 +9,7 @@ import UIKit
 
 extension String {
     
-    func randomNonceString(length: Int = 32) -> String {
+    static func randomNonce(length: Int = 32) -> String {
         
         precondition(length > 0)
         

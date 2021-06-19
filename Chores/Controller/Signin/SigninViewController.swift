@@ -75,7 +75,7 @@ class SigninViewController: UIViewController {
         
 //        let nonceString = String()
         
-        let nonce = String().randomNonceString()
+        let nonce = String.randomNonce()
         
         currentNonce = nonce
         

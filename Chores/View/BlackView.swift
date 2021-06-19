@@ -17,7 +17,7 @@ class BlackView: UIView {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        
+
     }
     
     func configureBlackView() {

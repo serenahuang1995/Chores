@@ -11,7 +11,7 @@ import FirebaseFirestoreSwift
 
 class FirebaseProvider {
     
-    static var shared = FirebaseProvider()
+    static let shared = FirebaseProvider()
     
     lazy var database = Firestore.firestore()
     

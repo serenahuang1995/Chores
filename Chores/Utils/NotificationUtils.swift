@@ -49,7 +49,7 @@ class NotificationUtils {
     func setUpNotfication(identifier: NotificationIdentifier) {
         
         var content: UNMutableNotificationContent
-        
+
         var trigger: UNCalendarNotificationTrigger
         
         switch identifier {
