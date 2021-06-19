@@ -73,8 +73,6 @@ class SigninViewController: UIViewController {
         
         request.requestedScopes = [.email, .fullName]
         
-//        let nonceString = String()
-        
         let nonce = String.randomNonce()
         
         currentNonce = nonce

@@ -42,7 +42,7 @@ class RecordsTableViewCell: UITableViewCell {
         
         if let imageName = ChoreImages.imageNames[chores[0].item] {
             
-            choreImage.image = UIImage(named: imageName)
+            choreImage.image = UIImage(named: imageName.rawValue)
             
         } else {
             

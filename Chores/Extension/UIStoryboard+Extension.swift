@@ -24,21 +24,20 @@ private struct StoryboardCategory {
 
 extension UIStoryboard {
     
-    static var main: UIStoryboard { return stStoryboard(name: StoryboardCategory.main) }
+    static var main: UIStoryboard { return storyboard(name: StoryboardCategory.main) }
     
-    static var mission: UIStoryboard { return stStoryboard(name: StoryboardCategory.mission) }
+    static var mission: UIStoryboard { return storyboard(name: StoryboardCategory.mission) }
     
-    static var group: UIStoryboard { return stStoryboard(name: StoryboardCategory.group) }
+    static var group: UIStoryboard { return storyboard(name: StoryboardCategory.group) }
     
-    static var profile: UIStoryboard { return stStoryboard(name: StoryboardCategory.profile) }
+    static var profile: UIStoryboard { return storyboard(name: StoryboardCategory.profile) }
     
-    static var initial: UIStoryboard { return stStoryboard(name: StoryboardCategory.initial) }
+    static var initial: UIStoryboard { return storyboard(name: StoryboardCategory.initial) }
     
-    static var signin: UIStoryboard { return stStoryboard(name: StoryboardCategory.signin) }
+    static var signin: UIStoryboard { return storyboard(name: StoryboardCategory.signin) }
     
-    private static func stStoryboard(name: String) -> UIStoryboard {
+    private static func storyboard(name: String) -> UIStoryboard {
         
         return UIStoryboard(name: name, bundle: nil)
     }
-
 }

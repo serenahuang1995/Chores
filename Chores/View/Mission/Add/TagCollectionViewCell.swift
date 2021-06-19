@@ -40,7 +40,7 @@ class TagCollectionViewCell: UICollectionViewCell {
         // 如果有找到對應的 tagItem 就會將 item 的 value(圖片的名字)存進 imageName
         if let imageName = ChoreImages.imageNames[tagItem] {
             
-            choreImage.image = UIImage(named: imageName)
+            choreImage.image = UIImage(named: imageName.rawValue)
             
             editButton.isHidden = true
             

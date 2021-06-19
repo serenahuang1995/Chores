@@ -39,7 +39,7 @@ class DetailTableViewCell: UITableViewCell {
         
         if let imageName = ChoreImages.imageNames[chore.item] {
             
-            choreImage.image = UIImage(named: imageName)
+            choreImage.image = UIImage(named: imageName.rawValue)
             
         } else {
             

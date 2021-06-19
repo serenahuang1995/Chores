@@ -48,32 +48,30 @@ enum ChoreItem: String {
     case vacuumCleaner = "吸地"
     
     case customChore = "其他"
-    
 }
 
 struct ChoreImages {
     
-    static let imageNames: [String: String] = [
-        "洗碗": "WashDishes",
-        "洗衣服": "WashClothes",
-        "晾衣服": "DryClothes",
-        "摺衣服": "FoldClothes",
-        "燙衣服": "IronClothes",
-        "倒垃圾": "ThrowTrash",
-        "刷廁所": "CleanBathroom",
-        "擦窗戶": "CleanWindow",
-        "修繕": "Repair",
-        "澆花": "WaterFlower",
-        "遛狗": "WalkDog",
-        "收納": "Storage",
-        "接送": "PickUp",
-        "帶小孩": "TakeCareKid",
-        "煮飯": "Cook",
-        "買菜": "Grocery",
-        "掃地": "BroomFloor",
-        "拖地": "MopFloor",
-        "吸地": "VacuumCleaner",
-        "其他": "CustomChore"
+    static let imageNames: [ChoreItem.RawValue: ImageAsset] = [
+        ChoreItem.washDishes.rawValue: .WashDishes,
+        ChoreItem.washClothes.rawValue: .WashClothes,
+        ChoreItem.dryClothes.rawValue: .DryClothes,
+        ChoreItem.foldClothes.rawValue: .FoldClothes,
+        ChoreItem.ironClothes.rawValue: .IronClothes,
+        ChoreItem.throwTrash.rawValue: .ThrowTrash,
+        ChoreItem.cleanBathroom.rawValue: .CleanBathroom,
+        ChoreItem.cleanWindow.rawValue: .CleanWindow,
+        ChoreItem.repair.rawValue: .Repair,
+        ChoreItem.waterFlower.rawValue: .WaterFlower,
+        ChoreItem.walkDog.rawValue: .WalkDog,
+        ChoreItem.storage.rawValue: .Storage,
+        ChoreItem.pickUp.rawValue: .PickUp,
+        ChoreItem.takeCareKid.rawValue: .TakeCareKid,
+        ChoreItem.cook.rawValue: .Cook,
+        ChoreItem.grocery.rawValue: .Grocery,
+        ChoreItem.broomFloor.rawValue: .BroomFloor,
+        ChoreItem.mopFloor.rawValue: .MopFloor,
+        ChoreItem.vacuumCleaner.rawValue: .VacuumCleaner,
+        ChoreItem.customChore.rawValue: .CustomChore
     ]
-    
 }
