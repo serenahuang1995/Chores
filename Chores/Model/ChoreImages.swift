@@ -52,26 +52,26 @@ enum ChoreItem: String {
 
 struct ChoreImages {
     
-    static let imageNames: [ChoreItem.RawValue: ImageAsset] = [
-        ChoreItem.washDishes.rawValue: .WashDishes,
-        ChoreItem.washClothes.rawValue: .WashClothes,
-        ChoreItem.dryClothes.rawValue: .DryClothes,
-        ChoreItem.foldClothes.rawValue: .FoldClothes,
-        ChoreItem.ironClothes.rawValue: .IronClothes,
-        ChoreItem.throwTrash.rawValue: .ThrowTrash,
-        ChoreItem.cleanBathroom.rawValue: .CleanBathroom,
-        ChoreItem.cleanWindow.rawValue: .CleanWindow,
-        ChoreItem.repair.rawValue: .Repair,
-        ChoreItem.waterFlower.rawValue: .WaterFlower,
-        ChoreItem.walkDog.rawValue: .WalkDog,
-        ChoreItem.storage.rawValue: .Storage,
-        ChoreItem.pickUp.rawValue: .PickUp,
-        ChoreItem.takeCareKid.rawValue: .TakeCareKid,
-        ChoreItem.cook.rawValue: .Cook,
-        ChoreItem.grocery.rawValue: .Grocery,
-        ChoreItem.broomFloor.rawValue: .BroomFloor,
-        ChoreItem.mopFloor.rawValue: .MopFloor,
-        ChoreItem.vacuumCleaner.rawValue: .VacuumCleaner,
-        ChoreItem.customChore.rawValue: .CustomChore
+    static let imageNames: [ChoreItem: ImageAsset] = [
+        .washDishes: .WashDishes,
+        .washClothes: .WashClothes,
+        .dryClothes: .DryClothes,
+        .foldClothes: .FoldClothes,
+        .ironClothes: .IronClothes,
+        .throwTrash: .ThrowTrash,
+        .cleanBathroom: .CleanBathroom,
+        .cleanWindow: .CleanWindow,
+        .repair: .Repair,
+        .waterFlower: .WaterFlower,
+        .walkDog: .WalkDog,
+        .storage: .Storage,
+        .pickUp: .PickUp,
+        .takeCareKid: .TakeCareKid,
+        .cook: .Cook,
+        .grocery: .Grocery,
+        .broomFloor: .BroomFloor,
+        .mopFloor: .MopFloor,
+        .vacuumCleaner: .VacuumCleaner,
+        .customChore: .CustomChore
     ]
 }
