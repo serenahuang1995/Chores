@@ -64,7 +64,7 @@ class UnclaimedTableViewCell: UITableViewCell {
         
         pointsLabel.text = "可獲得 \(chore.points) 點"
         
-        if let imageName = ChoreImages.imageNames[ChoreItem(rawValue: chore.item) ?? .customChore] {
+        if let imageName = ChoreImages.imageNames[chore.item] {
             
             choreImage.image = UIImage(named: imageName.rawValue)
             

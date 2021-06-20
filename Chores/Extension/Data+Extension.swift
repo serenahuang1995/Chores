@@ -58,8 +58,7 @@ extension Date {
             components.day = -1
         }
          
-        let endOfMonth =  calendar.date(byAdding: components,
-                                        to: startOfCurrentMonth())!
+        let endOfMonth =  calendar.date(byAdding: components, to: startOfCurrentMonth())!
         
         return endOfMonth
     }
@@ -91,7 +90,7 @@ extension Date {
         
         let firstDate = newDateFormatter.date(from: firstDayValue)
         
-        print("firstDate：\(firstDate ?? Date())")
+        print("firstDate：\(firstDate)")
 
         return firstDate
     }

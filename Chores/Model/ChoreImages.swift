@@ -46,32 +46,29 @@ enum ChoreItem: String {
     case mopFloor = "拖地"
     
     case vacuumCleaner = "吸地"
-    
-    case customChore = "其他"
 }
 
 struct ChoreImages {
     
-    static let imageNames: [ChoreItem: ImageAsset] = [
-        .washDishes: .WashDishes,
-        .washClothes: .WashClothes,
-        .dryClothes: .DryClothes,
-        .foldClothes: .FoldClothes,
-        .ironClothes: .IronClothes,
-        .throwTrash: .ThrowTrash,
-        .cleanBathroom: .CleanBathroom,
-        .cleanWindow: .CleanWindow,
-        .repair: .Repair,
-        .waterFlower: .WaterFlower,
-        .walkDog: .WalkDog,
-        .storage: .Storage,
-        .pickUp: .PickUp,
-        .takeCareKid: .TakeCareKid,
-        .cook: .Cook,
-        .grocery: .Grocery,
-        .broomFloor: .BroomFloor,
-        .mopFloor: .MopFloor,
-        .vacuumCleaner: .VacuumCleaner,
-        .customChore: .CustomChore
+    static let imageNames: [String: ImageAsset] = [
+        "洗碗": .WashDishes,
+        "洗衣服": .WashClothes,
+        "晾衣服": .DryClothes,
+        "摺衣服": .FoldClothes,
+        "燙衣服": .IronClothes,
+        "倒垃圾": .ThrowTrash,
+        "刷廁所": .CleanBathroom,
+        "擦窗戶": .CleanWindow,
+        "修繕": .Repair,
+        "澆花": .WaterFlower,
+        "遛狗": .WalkDog,
+        "收納": .Storage,
+        "接送": .PickUp,
+        "帶小孩": .TakeCareKid,
+        "煮飯": .Cook,
+        "買菜": .Grocery,
+        "掃地": .BroomFloor,
+        "吸地": .MopFloor,
+        "吸地": .VacuumCleaner
     ]
 }

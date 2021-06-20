@@ -37,7 +37,7 @@ class DetailTableViewCell: UITableViewCell {
         
         choreItemLabel.text = chore.item
         
-        if let imageName = ChoreImages.imageNames[ChoreItem(rawValue: chore.item) ?? .customChore] {
+        if let imageName = ChoreImages.imageNames[chore.item] {
             
             choreImage.image = UIImage(named: imageName.rawValue)
             
