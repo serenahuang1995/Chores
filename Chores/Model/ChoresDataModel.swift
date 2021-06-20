@@ -12,7 +12,7 @@ struct Group: Codable {
     
     var id: String
     
-    var choreTypes: [String]    
+    var choreTypes: [String]  
 }
 
 struct Chore: Codable {

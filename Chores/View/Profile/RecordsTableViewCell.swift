@@ -40,7 +40,7 @@ class RecordsTableViewCell: UITableViewCell {
         
         countLabel.text = "\(chores.count)次"
         
-        if let imageName = ChoreImages.imageNames[chores[0].item] {
+        if let imageName = ChoreImages.imageNames[ChoreItem(rawValue: chores[0].item) ?? .customChore] {
             
             choreImage.image = UIImage(named: imageName.rawValue)
             

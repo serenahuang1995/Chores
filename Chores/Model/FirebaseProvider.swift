@@ -461,8 +461,7 @@ class FirebaseProvider {
     func createGroup(completion: @escaping (Result<Group, Error>) -> Void) {
         
         let defaultTypes = [
-            "洗碗", "洗衣服", "晾衣服", "摺衣服", "燙衣服", "煮飯", "買菜", "掃地", "拖地",
-            "吸地", "倒垃圾", "刷廁所", "擦窗戶", "修繕", "澆花", "遛狗", "收納", "接送", "帶小孩"
+            ChoreItem.washDishes.rawValue, ChoreItem.washClothes.rawValue, ChoreItem.dryClothes.rawValue, ChoreItem.foldClothes.rawValue, ChoreItem.ironClothes.rawValue, ChoreItem.cook.rawValue, ChoreItem.grocery.rawValue, ChoreItem.broomFloor.rawValue, ChoreItem.mopFloor.rawValue, ChoreItem.vacuumCleaner.rawValue, ChoreItem.throwTrash.rawValue, ChoreItem.cleanBathroom.rawValue, ChoreItem.cleanWindow.rawValue, ChoreItem.repair.rawValue, ChoreItem.waterFlower.rawValue, ChoreItem.walkDog.rawValue, ChoreItem.storage.rawValue, ChoreItem.pickUp.rawValue, ChoreItem.takeCareKid.rawValue
         ]
         
         let docReference = database.collection(Collection.groups).document()

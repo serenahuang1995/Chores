@@ -92,7 +92,7 @@ class OngoingTableViewCell: UITableViewCell {
         
         choreItemLabel.text = chore.item
         
-        if let imageName = ChoreImages.imageNames[chore.item] {
+        if let imageName = ChoreImages.imageNames[ChoreItem(rawValue: chore.item) ?? .customChore] {
             
             choreImage.image = UIImage(named: imageName.rawValue)
             
