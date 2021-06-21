@@ -39,7 +39,7 @@ struct Segue {
     
     static let setting = "SegueSetting"
     
-    static let changeName = "SegueChangeName"
+    static let rename = "SegueRename"
     
     static let leaveGroup = "SegueLeaveGroup"
     

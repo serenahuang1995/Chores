@@ -349,7 +349,8 @@ class FirebaseProvider {
             .collection(Collection.groups).document(UserProvider.shared.user.groupId ?? "")
             .collection(Collection.chores).document(selectedChore.id)
         
-        docReference.updateData([ChoreField.owner: UserProvider.shared.user.id, ChoreField.transfer: nil]) { error in
+        docReference.updateData([ChoreField.owner: UserProvider.shared.user.id,
+                                 ChoreField.transfer: nil]) { error in
             
             if let error = error {
                 

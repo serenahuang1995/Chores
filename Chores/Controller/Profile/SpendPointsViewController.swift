@@ -30,20 +30,33 @@ class SpendPointsViewController: UIViewController {
     
     @IBAction func onSpendPoints(_ sender: Any) {
         
-        spendUserPoints()
+//        spendUserPoints()
         
         dismiss(animated: true, completion: nil)
+    }
+    
+    // 扣點動作的function 獨立的input user
+    func deductPoints (user: inout User) -> Bool {
+        
+        if user.points >= 300 {
+            
+            user.points -= 300
+            
+            return true
+            
+        } else {
+            
+            return false
+        }
     }
     
     func spendUserPoints() {
         
         var user = UserProvider.shared.user
         
-        print(user)
+        let deduction = deductPoints(user: &user)
         
-        if user.points >= 300 {
-            
-            user.points -= 300
+        if deduction {
             
             KRProgressHUD.showSuccess(withMessage: "成功扣除點數！")
             
@@ -55,6 +68,24 @@ class SpendPointsViewController: UIViewController {
             
             KRProgressHUD.showError(withMessage: "點數不足...再多做一點家事吧！")
         }
+
+//
+//        print(user)
+//
+//        if user.points >= 300 {
+//
+//            user.points -= 300
+//
+//            KRProgressHUD.showSuccess(withMessage: "成功扣除點數！")
+//
+//            updatePoints(user: user)
+//
+//            getMedal()
+//
+//        } else {
+//
+//            KRProgressHUD.showError(withMessage: "點數不足...再多做一點家事吧！")
+//        }
     }
     
     func updatePoints(user: User) {

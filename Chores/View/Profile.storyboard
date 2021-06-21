@@ -195,7 +195,7 @@
                         <outlet property="weekHoursLabel" destination="yt8-Yu-sP6" id="15n-oy-awK"/>
                         <outletCollection property="switchButtons" destination="dVa-Kk-6Hv" collectionClass="NSMutableArray" id="gPN-xb-C7o"/>
                         <outletCollection property="switchButtons" destination="PYN-2l-LXC" collectionClass="NSMutableArray" id="1ZZ-It-4X8"/>
-                        <segue destination="8BE-MH-3Tl" kind="custom" identifier="SegueChangeName" customClass="MIBlurPopupSegue" customModule="MIBlurPopup" id="NeF-hz-aCc"/>
+                        <segue destination="8BE-MH-3Tl" kind="custom" identifier="SegueRename" customClass="MIBlurPopupSegue" customModule="MIBlurPopup" id="NeF-hz-aCc"/>
                         <segue destination="Cqb-K4-NbS" kind="custom" identifier="SegueLeaveGroup" customClass="MIBlurPopupSegue" customModule="MIBlurPopup" id="amn-zC-ik1"/>
                     </connections>
                 </viewController>

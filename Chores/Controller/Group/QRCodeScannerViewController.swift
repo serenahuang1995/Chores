@@ -51,7 +51,9 @@ class QRCodeScannerViewController: UIViewController {
             
             // 初始化影片預覽層，並將其作為子層加入 viewPreview 視圖的圖層中
             videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+            
             videoPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
+            
             videoPreviewLayer?.frame = view.layer.bounds
             
             view.layer.addSublayer(videoPreviewLayer!)

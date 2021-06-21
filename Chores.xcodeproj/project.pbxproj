@@ -42,7 +42,7 @@
 		DC8352382676796F003A1F7B /* DetailRecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8352372676796F003A1F7B /* DetailRecordsViewController.swift */; };
 		DC83523B2676836A003A1F7B /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8352392676836A003A1F7B /* DetailTableViewCell.swift */; };
 		DC83523C2676836A003A1F7B /* DetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC83523A2676836A003A1F7B /* DetailTableViewCell.xib */; };
-		DC856DB1266CC0D9005DDED1 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC856DB0266CC0D9005DDED1 /* Data+Extension.swift */; };
+		DC856DB1266CC0D9005DDED1 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC856DB0266CC0D9005DDED1 /* Date+Extension.swift */; };
 		DC856DD2266D2346005DDED1 /* RenameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC856DD1266D2345005DDED1 /* RenameViewController.swift */; };
 		DC8FE0E5266299D20016927D /* Signin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC8FE0E4266299D10016927D /* Signin.storyboard */; };
 		DC8FE0E826629A1B0016927D /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8FE0E726629A1B0016927D /* SigninViewController.swift */; };
@@ -65,7 +65,7 @@
 		DCA589F326555AD10033EE63 /* FirebaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA589F226555AD10033EE63 /* FirebaseProvider.swift */; };
 		DCA6842C2663F22000797EAB /* CreateGroup.json in Resources */ = {isa = PBXBuildFile; fileRef = DCA6842B2663F22000797EAB /* CreateGroup.json */; };
 		DCAC162C267C9B9200163F9F /* NotificationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAC162B267C9B9200163F9F /* NotificationUtils.swift */; };
-		DCAC162F267CE32900163F9F /* String + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAC162E267CE32900163F9F /* String + Extension.swift */; };
+		DCAC162F267CE32900163F9F /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAC162E267CE32900163F9F /* String+Extension.swift */; };
 		DCAC1637267E2A8B00163F9F /* ChoresTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAC1636267E2A8B00163F9F /* ChoresTests.swift */; };
 		DCAFE9AC266F78D6003EC39E /* House.json in Resources */ = {isa = PBXBuildFile; fileRef = DCAFE9AA266F78D5003EC39E /* House.json */; };
 		DCAFE9AD266F78D6003EC39E /* HomeGreate.json in Resources */ = {isa = PBXBuildFile; fileRef = DCAFE9AB266F78D6003EC39E /* HomeGreate.json */; };
@@ -149,7 +149,7 @@
 		DC8352372676796F003A1F7B /* DetailRecordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRecordsViewController.swift; sourceTree = "<group>"; };
 		DC8352392676836A003A1F7B /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 		DC83523A2676836A003A1F7B /* DetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailTableViewCell.xib; sourceTree = "<group>"; };
-		DC856DB0266CC0D9005DDED1 /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
+		DC856DB0266CC0D9005DDED1 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		DC856DD1266D2345005DDED1 /* RenameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenameViewController.swift; sourceTree = "<group>"; };
 		DC8FE0E4266299D10016927D /* Signin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Signin.storyboard; sourceTree = "<group>"; };
 		DC8FE0E726629A1B0016927D /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
@@ -176,7 +176,7 @@
 		DCA589F226555AD10033EE63 /* FirebaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseProvider.swift; sourceTree = "<group>"; };
 		DCA6842B2663F22000797EAB /* CreateGroup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CreateGroup.json; sourceTree = "<group>"; };
 		DCAC162B267C9B9200163F9F /* NotificationUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationUtils.swift; sourceTree = "<group>"; };
-		DCAC162E267CE32900163F9F /* String + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extension.swift"; sourceTree = "<group>"; };
+		DCAC162E267CE32900163F9F /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		DCAC1634267E2A8B00163F9F /* ChoresTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChoresTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCAC1636267E2A8B00163F9F /* ChoresTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoresTests.swift; sourceTree = "<group>"; };
 		DCAC1638267E2A8B00163F9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -474,8 +474,8 @@
 				DC4B37B1267B9BF90068E542 /* UIButton + Extension.swift */,
 				DCB98A0D264CDF7200A8C794 /* UITableView+Extension.swift */,
 				DC8136482650090E003CC6ED /* UICollectionView+Extension.swift */,
-				DCAC162E267CE32900163F9F /* String + Extension.swift */,
-				DC856DB0266CC0D9005DDED1 /* Data+Extension.swift */,
+				DCAC162E267CE32900163F9F /* String+Extension.swift */,
+				DC856DB0266CC0D9005DDED1 /* Date+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -801,7 +801,7 @@
 				DCEEAA50264BDC8B00A64D37 /* UIImage+Extension.swift in Sources */,
 				DCEEAA58264BE28D00A64D37 /* TabBarViewController.swift in Sources */,
 				DCD737A226520BB300F1DEF8 /* ChoresDataViewController.swift in Sources */,
-				DCAC162F267CE32900163F9F /* String + Extension.swift in Sources */,
+				DCAC162F267CE32900163F9F /* String+Extension.swift in Sources */,
 				DCEEAA6F264BEDC000A64D37 /* ProfileViewController.swift in Sources */,
 				DCEEAA4D264BD98C00A64D37 /* UIView+Extension.swift in Sources */,
 				DCB5128A26662F3600B4B8A5 /* QRCodeScannerViewController.swift in Sources */,
@@ -812,7 +812,7 @@
 				DC7D1BFE2673725500C3898B /* StorageProvider.swift in Sources */,
 				DC856DD2266D2346005DDED1 /* RenameViewController.swift in Sources */,
 				DC913CEB264C1F9100C18251 /* UIColor+Extension.swift in Sources */,
-				DC856DB1266CC0D9005DDED1 /* Data+Extension.swift in Sources */,
+				DC856DB1266CC0D9005DDED1 /* Date+Extension.swift in Sources */,
 				DC71959C265FF9C000DC3706 /* FlatCardCollectionViewLayout.swift in Sources */,
 				DC913CE7264C1A2B00C18251 /* CardView.swift in Sources */,
 				DC83523B2676836A003A1F7B /* DetailTableViewCell.swift in Sources */,

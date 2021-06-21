@@ -348,7 +348,7 @@ extension ProfileViewController: SettingDelegate {
     
     func onButtonRename() {
         
-        performSegue(withIdentifier: Segue.changeName, sender: nil)
+        performSegue(withIdentifier: Segue.rename, sender: nil)
     }
     
     func onButtonLeave() {
