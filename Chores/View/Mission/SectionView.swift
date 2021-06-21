@@ -63,8 +63,7 @@ class SectionView: UITableViewHeaderFooterView {
         
         if isExpanded {
             
-            // 按鈕鏡像翻轉
-            expandButton.transform = CGAffineTransform(scaleX: 1, y: -1)
+            expandButton.transform = CGAffineTransform(scaleX: 1, y: -1) // 按鈕鏡像翻轉
         }
     }
     
