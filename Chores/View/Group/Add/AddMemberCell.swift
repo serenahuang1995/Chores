@@ -22,6 +22,5 @@ class AddMemberCell: UICollectionViewCell {
     @IBAction func addMember(_ sender: Any) {
         
         self.delegate?.onMemberAdd()
-    }
-    
+    }    
 }

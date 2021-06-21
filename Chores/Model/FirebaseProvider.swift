@@ -388,9 +388,9 @@ class FirebaseProvider {
         
         let date = Date()
         
-        let firstDate = date.getFirstDayDateInWeek()
+        guard let firstDate = date.getFirstDayDateInWeek() else { return }
         
-        let lastDate = date.getLastDayDateInWeek()
+        guard let lastDate = date.getLastDayDateInWeek() else { return }
         
         let docReference = database
             .collection(Collection.groups).document(UserProvider.shared.user.groupId ?? "")

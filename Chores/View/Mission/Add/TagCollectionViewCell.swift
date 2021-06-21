@@ -9,7 +9,6 @@ import UIKit
 
 class TagCollectionViewCell: UICollectionViewCell {
     
-    
     @IBOutlet weak var cardView: CardView!
     
     @IBOutlet weak var choreImage: UIImageView!
@@ -37,7 +36,7 @@ class TagCollectionViewCell: UICollectionViewCell {
         
         choreTagLabel.text = tagItem
         
-        // 如果有找到對應的 tagItem 就會將 item 的 value(圖片的名字)存進 imageName
+        // 如果有找到對應的tagItem就會將item的value(圖片的名字)存進 imageName
         if let imageName = ChoreImages.imageNames[tagItem] {
             
             choreImage.image = UIImage(named: imageName.rawValue)
@@ -45,7 +44,7 @@ class TagCollectionViewCell: UICollectionViewCell {
             editButton.isHidden = true
             
         } else {
-            // 如果沒有找到對應的 item，image 會改成你預設的圖片
+            // 如果沒有找到對應的item，image會改成你預設的圖片
             choreImage.image = UIImage.asset(.CustomChore)
             
             editButton.isHidden = false

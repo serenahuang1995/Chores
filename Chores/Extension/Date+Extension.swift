@@ -31,9 +31,8 @@ extension Date {
         
         let calendar = Calendar.current
         
-        let components = calendar.dateComponents(
-            Set<Calendar.Component>([.year, .month]),
-            from: date)
+        let components = calendar.dateComponents(Set<Calendar.Component>([.year, .month]),
+                                                 from: date)
         
         let startOfMonth = calendar.date(from: components)!
         
@@ -42,8 +41,6 @@ extension Date {
     
     // 當前月份結束日期
     func endOfCurrentMonth(returnDetailTime: Bool = false) -> Date {
-        
-        let calendar = Calendar.current
         
         var components = DateComponents()
         
@@ -58,12 +55,11 @@ extension Date {
             components.day = -1
         }
          
-        let endOfMonth =  calendar.date(byAdding: components, to: startOfCurrentMonth())!
+        let endOfMonth =  Calendar.current.date(byAdding: components, to: startOfCurrentMonth())!
         
         return endOfMonth
     }
     
-    // 計算當天為本週的第幾天
     func getFirstDayDateInWeek() -> Date? {
         
         let todayDate = self
@@ -78,7 +74,7 @@ extension Date {
         
         let firstDay = todayDate - Double(((day ?? 1) - 1) * Date.secondsOfDay)
         
-        print("第一天\(firstDay) , ？？？日期 \(dateFormatter.string(from: firstDay))")
+        print("第一天\(firstDay), 日期 \(dateFormatter.string(from: firstDay))")
 
         let newDateFormatter = DateFormatter()
         
@@ -88,7 +84,7 @@ extension Date {
         
         print("firstDayValue：\(firstDayValue)")
         
-        let firstDate = newDateFormatter.date(from: firstDayValue)
+        guard let firstDate = newDateFormatter.date(from: firstDayValue) else { return nil }
         
         print("firstDate：\(firstDate)")
 
@@ -105,6 +101,7 @@ extension Date {
         
         // 計算本週第n天
         let day = Calendar.current.ordinality(of: .day, in: .weekOfMonth, for: todayDate)
+        
         print("本週第\(day!)天")
         
         let lastDay = todayDate + Double((7 - (day ?? 1)) * Date.secondsOfDay)

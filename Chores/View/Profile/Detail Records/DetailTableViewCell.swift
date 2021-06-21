@@ -48,11 +48,13 @@ class DetailTableViewCell: UITableViewCell {
 
         guard let date = chore.completedDate?.dateValue() else { return }
         
-        let dateFormatter = DateFormatter()
+        let completedDate = String.convertDateFormatterToString(date: date)
         
-        dateFormatter.dateFormat = "yyyy / MM / dd"
-        
-        let completedDate = dateFormatter.string(from: date)
+//        let dateFormatter = DateFormatter()
+//
+//        dateFormatter.dateFormat = "yyyy / MM / dd"
+//
+//        let completedDate = dateFormatter.string(from: date)
         
         completedTimeLabel.text = "完成時間：\(completedDate)"
     }
