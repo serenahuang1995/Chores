@@ -306,13 +306,15 @@ class MissionViewController: UIViewController {
 extension MissionViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        
-        if section == 0 {
 
-            return 210 //300
-        }
+        return section == 0 ? 210 : 160
         
-        return 160
+//        if section == 0 {
+//
+//            return 210 //300
+//        }
+//
+//        return 160
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
