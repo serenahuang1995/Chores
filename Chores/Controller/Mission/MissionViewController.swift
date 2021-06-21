@@ -307,6 +307,7 @@ extension MissionViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
 
+        // 判斷section如果為0 就是true 會跑210
         return section == 0 ? 210 : 160
         
 //        if section == 0 {

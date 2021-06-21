@@ -34,7 +34,7 @@ class CustomChoreViewController: UIViewController {
         addChoreType(choreType: choreType)
     }
     
-    @IBAction func cancel(_ sender: UIButton) {
+    @IBAction func cancel(_ sender: Any) {
         
         dismiss(animated: true, completion: nil)
     }
