@@ -68,7 +68,7 @@ struct ChoreImages {
         "煮飯": .Cook,
         "買菜": .Grocery,
         "掃地": .BroomFloor,
-        "吸地": .MopFloor,
+        "拖地": .MopFloor,
         "吸地": .VacuumCleaner
     ]
 }
