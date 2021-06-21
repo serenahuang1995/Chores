@@ -111,5 +111,5 @@ struct UserField {
     
     static let picture = "picture"
     
-    static let isSpent = "isSpend"
+    static let isSpent = "isSpent"
 }
