@@ -57,4 +57,23 @@ extension UIImage {
         
         return UIImage(named: asset.rawValue)
     }
+    
+    static func getUserQRCode(from string: String) -> UIImage? {
+        
+        let data = string.data(using: String.Encoding.ascii)
+        
+        if let filter = CIFilter(name: QRCode.qrcodeCIFilter.rawValue) {
+            
+            filter.setValue(data, forKey: QRCode.qrcodeValue.rawValue)
+            
+            let transform = CGAffineTransform(scaleX: 8, y: 8)
+            
+            if let output = filter.outputImage?.transformed(by: transform) {
+                
+                return UIImage(ciImage: output)
+            }
+        }
+        
+        return nil
+    }
 }

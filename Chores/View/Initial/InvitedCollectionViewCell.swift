@@ -7,7 +7,7 @@
 
 import UIKit
 
-private enum QRCode: String {
+enum QRCode: String {
     
     case qrcodeCIFilter = "CIQRCodeGenerator"
     
@@ -25,29 +25,10 @@ class InvitedCollectionViewCell: UICollectionViewCell {
 
     }
     
-    func getUserQRCode(from string: String) -> UIImage? {
-        
-        let data = string.data(using: String.Encoding.ascii)
-        
-        if let filter = CIFilter(name: QRCode.qrcodeCIFilter.rawValue) {
-            
-            filter.setValue(data, forKey: QRCode.qrcodeValue.rawValue)
-            
-            let transform = CGAffineTransform(scaleX: 8, y: 8)
-            
-            if let output = filter.outputImage?.transformed(by: transform) {
-                
-                return UIImage(ciImage: output)
-            }
-        }
-        
-        return nil
-    }
-    
     func layoutCell() {
         
         userIdLabel.text = "\(UserProvider.shared.uid ?? "")"
         
-        qrcodeImage.image = getUserQRCode(from: UserProvider.shared.uid ?? "")
+        qrcodeImage.image = UIImage.getUserQRCode(from: UserProvider.shared.uid ?? "")
     }
 }
