@@ -30,7 +30,7 @@ class SpendPointsViewController: UIViewController {
     
     @IBAction func onSpendPoints(_ sender: Any) {
         
-//        spendUserPoints()
+        spendUserPoints()
         
         dismiss(animated: true, completion: nil)
     }
