@@ -9,10 +9,8 @@
 import Charts
 
 class ChartColorTemplates {
-    
-    static let shared = ChartColorTemplates()
-    
-    func wonderful() -> [NSUIColor] {
+        
+    static func wonderful() -> [NSUIColor] {
         
         return [
             NSUIColor(red: 249/255.0, green: 65/255.0, blue: 68/255.0, alpha: 1.0),

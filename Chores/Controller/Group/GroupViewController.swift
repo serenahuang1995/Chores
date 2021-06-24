@@ -312,7 +312,7 @@ class GroupViewController: UIViewController {
         
         let dataSet = BarChartDataSet(entries: chartData, label: "小屋成員數據統計")
         
-        dataSet.colors = ChartColorTemplates.shared.wonderful()
+        dataSet.colors = ChartColorTemplates.wonderful()
         
         dataSet.drawValuesEnabled = false
 

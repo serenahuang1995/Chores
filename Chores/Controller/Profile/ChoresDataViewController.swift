@@ -50,7 +50,7 @@ class ChoresDataViewController: UIViewController {
         
         chartDataSet.entryLabelColor = .black
 
-        chartDataSet.colors = ChartColorTemplates.shared.wonderful()
+        chartDataSet.colors = ChartColorTemplates.wonderful()
 
         let chartData = PieChartData(dataSet: chartDataSet)
         
