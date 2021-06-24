@@ -63,6 +63,9 @@ DerivedData/
 *.perspectivev3
 !default.perspectivev3
 
+###google plist###
+GoogleService-Info.plist
+
 ### Xcode Patch ###
 ###*.xcodeproj/*
 !*.xcodeproj/project.pbxproj
