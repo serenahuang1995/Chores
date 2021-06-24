@@ -45,8 +45,7 @@ enum ImageAsset: String {
     case Icon16px_Plus
     case Icon24px_Plus
     case Icon32px_Plus
-    case user
-    
+    case user 
 }
 
 // swiftlint:enable identifier_name

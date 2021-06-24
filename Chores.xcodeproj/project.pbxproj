@@ -15,6 +15,7 @@
 		DC203D07264E823C002FADDA /* AddChoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC203D06264E823C002FADDA /* AddChoresViewController.swift */; };
 		DC299D7F266F7C7500AC86A3 /* Washing.json in Resources */ = {isa = PBXBuildFile; fileRef = DC299D7E266F7C7500AC86A3 /* Washing.json */; };
 		DC299D8F266F914500AC86A3 /* Signin.json in Resources */ = {isa = PBXBuildFile; fileRef = DC299D8E266F914500AC86A3 /* Signin.json */; };
+		DC2B118A2680F0E3003A1A37 /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B11892680F0E3003A1A37 /* DateFormatter+Extension.swift */; };
 		DC383D122673EF4C00DC768E /* Loading.json in Resources */ = {isa = PBXBuildFile; fileRef = DC383D112673EF4C00DC768E /* Loading.json */; };
 		DC4B37B0267B7E6D0068E542 /* BlackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B37AF267B7E6D0068E542 /* BlackView.swift */; };
 		DC4B37B2267B9BF90068E542 /* UIButton + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B37B1267B9BF90068E542 /* UIButton + Extension.swift */; };
@@ -122,6 +123,7 @@
 		DC203D06264E823C002FADDA /* AddChoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChoresViewController.swift; sourceTree = "<group>"; };
 		DC299D7E266F7C7500AC86A3 /* Washing.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Washing.json; sourceTree = "<group>"; };
 		DC299D8E266F914500AC86A3 /* Signin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Signin.json; sourceTree = "<group>"; };
+		DC2B11892680F0E3003A1A37 /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
 		DC383D112673EF4C00DC768E /* Loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Loading.json; sourceTree = "<group>"; };
 		DC4B37AF267B7E6D0068E542 /* BlackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackView.swift; sourceTree = "<group>"; };
 		DC4B37B1267B9BF90068E542 /* UIButton + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + Extension.swift"; sourceTree = "<group>"; };
@@ -476,6 +478,7 @@
 				DC8136482650090E003CC6ED /* UICollectionView+Extension.swift */,
 				DCAC162E267CE32900163F9F /* String+Extension.swift */,
 				DC856DB0266CC0D9005DDED1 /* Date+Extension.swift */,
+				DC2B11892680F0E3003A1A37 /* DateFormatter+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -817,6 +820,7 @@
 				DC913CE7264C1A2B00C18251 /* CardView.swift in Sources */,
 				DC83523B2676836A003A1F7B /* DetailTableViewCell.swift in Sources */,
 				DC8136492650090E003CC6ED /* UICollectionView+Extension.swift in Sources */,
+				DC2B118A2680F0E3003A1A37 /* DateFormatter+Extension.swift in Sources */,
 				DC92B84C2652D13D00041D01 /* AddMemberCell.swift in Sources */,
 				DCD7379F26520B9A00F1DEF8 /* ChoresRecordsViewController.swift in Sources */,
 				DCB512922667E53F00B4B8A5 /* TransferChoreViewController.swift in Sources */,

@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 extension Date {
     
     static let secondsOfDay = 86400
@@ -15,11 +16,7 @@ extension Date {
         
         let date = self
         
-        let dateFormatter = DateFormatter()
-        
-        dateFormatter.dateFormat = "EEEE"
-        
-        let weekDay = dateFormatter.string(from: date)
+        let weekDay = DateFormatter().convertDateToString(date: date, type: .week)
         
         return weekDay
     }
@@ -65,26 +62,19 @@ extension Date {
         let todayDate = self
         
         let dateFormatter = DateFormatter()
-        
-        dateFormatter.dateFormat = "yyyy年MM月dd日 HH時mm分ss秒"
-        
+
         // 計算本週第n天
         let day = Calendar.current.ordinality(of: .day, in: .weekOfMonth, for: todayDate)
-        print("本週第\(day!)天")
         
         let firstDay = todayDate - Double(((day ?? 1) - 1) * Date.secondsOfDay)
         
-        print("第一天\(firstDay), 日期 \(dateFormatter.string(from: firstDay))")
-
-        let newDateFormatter = DateFormatter()
+        print("第一天\(firstDay)")
         
-        newDateFormatter.dateFormat = "yyyy年MM月dd日"
+        let firstDayValue = dateFormatter.convertDateToString(date: firstDay, type: .detail)
         
-        let firstDayValue = newDateFormatter.string(from: firstDay)
+        print("日期：\(firstDayValue)")
         
-        print("firstDayValue：\(firstDayValue)")
-        
-        guard let firstDate = newDateFormatter.date(from: firstDayValue) else { return nil }
+        guard let firstDate = dateFormatter.date(from: firstDayValue) else { return nil }
         
         print("firstDate：\(firstDate)")
 
@@ -96,9 +86,7 @@ extension Date {
         let todayDate = self
         
         let dateFormatter = DateFormatter()
-        
-        dateFormatter.dateFormat = "yyyy年MM月dd日 HH時mm分ss秒"
-        
+
         // 計算本週第n天
         let day = Calendar.current.ordinality(of: .day, in: .weekOfMonth, for: todayDate)
         
@@ -106,17 +94,13 @@ extension Date {
         
         let lastDay = todayDate + Double((7 - (day ?? 1)) * Date.secondsOfDay)
         
-        print("最後一天\(lastDay), 日期 \(dateFormatter.string(from: lastDay))")
-
-        let newDateFormatter = DateFormatter()
+        print("最後一天\(lastDay)")
         
-        newDateFormatter.dateFormat = "yyyy年MM月dd日"
+        let lastDayValue = dateFormatter.convertDateToString(date: lastDay, type: .detail)
         
-        let lastDayValue = newDateFormatter.string(from: lastDay)
+        print("日期：\(lastDayValue)")
         
-        print("lastDayValue：\(lastDayValue)")
-        
-        guard let lastDate = newDateFormatter.date(from: lastDayValue) else { return nil }
+        guard let lastDate = dateFormatter.date(from: lastDayValue) else { return nil }
         
         print("lastDate：\(lastDate + Double(Date.secondsOfDay - 1))")
 
