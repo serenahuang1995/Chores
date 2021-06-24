@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 extension Date {
     
     static let secondsOfDay = 86400
