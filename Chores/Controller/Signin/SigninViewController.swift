@@ -33,11 +33,6 @@ class SigninViewController: UIViewController {
         
         animationView.configureLottieView(name: Lottie.signin)
     }
-
-    @IBAction func skip(_ sender: Any) {
-        
-        performSegue(withIdentifier: Segue.initial, sender: nil)
-    }
     
     func setUpSigninButton() {
         
@@ -224,7 +219,7 @@ extension SigninViewController: ASAuthorizationControllerDelegate {
                     
                     self.uid = uid
                     
-                    self.uid = "test10"
+//                    self.uid = "test10"
 
                     let userDefaults = UserDefaults()
                         

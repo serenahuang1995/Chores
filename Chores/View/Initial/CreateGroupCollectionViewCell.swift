@@ -21,8 +21,11 @@ class CreateGroupCollectionViewCell: UICollectionViewCell {
     }
 
     @IBAction func create(_ sender: Any) {
+        
+         self.delegate?.navigateMainPage()
 
-        createNewGroup()
+
+//        createNewGroup()
     }
     
     func createNewGroup() {
