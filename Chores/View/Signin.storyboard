@@ -52,14 +52,11 @@
                                     <constraint firstAttribute="height" constant="450" id="4pr-ba-xF1"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ZG-Qf-4IU">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ZG-Qf-4IU">
                                 <rect key="frame" x="368" y="76" width="30" height="30"/>
                                 <state key="normal" title="Skip">
                                     <color key="titleColor" red="0.1450980392" green="0.1450980392" blue="0.1450980392" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                 </state>
-                                <connections>
-                                    <action selector="skip:" destination="0IV-mX-qVl" eventType="touchUpInside" id="7uh-oB-WYC"/>
-                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3d8-2g-YGG"/>
@@ -301,9 +298,6 @@ By email: chores2021@gmail.com</string>
             <point key="canvasLocation" x="11.594202898550726" y="639.50892857142856"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="Q6s-MM-duU"/>
-    </designables>
     <resources>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
