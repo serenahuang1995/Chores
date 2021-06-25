@@ -68,24 +68,6 @@ class SpendPointsViewController: UIViewController {
             
             KRProgressHUD.showError(withMessage: "點數不足...再多做一點家事吧！")
         }
-
-//
-//        print(user)
-//
-//        if user.points >= 300 {
-//
-//            user.points -= 300
-//
-//            KRProgressHUD.showSuccess(withMessage: "成功扣除點數！")
-//
-//            updatePoints(user: user)
-//
-//            getMedal()
-//
-//        } else {
-//
-//            KRProgressHUD.showError(withMessage: "點數不足...再多做一點家事吧！")
-//        }
     }
     
     func updatePoints(user: User) {
