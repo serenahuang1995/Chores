@@ -32,5 +32,4 @@ extension UICollectionViewCell {
         
         return indexPath
     }
-
 }
