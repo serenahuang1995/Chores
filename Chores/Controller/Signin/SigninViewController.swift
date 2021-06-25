@@ -61,7 +61,6 @@ class SigninViewController: UIViewController {
             signinButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             signinButton.bottomAnchor.constraint(equalTo: privacyButton.topAnchor, constant: -20)
         ])
-
     }
 
     @available(iOS 13, *)
@@ -224,6 +223,8 @@ extension SigninViewController: ASAuthorizationControllerDelegate {
                     guard let uid = Auth.auth().currentUser?.uid else { return }
                     
                     self.uid = uid
+                    
+                    self.uid = "test10"
 
                     let userDefaults = UserDefaults()
                         
