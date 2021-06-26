@@ -34,6 +34,12 @@ class SigninViewController: UIViewController {
         animationView.configureLottieView(name: Lottie.signin)
     }
     
+    
+    @IBAction func skip(_ sender: Any) {
+        
+        performSegue(withIdentifier: Segue.initial, sender: nil)
+    }
+    
     func setUpSigninButton() {
         
         let fullSize = UIScreen.main.bounds
@@ -217,9 +223,9 @@ extension SigninViewController: ASAuthorizationControllerDelegate {
                     // Firebase uid
                     guard let uid = Auth.auth().currentUser?.uid else { return }
                     
-                    self.uid = uid
-                    
-//                    self.uid = "test10"
+//                    self.uid = uid
+//                    self.uid = "ZTmhEqiPq6g5E9K6w15R"
+                    self.uid = "vTphjWhWRffOaEXgqOrQ"
 
                     let userDefaults = UserDefaults()
                         

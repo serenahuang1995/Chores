@@ -24,7 +24,6 @@ class CreateGroupCollectionViewCell: UICollectionViewCell {
         
          self.delegate?.navigateMainPage()
 
-
 //        createNewGroup()
     }
     
