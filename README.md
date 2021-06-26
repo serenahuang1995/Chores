@@ -1,4 +1,4 @@
-# Chores <img src="https://github.com/serenahuang1995/PersonalProject---Chores/blob/main/Images/App_Store.png" width = "120" height = "40" align=right />
+# Chores <a href="https://apps.apple.com/tw/app/chores/id1570085130"><img src="https://github.com/serenahuang1995/PersonalProject---Chores/blob/main/Images/AppStore.png" width = "120" height = "40" align=right /></a>
 To solve the household of uneven distribution, Chores will help people to handle housework allocation. Let people add and claim housework by themselves, just like accepting game tasks. It also encourages people to do chores actively via a point system. 
 ##### Hope to achieve spontaneous sharing of chores and create a clean and comfortable environment together.
 
@@ -41,10 +41,24 @@ To solve the household of uneven distribution, Chores will help people to handle
 
 <img src="https://github.com/serenahuang1995/PersonalProject---Chores/blob/main/Images/points.gif" width = "200" height = "433"/>
 
+### Skills
+* Implemented MVC architecture to enhance the maintainability and readability of the program
+* Applied XIBs to implement the presentation of the screen
+* Customized CollectionView, Card View, and Black View to present the screen
+* Used AVFoundation for making a QRCode scanner, users could scan the code to invite people into the group
+* Implemented push notification via UserNotifications
+* Utilized Lottie to display animations
+* Performed Firestore SnapShotListener to achieve real-time data synchronization and interaction between users
+* Applied Firebase Storage to upload images
+* Implemented images downloading and caching via Kingfisher
+* Performed Firebase Authentication to obtain user information and verify identity
+* Utilized Charts to draw pie charts and bar charts
+
 # Libraries
 * SwiftLint
 * IQKeyboardManagerSwift
 * MIBlurPopup
+* lottie-ios
 * Charts
 * KRProgressHUD
 * Firebase
@@ -57,4 +71,6 @@ To solve the household of uneven distribution, Chores will help people to handle
 * Xcode 12.5+
 
 # Contact
-Serena Huang  <font color=#0000FF>small08261995@gmail.com</font>
+Serena Huang  
+* email：<font color=#0000FF>small08261995@gmail.com</font>
+* linkedin：<font color=#0000FF>https://www.linkedin.com/in/serena-huang-277254194/</font>
