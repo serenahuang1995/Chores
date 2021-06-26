@@ -40,7 +40,7 @@ class UserProvider {
     var uid: String? =
 //        UserDefaults.standard.string(forKey: "FirebaseUid")
         //        "ARNaS8WOtYviuzarS5nb" // Ainee被邀請
-//                "XC6b6Ys1VY1qLcBJ5M8z"  // Serena mock data
+                "XC6b6Ys1VY1qLcBJ5M8z"  // Serena mock data
         //    "N8VeGRV8Ev9CHvGPp7Bd" // Max
 //            "29cTFrYztvTPK8IHoA1m" // 沛沛
 //            "DOy8GQ6CRh5qeHnodC2y"  // 派派
@@ -49,7 +49,7 @@ class UserProvider {
         //    "UedNXmGiiB2vhf2Njm8g" // Surbine
         //    "dacURDVFPNY4SIdW4w3S" // Hannah
         //    "dc7CXgn8G5kCX7h6rEPR" // Ben
-            "vTphjWhWRffOaEXgqOrQ" //Wen
+//            "vTphjWhWRffOaEXgqOrQ" //Wen
 
 
 

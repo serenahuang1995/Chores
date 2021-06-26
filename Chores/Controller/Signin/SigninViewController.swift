@@ -225,7 +225,7 @@ extension SigninViewController: ASAuthorizationControllerDelegate {
                     
 //                    self.uid = uid
 //                    self.uid = "ZTmhEqiPq6g5E9K6w15R"
-                    self.uid = "vTphjWhWRffOaEXgqOrQ"
+                    self.uid = "XC6b6Ys1VY1qLcBJ5M8z"
 
                     let userDefaults = UserDefaults()
                         
