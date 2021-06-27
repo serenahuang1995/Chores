@@ -37,7 +37,7 @@ To solve the household of uneven distribution, Chores will help people to handle
 
 <img src="https://github.com/serenahuang1995/PersonalProject---Chores/blob/main/Images/IMG_5084.PNG" width = "200" height = "433"/> <img src="https://github.com/serenahuang1995/PersonalProject---Chores/blob/main/Images/rename.gif" width = "200" height = "433"/> <img src="https://github.com/serenahuang1995/PersonalProject---Chores/blob/main/Images/replace.gif" width = "200" height = "433"/>
 
-* You also can spent point to get the medal, it means you don't have to clean for a week.You can see the medal in Group
+* You also can spent pointS to get the medal, it means you don't have to clean for a week.You can see the medal in Group
 
 <img src="https://github.com/serenahuang1995/PersonalProject---Chores/blob/main/Images/points.gif" width = "200" height = "433"/>
 
@@ -73,4 +73,4 @@ To solve the household of uneven distribution, Chores will help people to handle
 # Contact
 Serena Huang  
 * email：<font color=#0000FF>small08261995@gmail.com</font>
-* linkedin：<font color=#0000FF>https://www.linkedin.com/in/serena-huang-277254194/</font>
+
