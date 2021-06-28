@@ -10,7 +10,7 @@ To solve the household of uneven distribution, Chores will help people to handle
 ### Initial
 #### In the initial page you can see two large blocks
 * Greate：If you'e a new user, you can choose to create a group or let people invite you into their group
-* invite：When you receive an invitation, you can accept or reject
+* Invite：When you receive an invitation, you can accept or reject
 
 <img src="https://github.com/serenahuang1995/PersonalProject---Chores/blob/main/Images/initial.gif" width = "200" height = "433"/> <img src="https://github.com/serenahuang1995/PersonalProject---Chores/blob/main/Images/IMG_5103.PNG" width = "200" height = "433"/>
 
