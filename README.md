@@ -17,7 +17,7 @@ To solve the household of uneven distribution, Chores will help people to handle
 
 * Add chore what you want to do, you can choose default item or customize what you want to do
 
-<img src="https://github.com/serenahuang1995/PersonalProject---Chores/blob/main/Images/Add.gif" width = "200" height = "433"/> <img src="https://github.com/serenahuang1995/PersonalProject---Chores/blob/main/Images/customizeChore.gif" width = "200" height = "433"/>
+<img src="https://github.com/serenahuang1995/PersonalProject---Chores/blob/main/Images/Add.gif" width = "200" height = "433"/> <img src="https://github.com/serenahuang1995/PersonalProject---Chores/blob/main/Images/custom.gif" width = "200" height = "433"/>
 
 * If you don't have time to complete a household task, you can transfer it to member. He will receive your message immediately
 
@@ -35,7 +35,7 @@ To solve the household of uneven distribution, Chores will help people to handle
 
 * Setting：Rename, Replace the picture, Leave group
 
-<img src="https://github.com/serenahuang1995/PersonalProject---Chores/blob/main/Images/IMG_5084.PNG" width = "200" height = "433"/> <img src="https://github.com/serenahuang1995/PersonalProject---Chores/blob/main/Images/rename.gif" width = "200" height = "433"/> <img src="https://github.com/serenahuang1995/PersonalProject---Chores/blob/main/Images/replace.gif" width = "200" height = "433"/>
+<img src="https://github.com/serenahuang1995/PersonalProject---Chores/blob/main/Images/IMG_5084.PNG" width = "200" height = "433"/> <img src="https://github.com/serenahuang1995/PersonalProject---Chores/blob/main/Images/remane.gif" width = "200" height = "433"/> <img src="https://github.com/serenahuang1995/PersonalProject---Chores/blob/main/Images/replace.gif" width = "200" height = "433"/>
 
 * You also can spent pointS to get the medal, it means you don't have to clean for a week.You can see the medal in Group
 
