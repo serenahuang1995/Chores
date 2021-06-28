@@ -792,6 +792,9 @@
             <point key="canvasLocation" x="205.79710144927537" y="-353.57142857142856"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="fdb-0J-6G4"/>
+    </designables>
     <resources>
         <image name="Icon32px_Plus" width="32" height="32"/>
         <image name="Icon32px_PointRule" width="32" height="32"/>

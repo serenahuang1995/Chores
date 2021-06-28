@@ -107,6 +107,9 @@
             <point key="canvasLocation" x="121.73913043478262" y="67.633928571428569"/>
         </collectionViewCell>
     </objects>
+    <designables>
+        <designable name="b6w-h4-kUM"/>
+    </designables>
     <resources>
         <image name="Icon32px_Plus" width="32" height="32"/>
         <systemColor name="labelColor">
