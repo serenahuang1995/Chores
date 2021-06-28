@@ -117,33 +117,7 @@ class AddChoresViewController: UIViewController {
             return
         }
         
-        var chore = Chore(
-            id: "",
-            item: choreTypes[selectedIndex],
-            points: Int(point) ?? 0,
-            hours: Int(time) ?? 0,
-            owner: nil,
-            status: 0,
-            transfer: nil)
-        
-        FirebaseProvider.shared.addToDoChore(chore: &chore) { [weak self] result in
-            
-            switch result {
-            
-            case .success(let data):
-                
-                print(data)
-                
-                KRProgressHUD.showSuccess(withMessage: "家事新增成功")
-                
-                self?.navigationController?.popViewController(animated: true)
-                
-            case .failure(let error):
-                
-                print(error)
-                
-            }
-        }
+        addChore(point: point, time: time, selectedIndex: selectedIndex)
     }
     
     private func setUpCollectionView() {
@@ -172,6 +146,36 @@ class AddChoresViewController: UIViewController {
             }
         }
     }
+    
+    func addChore(point: String, time: String, selectedIndex: Int) {
+        
+        var chore = Chore(
+            id: "",
+            item: choreTypes[selectedIndex],
+            points: Int(point) ?? 0,
+            hours: Int(time) ?? 0,
+            owner: nil,
+            status: 0,
+            transfer: nil)
+        
+        FirebaseProvider.shared.addToDoChore(chore: &chore) { [weak self] result in
+            
+            switch result {
+
+            case .success(let data):
+                
+                print(data)
+                
+                KRProgressHUD.showSuccess(withMessage: "家事新增成功")
+                
+                self?.navigationController?.popViewController(animated: true)
+                
+            case .failure(let error):
+                
+                print(error)
+            }
+        }
+    }
 }
 
 extension AddChoresViewController: UICollectionViewDelegate {
@@ -181,9 +185,7 @@ extension AddChoresViewController: UICollectionViewDelegate {
         
         // 只會單純紀錄當下點到哪一個cell
         selectedIndex = indexPath.row
-        
-        print("點到：\(selectedIndex)")
-        
+
         collectionView.reloadData()
     }
 }
