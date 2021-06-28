@@ -1,12 +1,14 @@
 # Chores <a href="https://apps.apple.com/tw/app/chores/id1570085130"><img src="https://github.com/serenahuang1995/PersonalProject---Chores/blob/main/Images/AppStore.png" width = "120" height = "40" align=right /></a>
+<p align="center"><img width="250" height="250" src="https://github.com/serenahuang1995/PersonalProject---Chores/blob/main/Images/Launch.png"></p>
 To solve the household of uneven distribution, Chores will help people to handle housework allocation. Let people add and claim housework by themselves, just like accepting game tasks. It also encourages people to do chores actively via a point system. 
-##### Hope to achieve spontaneous sharing of chores and create a clean and comfortable environment together.
+
+#### Hope to achieve spontaneous sharing of chores and create a clean and comfortable environment together.
 
 # Features
 ### Initial
 #### In the initial page you can see two large blocks
 * Greate：If you'e a new user, you can choose to create a group or let people invite you into their group
-* invite：When you receive an invitation, you can accept or reject
+* Invite：When you receive an invitation, you can accept or reject
 
 <img src="https://github.com/serenahuang1995/PersonalProject---Chores/blob/main/Images/initial.gif" width = "200" height = "433"/> <img src="https://github.com/serenahuang1995/PersonalProject---Chores/blob/main/Images/IMG_5103.PNG" width = "200" height = "433"/>
 
@@ -65,6 +67,12 @@ To solve the household of uneven distribution, Chores will help people to handle
 * lottie-ios
 * Kingfisher
 * Crashlytics
+
+# Release Notes
+| Version | Date      | Description        
+|---------|:----------|:-------------      
+|1.01     |2021.6.15  |Features added: Push notification, Upload image and Watch the completion date of the housework
+|1.0      |2021.6.12  |Launched in App Store
 
 # Requirements
 * iOS 13.4+
