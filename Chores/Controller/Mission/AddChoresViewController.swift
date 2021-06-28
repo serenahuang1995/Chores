@@ -182,6 +182,8 @@ extension AddChoresViewController: UICollectionViewDelegate {
         // 只會單純紀錄當下點到哪一個cell
         selectedIndex = indexPath.row
         
+        print("點到：\(selectedIndex)")
+        
         collectionView.reloadData()
     }
 }
