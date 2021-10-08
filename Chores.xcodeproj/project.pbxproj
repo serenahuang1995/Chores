@@ -235,6 +235,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04B82FCC271040D6008CE125 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				DC7D1BFD2673725500C3898B /* StorageProvider.swift */,
+				DC9B10AE2659691A00F50430 /* UserProvider.swift */,
+				DCA589F226555AD10033EE63 /* FirebaseProvider.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		C98BB8CAB4322A66A533A4AA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -366,6 +376,7 @@
 				DCAC162D267CE1B200163F9F /* Utils */,
 				DCCD7611265A790A0004E82B /* Third Party */,
 				DCEEAA36264BCD0600A64D37 /* Extension */,
+				04B82FCC271040D6008CE125 /* Services */,
 				DCEEAA33264BCCA200A64D37 /* Model */,
 				DCEEAA35264BCCD600A64D37 /* View */,
 				DCEEAA34264BCCB400A64D37 /* Controller */,
@@ -422,9 +433,6 @@
 		DCEEAA33264BCCA200A64D37 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DC7D1BFD2673725500C3898B /* StorageProvider.swift */,
-				DC9B10AE2659691A00F50430 /* UserProvider.swift */,
-				DCA589F226555AD10033EE63 /* FirebaseProvider.swift */,
 				DC1DB8DA26552BAB00F89E5A /* ChoresDataModel.swift */,
 				DCBB10202653F9AA00A8C1E4 /* ChoreImages.swift */,
 				DC719588265FCF6200DC3706 /* StringInfo.swift */,
